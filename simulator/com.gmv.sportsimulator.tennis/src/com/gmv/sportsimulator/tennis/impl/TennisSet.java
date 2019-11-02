@@ -46,18 +46,19 @@ public class TennisSet extends Result
     {
         TennisSetGame tennisSetGame = new TennisSetGame();
         this.setGames.add(tennisSetGame);
-        this.currentSetGame.set(1);
+        this.currentSetGame = new AtomicInteger(1);
     }
 
     /** {@inheritDoc} */
     @Override
     public void scorePoint(int team)
     {
-        TennisSetGame setGame = this.setGames.get(this.currentSetGame.get());
+        int arrayPosition = this.currentSetGame.get() - 1;
+        TennisSetGame setGame = this.setGames.get(arrayPosition);
         setGame.scorePoint(team);
         if (setGame.isFinal())
         {
-            scorePoint(team);
+            super.scorePoint(team);
             if (checkFinished())
             {
                 finalise(team);
@@ -69,6 +70,23 @@ public class TennisSet extends Result
                 this.currentSetGame.incrementAndGet();
             }
         }
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public void reset()
+    {
+        super.reset();
+        this.setGames.clear();
+        this.setGames.add(new TennisSetGame());
+        this.currentSetGame.set(1);
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public String toString()
+    {
+        return getScoresString();
     }
 
     private boolean checkFinished()

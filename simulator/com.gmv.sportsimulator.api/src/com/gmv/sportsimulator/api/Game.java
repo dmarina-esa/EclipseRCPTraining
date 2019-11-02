@@ -143,6 +143,27 @@ public abstract class Game
         return getTeam(getResult().getWinner());
     }
     
+    /**
+     * 
+     */
+    public void resetGame()
+    {
+        this.result.reset();        
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getLocation().getLocationName());
+        sb.append(": ");
+        sb.append(this.teamA.toString());
+        sb.append(" vs ");
+        sb.append(this.teamB.toString());
+        return sb.toString();
+    }
+    
     public abstract void scorePoint(Team team);
     
     public abstract void scoreSpecialPoint(Team team, int points);

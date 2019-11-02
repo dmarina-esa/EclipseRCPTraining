@@ -39,6 +39,12 @@ public interface ISportServiceListener
     void gameFinalised(Game game, Team winner, Result result);
     
     void gameStarted(Game game);
+
+    /**
+     * @param game
+     * @param result
+     */
+    void gameReseted(Game game, Result result);
 }
 
 //-----------------------------------------------------------------------------

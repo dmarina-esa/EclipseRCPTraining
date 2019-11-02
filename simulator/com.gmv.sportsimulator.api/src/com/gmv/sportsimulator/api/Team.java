@@ -54,7 +54,7 @@ public class Team
     {
         this.teamName = teamName;
         this.country = country;
-        this.victories.set(0);
+        this.victories = new AtomicInteger();
     }
 
     /**
@@ -78,7 +78,7 @@ public class Team
      */
     public int getVictories()
     {
-        return victories.get();
+        return this.victories.get();
     }
 
     /**
@@ -89,6 +89,16 @@ public class Team
     public int addVictory()
     {
         return this.victories.addAndGet(1);
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getTeamName().toString());
+        sb.append(" (" + getCountry() + ")");
+        return sb.toString();
     }
 }
 

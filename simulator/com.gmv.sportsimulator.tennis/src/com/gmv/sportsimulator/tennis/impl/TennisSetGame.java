@@ -80,6 +80,7 @@ public class TennisSetGame extends Result
             else if (this.playerAdvantage == scorerPlayer)
             {
                 scoreSpecialPoint(scorerPlayer, 20); //Increase it up to 60, in case user wants to print it!
+                this.playerAdvantage = -1;
                 finalise(scorerPlayer);
             }
             else

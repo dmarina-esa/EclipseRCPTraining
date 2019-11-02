@@ -30,10 +30,13 @@ import java.util.Random;
 import org.osgi.service.component.annotations.Component;
 
 import com.gmv.sportsimulator.api.Game;
+import com.gmv.sportsimulator.api.Location;
 import com.gmv.sportsimulator.api.Team;
 import com.gmv.sportsimulator.api.service.ISportService;
 import com.gmv.sportsimulator.api.service.ISportServiceListener;
 import com.gmv.sportsimulator.api.service.SimulationSpeed;
+import com.gmv.sportsimulator.tennis.impl.TennisMatch;
+import com.gmv.sportsimulator.tennis.impl.TennisMatch.MatchType;
 
 /**
  * @author David Marina
@@ -55,13 +58,24 @@ public class TennisSimulator implements ISportService
 
     /** {@inheritDoc} */
     @Override
-    public void addGame(Game game)
+    public void registerGame(Team teamA, Team teamB, Location location)
     {
-        this.scheduledGames.put(game.getId(), game);
-        for (ISportServiceListener listener : this.listenersList)
+        TennisMatch game = new TennisMatch(teamA, teamB, location);
+        addGame(game);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void registerGame(Team teamA, Team teamB, Location location, Map<String, String> metadata)
+    {
+        String matchTypeStr = metadata.get("Match Type");
+        MatchType matchType = MatchType.NORMAL;
+        if (matchTypeStr != null)
         {
-            listener.gameAdded(game);
+            matchType = MatchType.valueOf(matchTypeStr);
         }
+        TennisMatch game = new TennisMatch(teamA, teamB, location, matchType);
+        addGame(game);
     }
     
     @Override
@@ -79,6 +93,18 @@ public class TennisSimulator implements ISportService
         gameSimulation.start();
     }
     
+    /** {@inheritDoc} */
+    @Override
+    public void simulateAllGames(SimulationSpeed speed)
+    {
+        resetAllGames();
+        for (Game game : this.scheduledGames.values())
+        {
+            simulateGame(game, speed);
+        }
+        
+    }
+    
     public void startGame(String gameId)
     {
         Game game = this.scheduledGames.get(gameId);
@@ -88,10 +114,36 @@ public class TennisSimulator implements ISportService
             listener.gameStarted(game);
         }
     }
+    
+    public void resetAllGames()
+    {
+        for (Game game : this.scheduledGames.values())
+        {
+            resetGame(game);
+            for (ISportServiceListener listener : this.listenersList)
+            {
+                listener.gameReseted(game, game.getResult());
+            }
+        }
+    }
+    
+    public void resetGame(Game game)
+    {
+        game.resetGame();
+    }
+
+    private void addGame(Game game)
+    {
+        this.scheduledGames.put(game.getId(), game);
+        for (ISportServiceListener listener : this.listenersList)
+        {
+            listener.gameAdded(game);
+        }
+    }
 
     private void notifyResultChanged(Game game)
     {
-        for (ISportServiceListener listener : listenersList)
+        for (ISportServiceListener listener : this.listenersList)
         {
             listener.updateResult(game, game.getResult().getScoresString());
         }
@@ -99,7 +151,7 @@ public class TennisSimulator implements ISportService
     
     private void notifyGameEnded(Game game)
     {
-        for (ISportServiceListener listener : listenersList)
+        for (ISportServiceListener listener : this.listenersList)
         {
             listener.gameFinalised(game, game.getWinnerTeam(), game.getResult());
         }
@@ -158,8 +210,8 @@ public class TennisSimulator implements ISportService
                         e.printStackTrace();
                     }
                 }
-                Team scorerTean = getRandomScorer(game);
-                game.scorePoint(scorerTean);
+                Team scorerTeam = getRandomScorer(game);
+                game.scorePoint(scorerTeam);
                 notifyResultChanged(game);
             }
             notifyGameEnded(game);

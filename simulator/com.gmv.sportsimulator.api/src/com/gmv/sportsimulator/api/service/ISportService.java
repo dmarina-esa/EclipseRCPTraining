@@ -21,7 +21,11 @@
 
 package com.gmv.sportsimulator.api.service;
 
+import java.util.Map;
+
 import com.gmv.sportsimulator.api.Game;
+import com.gmv.sportsimulator.api.Location;
+import com.gmv.sportsimulator.api.Team;
 
 /**
  * @author David Marina
@@ -30,11 +34,18 @@ import com.gmv.sportsimulator.api.Game;
 public interface ISportService
 {
     
-    void addGame(Game game);
+    void registerGame(Team teamA, Team teamB, Location location);
+    
+    void registerGame(Team teamA, Team teamB, Location location, Map<String, String> metadata);
     
     void simulateGame(Game game, SimulationSpeed speed);
     
     void registerServiceListener(ISportServiceListener listener);
+
+    /**
+     * @param normal
+     */
+    void simulateAllGames(SimulationSpeed normal);
    
 }
 

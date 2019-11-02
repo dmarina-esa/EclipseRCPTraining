@@ -21,6 +21,7 @@
 
 package com.gmv.sportsimulator.tennis.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -39,7 +40,7 @@ public class TennisResult extends Result
 
     private final MatchType matchType;
     
-    private List<TennisSet> tennisSets;
+    private final List<TennisSet> tennisSets = new ArrayList<TennisSet>();
 
     private AtomicInteger currentSet;
 
@@ -51,18 +52,19 @@ public class TennisResult extends Result
         this.matchType = matchType;
         TennisSet tennisSet = new TennisSet();
         this.tennisSets.add(tennisSet);
-        this.currentSet.set(1);
+        this.currentSet = new AtomicInteger(1);
     }
 
     /** {@inheritDoc} */
     @Override
     public void scorePoint(int team)
     {
-        TennisSet set = this.tennisSets.get(this.currentSet.get());
+        int arrayPosition = this.currentSet.get() - 1;
+        TennisSet set = this.tennisSets.get(arrayPosition);
         set.scorePoint(team);
         if (set.isFinal())
         {
-            scorePoint(team);
+            super.scorePoint(team);
             if (checkFinished())
             {
                 finalise(team);
@@ -76,6 +78,13 @@ public class TennisResult extends Result
         }
     }
     
+    /** {@inheritDoc} */
+    @Override
+    public String getScoresString()
+    {
+        return getDetailedResult();
+    }
+
     public String getDetailedResult()
     {
         StringBuilder sb = new StringBuilder();
@@ -88,6 +97,16 @@ public class TennisResult extends Result
             sb.append(this.tennisSets.get(i).toString());
         }
         return sb.toString();
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public void reset()
+    {
+        super.reset();
+        this.tennisSets.clear();
+        this.tennisSets.add(new TennisSet());
+        this.currentSet.set(1);
     }
 
     private boolean checkFinished()

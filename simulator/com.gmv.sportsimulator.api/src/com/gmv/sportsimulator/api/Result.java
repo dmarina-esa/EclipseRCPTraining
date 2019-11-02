@@ -73,8 +73,8 @@ public class Result
 
     public int getTeamScore(int team)
     {
-        checkTeam(team);
-        return this.teamScores[team];
+        int arrayPosition = checkTeam(team);
+        return this.teamScores[arrayPosition];
     }
 
     public String getScoresString()
@@ -93,31 +93,34 @@ public class Result
         }
         else
         {
-            result = result + " <ONGOING";
+            result = result + " <ONGOING>";
         }
         return result;
     }
 
     public void updateScore(int team, int score)
     {
-        checkTeam(team);
-        this.teamScores[team] = score;
+        int arrayPosition = checkTeam(team);
+        this.teamScores[arrayPosition] = score;
     }
     
     public void scorePoint(int team)
     {
-        int newPoints = this.teamScores[team] + 1;
-        this.teamScores[team] = newPoints;
+        int arrayPosition = checkTeam(team);
+        int newPoints = this.teamScores[arrayPosition] + 1;
+        this.teamScores[arrayPosition] = newPoints;
     }
     
     public void scoreSpecialPoint(int team, int points)
     {
-        int newPoints = this.teamScores[team] + points;
-        this.teamScores[team] = newPoints;
+        int arrayPosition = checkTeam(team);
+        int newPoints = this.teamScores[arrayPosition] + points;
+        this.teamScores[arrayPosition] = newPoints;
     }
 
     public void finalise(int winner)
     {
+        this.winner = winner;
         this.finalised = true;
     }
 
@@ -145,9 +148,19 @@ public class Result
     }
 
     /**
+     * 
+     */
+    public void reset()
+    {
+        this.teamScores = new int[2];
+        this.winner = -1;
+        this.finalised = false;
+    }
+
+    /**
      * @param team
      */
-    private static void checkTeam(int team)
+    private static int checkTeam(int team)
     {
         if (team < 1 || team > 2)
         {
@@ -155,7 +168,7 @@ public class Result
                                                + team
                                                + " is not a valid team number. Only team 1 or 2 are allowed as only two teams compete in one game!!.");
         }
-
+        return team - 1;
     }
 }
 
