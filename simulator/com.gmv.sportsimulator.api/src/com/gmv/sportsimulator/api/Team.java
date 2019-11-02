@@ -24,6 +24,9 @@ package com.gmv.sportsimulator.api;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * Class representing a team. A team is typically composed by a name and a
+ * country
+ * 
  * @author David Marina
  *
  */
@@ -90,7 +93,7 @@ public class Team
     {
         return this.victories.addAndGet(1);
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public String toString()

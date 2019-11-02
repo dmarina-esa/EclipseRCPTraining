@@ -22,6 +22,10 @@
 package com.gmv.sportsimulator.api;
 
 /**
+ * Class representing the result of a game. This class may be sub-classed to
+ * implement other score types. The basic implementation provides a single
+ * one-point score system
+ * 
  * @author David Marina
  *
  */
@@ -43,18 +47,40 @@ public class Result
         this(0, 0, false);
     }
 
+    /**
+     * Creates a new Result with the given scores and finalisation status
+     * 
+     * @param team1Score
+     * @param team2Score
+     * @param finalised
+     */
     public Result(int team1Score, int team2Score, boolean finalised)
     {
         this.teamScores[0] = team1Score;
         this.teamScores[1] = team2Score;
         this.finalised = finalised;
     }
-    
+
+    /**
+     * Creates a new {@link Result} from the reference to another {@link Result}
+     * 
+     * @param otherResult
+     * @return
+     */
     public static Result fromOtherResult(Result otherResult)
     {
         return fromString(otherResult.getScoresString(), otherResult.finalised);
     }
 
+    /**
+     * Creates a new {@link Result} from a String result in format
+     * scoreTeam1-scoreTeam2 (e.g. 1-0) and a boolean indicating if the result
+     * is final or not
+     * 
+     * @param result
+     * @param finalised
+     * @return
+     */
     public static Result fromString(String result, boolean finalised)
     {
         if (result.matches("\\d+-\\d+"))
@@ -68,20 +94,32 @@ public class Result
                                                + result
                                                + " is not a valid argument for Result. It must be provided in the form: 1-0");
         }
-    
+
     }
 
+    /**
+     * Returns the points scored by a team
+     * 
+     * @param team
+     *            the team (1 or 2)
+     * @return
+     */
     public int getTeamScore(int team)
     {
         int arrayPosition = checkTeam(team);
         return this.teamScores[arrayPosition];
     }
 
+    /**
+     * Returns a String with the current result values separated by "-"
+     * 
+     * @return
+     */
     public String getScoresString()
     {
         return String.valueOf(this.teamScores[0]) + "-" + String.valueOf(this.teamScores[1]);
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public String toString()
@@ -98,19 +136,37 @@ public class Result
         return result;
     }
 
+    /**
+     * Updates (replaces) the score for one team with the new value
+     * 
+     * @param team
+     * @param score
+     */
     public void updateScore(int team, int score)
     {
         int arrayPosition = checkTeam(team);
         this.teamScores[arrayPosition] = score;
     }
-    
+
+    /**
+     * Scores one point to the given team. Subclasses implement another pointing
+     * system can use this method to provide the numeric equivalent to a normal
+     * score for a team
+     * 
+     * @param team
+     */
     public void scorePoint(int team)
     {
         int arrayPosition = checkTeam(team);
         int newPoints = this.teamScores[arrayPosition] + 1;
         this.teamScores[arrayPosition] = newPoints;
     }
-    
+
+    /**
+     * Scores a special point to the given team. 
+     * @param team
+     * @param points
+     */
     public void scoreSpecialPoint(int team, int points)
     {
         int arrayPosition = checkTeam(team);
@@ -118,12 +174,20 @@ public class Result
         this.teamScores[arrayPosition] = newPoints;
     }
 
+    /**
+     * Sets the result as final and stores the reference to the winner player
+     * @param winner
+     */
     public void finalise(int winner)
     {
         this.winner = winner;
         this.finalised = true;
     }
 
+    /**
+     * Returns <code>true</code> if the result is final; <code>false</code> if the game is still being played
+     * @return
+     */
     public boolean isFinal()
     {
         return this.finalised;
@@ -148,7 +212,7 @@ public class Result
     }
 
     /**
-     * 
+     * Resets the {@link Result} to its initial status
      */
     public void reset()
     {

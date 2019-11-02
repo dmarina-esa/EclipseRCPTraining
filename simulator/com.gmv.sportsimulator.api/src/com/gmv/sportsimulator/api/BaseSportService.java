@@ -159,6 +159,12 @@ public abstract class BaseSportService implements ISportService
         return this.simulationOngoing;
     }
 
+    public void resetGame(Game game)
+    {
+        cancelSimulation(game);
+        game.resetGame();
+    }
+
     /**
      * @return a Map<String,Game> containing the scheduledGames of this BaseSportService
      */
@@ -215,12 +221,6 @@ public abstract class BaseSportService implements ISportService
     private static void executeInSeparateThread(Runnable runnable)
     {
         new Thread(runnable).start();
-    }
-
-    public void resetGame(Game game)
-    {
-        cancelSimulation(game);
-        game.resetGame();
     }
 
     /**

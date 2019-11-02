@@ -22,6 +22,7 @@
 package com.gmv.sportsimulator.api;
 
 /**
+ * Class representing a game location
  * @author David Marina
  *
  */

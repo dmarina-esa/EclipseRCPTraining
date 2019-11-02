@@ -22,19 +22,28 @@
 package com.gmv.sportsimulator.api;
 
 /**
+ * General interface for a runnable implementing a single game simulation
+ * 
  * @author David Marina
  *
  */
 public interface IGameSimulator extends Runnable
 {
 
+    /**
+     * Request the simulation to be canceled as soon as possible
+     */
     abstract void cancelSimulation();
 
     /**
-     * @return
+     * Returns <code>true</code> if the simulation is still running;
+     * <code>false</code> otherwise
+     * 
+     * @return <code>true</code> if the simulation is still running;
+     *         <code>false</code> otherwise
      */
     abstract boolean isRunnableAlive();
-    
+
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------

@@ -22,15 +22,15 @@
 package com.gmv.sportsimulator.api.service;
 
 /**
+ * Enumeration for the desired simulation speed. Each simulator may interpret
+ * these values in a different way.
+ * 
  * @author David Marina
  *
  */
 public enum SimulationSpeed
 {
-    NORMAL,
-    FAST,
-    SUPERFAST,
-    TURBO;
+    NORMAL, FAST, SUPERFAST, TURBO;
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
