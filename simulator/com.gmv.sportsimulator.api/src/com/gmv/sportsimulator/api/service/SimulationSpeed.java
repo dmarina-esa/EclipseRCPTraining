@@ -29,7 +29,8 @@ public enum SimulationSpeed
 {
     NORMAL,
     FAST,
-    SUPERFAST;
+    SUPERFAST,
+    TURBO;
 }
 
 //-----------------------------------------------------------------------------

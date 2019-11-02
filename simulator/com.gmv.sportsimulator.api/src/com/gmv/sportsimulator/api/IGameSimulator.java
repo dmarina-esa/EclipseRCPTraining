@@ -10,45 +10,31 @@
 //
 // Sub-System : com.gmv.sportsimulator.api
 //
-// File Name : ISportServiceListener.java
+// File Name : IGameSimulator.java
 //
 // Author : David Marina
 //
-// Creation Date : 1 Nov 2019
+// Creation Date : 2 Nov 2019
 //
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-package com.gmv.sportsimulator.api.service;
-
-import com.gmv.sportsimulator.api.Game;
-import com.gmv.sportsimulator.api.Result;
-import com.gmv.sportsimulator.api.Team;
+package com.gmv.sportsimulator.api;
 
 /**
  * @author David Marina
  *
  */
-public interface ISportServiceListener
+public interface IGameSimulator extends Runnable
 {
-    
-    void gameAdded(Game game);
 
-    void updateResult(Game game, String result);
-    
-    void gameFinalised(Game game, Team winner, Result result);
-    
-    void gameStarted(Game game);
+    abstract void cancelSimulation();
 
     /**
-     * @param game
-     * @param result
+     * @return
      */
-    void gameReseted(Game game, Result result);
+    abstract boolean isRunnableAlive();
     
-    void simulationStarted();
-    
-    void simulationEnded();
 }
 
 //-----------------------------------------------------------------------------

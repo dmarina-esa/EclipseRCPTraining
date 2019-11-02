@@ -21,19 +21,17 @@
 
 package com.gmv.sportsimulator.tennis;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import org.osgi.service.component.annotations.Component;
 
+import com.gmv.sportsimulator.api.BaseSportService;
 import com.gmv.sportsimulator.api.Game;
+import com.gmv.sportsimulator.api.IGameSimulator;
 import com.gmv.sportsimulator.api.Location;
 import com.gmv.sportsimulator.api.Team;
 import com.gmv.sportsimulator.api.service.ISportService;
-import com.gmv.sportsimulator.api.service.ISportServiceListener;
 import com.gmv.sportsimulator.api.service.SimulationSpeed;
 import com.gmv.sportsimulator.tennis.impl.TennisMatch;
 import com.gmv.sportsimulator.tennis.impl.TennisMatch.MatchType;
@@ -42,139 +40,58 @@ import com.gmv.sportsimulator.tennis.impl.TennisMatch.MatchType;
  * @author David Marina
  *
  */
-@Component(service = ISportService.class, name="TennisSimulator")
-public class TennisSimulator implements ISportService
+@Component(service = ISportService.class, name = "TennisSimulator")
+public class TennisSimulator extends BaseSportService
 {
-    private final Map<String, Game> scheduledGames = new HashMap<String, Game>();
-    private List<Game> startedGames = new ArrayList<Game>();
-    private List<ISportServiceListener> listenersList = new ArrayList<ISportServiceListener>();
-    
-    /**
-     * Creates a new TennisSimulator
-     */
-    public TennisSimulator()
-    {
-    }
 
     /** {@inheritDoc} */
     @Override
-    public void registerGame(Team teamA, Team teamB, Location location)
+    protected Game createGameInstance(Team teamA, Team teamB, Location location, Map<String, String> metadata)
     {
-        TennisMatch game = new TennisMatch(teamA, teamB, location);
-        addGame(game);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void registerGame(Team teamA, Team teamB, Location location, Map<String, String> metadata)
-    {
-        String matchTypeStr = metadata.get("Match Type");
         MatchType matchType = MatchType.NORMAL;
+        String matchTypeStr = metadata == null ? null : metadata.get("Match Type");
         if (matchTypeStr != null)
         {
             matchType = MatchType.valueOf(matchTypeStr);
         }
-        TennisMatch game = new TennisMatch(teamA, teamB, location, matchType);
-        addGame(game);
+        Game newGame = new TennisMatch(teamA, teamB, location, matchType);
+        return newGame;
     }
-    
-    @Override
-    public void registerServiceListener(ISportServiceListener listener)
-    {
-        this.listenersList .add(listener);
-    }
-    
+
     /** {@inheritDoc} */
     @Override
-    public void simulateGame(Game game, SimulationSpeed speed)
+    protected IGameSimulator createAndStartGameSimulation(Game game, SimulationSpeed speed)
     {
-        startGame(game.getId());
         TennisSimulation gameSimulation = new TennisSimulation(game.getId(), speed);
         gameSimulation.start();
-    }
-    
-    /** {@inheritDoc} */
-    @Override
-    public void simulateAllGames(SimulationSpeed speed)
-    {
-        resetAllGames();
-        for (Game game : this.scheduledGames.values())
-        {
-            simulateGame(game, speed);
-        }
-        
-    }
-    
-    public void startGame(String gameId)
-    {
-        Game game = this.scheduledGames.get(gameId);
-        this.startedGames .add(game);
-        for (ISportServiceListener listener : this.listenersList)
-        {
-            listener.gameStarted(game);
-        }
-    }
-    
-    public void resetAllGames()
-    {
-        for (Game game : this.scheduledGames.values())
-        {
-            resetGame(game);
-            for (ISportServiceListener listener : this.listenersList)
-            {
-                listener.gameReseted(game, game.getResult());
-            }
-        }
-    }
-    
-    public void resetGame(Game game)
-    {
-        game.resetGame();
+        return gameSimulation;
     }
 
-    private void addGame(Game game)
-    {
-        this.scheduledGames.put(game.getId(), game);
-        for (ISportServiceListener listener : this.listenersList)
-        {
-            listener.gameAdded(game);
-        }
-    }
 
-    private void notifyResultChanged(Game game)
-    {
-        for (ISportServiceListener listener : this.listenersList)
-        {
-            listener.updateResult(game, game.getResult().getScoresString());
-        }
-    }
-    
-    private void notifyGameEnded(Game game)
-    {
-        for (ISportServiceListener listener : this.listenersList)
-        {
-            listener.gameFinalised(game, game.getWinnerTeam(), game.getResult());
-        }
-    }
-
-    private class TennisSimulation extends Thread
+    private class TennisSimulation extends Thread implements IGameSimulator
     {
         private String gameId;
+
         private final SimulationSpeed speed;
+
         private final long sleepPeriod;
-        
+
         private Random random = new Random();
+
+        private boolean resumeSimulation = false;
+
 
         /**
          * Creates a new TennisSimulator.TennisSimulation
-         * @param speed 
+         * 
+         * @param speed
          */
         public TennisSimulation(String gameId, SimulationSpeed speed)
         {
             super("Tennis Game: " + gameId);
             this.gameId = gameId;
             this.speed = speed;
-            switch(speed)
+            switch (speed)
             {
             case NORMAL:
                 this.sleepPeriod = 1000L;
@@ -185,19 +102,26 @@ public class TennisSimulator implements ISportService
             case SUPERFAST:
                 this.sleepPeriod = 10;
                 break;
-                default:
-                    this.sleepPeriod = 1000L;
+            case TURBO:
+                this.sleepPeriod = 0;
+                break;
+            default:
+                this.sleepPeriod = 1000L;
             }
         }
-        
+
         /** {@inheritDoc} */
         @Override
         public void run()
         {
             super.run();
-            Game game = TennisSimulator.this.scheduledGames.get(this.gameId);
-            while (!game.isGameFinished())
+            this.resumeSimulation = true;
+            Game game = getScheduledGames().get(this.gameId);
+            while (!game.isGameFinished() && this.resumeSimulation)
             {
+                Team scorerTeam = getRandomScorer(game);
+                game.scorePoint(scorerTeam);
+                notifyResultChanged(game);
                 if (this.sleepPeriod > 0)
                 {
                     try
@@ -210,13 +134,22 @@ public class TennisSimulator implements ISportService
                         e.printStackTrace();
                     }
                 }
-                Team scorerTeam = getRandomScorer(game);
-                game.scorePoint(scorerTeam);
-                notifyResultChanged(game);
             }
+            this.resumeSimulation = false;
             notifyGameEnded(game);
-            
-            
+        }
+
+        @Override
+        public void cancelSimulation()
+        {
+            this.resumeSimulation = false;
+        }
+
+        /** {@inheritDoc} */
+        @Override
+        public final boolean isRunnableAlive()
+        {
+            return isAlive();
         }
 
         /**
@@ -228,7 +161,7 @@ public class TennisSimulator implements ISportService
             return game.getTeam(teamNumber);
         }
     }
-    
+
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------

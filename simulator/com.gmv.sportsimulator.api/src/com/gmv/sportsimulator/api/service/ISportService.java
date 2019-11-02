@@ -21,6 +21,7 @@
 
 package com.gmv.sportsimulator.api.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.gmv.sportsimulator.api.Game;
@@ -46,7 +47,18 @@ public interface ISportService
      * @param normal
      */
     void simulateAllGames(SimulationSpeed normal);
+    
+    void stopSimulation(Game game);
    
+    void stopAllSimulations();
+    
+    void resetAllGames();
+    
+    List<Game> getRegisteredGames();
+    
+    List<Game> getStartedGames();
+    
+    boolean isOngoingSimulation();
 }
 
 //-----------------------------------------------------------------------------
