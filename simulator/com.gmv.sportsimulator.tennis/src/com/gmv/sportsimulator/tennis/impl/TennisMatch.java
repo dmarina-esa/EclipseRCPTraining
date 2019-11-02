@@ -64,6 +64,10 @@ public class TennisMatch extends Game
     public void scorePoint(Team team)
     {
         getResult().scorePoint(getTeamPosition(team));
+        if (isFinalised())
+        {
+            team.addVictory();
+        }
         
     }
 
@@ -72,7 +76,10 @@ public class TennisMatch extends Game
     public void scoreSpecialPoint(Team team, int points)
     {
         getResult().scoreSpecialPoint(getTeamPosition(team), points);
-        
+        if (isFinalised())
+        {
+            team.addVictory();
+        }
     }
     
     public boolean isFinalised()
