@@ -49,7 +49,7 @@ public class TennisSimulator extends BaseSportService
     protected Game createGameInstance(Team teamA, Team teamB, Location location, Map<String, String> metadata)
     {
         MatchType matchType = MatchType.NORMAL;
-        String matchTypeStr = metadata == null ? null : metadata.get("Match Type");
+        String matchTypeStr = metadata == null ? null : metadata.get("Match_Type");
         if (matchTypeStr != null)
         {
             matchType = MatchType.valueOf(matchTypeStr);
