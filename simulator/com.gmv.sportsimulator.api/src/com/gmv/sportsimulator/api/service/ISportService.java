@@ -26,6 +26,7 @@ import java.util.Map;
 
 import com.gmv.sportsimulator.api.Game;
 import com.gmv.sportsimulator.api.Location;
+import com.gmv.sportsimulator.api.Result;
 import com.gmv.sportsimulator.api.Team;
 
 /**
@@ -190,12 +191,27 @@ public interface ISportService
      *         <code>false</code> otherwise
      */
     boolean isPlaying(Team team);
-    
+
     /**
      * Returns the list of sport types supported by this service
+     * 
      * @return
      */
     String[] getSportTypes();
+
+    /**
+     * Places a bet for a certain game
+     * 
+     * @param bidder
+     *            the bidder name
+     * @param game
+     *            the game to place the bet
+     * @param result
+     *            the result to bid
+     * @param amountToBid
+     *            the amount of money in Euros to bidO
+     */
+    void placeBet(String bidder, Game game, Result result, int amountToBid);
 }
 
 // -----------------------------------------------------------------------------

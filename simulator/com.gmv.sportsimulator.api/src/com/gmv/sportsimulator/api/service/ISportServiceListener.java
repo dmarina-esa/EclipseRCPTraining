@@ -91,6 +91,30 @@ public interface ISportServiceListener
      * Notifies that all the simulations have finalised
      */
     void simulationEnded();
+
+    /**
+     * Notifies that a player wins a bet
+     * 
+     * @param winner
+     *            the name of the winner
+     * @param game
+     *            the game that was bided
+     * @param result
+     *            the game result
+     * @param amountWon
+     *            the amount in Euros that the player wins
+     */
+    void playerWinsBet(String winner, Game game, Result result, int amountWon);
+
+    /**
+     * Notifies that a player loses a bet
+     * 
+     * @param loser
+     *            the name of the loser
+     * @param game
+     *            the game that was bided
+     */
+    void playerLosesBet(String loser, Game game);
 }
 
 // -----------------------------------------------------------------------------
