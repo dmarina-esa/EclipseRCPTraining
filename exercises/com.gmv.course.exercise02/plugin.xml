@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.gmv.course.exercise02.views.Exercise02View"
+            id="com.gmv.course.exercise02.view"
+            name="Exercise02"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.gmv.course.exercise02.ViewPart1"
+            id="com.gmv.course.exercise02.view1"
+            name="name"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

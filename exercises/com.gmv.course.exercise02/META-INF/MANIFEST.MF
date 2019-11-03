@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Exercise02
+Bundle-SymbolicName: com.gmv.course.exercise02;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.gmv.course.exercise02.Activator
+Bundle-Vendor: GMV
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.gmv.course.exercise.utils;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
