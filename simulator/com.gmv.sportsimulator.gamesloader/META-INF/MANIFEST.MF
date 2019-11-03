@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Gamesloader
+Bundle-SymbolicName: com.gmv.sportsimulator.gamesloader
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.gmv.sportsimulator.gamesloader.Activator
+Bundle-Vendor: GMV
+Require-Bundle: org.eclipse.core.runtime,
+ com.gmv.sportsimulator.api;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/com.gmv.sportsimulator.gamesloader.DatabaseCreator.xml

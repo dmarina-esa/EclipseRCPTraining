@@ -1,0 +1,26 @@
+// New Competition
+@COMPETITION
+
+@SPORT
+Tennis
+
+@LOCATION
+Paris
+
+@METADATA
+Match_Type=GRAND_SLAM
+_METADATA
+
+@TEAMS
+Nadal Esp
+Djokovic SRB
+Federer/SUI
+Medvedev RUS
+Thiem AUT
+Tsisipas GRE
+Zverev GER
+Berrettini ITA
+Bautista ESP
+Monfils FRA
+_TEAMS
+_COMPETITION
