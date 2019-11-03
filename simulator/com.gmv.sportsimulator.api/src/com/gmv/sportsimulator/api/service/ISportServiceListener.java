@@ -42,6 +42,13 @@ public interface ISportServiceListener
     void gameAdded(Game game);
 
     /**
+     * Notifies that one team has been added to the database
+     * 
+     * @param team
+     */
+    void teamAdded(Team team);
+
+    /**
      * Notifies the new result for one of the games
      * 
      * @param game

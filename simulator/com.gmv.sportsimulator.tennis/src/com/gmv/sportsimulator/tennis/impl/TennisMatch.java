@@ -37,6 +37,8 @@ public class TennisMatch extends Game
         NORMAL, GRAND_SLAM
     }
 
+    /** The SPORT_TYPE of this TennisSimulator.java */
+    public static final String SPORT_TYPE = "Tennis";
 
     public TennisMatch(Team player1, Team player2, Location location)
     {
@@ -64,7 +66,7 @@ public class TennisMatch extends Game
      */
     public TennisMatch(String gameName, Team player1, Team player2, Location location, MatchType matchType)
     {
-        super(gameName, player1, player2, location, new TennisResult(matchType));
+        super(SPORT_TYPE, gameName, player1, player2, location, new TennisResult(matchType));
     }
 
     /** {@inheritDoc} */

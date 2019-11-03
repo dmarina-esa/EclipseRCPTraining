@@ -22,7 +22,6 @@
 package com.gmv.sportsimulator.gamesloader;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -33,6 +32,7 @@ import org.osgi.service.component.annotations.Reference;
 
 import com.gmv.sportsimulator.api.Location;
 import com.gmv.sportsimulator.api.Team;
+import com.gmv.sportsimulator.api.Team.TeamGender;
 import com.gmv.sportsimulator.api.service.ISportService;
 
 /**
@@ -44,15 +44,18 @@ public class DatabaseCreator
 {
 
     private static final String SPORT_NAME = "Tennis";
-    
+
+    private static final Object GENDER_KEY = "Gender";
+
     private ISportService sportService;
 
-    @Reference(name=SPORT_NAME)
+
+    @Reference(name = SPORT_NAME)
     public void populateSportService(ISportService sportService)
     {
         this.sportService = sportService;
         readDatabase();
-        
+
     }
 
     /**
@@ -61,7 +64,7 @@ public class DatabaseCreator
     private void readDatabase()
     {
         GameFileReader reader = Activator.fileReader;
-        
+
         readCompetitions(reader);
     }
 
@@ -69,6 +72,7 @@ public class DatabaseCreator
     {
         String sport = "";
         String locationStr = "";
+        TeamGender gender = TeamGender.UNKNOWN;
         Map<String, String> metadata = new HashMap<String, String>();
         List<Team> teams = new ArrayList<Team>();
         while (reader.hasMoreLines())
@@ -87,10 +91,14 @@ public class DatabaseCreator
                 else if (line.contains("@METADATA"))
                 {
                     metadata.putAll(readMetadata(reader));
+                    if (metadata.containsKey(GENDER_KEY))
+                    {
+                        gender = TeamGender.valueOf(metadata.get(GENDER_KEY));
+                    }
                 }
                 else if (line.contains("@TEAMS"))
                 {
-                    teams.addAll(readTeams(reader));
+                    teams.addAll(readTeams(reader, gender));
                 }
             }
             else if (line.contains("_COMPETITION"))
@@ -104,7 +112,7 @@ public class DatabaseCreator
                     throw new RuntimeException("The database file does not contain teams for the sport: " + SPORT_NAME);
                 }
             }
-            
+
         }
     }
 
@@ -118,11 +126,11 @@ public class DatabaseCreator
         }
         this.sportService.shuffleTeams();
         List<Team> shuffledTeams = this.sportService.getTeams();
-        for (int i = 0; i < shuffledTeams.size(); i++)
+        for (int i = 0; i < shuffledTeams.size(); i = i + 2)
         {
             if (i + 2 <= shuffledTeams.size())
             {
-                this.sportService.registerGame(shuffledTeams.get(i), shuffledTeams.get(i + 1), location);
+                this.sportService.registerGame("Game" + (i / 2), shuffledTeams.get(i), shuffledTeams.get(i + 1), location);
             }
         }
     }
@@ -155,9 +163,10 @@ public class DatabaseCreator
 
     /**
      * @param reader
+     * @param metadata
      * @param sport
      */
-    private List<Team> readTeams(GameFileReader reader)
+    private List<Team> readTeams(GameFileReader reader, TeamGender gender)
     {
         List<Team> teams = new ArrayList<Team>();
         while (reader.hasMoreLines())
@@ -170,20 +179,20 @@ public class DatabaseCreator
             String[] split = line.split("[ /]");
             if (split.length == 1)
             {
-                teams.add(new Team(split[0]));
+                teams.add(new Team(split[0], gender));
             }
             else if (split.length == 2)
             {
-                teams.add(new Team(split[0], split[1]));
+                teams.add(new Team(split[0], split[1], gender));
             }
             else
             {
                 throw new RuntimeException("Error while reading sport file. Wrong player/nationality input");
             }
-                
+
         }
         throw new RuntimeException("Error while reading sport file. Unexpected end of file");
     }
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
