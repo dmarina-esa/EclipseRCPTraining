@@ -21,7 +21,6 @@
 
 package com.gmv.sportsimulator.tennis;
 
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Random;
 
@@ -31,6 +30,7 @@ import com.gmv.sportsimulator.api.BaseSportService;
 import com.gmv.sportsimulator.api.Game;
 import com.gmv.sportsimulator.api.ISimulationThread;
 import com.gmv.sportsimulator.api.Location;
+import com.gmv.sportsimulator.api.Result;
 import com.gmv.sportsimulator.api.Team;
 import com.gmv.sportsimulator.api.service.ISportService;
 import com.gmv.sportsimulator.api.service.SimulationSpeed;
@@ -47,7 +47,11 @@ public class TennisSimulator extends BaseSportService
 
     /** {@inheritDoc} */
     @Override
-    protected Game createGameInstance(String gameName, Team teamA, Team teamB, Location location, Map<String, String> metadata)
+    protected Game createGameInstance(String gameName,
+                                      Team teamA,
+                                      Team teamB,
+                                      Location location,
+                                      Map<String, String> metadata)
     {
         MatchType matchType = MatchType.NORMAL;
         String matchTypeStr = metadata == null ? null : metadata.get("Match_Type");
@@ -168,7 +172,15 @@ public class TennisSimulator extends BaseSportService
     @Override
     public String[] getSportTypes()
     {
-        return new String[] {TennisMatch.SPORT_TYPE};
+        return new String[] { TennisMatch.SPORT_TYPE };
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void placeBet(String bidder, Game game, Result result, int amountToBid)
+    {
+        throw new RuntimeException("Method not yet implemented");
+
     }
 
 }
