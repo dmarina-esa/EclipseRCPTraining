@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.gmv.course.sportsimulator.display.GeneralView"
+            icon="icons/sports/sports.png"
+            id="com.gmv.course.sportsimulator.display.generalview"
+            name="General Sports View"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
