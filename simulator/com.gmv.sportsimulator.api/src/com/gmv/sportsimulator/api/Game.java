@@ -41,6 +41,8 @@ public abstract class Game
 
     private final Location location;
 
+    private String name;
+
     private Result result;
 
 
@@ -60,6 +62,21 @@ public abstract class Game
     }
 
     /**
+     * Creates a new Game with a simple result object that scores point to point
+     * 
+     * @param gameName
+     *            the human readable name for this game. If not provided, the
+     *            game ID will be used instead
+     * @param teamA
+     * @param teamB
+     * @param location
+     */
+    public Game(String gameName, Team teamA, Team teamB, Location location)
+    {
+        this(gameName, teamA, teamB, location, new Result());
+    }
+
+    /**
      * Creates a new Game
      * 
      * @param teamA
@@ -73,7 +90,24 @@ public abstract class Game
      */
     public Game(Team teamA, Team teamB, Location location, Result result)
     {
+        this("", teamA, teamB, location, result);
+    }
+
+    /**
+     * Creates a new Game
+     * 
+     * @param gameName
+     *            the human readabale name for this game. If not provided, the
+     *            game ID will be used instead
+     * @param teamA
+     * @param teamB
+     * @param location
+     * @param result
+     */
+    public Game(String gameName, Team teamA, Team teamB, Location location, Result result)
+    {
         this.id = UUID.randomUUID();
+        this.name = (gameName != null && gameName.trim().length() > 0) ? gameName : this.id.toString();
         this.teamA = teamA;
         this.teamB = teamB;
         this.location = location;
@@ -88,6 +122,26 @@ public abstract class Game
     public String getId()
     {
         return this.id.toString();
+    }
+
+    /**
+     * Returns the human readable name for this game. If it was not provided,
+     * the game id will be used as game name
+     * 
+     * @return
+     */
+    public String getName()
+    {
+        return this.name;
+    }
+    
+    /**
+     * Replaces the game name with the new one
+     * @param name
+     */
+    public void setName(String name)
+    {
+        this.name = name;
     }
 
     /**
@@ -221,6 +275,26 @@ public abstract class Game
         sb.append(" vs ");
         sb.append(this.teamB.toString());
         return sb.toString();
+    }
+
+    /**
+     * Returns <code>true</code> if the given team is part of this game;
+     * <code>false</code> otherwise
+     * 
+     * @param team
+     * @return <code>true</code> if the given team is part of this game;
+     *         <code>false</code> otherwise
+     */
+    public boolean isTeamRegistered(Team team)
+    {
+        if (this.teamA.equals(team) || this.teamB.equals(team))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**

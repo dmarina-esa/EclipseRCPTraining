@@ -22,6 +22,7 @@
 package com.gmv.sportsimulator.api;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +37,8 @@ import com.gmv.sportsimulator.api.service.SimulationSpeed;
  */
 public abstract class BaseSportService implements ISportService
 {
+    private List<Team> teams = Collections.synchronizedList(new ArrayList<Team>());
+
     private final Map<String, Game> scheduledGames = new HashMap<String, Game>();
 
     private Map<Game, IGameSimulator> startedGames = new HashMap<Game, IGameSimulator>();
@@ -55,26 +58,44 @@ public abstract class BaseSportService implements ISportService
     @Override
     public void registerGame(Team teamA, Team teamB, Location location)
     {
-        Game game = createGameInstance(teamA, teamB, location, null);
+        registerGame(null, teamA, teamB, location);
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public void registerGame(String name, Team teamA, Team teamB, Location location)
+    {
+        Game game = createGameInstance(name, teamA, teamB, location, null);
         addGame(game);
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public void registerGame(Team teamA, Team teamB, Location location, Map<String, String> metadata)
+    {
+        registerGame(null, teamA, teamB, location, metadata);
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public void registerGame(String name, Team teamA, Team teamB, Location location, Map<String, String> metadata)
+    {
+        Game game = createGameInstance(name, teamA, teamB, location, metadata);
+        addGame(game);
+    }
+    
+  
+
     /**
+     * Creates a new game instance of the specific type
+     * @param name 
      * @param teamA
      * @param teamB
      * @param location
      * @return
      */
-
-    protected abstract Game createGameInstance(Team teamA, Team teamB, Location location, Map<String, String> metadata);
     
-    /** {@inheritDoc} */
-    @Override
-    public void registerGame(Team teamA, Team teamB, Location location, Map<String, String> metadata)
-    {
-        Game game = createGameInstance(teamA, teamB, location, metadata);
-        addGame(game);
-    }
+    protected abstract Game createGameInstance(String name, Team teamA, Team teamB, Location location, Map<String, String> metadata);
 
     /** {@inheritDoc} */
     @Override
@@ -151,7 +172,7 @@ public abstract class BaseSportService implements ISportService
             doResetAllGames();
         });
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public boolean isOngoingSimulation()
@@ -165,8 +186,98 @@ public abstract class BaseSportService implements ISportService
         game.resetGame();
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public void registerTeam(Team team)
+    {
+        if (!this.teams.contains(team))
+        {
+            this.teams.add(team);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public List<Team> getTeams()
+    {
+        return this.teams;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void removeTeam(Team team) throws IllegalStateException
+    {
+        if (!isPlaying(team))
+        {
+            this.teams.remove(team);
+            removeGamesFromSchedule(team);
+        }
+        else
+        {
+            throw new IllegalStateException("Impossible to unregister teamm: " + team.getTeamName()
+                                            + ". The selected team is currently playing one or more games.");
+        }
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public String renameGame(Game game, String newName)
+    {
+        String oldName = "";
+        for (Game scheduledGame : this.scheduledGames.values())
+        {
+            if (scheduledGame.equals(game))
+            {
+                oldName = scheduledGame.getName();
+                scheduledGame.setName(newName);
+            }
+        }
+        return oldName;
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public void shuffleTeams()
+    {
+        Collections.shuffle(this.teams);
+    }
+
     /**
-     * @return a Map<String,Game> containing the scheduledGames of this BaseSportService
+     * @param team
+     */
+    private void removeGamesFromSchedule(Team team)
+    {
+        List<String> gamesToRemove = new ArrayList<String>();
+        for (String key : this.scheduledGames.keySet())
+        {
+            if (this.scheduledGames.get(key).isTeamRegistered(team))
+            {
+                gamesToRemove.add(key);
+            }
+        }
+        for (String deletedKey : gamesToRemove)
+        {
+            this.scheduledGames.remove(deletedKey);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isPlaying(Team team)
+    {
+        for (Game game : this.startedGames.keySet())
+        {
+            if (game.isTeamRegistered(team))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @return a Map<String,Game> containing the scheduledGames of this
+     *         BaseSportService
      */
     protected Map<String, Game> getScheduledGames()
     {
@@ -291,9 +402,6 @@ public abstract class BaseSportService implements ISportService
         }
 
     }
-
-
-    
 
 }
 

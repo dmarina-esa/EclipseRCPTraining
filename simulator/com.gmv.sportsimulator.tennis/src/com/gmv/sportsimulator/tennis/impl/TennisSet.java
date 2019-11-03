@@ -38,6 +38,10 @@ public class TennisSet extends Result
 
     private AtomicInteger currentSetGame;
 
+    private boolean tiebreak = false;
+
+    private int[] tieBreakPoints = new int[2];
+
 
     /**
      * Creates a new TennisSet
@@ -61,6 +65,16 @@ public class TennisSet extends Result
             super.scorePoint(team);
             if (checkFinished())
             {
+                if (getTeamScore(team) > 7)
+                {
+                    int otherTeam = (team % 2) + 1;
+                    this.tiebreak = true;
+                    this.tieBreakPoints[team - 1] = getTeamScore(team);
+                    this.tieBreakPoints[otherTeam - 1] = getTeamScore(otherTeam);
+                    updateScore(team, 7);
+                    updateScore(otherTeam, 6);
+                }
+
                 finalise(team);
                 return;
             }
@@ -71,7 +85,7 @@ public class TennisSet extends Result
             }
         }
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public void reset()
@@ -81,7 +95,19 @@ public class TennisSet extends Result
         this.setGames.add(new TennisSetGame());
         this.currentSetGame.set(1);
     }
-    
+
+    /** {@inheritDoc} */
+    @Override
+    public String getScoresString()
+    {
+        String scoresString = super.getScoresString();
+        if (this.tiebreak)
+        {
+            scoresString = scoresString + "(" + this.tieBreakPoints[0] + "-" + this.tieBreakPoints[1] + ")";
+        }
+        return scoresString;
+    }
+
     /** {@inheritDoc} */
     @Override
     public String toString()

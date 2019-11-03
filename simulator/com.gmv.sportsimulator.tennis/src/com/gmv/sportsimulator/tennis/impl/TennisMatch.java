@@ -21,9 +21,6 @@
 
 package com.gmv.sportsimulator.tennis.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.gmv.sportsimulator.api.Game;
 import com.gmv.sportsimulator.api.Location;
 import com.gmv.sportsimulator.api.Team;
@@ -37,28 +34,39 @@ public class TennisMatch extends Game
 
     public enum MatchType
     {
-        NORMAL,
-        GRAND_SLAM
+        NORMAL, GRAND_SLAM
     }
-    
-    
+
+
     public TennisMatch(Team player1, Team player2, Location location)
     {
-        this(player1, player2, location, MatchType.NORMAL);
+        this(null, player1, player2, location);
     }
-    
+
+    public TennisMatch(String gameName, Team player1, Team player2, Location location)
+    {
+        this(gameName, player1, player2, location, MatchType.NORMAL);
+    }
+
+    public TennisMatch(Team player1, Team player2, Location location, MatchType matchType)
+    {
+        this(null, player1, player2, location, matchType);
+    }
+
     /**
      * Creates a new TennisMatch
+     * 
+     * @param gameName
      * @param player1
      * @param player2
      * @param location
      * @param matchType
      */
-    public TennisMatch(Team player1, Team player2, Location location, MatchType matchType)
+    public TennisMatch(String gameName, Team player1, Team player2, Location location, MatchType matchType)
     {
-        super(player1, player2, location, new TennisResult(matchType));
+        super(gameName, player1, player2, location, new TennisResult(matchType));
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public void scorePoint(Team team)
@@ -68,7 +76,7 @@ public class TennisMatch extends Game
         {
             team.addVictory();
         }
-        
+
     }
 
     /** {@inheritDoc} */
@@ -81,12 +89,12 @@ public class TennisMatch extends Game
             team.addVictory();
         }
     }
-    
+
     public boolean isFinalised()
     {
         return getResult().isFinal();
     }
-    
+
     public Team getWinnerTeam()
     {
         if (isFinalised())
@@ -101,4 +109,4 @@ public class TennisMatch extends Game
 
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------

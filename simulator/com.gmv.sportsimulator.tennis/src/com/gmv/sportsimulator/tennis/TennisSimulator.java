@@ -40,13 +40,13 @@ import com.gmv.sportsimulator.tennis.impl.TennisMatch.MatchType;
  * @author David Marina
  *
  */
-@Component(service = ISportService.class, name = "TennisSimulator")
+@Component(service = ISportService.class, name = "Tennis")
 public class TennisSimulator extends BaseSportService
 {
 
     /** {@inheritDoc} */
     @Override
-    protected Game createGameInstance(Team teamA, Team teamB, Location location, Map<String, String> metadata)
+    protected Game createGameInstance(String gameName, Team teamA, Team teamB, Location location, Map<String, String> metadata)
     {
         MatchType matchType = MatchType.NORMAL;
         String matchTypeStr = metadata == null ? null : metadata.get("Match_Type");
@@ -54,7 +54,7 @@ public class TennisSimulator extends BaseSportService
         {
             matchType = MatchType.valueOf(matchTypeStr);
         }
-        Game newGame = new TennisMatch(teamA, teamB, location, matchType);
+        Game newGame = new TennisMatch(gameName, teamA, teamB, location, matchType);
         return newGame;
     }
 

@@ -38,6 +38,20 @@ public interface ISportService
 {
 
     /**
+     * Adds a team to the service that can be used for game simulations
+     * 
+     * @param team
+     */
+    void registerTeam(Team team);
+
+    /**
+     * Removes a team from the service
+     * 
+     * @param team
+     */
+    void removeTeam(Team team);
+
+    /**
      * Registers a new game in the database
      * 
      * @param teamA
@@ -49,12 +63,42 @@ public interface ISportService
     /**
      * Registers a new game in the database
      * 
+     * @param name
+     * @param teamA
+     * @param teamB
+     * @param location
+     */
+    void registerGame(String name, Team teamA, Team teamB, Location location);
+
+    /**
+     * Registers a new game in the database
+     * 
      * @param teamA
      * @param teamB
      * @param location
      * @param metadata
      */
     void registerGame(Team teamA, Team teamB, Location location, Map<String, String> metadata);
+
+    /**
+     * Register a new game in the database
+     * 
+     * @param name
+     * @param teamA
+     * @param teamB
+     * @param location
+     * @param metadata
+     */
+    void registerGame(String name, Team teamA, Team teamB, Location location, Map<String, String> metadata);
+
+    /**
+     * Renames the game and returns the old game name
+     * 
+     * @param game
+     * @param newName
+     * @return the old game name
+     */
+    String renameGame(Game game, String newName);
 
     /**
      * Simulates a game with a certain speed level:
@@ -124,6 +168,28 @@ public interface ISportService
      *         <code>false</code> otherwise
      */
     boolean isOngoingSimulation();
+
+    /**
+     * Shuffles all the teamsO
+     */
+    void shuffleTeams();
+
+    /**
+     * Returns all the registered teams
+     * 
+     * @return
+     */
+    List<Team> getTeams();
+
+    /**
+     * Returns <code>true</code> if the provided team is currently playing;
+     * <code>false</code> otherwise
+     * 
+     * @param team
+     * @return <code>true</code> if the provided team is currently playing;
+     *         <code>false</code> otherwise
+     */
+    boolean isPlaying(Team team);
 }
 
 // -----------------------------------------------------------------------------
