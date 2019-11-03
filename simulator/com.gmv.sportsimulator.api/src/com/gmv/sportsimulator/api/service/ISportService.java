@@ -190,6 +190,12 @@ public interface ISportService
      *         <code>false</code> otherwise
      */
     boolean isPlaying(Team team);
+    
+    /**
+     * Returns the list of sport types supported by this service
+     * @return
+     */
+    String[] getSportTypes();
 }
 
 // -----------------------------------------------------------------------------

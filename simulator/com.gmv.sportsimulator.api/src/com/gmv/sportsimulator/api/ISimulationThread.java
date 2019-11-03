@@ -10,7 +10,7 @@
 //
 // Sub-System : com.gmv.sportsimulator.api
 //
-// File Name : IGameSimulator.java
+// File Name : ISimulationThread.java
 //
 // Author : David Marina
 //
@@ -27,7 +27,7 @@ package com.gmv.sportsimulator.api;
  * @author David Marina
  *
  */
-public interface IGameSimulator extends Runnable
+public interface ISimulationThread extends Runnable
 {
 
     /**

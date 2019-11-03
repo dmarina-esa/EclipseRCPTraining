@@ -21,6 +21,8 @@
 
 package com.gmv.sportsimulator.api;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -33,17 +35,18 @@ import java.util.UUID;
 public abstract class Game
 {
 
+    private final String gameType;
+
     private final UUID id;
 
-    private final Team teamA;
-
-    private final Team teamB;
+    private final List<Team> teams = new ArrayList<Team>();
 
     private final Location location;
 
     private String name;
 
     private Result result;
+
 
 
     /**
@@ -56,9 +59,9 @@ public abstract class Game
      * @param location
      *            the game location
      */
-    public Game(Team teamA, Team teamB, Location location)
+    public Game(String gameType, Team teamA, Team teamB, Location location)
     {
-        this(teamA, teamB, location, new Result());
+        this(gameType, teamA, teamB, location, new Result());
     }
 
     /**
@@ -71,9 +74,9 @@ public abstract class Game
      * @param teamB
      * @param location
      */
-    public Game(String gameName, Team teamA, Team teamB, Location location)
+    public Game(String gameType, String gameName, Team teamA, Team teamB, Location location)
     {
-        this(gameName, teamA, teamB, location, new Result());
+        this(gameType, gameName, teamA, teamB, location, new Result());
     }
 
     /**
@@ -88,9 +91,9 @@ public abstract class Game
      * @param result
      *            the new result board
      */
-    public Game(Team teamA, Team teamB, Location location, Result result)
+    public Game(String gameType, Team teamA, Team teamB, Location location, Result result)
     {
-        this("", teamA, teamB, location, result);
+        this(gameType, "", teamA, teamB, location, result);
     }
 
     /**
@@ -104,14 +107,24 @@ public abstract class Game
      * @param location
      * @param result
      */
-    public Game(String gameName, Team teamA, Team teamB, Location location, Result result)
+    public Game(String gameType, String gameName, Team teamA, Team teamB, Location location, Result result)
     {
         this.id = UUID.randomUUID();
+        this.gameType = gameType;
         this.name = (gameName != null && gameName.trim().length() > 0) ? gameName : this.id.toString();
-        this.teamA = teamA;
-        this.teamB = teamB;
+        this.teams.add(teamA);
+        this.teams.add(teamB);
         this.location = location;
         this.result = result;
+    }
+    
+
+    /**
+     * @return a String containing the gameType of this Game
+     */
+    public String getGameType()
+    {
+        return this.gameType;
     }
 
     /**
@@ -134,9 +147,10 @@ public abstract class Game
     {
         return this.name;
     }
-    
+
     /**
      * Replaces the game name with the new one
+     * 
      * @param name
      */
     public void setName(String name)
@@ -149,7 +163,7 @@ public abstract class Game
      */
     public Team getTeamA()
     {
-        return this.teamA;
+        return this.teams.get(0);
     }
 
     /**
@@ -157,7 +171,7 @@ public abstract class Game
      */
     public Team getTeamB()
     {
-        return this.teamB;
+        return this.teams.get(1);
     }
 
     /**
@@ -178,13 +192,10 @@ public abstract class Game
      */
     public int getTeamPosition(Team team)
     {
-        if (this.teamA.equals(team))
+        if (this.teams.contains(team))
         {
-            return 1;
-        }
-        else if (this.teamB.equals(team))
-        {
-            return 2;
+            // Normalise team position to 1 or 2
+            return this.teams.indexOf(team) + 1;
         }
         else
         {
@@ -202,18 +213,25 @@ public abstract class Game
      */
     public Team getTeam(int teamPosition)
     {
-        if (teamPosition == 1)
+        if (teamPosition < this.teams.size() && teamPosition > 0)
         {
-            return this.teamA;
-        }
-        else if (teamPosition == 2)
-        {
-            return this.teamB;
+            return this.teams.get(teamPosition - 1);
         }
         else
         {
-            throw new IllegalArgumentException("Argument team position not valid: " + teamPosition);
+            throw new IllegalArgumentException("Argument team position not valid: " + teamPosition
+                                               + ". Valid positions are 1 and 2O");
         }
+    }
+
+    /**
+     * Returns the teams that are part of this game
+     * 
+     * @return
+     */
+    public List<Team> getTeams()
+    {
+        return this.teams;
     }
 
     /**
@@ -271,9 +289,9 @@ public abstract class Game
         StringBuilder sb = new StringBuilder();
         sb.append(getLocation().getLocationName());
         sb.append(": ");
-        sb.append(this.teamA.toString());
+        sb.append(this.teams.get(0).toString());
         sb.append(" vs ");
-        sb.append(this.teamB.toString());
+        sb.append(this.teams.get(1).toString());
         return sb.toString();
     }
 
@@ -287,14 +305,7 @@ public abstract class Game
      */
     public boolean isTeamRegistered(Team team)
     {
-        if (this.teamA.equals(team) || this.teamB.equals(team))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return this.teams.contains(team);
     }
 
     /**
