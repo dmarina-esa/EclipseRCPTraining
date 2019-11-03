@@ -120,22 +120,6 @@ public class SportsLabelProvider extends BaseLabelProvider implements ILabelProv
         return null;
     }
 
-    /**
-     * @param tennisIconPath
-     * @return
-     */
-    private static Image getImageFromPath(String id, String path)
-    {
-        Image image = JFaceResources.getImageRegistry().get(path);
-        if (image == null)
-        {
-            image = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, path).createImage(PlatformUI
-                    .getWorkbench().getDisplay());
-            JFaceResources.getImageRegistry().put(path, image);
-        }
-        return image;
-    }
-
     @Override
     public String getText(Object element)
     {
@@ -153,6 +137,22 @@ public class SportsLabelProvider extends BaseLabelProvider implements ILabelProv
         }
 
         return null;
+    }
+
+    /**
+     * @param tennisIconPath
+     * @return
+     */
+    private static Image getImageFromPath(String id, String path)
+    {
+        Image image = JFaceResources.getImageRegistry().get(path);
+        if (image == null)
+        {
+            image = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, path).createImage(PlatformUI
+                    .getWorkbench().getDisplay());
+            JFaceResources.getImageRegistry().put(path, image);
+        }
+        return image;
     }
 
 }
