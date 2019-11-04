@@ -347,6 +347,24 @@ public class Game
     {
         return getResult().isFinal();
     }
+    
+    public void finalise()
+    {
+        int teamScore1 = getResult().getTeamScore(1);
+        int teamScore2 = getResult().getTeamScore(2);
+        if (teamScore1 > teamScore2)
+        {
+            getResult().finalise(teamScore1);
+        }
+        else if (teamScore2 > teamScore1)
+        {
+            getResult().finalise(teamScore2);
+        }
+        else
+        {
+            getResult().finalise(-1);
+        }
+    }
 
     /**
      * Returns the winner team or null if the game has not finalised
