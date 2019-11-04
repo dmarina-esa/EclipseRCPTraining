@@ -27,12 +27,15 @@ import java.util.UUID;
 
 /**
  * Class that represents a generic game for any sport for two team players at a
- * certain location
+ * certain location. The results are based on one point scores like in football.
+ * Exceptionally, a multiple point can be added to the result. This class may be
+ * extended to create more complex games. E.g. with more complex score results
+ * like tennis
  * 
  * @author David Marina
  *
  */
-public abstract class Game
+public class Game
 {
 
     private final String gameType;
@@ -46,7 +49,6 @@ public abstract class Game
     private String name;
 
     private Result result;
-
 
 
     /**
@@ -117,7 +119,6 @@ public abstract class Game
         this.location = location;
         this.result = result;
     }
-    
 
     /**
      * @return a String containing the gameType of this Game
@@ -213,14 +214,14 @@ public abstract class Game
      */
     public Team getTeam(int teamPosition)
     {
-        if (teamPosition < this.teams.size() && teamPosition > 0)
+        if (teamPosition <= this.teams.size() && teamPosition > 0)
         {
             return this.teams.get(teamPosition - 1);
         }
         else
         {
             throw new IllegalArgumentException("Argument team position not valid: " + teamPosition
-                                               + ". Valid positions are 1 and 2O");
+                                               + ". Valid positions are 1 and 2");
         }
     }
 
@@ -265,16 +266,6 @@ public abstract class Game
     }
 
     /**
-     * Retrieves the reference to the winner {@link Team}
-     * 
-     * @return the winner team
-     */
-    public Team getWinnerTeam()
-    {
-        return getTeam(getResult().getWinner());
-    }
-
-    /**
      * Resets the game to its initial status
      */
     public void resetGame()
@@ -309,16 +300,26 @@ public abstract class Game
     }
 
     /**
-     * Scores a point in the {@link Result} of this game for the given team
+     * Scores a point in the {@link Result} of this game for the given team.
+     * This method may be overridden to perform some special action on scoring
      * 
      * @param team
      *            the team whose point has to be scored
      */
-    public abstract void scorePoint(Team team);
+    public void scorePoint(Team team)
+    {
+        getResult().scorePoint(getTeamPosition(team));
+        if (isFinalised())
+        {
+            team.addVictory();
+        }
+
+    }
 
     /**
      * Scores a special point in the {@link Result} of this game for the given
-     * team. <br>
+     * team. This method may be overridden to perform some special action on
+     * scoring<br>
      * <br>
      * E.g. 3 points in basketball, 15 points in tennis...
      * 
@@ -327,7 +328,42 @@ public abstract class Game
      * @param points
      *            the value of the special points to score
      */
-    public abstract void scoreSpecialPoint(Team team, int points);
+    public void scoreSpecialPoint(Team team, int points)
+    {
+        getResult().scoreSpecialPoint(getTeamPosition(team), points);
+        if (isFinalised())
+        {
+            team.addVictory();
+        }
+    }
+
+    /**
+     * Returns <code>true</code> if the game has finalised; <code>false</code>
+     * otherwise
+     * 
+     * @return
+     */
+    public boolean isFinalised()
+    {
+        return getResult().isFinal();
+    }
+
+    /**
+     * Returns the winner team or null if the game has not finalised
+     * 
+     * @return
+     */
+    public Team getWinnerTeam()
+    {
+        if (isFinalised())
+        {
+            return getTeam(getResult().getWinner());
+        }
+        else
+        {
+            return null;
+        }
+    }
 
 }
 
