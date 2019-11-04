@@ -381,6 +381,7 @@ public abstract class BaseSportService implements ISportService
         {
             listener.gameFinalised(game, game.getWinnerTeam(), game.getResult());
         }
+        this.startedGames.remove(game);
         checkSimulationStatus();
     }
 
