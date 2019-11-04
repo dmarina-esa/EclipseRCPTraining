@@ -355,12 +355,12 @@ public class Game
         if (teamScore1 > teamScore2)
         {
             getResult().finalise(teamScore1);
-            getTeam(teamScore1).addVictory();
+            getTeam(1).addVictory();
         }
         else if (teamScore2 > teamScore1)
         {
             getResult().finalise(teamScore2);
-            getTeam(teamScore2).addVictory();
+            getTeam(2).addVictory();
         }
         else
         {
