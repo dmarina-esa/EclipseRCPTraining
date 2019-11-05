@@ -1,7 +1,10 @@
 package com.gmv.course.sportsimulator.display;
 
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.ui.menus.IMenuService;
 import org.eclipse.ui.part.ViewPart;
 
 import com.gmv.course.exercise.utils.exercise03.Exercise03ContentProvider;
@@ -26,13 +29,20 @@ public class GeneralView extends ViewPart
         viewer.setLabelProvider(new SportsLabelProvider());
         try
         {
-            this.sportService = Exercise03Utils.getSportService();
+            this.sportService = SportServiceUtils.getSportServiceReference();//Exercise03Utils.getSportService();
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
         viewer.setInput(this.sportService);
+        
+        getSite().setSelectionProvider(viewer);
+        
+        MenuManager mm = new MenuManager("com.gmv.sportsimulator.generalviewmenu");
+        getSite().getService(IMenuService.class).populateContributionManager(mm, "popup:com.gmv.sportsimulator.generalviewmenu");
+        Menu menu = mm.createContextMenu(viewer.getTree());
+        viewer.getTree().setMenu(menu);
     }
 
     @Override

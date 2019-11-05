@@ -10,6 +10,38 @@
             name="General Sports View"
             restorable="true">
       </view>
+      <view
+            class="com.gmv.course.sportsimulator.display.TeamView"
+            id="com.gmv.course.sportsimulator.display.teamview"
+            name="Team Detailed View"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.gmv.course.sportsimulator.display.startsimulation"
+            name="Start Simulation">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.gmv.sportsimulator.generalviewmenu">
+         <command
+               commandId="com.gmv.course.sportsimulator.display.startsimulation"
+               label="Start Simulation"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.gmv.course.sportsimulator.display.handlers.StartSimulationHandler"
+            commandId="com.gmv.course.sportsimulator.display.startsimulation">
+      </handler>
    </extension>
 
 </plugin>
