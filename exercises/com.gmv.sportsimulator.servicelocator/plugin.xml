@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="sportsimulator" name="sportsimulator" schema="schema/sportsimulator.exsd"/>
+   <extension
+         point="com.gmv.sportsimulator.servicelocator.sportsimulator">
+   </extension>
+
+</plugin>
