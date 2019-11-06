@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Soccer
+Bundle-SymbolicName: com.gmv.sportsimulator.soccer;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: GMV
+Automatic-Module-Name: com.gmv.sportsimulator.soccer
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.16.0",
+ com.gmv.sportsimulator.servicelocator;bundle-version="1.0.0",
+ com.gmv.sportsimulator.api
+Bundle-ActivationPolicy: lazy
