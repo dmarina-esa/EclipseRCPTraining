@@ -1,0 +1,455 @@
+
+  ______ _    _ _____    _____       _ _                        _    _      _                 
+ |  ____| |  | |  __ \  |  __ \     | (_)                      | |  | |    | |                
+ | |__  | |  | | |  | | | |  | | ___| |___   _____ _ __ _   _  | |__| | ___| |_ __   ___ _ __ 
+ |  __| | |  | | |  | | | |  | |/ _ \ | \ \ / / _ \ '__| | | | |  __  |/ _ \ | '_ \ / _ \ '__|
+ | |____| |__| | |__| | | |__| |  __/ | |\ V /  __/ |  | |_| | | |  | |  __/ | |_) |  __/ |   
+ |______|\____/|_____/  |_____/ \___|_|_| \_/ \___|_|   \__, | |_|  |_|\___|_| .__/ \___|_|   
+                                                         __/ |               | |              
+                                                        |___/                |_|              
+                                                        
+
+The following steps will be executed:
+=======================================================================================
+010) Get the source code from the trunk
+020) Update Product Files with the new Version and Release Date
+030) Update plugin.xml files with the new Version and Release Date
+040) Execute the PluginManager tool to update the version of all the changed plugins
+050) Update POM version of products (Simulator, EUD_Test, Command_Line, MIMIC_Designer)
+060) Update Feature versions
+070) Update POM versions in Features folder
+080) Update Feature Update Site versions
+090) Update POM's parent version in all the workspace
+100) Update parent POM version and qualifier
+110) Update EUD-PLATFORM.target pom.xml
+120) Checkout the EUD Project folder to update Team Project Set file
+130) Update Team Project Set
+140) Add all the Project folder changes to repository
+150) Commit Project folder
+160) Add all the Src changes to repository
+170) Commit Src folder
+180) Update Src folder
+190) Copy repository directory from Development Branch to Patch Branch
+200) Rename or delete local folder
+210) Get the content from the Patch Branch
+220) Update SNAPSHOT with the release qualifier
+230) Force context qualifier in parent pom.xml
+240) Add changes to repository
+250) Commit the changes
+260) Update
+270) Create Tag in the repository
+=======================================================================================
+
+
+DELIVERY_SETTINGS
+
+/*
+ * Notes:
+ * 1. The following directory separators can be used: '/' or '\'.
+ * 2. Spaces in the directory path are currently not supported.
+ */
+ 
+// The basic settings, these can be overridden by argument
+//--------------------------------------------------------
+
+VERSION=3.2.1
+SNAPSHOT=v20190410-0926
+RELEASEDATE=2019-04-10
+RELEASEYEAR=2019
+
+// Working directory (ideally an empty directory)
+BASE_DIR=/home/eud/EUD_AUTO-BUILD
+
+// Other custom settings that will be used by this recipe
+//-------------------------------------------------------
+
+/* 
+ * Path to the plugin manager tool (by default it uses the checked
+ * in binary file; therefore the checked in version should be up to
+ * date, otherwise point to a more recent local version)
+ */
+PLUGIN_MANAGER_PATH=$BASE_DIR/Project/tools/release
+
+
+DIRECTORY_SRC=$BASE_DIR\Src
+DIRECTORY_PROJECT=$BASE_DIR\Project
+DIRECTORY_EUD-PLATFORM=$BASE_DIR\Src\EUD_Generic_Adapters\Target_Platform
+
+PARENTPOM=$BASE_DIR\Src\pom.xml
+
+FEATURES_DIR=$BASE_DIR\Src\EUD_Features
+
+PRODUCT1=$BASE_DIR\Src\EUD_Backend-Simulator\eud.simulator.Common\products
+PRODUCT2=$BASE_DIR\Src\EUD_Test_Tailoring\eud.product.test\products
+PRODUCT3=$BASE_DIR\Src\EUD_Test_Tailoring\eud.product.commandline.test\products
+PRODUCT4=$BASE_DIR\Src\MIMIC-Designer\eud.product.mimic.designer.test\products
+PRODUCT5=$DIRECTORY_SRC/EUD_ODDE\eud_odde.product\products
+
+// **************************UPDATE WITH A PROPER SVN USER AND PASSWORD**************************
+
+SVN_USER=XXXXXXX
+SVN_PASSWORD=XXXXXX
+SVN_REPOSITORY_ROOT=https://sdereps.esa.int/svn/eud20
+
+_DELIVERY_SETTINGS
+
+
+START
+
+STEP 10 - Get the source code from the trunk
+//------------------------------------------
+EXECUTE_COMMAND
+	command:
+		svn checkout --username $SVN_USER --password=$SVN_PASSWORD $SVN_REPOSITORY_ROOT/branches/EUD_3_DevBranch/Src
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+STEP 20 - Update Product Files with the new Version and Release Date
+//------------------------------------------------------------------
+REPLACE_REGEX
+	files:
+		*.product
+	find: 
+		version="\d+\.\d+\.\d+"
+	replace: 
+		version="$VERSION"
+	find: 
+		\d+\.\d+\.\d+(.+Released )\d\d\d\d-\d\d-\d\d
+	replace:
+		$VERSION$1$RELEASEDATE
+_REPLACE_REGEX
+
+STEP 30 - Update plugin.xml files with the new Version and Release Date
+//---------------------------------------------------------------------
+REPLACE_REGEX
+	files:
+		plugin.xml
+	find: 
+		\d+\.\d+\.\d+(.+Released )\d\d\d\d-\d\d-\d\d
+	replace: 
+		$VERSION$1$RELEASEDATE
+_REPLACE_REGEX
+
+STEP 40 - Execute the PluginManager tool to update the version of all the changed plugins
+//---------------------------------------------------------------------------------------
+EXECUTE_COMMAND
+	command:
+		java -jar $PLUGIN_MANAGER_PATH/PluginManager.jar updatePlugins=$VERSION
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+STEP 50 - Update POM version of products (Simulator, EUD_Test, Command_Line, MIMIC_Designer)
+//------------------------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$PRODUCT1
+	files:
+		pom.xml
+	find: 
+		<version>\d+\.\d+\.\d+-SNAPSHOT
+	replace: 
+		<version>$VERSION-SNAPSHOT
+_REPLACE_REGEX
+
+REPLACE_REGEX
+	directory:
+		$PRODUCT2
+	files:
+		pom.xml
+	find: 
+		<version>\d+\.\d+\.\d+-SNAPSHOT
+	replace: 
+		<version>$VERSION-SNAPSHOT
+_REPLACE_REGEX
+
+REPLACE_REGEX
+	directory:
+		$PRODUCT3
+	files:
+		pom.xml
+	find: 
+		<version>\d+\.\d+\.\d+-SNAPSHOT
+	replace: 
+		<version>$VERSION-SNAPSHOT
+_REPLACE_REGEX
+
+REPLACE_REGEX
+	directory:
+		$PRODUCT4
+	files:
+		pom.xml
+	find: 
+		<version>\d+\.\d+\.\d+-SNAPSHOT
+	replace: 
+		<version>$VERSION-SNAPSHOT
+_REPLACE_REGEX
+
+MODIFY_XML
+	directory:
+		$PRODUCT5
+	files:
+		pom.xml
+    XPath:
+        /project/parent/version
+    replace:
+        $VERSION-SNAPSHOT
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+
+STEP 60 - Update Feature versions
+//-------------------------------
+REPLACE_REGEX
+	files:
+		feature.xml
+	find: 
+		version="\d+\.\d+\.\d+.qualifier
+	replace: 
+		version="$VERSION.qualifier
+_REPLACE_REGEX
+
+STEP 70 - Update POM versions in Features folder
+//----------------------------------------------
+REPLACE_REGEX
+	directory:
+		$FEATURES_DIR
+	files:
+		pom.xml
+	find: 
+		<version>\d+\.\d+\.\d+-SNAPSHOT
+	replace: 
+		<version>$VERSION-SNAPSHOT
+_REPLACE_REGEX
+
+STEP 80 - Update Feature Update Site versions
+//-------------------------------------------
+REPLACE_REGEX
+	files:
+		category.xml
+	find: 
+		\d+\.\d+\.\d+.qualifier
+	replace: 
+		$VERSION.qualifier
+_REPLACE_REGEX
+
+STEP 90 - Update POM's parent version in all the workspace
+//--------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+	find: 
+		([ \t]*<parent>[ \t]*\R)((.*\R)*)([ \t]*<artifactId>EUD</artifactId>[ \t]*\R)((.*\R)*)([ \t]*)<version>\d+\.\d+\.\d+.*<\/version>[ \t]*\R((.*\R)*)([ \t]*</parent>[ \t]*\R)
+	replace: 
+		$1$2$4$5$7<version>$VERSION-SNAPSHOT<\/version>\R$8$10	
+_REPLACE_REGEX
+
+STEP 100 - Update parent POM version and qualifier
+//------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$PARENTPOM
+	files:
+		pom.xml
+	find: 
+		([ \t]*<groupId>esa.egos.eud<\/groupId>[ \t]*\R)([ \t]*<artifactId>EUD<\/artifactId>[ \t]*\R)([ \t]*<version>)\d+\.\d+\.\d+.*(<\/version>[ \t]*\R)([ \t]*<packaging>pom<\/packaging>[ \t]*\R)
+	replace: 
+		$1$2$3$VERSION-SNAPSHOT$4$5
+	find: 
+		([ \t]*<groupId>esa.egos.eud<\/groupId>[ \t]*\R)([ \t]*<artifactId>EUD-PLATFORM<\/artifactId>[ \t]*\R)([ \t]*<version>)\d+\.\d+\.\d+.*(<\/version>[ \t]*\R)([ \t]*)
+	replace: 
+		$1$2$3$VERSION-SNAPSHOT$4$5
+	find: 
+		<forceContextQualifier>v\d+\-\d+</forceContextQualifier>
+	replace: 
+		<forceContextQualifier>$SNAPSHOT</forceContextQualifier>
+_REPLACE_REGEX
+
+STEP 110 - Update EUD-PLATFORM.target pom.xml
+//-------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_EUD-PLATFORM
+	files:
+		pom.xml
+	find: 
+		<version>\d+\.\d+\.\d+-SNAPSHOT
+	replace: 
+		<version>$VERSION-SNAPSHOT
+_REPLACE_REGEX
+
+STEP 120 - Checkout the EUD Project folder to update Team Project Set file
+//------------------------------------------------------------------------
+
+EXECUTE_COMMAND
+	command:
+		svn checkout --username $SVN_USER --password=$SVN_PASSWORD $SVN_REPOSITORY_ROOT/branches/EUD_3_DevBranch/Project
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+STEP 130 - Update Team Project Set
+//--------------------------------
+
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_PROJECT
+	files:
+		Team-Project-Set_EUD-RCP_PatchBranch.psf
+	find: 
+		(EUD_)\d+\.\d+\.\d+(_PatchBranch)
+	replace: 
+		$1$VERSION$2
+_REPLACE_REGEX
+
+
+STEP 140 - Add all the Project folder changes to repository
+//---------------------------------------------------------
+
+EXECUTE_COMMAND
+	command:
+		svn add --username $SVN_USER --password=$SVN_PASSWORD * --force
+	directory:
+		$DIRECTORY_PROJECT
+_EXECUTE_COMMAND
+
+STEP 150 - Commit Project folder
+//------------------------------
+
+EXECUTE_COMMAND
+	command:
+		svn commit --username $SVN_USER --password=$SVN_PASSWORD -m "[Automatic Release] - Updated Team Project Set files for EUD $VERSION Patch Branch"
+	directory:
+		$DIRECTORY_PROJECT
+_EXECUTE_COMMAND
+
+STEP 160 - Add all the Src changes to repository
+//----------------------------------------------
+
+EXECUTE_COMMAND
+	command:
+		svn add --username $SVN_USER --password=$SVN_PASSWORD * --force
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+
+STEP 170 - Commit Src folder
+//--------------------------
+
+EXECUTE_COMMAND
+	command:
+		svn commit --username $SVN_USER --password=$SVN_PASSWORD -m "[Automatic Release] - Initial steps for the preparation of release $VERSION"
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+STEP 180 - Update Src folder
+//--------------------------
+
+EXECUTE_COMMAND
+	command:
+		svn update --username $SVN_USER --password=$SVN_PASSWORD .
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+STEP 190 - Copy repository directory from Development Branch to Patch Branch
+//--------------------------------------------------------------------------
+EXECUTE_COMMAND
+	command:	
+		svn copy --username=$SVN_USER --password=$SVN_PASSWORD $SVN_REPOSITORY_ROOT/branches/EUD_3_DevBranch@`svnversion` $SVN_REPOSITORY_ROOT/branches/EUD_$VERSION_PatchBranch/ -m "[Automatic Release] - Created EUD $VERSION patch branch on revision `svnversion`"	
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+STEP 200 - Rename or delete local folder
+//--------------------------------------
+EXECUTE_COMMAND
+	command:		
+		mv Src Src_Branch
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+STEP 210 - Get the content from the Patch Branch
+//----------------------------------------------
+EXECUTE_COMMAND
+	command:
+		svn checkout --username=$SVN_USER --password=$SVN_PASSWORD $SVN_REPOSITORY_ROOT/branches/EUD_$VERSION_PatchBranch/Src
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+STEP 220 - Update SNAPSHOT with the release qualifier
+//---------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+	find: 
+		-SNAPSHOT
+	replace: 
+		.$SNAPSHOT	
+_REPLACE_REGEX
+
+STEP 230 - Force context qualifier in parent pom.xml
+//--------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$PARENTPOM
+	files:
+		pom.xml
+	find: 
+		(<!--[ \t]*)(<forceContextQualifier>[v]\d+[-]\d+<\/forceContextQualifier>)([ \t]*-->)
+	replace: 
+		$2	
+_REPLACE_REGEX
+
+STEP 240 - Add changes to repository
+//----------------------------------
+EXECUTE_COMMAND
+	command:
+		svn add --username=$SVN_USER --password=$SVN_PASSWORD * --force
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+STEP 250 - Commit the changes
+//---------------------------
+
+EXECUTE_COMMAND
+	command:
+		svn commit --username=$SVN_USER --password=$SVN_PASSWORD -m "[Automatic Release] - Set qualifier .$SNAPSHOT for EUD $VERSION release"
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+STEP 260 - Update
+//---------------
+
+EXECUTE_COMMAND
+	command:
+		svn update --username=$SVN_USER --password=$SVN_PASSWORD .
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+STEP 270 - Create Tag in the repository
+//-------------------------------------
+
+EXECUTE_COMMAND
+	command:		
+		svn copy --username=$SVN_USER --password=$SVN_PASSWORD $SVN_REPOSITORY_ROOT/branches/EUD_$VERSION_PatchBranch $SVN_REPOSITORY_ROOT/tags/EUD_$VERSION/ -m "[Automatic Release] - Created EUD $VERSION Release Tag on revision `svnversion`"
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+END

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<!--
+    This configuration file was written by the eclipse-cs plugin configuration editor
+-->
+<!--
+    Checkstyle-Configuration: ESA HSO-GI Checkstyle Set v1.3 - 2014-03-04
+    Description: Updated for E4 with Checkstyle 5.7.0
+-->
+<module name="Checker">
+  <property name="severity" value="warning"/>
+  <module name="TreeWalker">
+    <property name="tabWidth" value="4"/>
+    <module name="FileContentsHolder"/>
+    <module name="JavadocMethod">
+      <property name="scope" value="package"/>
+      <property name="allowMissingParamTags" value="true"/>
+      <property name="allowMissingThrowsTags" value="true"/>
+      <property name="allowMissingReturnTag" value="true"/>
+      <property name="suppressLoadErrors" value="true"/>
+    </module>
+    <module name="JavadocType">
+      <property name="allowUnknownTags" value="true"/>
+    </module>
+    <module name="JavadocVariable"/>
+    <module name="JavadocStyle">
+      <property name="checkFirstSentence" value="false"/>
+    </module>
+    <module name="ConstantName">
+      <property name="format" value="^_?_?[A-Z][A-Z0-9]*(__?[A-Z0-9]+)*$|^logger$|^copyright$|^eINSTANCE$"/>
+    </module>
+    <module name="LocalFinalVariableName">
+      <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="LocalVariableName">
+      <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="MemberName">
+      <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+    </module>
+    <module name="MethodName"/>
+    <module name="PackageName"/>
+    <module name="ParameterName"/>
+    <module name="StaticVariableName"/>
+    <module name="TypeName"/>
+    <module name="AvoidStarImport"/>
+    <module name="IllegalImport"/>
+    <module name="RedundantImport"/>
+    <module name="MethodLength">
+      <property name="max" value="200"/>
+    </module>
+    <module name="ParameterNumber"/>
+    <module name="EmptyForIteratorPad"/>
+    <module name="MethodParamPad"/>
+    <module name="NoWhitespaceAfter">
+      <property name="tokens" value="BNOT,DEC,DOT,INC,LNOT,UNARY_MINUS,UNARY_PLUS"/>
+    </module>
+    <module name="NoWhitespaceBefore"/>
+    <module name="OperatorWrap"/>
+    <module name="ParenPad"/>
+    <module name="TypecastParenPad"/>
+    <module name="WhitespaceAfter"/>
+    <module name="WhitespaceAround"/>
+    <module name="ModifierOrder"/>
+    <module name="RedundantModifier">
+      <property name="tokens" value="VARIABLE_DEF,ANNOTATION_FIELD_DEF"/>
+    </module>
+    <module name="AvoidNestedBlocks"/>
+    <module name="EmptyBlock">
+      <property name="tokens" value="LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_IF,LITERAL_FOR,LITERAL_TRY,LITERAL_WHILE,STATIC_INIT"/>
+    </module>
+    <module name="LeftCurly">
+      <property name="option" value="nl"/>
+    </module>
+    <module name="NeedBraces"/>
+    <module name="RightCurly">
+      <property name="option" value="alone"/>
+    </module>
+    <module name="EmptyStatement"/>
+    <module name="EqualsHashCode"/>
+    <module name="HiddenField">
+      <property name="severity" value="info"/>
+      <property name="ignoreFormat" value="set.+"/>
+      <property name="ignoreConstructorParameter" value="true"/>
+      <property name="ignoreSetter" value="true"/>
+    </module>
+    <module name="IllegalInstantiation"/>
+    <module name="InnerAssignment">
+      <property name="severity" value="error"/>
+    </module>
+    <module name="MagicNumber">
+      <property name="severity" value="info"/>
+      <property name="ignoreNumbers" value="-1, 0, 1, 2, 3, 4"/>
+    </module>
+    <module name="MissingSwitchDefault"/>
+    <module name="SimplifyBooleanExpression"/>
+    <module name="SimplifyBooleanReturn"/>
+    <module name="FinalClass"/>
+    <module name="HideUtilityClassConstructor"/>
+    <module name="InterfaceIsType"/>
+    <module name="VisibilityModifier"/>
+    <module name="ArrayTypeStyle"/>
+    <module name="TodoComment">
+      <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
+    <module name="UpperEll"/>
+    <module name="SuperFinalize"/>
+    <module name="StringLiteralEquality"/>
+    <module name="ParameterAssignment"/>
+    <module name="MultipleVariableDeclarations"/>
+    <module name="DefaultComesLast"/>
+    <module name="CovariantEquals"/>
+    <module name="AnonInnerLength">
+      <property name="max" value="30"/>
+    </module>
+    <module name="MissingDeprecated"/>
+    <module name="LineLength">
+      <property name="severity" value="info"/>
+      <property name="max" value="120"/>
+      <property name="tabWidth" value="4"/>
+    </module>
+    <module name="MethodCount">
+      <property name="maxPrivate" value="40"/>
+      <property name="maxPackage" value="30"/>
+      <property name="maxProtected" value="30"/>
+      <property name="maxPublic" value="40"/>
+    </module>
+    <module name="DeclarationOrder">
+      <property name="severity" value="warning"/>
+    </module>
+  </module>
+  <module name="NewlineAtEndOfFile"/>
+  <module name="FileLength">
+    <property name="max" value="1300"/>
+  </module>
+  <module name="FileTabCharacter"/>
+  <module name="RegexpSingleline">
+    <property name="severity" value="ignore"/>
+    <property name="format" value="\s+$"/>
+    <property name="message" value="Line has trailing spaces."/>
+    <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+  </module>
+  <module name="SuppressionCommentFilter"/>
+  <module name="SuppressionFilter">
+    <property name="file" value="${samedir}/ESA HSO-GI Checkstyle Set v1.3.suppress.xml"/>
+  </module>
+  <module name="JavadocPackage">
+    <property name="severity" value="info"/>
+    <property name="allowLegacy" value="true"/>
+  </module>
+  <module name="RegexpHeader">
+    <property name="header" value="\A^//-{77,77}\n^//\n^// \(C\) [ \-,0-9]* European Space Agency\n^// European Space Operations Centre\n^// Darmstadt, Germany\n^//\n^//-{77,77}\n^//\n^// System : (EGOS USER DESKTOP|EUD Backend Simulator|MICONYS)\n^//\n^// Sub-System : (?!TODO:).*\n^//\n^// File Name : .*\n^//\n^// Author :(?!.*ADDYOUR NAME IN TEMPLATE).*\n^//\n^// Creation Date : [0-9\.\-]+\n^//\n^//-{77,77}\n^//-{77,77}"/>
+    <property name="fileExtensions" value="java"/>
+  </module>
+</module>

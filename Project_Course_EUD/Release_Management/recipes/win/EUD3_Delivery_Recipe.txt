@@ -1,0 +1,680 @@
+  ______ _    _ _____    _____       _ _                        _    _      _                 
+ |  ____| |  | |  __ \  |  __ \     | (_)                      | |  | |    | |                
+ | |__  | |  | | |  | | | |  | | ___| |___   _____ _ __ _   _  | |__| | ___| |_ __   ___ _ __ 
+ |  __| | |  | | |  | | | |  | |/ _ \ | \ \ / / _ \ '__| | | | |  __  |/ _ \ | '_ \ / _ \ '__|
+ | |____| |__| | |__| | | |__| |  __/ | |\ V /  __/ |  | |_| | | |  | |  __/ | |_) |  __/ |   
+ |______|\____/|_____/  |_____/ \___|_|_| \_/ \___|_|   \__, | |_|  |_|\___|_| .__/ \___|_|   
+                                                         __/ |               | |              
+                                                        |___/                |_|              
+                                                        
+
+The following steps will be executed:
+=====================================================================================================
+010) Get the source code from the trunk
+020) Update Product Files with the new Version and Release Date
+030) Update plugin.xml files with new product version property
+040) Update plugin.xml files with the new Version and Release Date
+050) Execute the PluginManager tool to update the version of all the changed plugins
+060) Update POM version of products (Simulator, EUD_Test, EUD_Test_RAP, Command_Line, MIMIC_Designer)
+070) Update Feature versions
+080) Update POM versions in Features folder
+090) Update Feature Update Site versions
+100) Update POM's parent version in all the workspace
+110) Update parent POM version
+120) Update parent POM RCP version
+130) Update parent POM RAP version
+140) Update parent POM RCP build qualifier
+150) Update parent POM RAP build qualifier
+160) Update EUD-PLATFORM.target pom.xml
+170) Update EUD-PLATFORM_RAP.target pom.xml
+180) Update Team Project Set
+190) Update Team Project Set for RAP
+200) Add all the Project folder changes to repository
+210) Commit Project folder
+220) Add all the Src changes to repository
+230) Commit Src folder
+240) Update Src folder
+250) Copy repository directory from Development Branch to Patch Branch
+260) Rename or delete local folder
+270) Get the content from the Patch Branch
+280) Update SNAPSHOT with the release qualifier
+290) Force context qualifier in RCP parent pom.xml
+300) Force context qualifier in RAP parent pom.xml
+310) Add changes to repository
+320) Commit the changes
+330) Update
+340) Create Tag in the repository
+=====================================================================================================
+
+
+DELIVERY_SETTINGS
+
+/*
+ * Notes:
+ * 1. The following directory separators can be used: '/' or '\'.
+ * 2. Spaces in the directory path are currently not supported.
+ */
+ 
+// The basic settings, these can be overridden by argument
+//--------------------------------------------------------
+
+VERSION=3.2.2
+SNAPSHOT=v20190424-1215
+RELEASEDATE=2019-04-24
+RELEASEYEAR=2019
+
+// Working directory (ideally an empty directory)
+BASE_DIR=C:/Temp/EUD_AUTODELIVERY
+// BASE_DIR=C:\D_EUD3\workspace_maven3
+
+// Other custom settings that will be used by this recipe
+//-------------------------------------------------------
+
+DIRECTORY_PROJECT=$BASE_DIR/Project
+
+/* 
+ * Path to the plugin manager tool (by default it uses the checked
+ * in binary file; therefore the checked in version should be up to
+ * date, otherwise point to a more recent local version)
+ */
+PLUGIN_MANAGER_PATH=$DIRECTORY_PROJECT/Release_Management/toolbin
+
+
+DIRECTORY_SRC=$BASE_DIR/Src
+DIRECTORY_EUD-PLATFORM=$DIRECTORY_SRC/EUD_Generic_Adapters/Target_Platform
+DIRECTORY_EUD-PLATFORM_RAP=$DIRECTORY_SRC/EUD_Generic_Adapters/Target_Platform_RAP
+
+PARENTPOM=$DIRECTORY_SRC/pom.xml
+
+PARENTPOM_RCP=$DIRECTORY_SRC/Build/EUD_RCP/pom.xml
+PARENTPOM_RAP=$DIRECTORY_SRC/Build/EUD_RAP/pom.xml
+
+FEATURES_DIR=$DIRECTORY_SRC/EUD_Features
+
+PRODUCT1=$DIRECTORY_SRC/EUD_Backend-Simulator\eud.simulator.Common\products
+PRODUCT2=$DIRECTORY_SRC/EUD_Test_Tailoring\eud.product.test\products
+PRODUCT3=$DIRECTORY_SRC/EUD_Test_Tailoring\eud.product.test\products_rap
+PRODUCT4=$DIRECTORY_SRC/EUD_Test_Tailoring\eud.product.commandline.test\products
+PRODUCT5=$DIRECTORY_SRC/MIMIC-Designer\eud.product.mimic.designer.test\products
+PRODUCT6=$DIRECTORY_SRC/EUD_ODDE\eud_odde.product\products
+
+// SVN Setting
+//------------
+
+SVN_BIN_FOLDER=C:\SVN\bin
+SVN_REPOSITORY_ROOT=https://sdereps.esa.int/svn/eud20
+
+// The path to the branch containing the source code to release 
+SVN_SRC_BRANCH=branches/EUD_3_DevBranch
+// The location and name of the release branch to create on which later patches for this release can be applied
+SVN_PATCH_BRANCH=branches/EUD_$VERSION_PatchBranch
+// The location and name of the tag to create for this release
+SVN_TAG=tags/EUD_$VERSION
+
+_DELIVERY_SETTINGS
+
+
+START
+
+
+STEP 10 - Get the source code from the trunk
+//------------------------------------------
+EXECUTE_COMMAND
+	command:
+		$SVN_BIN_FOLDER/svn checkout $SVN_REPOSITORY_ROOT/$SVN_SRC_BRANCH/Src
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+EXECUTE_COMMAND
+	command:
+		$SVN_BIN_FOLDER/svn checkout $SVN_REPOSITORY_ROOT/$SVN_SRC_BRANCH/Project
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+
+STEP 20 - Update Product Files with the new Version and Release Date
+//------------------------------------------------------------------
+REPLACE_REGEX
+	files:
+		*.product
+	find: 
+		version="\d+\.\d+\.\d+"
+	replace: 
+		version="$VERSION"
+	find: 
+		\d+\.\d+\.\d+(.+Released )\d\d\d\d-\d\d-\d\d
+	replace:
+		$VERSION$1$RELEASEDATE
+	find: 
+		2007-\d{4} European Space Agency
+	replace:
+		2007-$RELEASEYEAR European Space Agency
+	find: 
+		Â©\d{4} European Space Agency
+	replace:
+		Â©$RELEASEYEAR European Space Agency
+_REPLACE_REGEX
+
+STEP 30 - Update plugin.xml files with new product version property
+//-----------------------------------------------------------------
+MODIFY_XML
+	directory:
+		$DIRECTORY_SRC
+	files:
+		plugin.xml
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='version']/@value
+	replace:
+		$VERSION
+_MODIFY_XML
+		
+STEP 40 - Update plugin.xml files with the new Version and Release Date
+//---------------------------------------------------------------------
+MODIFY_XML
+	directory:
+		$PRODUCT1/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EUD Services Simulator - Version $VERSION Released $RELEASEDATE - ©$RELEASEYEAR European Space Agency
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT2/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EGOS USER DESKTOP $VERSION Released $RELEASEDATE - Standalone Test Tailoring using EUD Backend Simulator test connection adapters. - ©$RELEASEYEAR European Space Agency
+_MODIFY_XML
+
+// Ignore PRODUCT3 because it is the RAP product, located in the same plugin as PRODUCT2
+
+MODIFY_XML
+	directory:
+		$PRODUCT4/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EGOS USER DESKTOP $VERSION Released $RELEASEDATE - Command Line Test Tailoring using EUD Backend Simulator test connection adapters. - ©$RELEASEYEAR European Space Agency
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT5/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EGOS User Desktop Mimic Designer - Version $VERSION Released $RELEASEDATE - ©$RELEASEYEAR European Space Agency.
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT6/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EGOS USER DESKTOP $VERSION Released $RELEASEDATE - Offline Display Development Environment Tailoring using EUD Backend Simulator connection adapters. - ©$RELEASEYEAR European Space Agency
+_MODIFY_XML
+
+
+STEP 50 - Execute the PluginManager tool to update the version of all the changed plugins
+//---------------------------------------------------------------------------------------
+EXECUTE_COMMAND
+	command:
+		java -jar $PLUGIN_MANAGER_PATH/PluginManager.jar updatePlugins=$VERSION
+	directory:
+		$DIRECTORY_SRC
+_EXECUTE_COMMAND
+
+
+STEP 60 - Update POM version of products (Simulator, EUD_Test, EUD_Test_RAP, Command_Line, MIMIC_Designer)
+//--------------------------------------------------------------------------------------------------------
+MODIFY_XML
+	directory:
+		$PRODUCT1
+	files:
+		pom.xml
+    XPath:
+        /project/parent/version
+    replace:
+        $VERSION-SNAPSHOT
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT2
+	files:
+		pom.xml
+    XPath:
+        /project/parent/version
+    replace:
+        $VERSION-SNAPSHOT
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT3
+	files:
+		pom.xml
+    XPath:
+        /project/parent/version
+    replace:
+        $VERSION-SNAPSHOT
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT4
+	files:
+		pom.xml
+    XPath:
+        /project/parent/version
+    replace:
+        $VERSION-SNAPSHOT
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT5
+	files:
+		pom.xml
+    XPath:
+        /project/parent/version
+    replace:
+        $VERSION-SNAPSHOT
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT6
+	files:
+		pom.xml
+    XPath:
+        /project/parent/version
+    replace:
+        $VERSION-SNAPSHOT
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+
+STEP 70 - Update Feature versions
+//-------------------------------
+MODIFY_XML
+	directory:
+		$DIRECTORY_SRC
+	files:
+		feature.xml
+	XPath:
+		/feature/@version
+	replace: 
+		$VERSION.qualifier
+_MODIFY_XML
+
+
+STEP 80 - Update POM versions in Features folder
+//----------------------------------------------
+MODIFY_XML
+	directory:
+		$FEATURES_DIR
+	files:
+		pom.xml
+    XPath:
+        /project/parent/version
+    replace:
+        $VERSION-SNAPSHOT
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+
+STEP 90 - Update Feature Update Site versions
+//-------------------------------------------
+REPLACE_REGEX
+	files:
+		category.xml
+	find: 
+		\d+\.\d+\.\d+.qualifier
+	replace: 
+		$VERSION.qualifier
+_REPLACE_REGEX
+
+
+STEP 100 - Update POM's parent version in all the workspace
+//---------------------------------------------------------
+MODIFY_XML
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+    XPath:
+        /project/parent[groupId='esa.egos.eud']/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+
+STEP 110 - Update parent POM version
+//----------------------------------
+MODIFY_XML
+	directory:
+		$PARENTPOM
+	files:
+		pom.xml
+	XPath: 
+		/project[groupId='esa.egos.eud']/version
+	replace:
+		$VERSION-SNAPSHOT
+_MODIFY_XML
+
+
+STEP 120 - Update parent POM RCP version
+//--------------------------------------
+MODIFY_XML
+	directory:
+		$PARENTPOM_RCP
+	files:
+		pom.xml
+	XPath: 
+		/project[groupId='esa.egos.eud']/version
+	replace:
+		$VERSION-SNAPSHOT
+	XPath: 
+		/project/build/plugins/plugin[artifactId='target-platform-configuration']/configuration/target/artifact/version
+	replace:
+		$VERSION-SNAPSHOT
+_MODIFY_XML
+
+STEP 130 - Update parent POM RAP version
+//--------------------------------------
+MODIFY_XML
+	directory:
+		$PARENTPOM_RAP
+	files:
+		pom.xml
+	XPath: 
+		/project[groupId='esa.egos.eud']/version
+	replace:
+		$VERSION-SNAPSHOT
+	XPath: 
+		/project/build/plugins/plugin[artifactId='target-platform-configuration']/configuration/target/artifact/version
+	replace:
+		$VERSION-SNAPSHOT
+_MODIFY_XML
+
+
+STEP 140 - Update parent POM RCP build qualifier
+//----------------------------------------------
+REPLACE_REGEX
+	directory:
+		$PARENTPOM_RCP
+	files:
+		pom.xml
+	find: 
+		<forceContextQualifier>v\d+\-\d+</forceContextQualifier>
+	replace: 
+		<forceContextQualifier>$SNAPSHOT</forceContextQualifier>
+_REPLACE_REGEX
+
+STEP 150 - Update parent POM RAP build qualifier
+//----------------------------------------------
+REPLACE_REGEX
+	directory:
+		$PARENTPOM_RAP
+	files:
+		pom.xml
+	find: 
+		<forceContextQualifier>v\d+\-\d+</forceContextQualifier>
+	replace: 
+		<forceContextQualifier>$SNAPSHOT</forceContextQualifier>
+_REPLACE_REGEX
+
+
+STEP 160 - Update EUD-PLATFORM.target pom.xml
+//-------------------------------------------
+MODIFY_XML
+	directory:
+		$DIRECTORY_EUD-PLATFORM
+	files:
+		pom.xml
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+STEP 170 - Update EUD-PLATFORM_RAP.target pom.xml
+//-----------------------------------------------
+MODIFY_XML
+	directory:
+		$DIRECTORY_EUD-PLATFORM_RAP
+	files:
+		pom.xml
+    XPath:
+        /project/version
+    replace:
+        $VERSION-SNAPSHOT
+_MODIFY_XML
+
+STEP 180 - Update Team Project Set
+//--------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_PROJECT
+	files:
+		Team-Project-Set_EUD-RCP_PatchBranch.psf
+	find: 
+		(EUD_)\d+\.\d+\.\d+(_PatchBranch)
+	replace: 
+		$1$VERSION$2
+_REPLACE_REGEX
+
+STEP 190 - Update Team Project Set for RAP
+//----------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_PROJECT
+	files:
+		Team-Project-Set_EUD-RAP_PatchBranch.psf
+	find: 
+		(EUD_)\d+\.\d+\.\d+(_PatchBranch)
+	replace: 
+		$1$VERSION$2
+_REPLACE_REGEX
+
+STEP 200 - Add all the Project folder changes to repository
+//---------------------------------------------------------
+EXECUTE_COMMAND
+	command:
+		$SVN_BIN_FOLDER/svn add * --force
+	directory:
+		$DIRECTORY_PROJECT
+_EXECUTE_COMMAND
+
+STEP 210 - Commit Project folder
+//------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_PROJECT
+	command:
+		$SVN_BIN_FOLDER/svn commit -m "[Automatic Release] - Updated Team Project Set files for EUD $VERSION Patch Branch"
+_EXECUTE_COMMAND
+
+STEP 220 - Add all the Src changes to repository
+//----------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN_BIN_FOLDER/svn add * --force
+_EXECUTE_COMMAND
+
+
+STEP 230 - Commit Src folder
+//--------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN_BIN_FOLDER/svn commit -m "[Automatic Release] - Initial steps for the preparation of release $VERSION"
+_EXECUTE_COMMAND
+
+
+STEP 240 - Update Src folder
+//--------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN_BIN_FOLDER/svn update .
+_EXECUTE_COMMAND
+
+
+STEP 250 - Copy repository directory from Development Branch to Patch Branch
+//--------------------------------------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:		
+		cmd /V /C for /f %i in ('$SVN_BIN_FOLDER/svnversion') do $SVN_BIN_FOLDER/svn copy $SVN_REPOSITORY_ROOT/$SVN_SRC_BRANCH@%i $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH/ -m "[Automatic Release] - Created EUD $VERSION patch branch on revision %i"
+_EXECUTE_COMMAND
+
+
+STEP 260 - Rename or delete local folder
+//--------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$BASE_DIR
+	command:		
+		cmd /C ren Src Src_Branch
+_EXECUTE_COMMAND
+
+
+STEP 270 - Get the content from the Patch Branch
+//----------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$BASE_DIR
+	command:
+		$SVN_BIN_FOLDER/svn checkout $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH/Src
+_EXECUTE_COMMAND
+
+
+STEP 280 - Update SNAPSHOT with the release qualifier
+//---------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+	find: 
+		-SNAPSHOT
+	replace: 
+		.$SNAPSHOT	
+_REPLACE_REGEX
+
+
+STEP 290 - Force context qualifier in RCP parent pom.xml
+//------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$PARENTPOM_RCP
+	files:
+		pom.xml
+	find: 
+		(<!--[ \t]*)(<forceContextQualifier>[v]\d+[-]\d+<\/forceContextQualifier>)([ \t]*-->)
+	replace: 
+		$2	
+_REPLACE_REGEX
+
+STEP 300 - Force context qualifier in RAP parent pom.xml
+//------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$PARENTPOM_RAP
+	files:
+		pom.xml
+	find: 
+		(<!--[ \t]*)(<forceContextQualifier>[v]\d+[-]\d+<\/forceContextQualifier>)([ \t]*-->)
+	replace: 
+		$2	
+_REPLACE_REGEX
+
+
+STEP 310 - Add changes to repository
+//----------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN_BIN_FOLDER/svn add * --force
+_EXECUTE_COMMAND
+
+
+STEP 320 - Commit the changes
+//---------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN_BIN_FOLDER/svn commit -m "[Automatic Release] - Set qualifier .$SNAPSHOT for EUD $VERSION release"
+_EXECUTE_COMMAND
+
+
+STEP 330 - Update
+//---------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN_BIN_FOLDER/svn update .
+_EXECUTE_COMMAND
+
+
+STEP 340 - Create Tag in the repository
+//-------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:		
+		cmd /V /C for /f %i in ('$SVN_BIN_FOLDER/svnversion') do $SVN_BIN_FOLDER/svn copy $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH $SVN_REPOSITORY_ROOT/$SVN_TAG/ -m "[Automatic Release] - Created EUD $VERSION Release Tag on revision %i"
+_EXECUTE_COMMAND
+
+END

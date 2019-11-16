@@ -1,0 +1,788 @@
+  ______ _    _ _____    _____       _ _                        _    _      _                 
+ |  ____| |  | |  __ \  |  __ \     | (_)                      | |  | |    | |                
+ | |__  | |  | | |  | | | |  | | ___| |___   _____ _ __ _   _  | |__| | ___| |_ __   ___ _ __ 
+ |  __| | |  | | |  | | | |  | |/ _ \ | \ \ / / _ \ '__| | | | |  __  |/ _ \ | '_ \ / _ \ '__|
+ | |____| |__| | |__| | | |__| |  __/ | |\ V /  __/ |  | |_| | | |  | |  __/ | |_) |  __/ |   
+ |______|\____/|_____/  |_____/ \___|_|_| \_/ \___|_|   \__, | |_|  |_|\___|_| .__/ \___|_|   
+                                                         __/ |               | |              
+                                                        |___/                |_|              
+                                                        
+
+The following steps will be executed:
+======================================================================================================
+010) Copy repository directory from EUD_x.y.z_PatchBranch to External Release Branch
+020) Get the source code and Project from the PATCH_BRANCH
+030) Project cleanup: Delete Main RCP/RAP POMs
+040) Project cleanup: Override real parent pom from alternative build E
+050) Project cleanup: Delete EUD_WEB_Fragments
+060) Project cleanup: Delete products_rap
+070) Project cleanup: Delete products_rap
+080) Project cleanup: Delete Target_Platform_RAP
+090) Project cleanup: Delete RAP_Features
+100) Project cleanup: Delete Project team set and launch configurations
+110) Project cleanup: Delete platform patcher and errorreport plugin
+120) Project cleanup: Remove platform patcher and errorreport plugin from feature
+130) Project cleanup: Remove platform patcher and errorreport plugin from Team Project Set
+140) Project cleanup: Remove platform patcher, errorreport and eud.darc.tm.product plugin from pom.xml
+150) Project cleanup: Modify CommonPlugin.java to remove patcher Plugin check
+160) Project cleanup: Modify CorePlugin.java to remove errorreport Plugin check
+170) Update Product Files with the new Version and Release Date
+180) Update plugin.xml files with new product version property
+190) Update plugin.xml files with the new Version and Release Date
+200) Replace qualifier with special qualifier for external distribution
+210) Update special external distribution parent POM versions (1 & 2)
+220) Update special external distribution parent POM forceContextQualifier (3)
+230) Change parent.artifactId in all POMs from 'EUD_RAP' to 'EUD'
+240) Update POM's relative Path in all the workspace
+250) Update POM's relative Path in PRODUCT1
+260) Update POM's relative Path in PRODUCT2
+270) Update POM's relative Path in PRODUCT4
+280) Update POM's relative Path in PRODUCT5
+290) Update POM's relative Path in PRODUCT6
+300) Update Team Project Set
+310) Mark removed local files in Src as deleted in SVN
+320) Add all the Src changes to repository
+330) Commit Src folder
+340) Mark removed local files in Project as deleted in SVN
+350) Add all the Project changes to repository
+360) Commit Project folder
+370) Update Src folder
+380) Update Project folder
+390) Create Tag in the repository
+======================================================================================================
+
+
+DELIVERY_SETTINGS
+
+/*
+ * Notes:
+ * 1. The following directory separators can be used: '/' or '\'.
+ * 2. Spaces in the directory path are currently not supported.
+ */
+ 
+// The basic settings, these can be overridden by argument
+//--------------------------------------------------------
+
+BASE_VERSION=3.2.2
+RELEASEYEAR=2019
+RELEASEDATE=2019-04-24
+QUALIFIER=v20190424-1215
+
+EXT_DIST_VERSION=$BASE_VERSION.e
+
+
+// Working directory (ideally an empty directory)
+//-----------------------------------------------
+BASE_DIR=C:/Temp/EUD_AUTODELIVERY
+BASE_DIR2=C:\Temp\EUD_AUTODELIVERY
+// BASE_DIR=C:/D_EUD3/workspace_M_EUD3R
+// BASE_DIR2=C:\D_EUD3\workspace_M_EUD3R
+
+
+// SVN Setting
+//------------
+SVN_REPOSITORY_ROOT=https://sdereps.esa.int/svn/eud20
+SVN_BIN_FOLDER=C:\SVN\bin
+//SVN-COMMAND=svn
+//SVN-VERSION-COMMAND=svnversion
+SVN-COMMAND=$SVN_BIN_FOLDER\svn
+SVN-VERSION-COMMAND=$SVN_BIN_FOLDER\svnversion
+
+// The path to the branch containing the source code to release 
+SVN_SRC_BRANCH=branches/EUD_$BASE_VERSION_PatchBranch
+
+// The location and name of the release branch to create on which later patches for this release can be applied
+SVN_PATCH_BRANCH=branches/EUD_$EXT_DIST_VERSION_ReleaseBranch
+
+// The location and name of the tag to create for this release
+SVN_TAG=tags/EUD_$EXT_DIST_VERSION
+
+
+// Other custom settings that will be used by this recipe
+//-------------------------------------------------------
+
+DIRECTORY_SRC=$BASE_DIR/Src
+DIRECTORY_PROJECT=$BASE_DIR/Project
+
+POM_FOLDER=$DIRECTORY_PROJECT/Release_Management/Alternative_Build/E
+PARENTPOM=$DIRECTORY_SRC/pom.xml
+
+// Main POM's relative Path in all the workspace
+RELATIVEPATH=../../
+
+// Main POM's relative Path in product pom.xml
+RELATIVEPRODPATH=../../../
+
+PRODUCT1=$DIRECTORY_SRC/EUD_Backend-Simulator\eud.simulator.Common\products
+PRODUCT2=$DIRECTORY_SRC/EUD_Test_Tailoring\eud.product.test\products
+PRODUCT4=$DIRECTORY_SRC/EUD_Test_Tailoring\eud.product.commandline.test\products
+PRODUCT5=$DIRECTORY_SRC/MIMIC-Designer\eud.product.mimic.designer.test\products
+PRODUCT6=$DIRECTORY_SRC/EUD_ODDE\eud_odde.product\products
+
+/* 
+ * Path to the plugin manager tool (by default it uses the checked
+ * in binary file; therefore the checked in version should be up to
+ * date, otherwise point to a more recent local version)
+ */
+PLUGIN_MANAGER_PATH=$DIRECTORY_PROJECT/Release_Management/toolbin
+
+
+_DELIVERY_SETTINGS
+
+
+START
+
+STEP 10 - Copy repository directory from EUD_x.y.z_PatchBranch to External Release Branch
+//---------------------------------------------------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$BASE_DIR
+	command:		
+		cmd /V /C for /f %i in ('$SVN-COMMAND info --show-item last-changed-revision $SVN_REPOSITORY_ROOT/$SVN_SRC_BRANCH') do $SVN-COMMAND copy $SVN_REPOSITORY_ROOT/$SVN_SRC_BRANCH@%i $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH/ -m "[Automatic Release] - Created EUD $EXT_DIST_VERSION release branch on revision %i"
+_EXECUTE_COMMAND
+
+
+STEP 20 - Get the source code and Project from the PATCH_BRANCH
+//-------------------------------------------------------------
+EXECUTE_COMMAND
+	command:
+		$SVN-COMMAND checkout $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH/Src
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+EXECUTE_COMMAND
+	command:
+		$SVN-COMMAND checkout $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH/Project
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+
+STEP 30 Project cleanup: Delete Main RCP/RAP POMs
+//-----------------------------------------------
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/Build
+	files:
+		.
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+_DELETE_FILE
+
+
+STEP 40 Project cleanup: Override real parent pom from alternative build E
+//------------------------------------------------------------------------
+EXECUTE_COMMAND
+	command:
+		cmd /V /C MOVE /Y pom.xml "$BASE_DIR2\Src\pom.xml"
+	directory:
+		$POM_FOLDER
+_EXECUTE_COMMAND
+
+
+STEP 50 Project cleanup: Delete EUD_WEB_Fragments
+//-----------------------------------------------
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC
+	files:
+		EUD_WEB_Fragments
+	recursive:
+		false
+_DELETE_FILE
+
+
+STEP 60 Project cleanup: Delete products_rap
+//------------------------------------------
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/EUD_Test_Tailoring/eud.product.test
+	files:
+		products_rap
+	recursive:
+		false
+_DELETE_FILE
+
+
+STEP 70 Project cleanup: Delete products_rap
+//------------------------------------------
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/EUD_Test_Tailoring
+	files:
+		eud.darc.tm.product
+	recursive:
+		false
+_DELETE_FILE
+
+
+STEP 80 Project cleanup: Delete Target_Platform_RAP
+//-------------------------------------------------
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/EUD_Generic_Adapters
+	files:
+		Target_Platform_RAP
+	recursive:
+		false
+_DELETE_FILE
+
+
+STEP 90 Project cleanup: Delete RAP_Features
+//------------------------------------------
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/EUD_Features
+	files:
+		EUD_FeatureUpdateSite_RAP
+	recursive:
+		false
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/EUD_Features
+	files:
+		*RAP_Feature
+	recursive:
+		false
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/EUD_Features
+	files:
+		*RAP_Dependencies_Feature
+	recursive:
+		false
+_DELETE_FILE
+
+
+STEP 100 Project cleanup: Delete Project team set and launch configurations
+//-------------------------------------------------------------------------
+DELETE_FILE
+	directory:
+		$DIRECTORY_PROJECT
+	files:
+		Team-Project-Set_EUD-RAP_MainDev.psf
+	recursive:
+		false
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_PROJECT
+	files:
+		Team-Project-Set_EUD-RCP_MainDev.psf
+	recursive:
+		false
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_PROJECT/target-platform definitions
+	files:
+		WEB-EUD3_LOCAL.target
+	recursive:
+		false
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_PROJECT/target-platform definitions
+	files:
+		WEB-EUD3_LOCAL.target.txt
+	recursive:
+		false
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_PROJECT/target-platform definitions
+	files:
+		WEB-EUD3-NEXUS.target
+	recursive:
+		false
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_PROJECT/LauchConfigurations/web-eud
+	files:
+		.
+	recursive:
+		false
+_DELETE_FILE
+
+STEP 110 Project cleanup: Delete platform patcher and errorreport plugin
+//----------------------------------------------------------------------
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/EUD_Framework
+	files:
+		eud.common.platformpatcher
+	recursive:
+		false
+_DELETE_FILE
+
+DELETE_FILE
+	directory:
+		$DIRECTORY_SRC/EUD_Framework
+	files:
+		eud.errorreport
+	recursive:
+		false
+_DELETE_FILE
+
+
+STEP 120 Project cleanup: Remove platform patcher and errorreport plugin from feature
+//-----------------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC/EUD_Features/EUD_Core_RCP_Feature
+	files:
+		feature.xml
+	find:
+		<plugin .* id="esa\.egos\.eud\.common\.platformpatcher" .*>
+	replace:
+		\R
+	find:
+		<plugin .* id="esa\.egos\.eud\.errorreport" .*>
+	replace:
+		\R
+_REPLACE_REGEX
+
+
+STEP 130 Project cleanup: Remove platform patcher and errorreport plugin from Team Project Set
+//--------------------------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_PROJECT
+	files:
+		*.psf
+	find:
+		<project reference=.*?eud\.common\.platformpatcher.*?/>[ \t]*\R
+	replace:
+		\R
+	find:
+		<project reference=.*?eud\.errorreport.*?/>[ \t]*\R
+	replace:
+		\R
+	find:
+		<project reference=.*?eud\.darc\.tm\.product.*?/>[ \t]*\R
+	replace:
+		\R
+	find:
+		<item elementID=.*?eud\.common\.platformpatcher.*?/>[ \t]*\R
+	replace:
+		\R
+	find:
+		<item elementID=.*?eud\.errorreport.*?/>[ \t]*\R
+	replace:
+		\R
+	find:
+		<item elementID=.*?eud\.darc\.tm\.product.*?/>[ \t]*\R
+	replace:
+		\R
+_REPLACE_REGEX
+
+
+STEP 140 Project cleanup: Remove platform patcher, errorreport and eud.darc.tm.product plugin from pom.xml
+//--------------------------------------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+	find:
+		<module>EUD_Framework/eud\.errorreport</module>
+	replace:
+		\R
+	find:
+		<module>EUD_Framework/eud\.common\.platformpatcher</module>
+	replace:
+		\R
+	find:
+		<module>EUD_Test_Tailoring/eud\.darc\.tm\.product</module>
+	replace:
+		\R
+_REPLACE_REGEX
+
+
+STEP 150 Project cleanup: Modify CommonPlugin.java to remove patcher Plugin check
+//-------------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC/EUD_Framework/eud.common/src/esa/egos/eud/common
+	files:
+		CommonPlugin.java
+	find:
+		PlatformPatcher plugin check\R(.*\R)+[ /t\/]*PlatformPatcher plugin check END
+	replace:
+		\R
+_REPLACE_REGEX
+
+
+STEP 160 Project cleanup: Modify CorePlugin.java to remove errorreport Plugin check
+//---------------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC/EUD_Framework/eud.core/src/esa/egos/eud/core
+	files:
+		CorePlugin.java
+	find:
+		ErrorReport plugin check\R(.*\R)+[ /t\/]*ErrorReport plugin check END
+	replace:
+		\R
+_REPLACE_REGEX
+
+
+STEP 170 - Update Product Files with the new Version and Release Date
+//-------------------------------------------------------------------
+REPLACE_REGEX
+	files:
+		*.product
+	find: 
+		version="\d+\.\d+\.\d+"
+	replace: 
+		version="$EXT_DIST_VERSION"
+	find: 
+		\d+\.\d+\.\d+(.+Released )\d\d\d\d-\d\d-\d\d
+	replace:
+		$EXT_DIST_VERSION$1$RELEASEDATE
+	find: 
+		2007-\d{4} European Space Agency
+	replace:
+		2007-$RELEASEYEAR European Space Agency
+	find: 
+		Â©\d{4} European Space Agency
+	replace:
+		Â©$RELEASEYEAR European Space Agency
+_REPLACE_REGEX
+
+STEP 180 - Update plugin.xml files with new product version property
+//------------------------------------------------------------------
+MODIFY_XML
+	directory:
+		$DIRECTORY_SRC
+	files:
+		plugin.xml
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='version']/@value
+	replace:
+		$EXT_DIST_VERSION
+_MODIFY_XML
+		
+STEP 190 - Update plugin.xml files with the new Version and Release Date
+//----------------------------------------------------------------------
+MODIFY_XML
+	directory:
+		$PRODUCT1/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EUD Services Simulator - Version $EXT_DIST_VERSION Released $RELEASEDATE - ©$RELEASEYEAR European Space Agency
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT2/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EGOS USER DESKTOP $EXT_DIST_VERSION Released $RELEASEDATE - Standalone Test Tailoring using EUD Backend Simulator test connection adapters. - ©$RELEASEYEAR European Space Agency
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT4/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EGOS USER DESKTOP $EXT_DIST_VERSION Released $RELEASEDATE - Command Line Test Tailoring using EUD Backend Simulator test connection adapters. - ©$RELEASEYEAR European Space Agency
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT5/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EGOS User Desktop Mimic Designer - Version $EXT_DIST_VERSION Released $RELEASEDATE - ©$RELEASEYEAR European Space Agency.
+_MODIFY_XML
+
+MODIFY_XML
+	directory:
+		$PRODUCT6/..
+	files:
+		plugin.xml		
+	XPath:
+		plugin/extension[@point='org.eclipse.core.runtime.products']/product/property[@name='aboutText']/@value
+	replace:
+		EGOS USER DESKTOP $EXT_DIST_VERSION Released $RELEASEDATE - Offline Display Development Environment Tailoring using EUD Backend Simulator connection adapters. - ©$RELEASEYEAR European Space Agency
+_MODIFY_XML
+
+
+STEP 200 - Replace qualifier with special qualifier for external distribution
+//---------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+	find: 
+		$QUALIFIER
+	replace: 
+		$QUALIFIERe
+_REPLACE_REGEX
+
+
+STEP 210 - Update special external distribution parent POM versions (1 & 2)
+//-------------------------------------------------------------------------
+MODIFY_XML
+	directory:
+		$PARENTPOM
+	files:
+		pom.xml
+	XPath: 
+		/project[groupId='esa.egos.eud']/version
+	replace:
+		$BASE_VERSION.$QUALIFIERe
+	XPath: 
+		/project/build/plugins/plugin[artifactId='target-platform-configuration']/configuration/target/artifact/version
+	replace:
+		$BASE_VERSION.$QUALIFIERe
+_MODIFY_XML
+
+
+STEP 220 - Update special external distribution parent POM forceContextQualifier (3)
+//----------------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$PARENTPOM
+	files:
+		pom.xml
+	find: 
+		<forceContextQualifier>v\d+\-\d+</forceContextQualifier>
+	replace: 
+		<forceContextQualifier>$QUALIFIERe</forceContextQualifier>
+_REPLACE_REGEX
+
+
+STEP 230 - Change parent.artifactId in all POMs from 'EUD_RAP' to 'EUD'
+//---------------------------------------------------------------------
+MODIFY_XML
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+    XPath:
+        /project/parent[groupId='esa.egos.eud']/artifactId
+    replace:
+        EUD
+_MODIFY_XML
+
+
+STEP 240 - Update POM's relative Path in all the workspace
+//--------------------------------------------------------
+MODIFY_XML
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+    XPath:
+        /project/parent[groupId='esa.egos.eud']/relativePath
+    replace:
+        $RELATIVEPATH
+_MODIFY_XML
+
+STEP 250 - Update POM's relative Path in PRODUCT1
+//-----------------------------------------------
+MODIFY_XML
+	directory:
+		$PRODUCT1
+	files:
+		pom.xml
+    XPath:
+        /project/parent[groupId='esa.egos.eud']/relativePath
+    replace:
+        $RELATIVEPRODPATH
+_MODIFY_XML
+
+STEP 260 - Update POM's relative Path in PRODUCT2
+//-----------------------------------------------
+MODIFY_XML
+	directory:
+		$PRODUCT2
+	files:
+		pom.xml
+    XPath:
+        /project/parent[groupId='esa.egos.eud']/relativePath
+    replace:
+        $RELATIVEPRODPATH
+_MODIFY_XML
+
+STEP 270 - Update POM's relative Path in PRODUCT4
+//-----------------------------------------------
+MODIFY_XML
+	directory:
+		$PRODUCT4
+	files:
+		pom.xml
+    XPath:
+        /project/parent[groupId='esa.egos.eud']/relativePath
+    replace:
+        $RELATIVEPRODPATH
+_MODIFY_XML
+
+STEP 280 - Update POM's relative Path in PRODUCT5
+//-----------------------------------------------
+MODIFY_XML
+	directory:
+		$PRODUCT5
+	files:
+		pom.xml
+    XPath:
+        /project/parent[groupId='esa.egos.eud']/relativePath
+    replace:
+        $RELATIVEPRODPATH
+_MODIFY_XML
+
+STEP 290 - Update POM's relative Path in PRODUCT6
+//-----------------------------------------------
+MODIFY_XML
+	directory:
+		$PRODUCT6
+	files:
+		pom.xml
+    XPath:
+        /project/parent[groupId='esa.egos.eud']/relativePath
+    replace:
+        $RELATIVEPRODPATH
+_MODIFY_XML
+
+
+STEP 300 - Update Team Project Set
+//--------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_PROJECT
+	files:
+		Team-Project-Set_EUD-RCP_PatchBranch.psf
+	find: 
+		(EUD_)\d+\.\d+\.\d+(_PatchBranch)
+	replace: 
+		$1$EXT_DIST_VERSION_ReleaseBranch
+_REPLACE_REGEX
+
+
+// =======================================================================
+//                         SVN COMMIT OPERATIONS
+// =======================================================================
+
+
+STEP 310 - Mark removed local files in Src as deleted in SVN
+//----------------------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		cmd /V /C for /F "tokens=* usebackq delims=! " %i IN (`$SVN-COMMAND status ^| findstr /R "^!"`) DO @$SVN-COMMAND rm --force "%i"
+_EXECUTE_COMMAND
+
+
+STEP 320 - Add all the Src changes to repository
+//----------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN-COMMAND add * --force
+_EXECUTE_COMMAND
+
+
+STEP 330 - Commit Src folder
+//--------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN-COMMAND commit -m "[Automatic Release] - Released EUD for external distribution  $BASE_VERSION.$QUALIFIERe"
+_EXECUTE_COMMAND
+
+
+STEP 340 - Mark removed local files in Project as deleted in SVN
+//--------------------------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_PROJECT
+	command:
+		cmd /V /C for /F "tokens=* usebackq delims=! " %i IN (`$SVN-COMMAND status ^| findstr /R "^!"`) DO @$SVN-COMMAND rm --force "%i"
+_EXECUTE_COMMAND
+
+
+STEP 350 - Add all the Project changes to repository
+//--------------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_PROJECT
+	command:
+		$SVN-COMMAND add * --force
+_EXECUTE_COMMAND
+
+
+STEP 360 - Commit Project folder
+//------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_PROJECT
+	command:
+		$SVN-COMMAND commit -m "[Automatic Release] - Released EUD for external distribution  $BASE_VERSION.$QUALIFIERe"
+_EXECUTE_COMMAND
+
+
+STEP 370 - Update Src folder
+//--------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN-COMMAND update .
+_EXECUTE_COMMAND
+
+
+STEP 380 - Update Project folder
+//------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_PROJECT
+	command:
+		$SVN-COMMAND update .
+_EXECUTE_COMMAND
+
+
+STEP 390 - Create Tag in the repository
+//-------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:		
+		cmd /V /C for /f %i in ('$SVN-VERSION-COMMAND') do $SVN-COMMAND copy $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH $SVN_REPOSITORY_ROOT/$SVN_TAG/ -m "[Automatic Release] - Created EUD $BASE_VERSION.$QUALIFIERe Release Tag on revision %i"
+_EXECUTE_COMMAND
+
+
+END

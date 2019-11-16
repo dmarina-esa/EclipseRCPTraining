@@ -1,0 +1,20 @@
+\A^//-{77,77}
+^//
+^// \(C\) [ \-,0-9]* European Space Agency
+^// European Space Operations Centre
+^// Darmstadt, Germany
+^//
+^//-{77,77}
+^//
+^// System : EGOS USER DESKTOP
+^//
+^// Sub-System : (?!TODO:).*
+^//
+^// File Name : .*
+^//
+^// Author : (?!.*ADD YOUR NAME IN TEMPLATE).*
+^//
+^// Creation Date : [0-9\.\-]+
+^//
+^//-{77,77}
+^//-{77,77}
