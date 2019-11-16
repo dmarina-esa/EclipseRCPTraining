@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<suppressions>
+    <!-- Do not check Eclipse generated Messages classes. -->
+    <suppress checks=".*"
+              files="Messages.java|MessagesUI.java"/>
+              
+    <!-- Do not check images and asm & atl files. -->
+    <suppress checks=".*"
+              files=".*\.asm|.*\.atl|.*\.bmp|.*\.gif"/>
+
+    <!-- Do not check existing Constraint class names from EGOS-MF. -->
+    <suppress checks="TypeNameCheck"
+              files="Constraint_.*.java"/>
+              
+    <!-- Do not check for magic numbers and multiple string literals in tests. -->
+    <suppress checks="MagicNumberCheck|MultipleStringLiteralsCheck"
+              files=".*Test.java|.*Tests.java"/>
+                            
+</suppressions>

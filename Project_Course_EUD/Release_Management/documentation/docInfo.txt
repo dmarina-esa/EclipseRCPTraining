@@ -1,0 +1,4 @@
+The documentation is located under: tools\src\esa\egos\devtools\Plugin_Manager_Application_info.txt
+The documentation can viewed by running the utility with no arguments:
+
+java -jar PluginManager.jar

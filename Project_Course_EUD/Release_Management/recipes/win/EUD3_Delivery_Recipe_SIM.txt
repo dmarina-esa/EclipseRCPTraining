@@ -1,0 +1,265 @@
+  ______ _    _ _____    _____       _ _                        _    _      _                 
+ |  ____| |  | |  __ \  |  __ \     | (_)                      | |  | |    | |                
+ | |__  | |  | | |  | | | |  | | ___| |___   _____ _ __ _   _  | |__| | ___| |_ __   ___ _ __ 
+ |  __| | |  | | |  | | | |  | |/ _ \ | \ \ / / _ \ '__| | | | |  __  |/ _ \ | '_ \ / _ \ '__|
+ | |____| |__| | |__| | | |__| |  __/ | |\ V /  __/ |  | |_| | | |  | |  __/ | |_) |  __/ |   
+ |______|\____/|_____/  |_____/ \___|_|_| \_/ \___|_|   \__, | |_|  |_|\___|_| .__/ \___|_|   
+                                                         __/ |               | |              
+                                                        |___/                |_|              
+                                                        
+
+The following steps will be executed:
+===================================================================================================
+010) Copy repository directory from Delivery Branch for external distribution to SIM Release Branch
+020) Get the Src and Project from the trunk
+030) Project cleanup: Remove DARC & FARC modules from main POM
+040) Project cleanup: Remove DARC & FARC feature from Updatesite
+050) Project cleanup: Remove DARC & FARC plugin dependencies from target platform
+060) Update Team Project Set
+070) Add all the Src changes to repository
+080) Commit Src folder
+090) Add all the Project changes to repository
+100) Commit Project folder
+110) Update Src folder
+120) Update Project folder
+130) Create Tag in the repository
+===================================================================================================
+
+
+DELIVERY_SETTINGS
+
+/*
+ * Notes:
+ * 1. The following directory separators can be used: '/' or '\'.
+ * 2. Spaces in the directory path are currently not supported.
+ */
+ 
+// The basic settings, these can be overridden by argument
+//--------------------------------------------------------
+
+BASE_VERSION=3.2.2
+RELEASEYEAR=2019
+RELEASEDATE=2019-04-24
+QUALIFIER=v20190424-1215
+
+EXT_DIST_VERSION=$BASE_VERSION.e
+SIMULUS_VERSION=$BASE_VERSION.sim
+
+
+// Working directory (ideally an empty directory)
+//-----------------------------------------------
+BASE_DIR=C:/Temp/EUD_AUTODELIVERY
+// BASE_DIR=C:/D_EUD3/workspace_M_EUD3R
+
+
+// SVN Setting
+//------------
+SVN_REPOSITORY_ROOT=https://sdereps.esa.int/svn/eud20
+SVN_BIN_FOLDER=C:\SVN\bin
+//SVN-COMMAND=svn
+//SVN-VERSION-COMMAND=svnversion
+SVN-COMMAND=$SVN_BIN_FOLDER\svn
+SVN-VERSION-COMMAND=$SVN_BIN_FOLDER\svnversion
+
+// The path to the branch containing the source code to release 
+SVN_SRC_BRANCH=branches/EUD_$EXT_DIST_VERSION_ReleaseBranch
+
+// The location and name of the release branch to create on which later patches for this release can be applied
+SVN_PATCH_BRANCH=branches/EUD_$SIMULUS_VERSION_ReleaseBranch
+
+// The location and name of the tag to create for this release
+SVN_TAG=tags/EUD_$SIMULUS_VERSION
+
+
+// Other custom settings that will be used by this recipe
+//-------------------------------------------------------
+
+DIRECTORY_SRC=$BASE_DIR/Src
+DIRECTORY_PROJECT=$BASE_DIR/Project
+
+DIRECTORY_EUD-PLATFORM=$DIRECTORY_SRC/EUD_Generic_Adapters/Target_Platform
+DIRECTORY_EUD_UPDATE_SITE=$DIRECTORY_SRC/EUD_Features/EUD_FeatureUpdateSite
+
+
+_DELIVERY_SETTINGS
+
+
+START
+
+
+STEP 10 - Copy repository directory from Delivery Branch for external distribution to SIM Release Branch
+//------------------------------------------------------------------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$BASE_DIR
+	command:		
+		cmd /V /C for /f %i in ('$SVN-COMMAND info --show-item last-changed-revision $SVN_REPOSITORY_ROOT/$SVN_SRC_BRANCH') do $SVN-COMMAND copy $SVN_REPOSITORY_ROOT/$SVN_SRC_BRANCH@%i $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH/ -m "[Automatic Release] - Created EUD $SIMULUS_VERSION release branch on revision %i"
+_EXECUTE_COMMAND
+
+
+STEP 20 - Get the Src and Project from the trunk
+//----------------------------------------------
+EXECUTE_COMMAND
+	command:
+		$SVN-COMMAND checkout $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH/Src
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+EXECUTE_COMMAND
+	command:
+		$SVN-COMMAND checkout $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH/Project
+	directory:
+		$BASE_DIR
+_EXECUTE_COMMAND
+
+
+STEP 30 Project cleanup: Remove DARC & FARC modules from main POM
+//---------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_SRC
+	files:
+		pom.xml
+	find:
+		<module>EUD_Features/EUD_Adapters_DARC_Feature</module>
+	replace:
+		\R
+	find:
+		<module>EUD_Features/EUD_Adapters_FARC_Feature</module>
+	replace:
+		\R
+	find:
+		<module>EUD_Generic_Adapters/eud\.adapters\.parameterprocessor\.darc</module>
+	replace:
+		\R
+	find:
+		<module>EUD_Generic_Adapters/eud\.adapters\.parameterprocessor\.darc\.test</module>
+	replace:
+		\R
+	find:
+		<module>EUD_Generic_Adapters/eud\.adapters\.persistentstorage\.farc</module>
+	replace:
+		\R
+_REPLACE_REGEX
+
+
+STEP 40 Project cleanup: Remove DARC & FARC feature from Updatesite
+//-----------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_EUD_UPDATE_SITE
+	files:
+		category.xml
+	find:
+		^[ \t]*<feature url="features/esa\.egos\.eud\.adapters\.darc\.feature(.*\R)+?^[ \t]*</feature>[ \t]*\R
+	replace:
+		\R
+	find:
+		^[ \t]*<feature url="features/esa\.egos\.eud\.adapters\.farc\.feature(.*\R)+?^[ \t]*</feature>[ \t]*\R
+	replace:
+		\R
+_REPLACE_REGEX
+
+
+STEP 50 Project cleanup: Remove DARC & FARC plugin dependencies from target platform
+//----------------------------------------------------------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_EUD-PLATFORM
+	files:
+		*.target
+	find:
+		<!-- DARC & FARC(.*\R)+?^[ \t]*</location>[ \t]*\R
+	replace:
+		\R
+_REPLACE_REGEX
+
+
+STEP 60 - Update Team Project Set
+//-------------------------------
+REPLACE_REGEX
+	directory:
+		$DIRECTORY_PROJECT
+	files:
+		Team-Project-Set_EUD-RCP_PatchBranch.psf
+	find: 
+		(EUD_)\d+\.\d+\.\d+\.\w+(_ReleaseBranch)
+	replace: 
+		$1$SIMULUS_VERSION$2
+_REPLACE_REGEX
+
+
+// =======================================================================
+//                         SVN COMMIT OPERATIONS
+// =======================================================================
+
+
+STEP 70 - Add all the Src changes to repository
+//---------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN-COMMAND add * --force
+_EXECUTE_COMMAND
+
+STEP 80 - Commit Src folder
+//-------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN-COMMAND commit -m "[Automatic Release] - Released EUD for SIMULUS $SIMULUS_VERSION.$QUALIFIERe"
+_EXECUTE_COMMAND
+
+
+STEP 90 - Add all the Project changes to repository
+//-------------------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_PROJECT
+	command:
+		$SVN-COMMAND add * --force
+_EXECUTE_COMMAND
+
+
+STEP 100 - Commit Project folder
+//------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_PROJECT
+	command:
+		$SVN-COMMAND commit -m "[Automatic Release] - Released EUD for SIMULUS $SIMULUS_VERSION.$QUALIFIERe"
+_EXECUTE_COMMAND
+
+
+STEP 110 - Update Src folder
+//--------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:
+		$SVN-COMMAND update .
+_EXECUTE_COMMAND
+
+STEP 120 - Update Project folder
+//------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_PROJECT
+	command:
+		$SVN-COMMAND update .
+_EXECUTE_COMMAND
+
+STEP 130 - Create Tag in the repository
+//-------------------------------------
+EXECUTE_COMMAND
+	directory:
+		$DIRECTORY_SRC
+	command:		
+		cmd /V /C for /f %i in ('$SVN-VERSION-COMMAND') do $SVN-COMMAND copy $SVN_REPOSITORY_ROOT/$SVN_PATCH_BRANCH $SVN_REPOSITORY_ROOT/$SVN_TAG/ -m "[Automatic Release] - Created EUD for SIMULUS $SIMULUS_VERSION Release Tag on revision %i"
+_EXECUTE_COMMAND
+
+
+END
