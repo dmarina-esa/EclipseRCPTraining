@@ -5,7 +5,8 @@ import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
 
-	private static BundleContext context;
+	public static final String BUNDLE_ID = "com.gmv.sportsimulator.tennis";
+    private static BundleContext context;
 
 	static BundleContext getContext() {
 		return context;
