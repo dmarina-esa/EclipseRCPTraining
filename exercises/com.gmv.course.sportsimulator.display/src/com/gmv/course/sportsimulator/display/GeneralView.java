@@ -22,7 +22,9 @@ public class GeneralView extends ViewPart implements ISportServiceListener
 {
 
     private ISportService sportService;
+
     private Label simulationLabel;
+
 
     public GeneralView()
     {
@@ -41,24 +43,25 @@ public class GeneralView extends ViewPart implements ISportServiceListener
         viewer.setLabelProvider(new SportsLabelProvider());
         try
         {
-            this.sportService = SportServiceUtils.getSportServiceReference();//Exercise03Utils.getSportService();
+            this.sportService = SportServiceUtils.getSportServiceReference();// Exercise03Utils.getSportService();
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
         viewer.setInput(this.sportService);
-        
+
         getSite().setSelectionProvider(viewer);
-        
+
         MenuManager mm = new MenuManager("com.gmv.sportsimulator.generalviewmenu");
-        ((IMenuService) getSite().getService(IMenuService.class)).populateContributionManager(mm, "popup:com.gmv.sportsimulator.generalviewmenu");
+        ((IMenuService) getSite().getService(IMenuService.class))
+                .populateContributionManager(mm, "popup:com.gmv.sportsimulator.generalviewmenu");
         Menu menu = mm.createContextMenu(viewer.getTree());
         viewer.getTree().setMenu(menu);
         this.simulationLabel = new Label(composite, SWT.BORDER);
         this.simulationLabel.setText("simulation");
         GridDataFactory.swtDefaults().align(SWT.FILL, SWT.TOP).applyTo(this.simulationLabel);
-        
+
         this.sportService.registerServiceListener(this);
     }
 
@@ -74,7 +77,7 @@ public class GeneralView extends ViewPart implements ISportServiceListener
     public void gameAdded(Game game)
     {
         // TODO Auto-generated method stub
-        
+
     }
 
     /** {@inheritDoc} */
@@ -82,39 +85,39 @@ public class GeneralView extends ViewPart implements ISportServiceListener
     public void teamAdded(Team team)
     {
         // TODO Auto-generated method stub
-        
+
     }
 
     /** {@inheritDoc} */
     @Override
     public void updateResult(Game game, String result)
     {
-        // TODO Auto-generated method stub
-        
+//        System.out.println("update Result: " + game.getName() + " result: " + result);
+
     }
 
     /** {@inheritDoc} */
     @Override
     public void gameFinalised(Game game, Team winner, Result result)
     {
-        // TODO Auto-generated method stub
-        
+//        System.out.println("update Result: " + game.getName() + " - winner " + winner
+//                           + " result: " + result);
     }
 
     /** {@inheritDoc} */
     @Override
     public void gameStarted(Game game)
     {
-        // TODO Auto-generated method stub
-        
+//        System.out.println("Game started: " + game.getName());
+
     }
 
     /** {@inheritDoc} */
     @Override
     public void gameReseted(Game game, Result result)
     {
-        // TODO Auto-generated method stub
-        
+//        System.out.println("Game reseted: " + game.getName());
+
     }
 
     /** {@inheritDoc} */
@@ -122,11 +125,11 @@ public class GeneralView extends ViewPart implements ISportServiceListener
     public void simulationStarted()
     {
         Display display = this.simulationLabel.getDisplay();
-        display.asyncExec(()->{
+        display.asyncExec(() -> {
             this.simulationLabel.setText("Simulation Running");
             this.simulationLabel.setBackground(display.getSystemColor(SWT.COLOR_GREEN));
         });
-        
+
     }
 
     /** {@inheritDoc} */
@@ -134,11 +137,11 @@ public class GeneralView extends ViewPart implements ISportServiceListener
     public void simulationEnded()
     {
         Display display = this.simulationLabel.getDisplay();
-        display.asyncExec(()-> {
+        display.asyncExec(() -> {
             this.simulationLabel.setText("Simulation Stopped");
             this.simulationLabel.setBackground(display.getSystemColor(SWT.COLOR_RED));
         });
-        
+
     }
 
     /** {@inheritDoc} */
@@ -146,7 +149,7 @@ public class GeneralView extends ViewPart implements ISportServiceListener
     public void playerWinsBet(String winner, Game game, Result result, int amountWon)
     {
         // TODO Auto-generated method stub
-        
+
     }
 
     /** {@inheritDoc} */
@@ -154,9 +157,9 @@ public class GeneralView extends ViewPart implements ISportServiceListener
     public void playerLosesBet(String loser, Game game)
     {
         // TODO Auto-generated method stub
-        
+
     }
 
 }
 
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
