@@ -23,6 +23,18 @@
             id="com.gmv.course.sportsimulator.display.startsimulation"
             name="Start Simulation">
       </command>
+      <command
+            id="com.gmv.course.sportsimulator.display.startallsimulations"
+            name="Start All Simulations">
+      </command>
+      <command
+            id="com.gmv.course.sportsimulator.display.stopsimulation"
+            name="Stop Simulation">
+      </command>
+      <command
+            id="com.gmv.course.sportsimulator.display.stopallsimulations"
+            name="Stop All Simulations">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -30,8 +42,27 @@
             allPopups="false"
             locationURI="popup:com.gmv.sportsimulator.generalviewmenu">
          <command
+               commandId="com.gmv.course.sportsimulator.display.startallsimulations"
+               icon="icons/sports/sport.png"
+               label="Start All Simulations"
+               style="push">
+         </command>
+         <command
                commandId="com.gmv.course.sportsimulator.display.startsimulation"
+               icon="IMG_ELCL_SYNCED"
                label="Start Simulation"
+               style="push">
+         </command>
+         <command
+               commandId="com.gmv.course.sportsimulator.display.stopallsimulations"
+               icon="IMG_ELCL_REMOVEALL"
+               label="Stop All Simulations"
+               style="push">
+         </command>
+         <command
+               commandId="com.gmv.course.sportsimulator.display.stopsimulation"
+               icon="IMG_ELCL_REMOVE"
+               label="Stop Simulation"
                style="push">
          </command>
       </menuContribution>
@@ -41,6 +72,18 @@
       <handler
             class="com.gmv.course.sportsimulator.display.handlers.StartSimulationHandler"
             commandId="com.gmv.course.sportsimulator.display.startsimulation">
+      </handler>
+      <handler
+            class="com.gmv.course.sportsimulator.display.handlers.StartAllSimulationsHandler"
+            commandId="com.gmv.course.sportsimulator.display.startallsimulations">
+      </handler>
+      <handler
+            class="com.gmv.course.sportsimulator.display.handlers.StopAllSimulationsHandler"
+            commandId="com.gmv.course.sportsimulator.display.stopallsimulations">
+      </handler>
+      <handler
+            class="com.gmv.course.sportsimulator.display.handlers.StopSimulationHandler"
+            commandId="com.gmv.course.sportsimulator.display.stopsimulation">
       </handler>
    </extension>
 
