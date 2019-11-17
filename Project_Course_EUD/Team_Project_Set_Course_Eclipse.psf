@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,exercises/com.gmv.course.sportsimulator.application"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,exercises/com.gmv.course.sportsimulator.display"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,exercises/com.gmv.course.sportsimulator.display.e4"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,simulator/com.gmv.sportsimulator.api"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,simulator/com.gmv.sportsimulator.gamesloader"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,exercises/com.gmv.sportsimulator.servicelocator"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,exercises/com.gmv.sportsimulator.soccer"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,simulator/com.gmv.sportsimulator.tennis"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,exercise_eud1,Project_Course_EUD"/>
+</provider>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1573942313408_2" label="Application" name="Application">
+<item elementID="=com.gmv.course.sportsimulator.application" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1573942340987_3" label="Displays" name="Displays">
+<item elementID="=com.gmv.course.sportsimulator.display" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=com.gmv.course.sportsimulator.display.e4" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1573988487800_6" label="Docs_and_Config" name="Docs_and_Config">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Project_Course_EUD" type="4"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1573942425211_4" label="Service_Adapter" name="Service_Adapter">
+<item elementID="=com.gmv.sportsimulator.api" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=com.gmv.sportsimulator.servicelocator" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1573942465785_5" label="Simulators" name="Simulators">
+<item elementID="=com.gmv.sportsimulator.gamesloader" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=com.gmv.sportsimulator.api" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=com.gmv.sportsimulator.tennis" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=com.gmv.sportsimulator.soccer" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+</psf>
