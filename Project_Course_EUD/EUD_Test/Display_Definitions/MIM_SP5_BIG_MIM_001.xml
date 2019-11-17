@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_SP5_BIG_MIM_001" kindOfDisplay="MIM" version="1.1.0">
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_8" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="155"/>
+    <size width="121" height="510"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_9" contextMenu="widget_156" caption="RHC" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP script="" controlMode="MONITOR"/>
+    <location x="55" y="180"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_10" caption="LHC" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="55" y="275"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_11" caption="RHC" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="55" y="475"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_12" caption="LHC" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="55" y="595"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_13" caption="S" description="Text Widget">
+    <font fontSize="12" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="95" y="240"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_13_Copy_1" caption="Rx" description="Text Widget">
+    <font fontSize="12" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="95" y="375"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_13_Copy_2" caption="S" description="Text Widget">
+    <font fontSize="12" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="90" y="550"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Cross" name="widget_14" caption="" description="Cross Switch" controllable="true">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="225" y="225"/>
+    <size width="40" height="40"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction script="thiz.setConnected(CROSS_OPEN);" controlMode="MONITOR"/>
+    <straightAction script="thiz.setConnected(CROSS_DIRECT);" controlMode="MONITOR"/>
+    <pole1 caption="" widget="widget_15">
+      <lineStyle>
+        <lineColour/>
+      </lineStyle>
+    </pole1>
+    <throw1 caption="" widget="widget_108"/>
+    <crossAction script="thiz.setConnected(CROSS_CROSS);" controlMode="MONITOR"/>
+    <pole2 caption="" widget="widget_16">
+      <lineStyle>
+        <lineColour/>
+      </lineStyle>
+    </pole2>
+    <throw2 caption="" widget="widget_107"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_18" caption="SLNA1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="370" y="195"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="225" g="225" b="135"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_20" caption="SLNA2" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="370" y="245"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="237" g="201" b="122"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_23" caption="SDC" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="485" y="200"/>
+    <size width="130" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_24" caption="L01" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="485" y="240"/>
+    <size width="70" height="40"/>
+    <monitoringAction/>
+    <background r="227" g="164" b="156"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_25" caption="AUT" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="555" y="240"/>
+    <size width="60" height="40"/>
+    <monitoringAction/>
+    <background r="152" g="168" b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_28" caption="RFLC1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="360" y="330"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="225" g="225" b="135"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Image" name="widget_29" caption="" description="Image Widget" image="img_8653">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="320" y="190"/>
+    <size width="30" height="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Image" name="widget_29_Copy_1" caption="" description="Image Widget" image="img_8653">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="279" y="251"/>
+    <size width="30" height="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_34" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="705" y="145"/>
+    <size width="76" height="591"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_35" caption="ADLS" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="700" y="130"/>
+    <size width="86" height="40"/>
+    <monitoringAction/>
+    <background r="255" g="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_36" contextMenu="widget_85" caption="2" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="720" y="220"/>
+    <size width="45" height="30"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_37" contextMenu="widget_85_Copy_1" caption="2" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="720" y="370"/>
+    <size width="45" height="30"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_38" caption="1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="720" y="515"/>
+    <size width="45" height="30"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_39" caption="1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="725" y="635"/>
+    <size width="45" height="30"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_40" caption="1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="725" y="685"/>
+    <size width="45" height="30"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_41" caption="LDC1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="835" y="215"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Cross" name="widget_48" caption="" description="Cross Switch" controllable="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="225" y="530"/>
+    <size width="40" height="40"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction script="thiz.setConnected(CROSS_OPEN);" controlMode="MONITOR"/>
+    <straightAction script="thiz.setConnected(CROSS_DIRECT);" controlMode="MONITOR"/>
+    <pole1 caption="" widget="widget_49">
+      <lineStyle>
+        <lineColour/>
+      </lineStyle>
+    </pole1>
+    <throw1 caption="" widget="widget_54"/>
+    <crossAction script="thiz.setConnected(CROSS_CROSS);" controlMode="MONITOR"/>
+    <pole2 caption="" widget="widget_50">
+      <lineStyle>
+        <lineColour/>
+      </lineStyle>
+    </pole2>
+    <throw2 caption="" widget="widget_88"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Image" name="widget_29_Copy_2" caption="" description="Image Widget" image="img_86">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="277" y="490"/>
+    <size width="31" height="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_51" caption="RFLC2" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="360" y="400"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="237" g="201" b="122"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_52" caption="XLNA1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="370" y="500"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="225" g="225" b="135"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_53" caption="XLNA2" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="370" y="555"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="237" g="201" b="122"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Image" name="widget_29_Copy_3" caption="" description="Image Widget" image="img_86">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="320" y="565"/>
+    <size width="30" height="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_56" caption="SPCSW" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="280" y="140"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_23_Copy_1" caption="XDC" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="485" y="505"/>
+    <size width="130" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_24_Copy_1" caption="L01" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="485" y="545"/>
+    <size width="70" height="40"/>
+    <monitoringAction/>
+    <background r="227" g="164" b="156"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_25_Copy_1" caption="AUT" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="555" y="545"/>
+    <size width="60" height="40"/>
+    <monitoringAction/>
+    <background r="152" g="168" b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_64" caption="RFTU" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="575" y="365"/>
+    <size width="51" height="40"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_65" caption="RFTG" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="635" y="365"/>
+    <size width="45" height="40"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleDoubleThrow" name="widget_67" caption="" description="Single Pole Double Throw Switch" controllable="true" rotation="180" allowOpenSwitch="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="495" y="365"/>
+    <size width="40" height="40"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction script="thiz.setConnected(SPDT_OPEN);" controlMode="MONITOR"/>
+    <closeAction1 script="thiz.setConnected(SPDT_THROW1);" controlMode="MONITOR"/>
+    <pole caption="" widget="widget_71">
+      <lineStyle>
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <throw1 caption="" widget="widget_70"/>
+    <throw2 caption="" widget="widget_69"/>
+    <closeAction2 script="thiz.setConnected(SPDT_THROW2);" controlMode="MONITOR"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_68" caption="  OFF" description="Text Widget">
+    <font fontStyle="BOLD_ITALIC" fontSize="10" fontFamily="Sans">
+      <fontColour transparency="100"/>
+      <fontBackground r="128" g="255" b="128"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="635" y="405"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_72" caption="1" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="670" y="225"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_72_Copy_1" caption="2" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="670" y="530"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_73" caption="8420.226" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="845" y="260"/>
+    <monitoringAction script="thiz.setCaption(thiz.getAssociatedParameter().getValue());">
+      <triggeringParameters parameterReference="Category_1.F001"/>
+    </monitoringAction>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_74" caption="70.200" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="845" y="280"/>
+    <monitoringAction script="thiz.setCaption(thiz.getAssociatedParameter().getValue());">
+      <triggeringParameters parameterReference="Category_2.I001_long"/>
+    </monitoringAction>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_41_Copy_1" caption="LDC3" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="835" y="510"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_73_Copy_1" caption="2296.425" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="845" y="555"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_74_Copy_1" caption="70.200" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="845" y="575"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_41_Copy_2" caption="LDC2" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="835" y="365"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_73_Copy_2" caption="8420.226" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter parameterReference="Category_1.F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="845" y="410"/>
+    <monitoringAction script="thiz.setCaption(thiz.getAssociatedParameter().getValue());">
+      <triggeringParameters parameterReference="Category_1.F002"/>
+    </monitoringAction>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_74_Copy_2" caption="70.200" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="845" y="430"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_79" caption=" DLTS" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="865" y="640"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_80" caption=" TP" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="870" y="690"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_72_Copy_2" caption="1" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="790" y="195"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_72_Copy_3" caption="2" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="790" y="345"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_72_Copy_4" caption="3" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="790" y="495"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_72_Copy_5" caption="4" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="790" y="655"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_72_Copy_6" caption="6" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="790" y="700"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Menu" name="widget_85" parentWidget="widget_36" graphicalStatus="EXPANDED">
+    <menuItems name="widget_86" caption="Connect to Pole 1">
+      <action script="widget_36.setCaption(&quot;1&quot;);&#xD;&#xA;widget_36.setStatus(1);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+    <menuItems name="widget_87" caption="Connect to Pole 2">
+      <action script="widget_36.setCaption(&quot;2&quot;);&#xD;&#xA;widget_36.setStatus(2);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Menu" name="widget_85_Copy_1" parentWidget="widget_37">
+    <menuItems name="widget_86_Copy_1" caption="Connect to Pole 1">
+      <action script="widget_37.setCaption(&quot;1&quot;);&#xD;&#xA;widget_37.setStatus(1);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+    <menuItems name="widget_87_Copy_1" caption="Connect to Pole 2">
+      <action script="widget_37.setCaption(&quot;2&quot;);&#xD;&#xA;widget_37.setStatus(2);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_89" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="990" y="165"/>
+    <size width="16" height="571"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_36_Copy_1" contextMenu="widget_85_Copy_2" caption="1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="1025" y="225"/>
+    <size width="45" height="30"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_36_Copy_2" contextMenu="widget_85" caption="1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="1025" y="655"/>
+    <size width="45" height="30"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_36_Copy_3" contextMenu="widget_85_Copy_3" caption="1" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="1025" y="430"/>
+    <size width="45" height="30"/>
+    <monitoringAction/>
+    <background r="128" g="255" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Submimc" name="widget_109" caption="LHC" description="Open the MIM_SP5_BIG_MIM_002_LHC Mimic" reference="MIM_SP5_BIG_MIM_002_LHC">
+    <font fontSize="14" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="1095" y="205"/>
+    <size width="80" height="90"/>
+    <background r="225" g="225" b="135"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Submimc" name="widget_109_Copy_1" caption="HRD" description="open MIM_SP5_BIG_MIM_003_HRD" reference="MIM_SP5_BIG_MIM_003_HRD">
+    <font fontSize="14" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="1095" y="405"/>
+    <size width="80" height="90"/>
+    <background r="225" g="225" b="135"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Submimc" name="widget_109_Copy_2" caption="IFMS3" description="Sub-Mimic Widget" reference="MIM_SP5_BIG_MIM_002_IFMS1">
+    <font fontSize="14" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="1095" y="630"/>
+    <size width="80" height="90"/>
+    <background r="128" g="255" b="128"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_150" caption="New Norcia Mimic" description="Text Widget">
+    <font fontSize="24" fontFamily="Rockwell">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="480" y="35"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Menu" name="widget_85_Copy_2" parentWidget="widget_36_Copy_1" graphicalStatus="EXPANDED">
+    <menuItems name="widget_86_Copy_2" caption="Connect to Pole 1">
+      <action script="widget_36_Copy_1.setCaption(&quot;1&quot;);&#xD;&#xA;widget_36_Copy_1.setStatus(1);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+    <menuItems name="widget_87_Copy_2" caption="Connect to Pole 2">
+      <action script="widget_36_Copy_1.setCaption(&quot;2&quot;);&#xD;&#xA;widget_36_Copy_1.setStatus(2);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+    <menuItems name="widget_155" caption="Connect to Pole 3">
+      <action script="widget_36_Copy_1.setCaption(&quot;3&quot;);&#xD;&#xA;widget_36_Copy_1.setStatus(3);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Menu" name="widget_85_Copy_3" parentWidget="widget_36_Copy_3" graphicalStatus="EXPANDED">
+    <menuItems name="widget_86_Copy_3" caption="Connect to Pole 1">
+      <action script="widget_36_Copy_3.setCaption(&quot;1&quot;);&#xD;&#xA;widget_36_Copy_3.setStatus(1);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+    <menuItems name="widget_87_Copy_3" caption="Connect to Pole 2">
+      <action script="widget_36_Copy_3.setCaption(&quot;2&quot;);&#xD;&#xA;widget_36_Copy_3.setStatus(2);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+    <menuItems name="widget_155_Copy_3" caption="Connect to Pole 3">
+      <action script="widget_36_Copy_3.setCaption(&quot;3&quot;);&#xD;&#xA;widget_36_Copy_3.setStatus(3);" controlMode="MONITOR"/>
+      <associatedParameter/>
+    </menuItems>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Menu" name="widget_156" parentWidget="widget_9" graphicalStatus="EXPANDED">
+    <menuItems name="widget_158" caption="Category_2.I001">
+      <action script="widget_9.getAssociatedParameter().openInfoDisplay();" controlMode="MONITOR"/>
+      <associatedParameter parameterReference="Category_2.I001"/>
+    </menuItems>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_15" caption="" description="One to One Connector Widget" port="widget_9" hook="widget_14" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="145" y="210"/>
+    <middlePoints x="145" y="209"/>
+    <middlePoints x="229" y="209"/>
+    <middlePoints x="229" y="229"/>
+    <middlePoints x="245" y="245"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_16" caption="" description="One to One Connector Widget" port="widget_10" hook="widget_14" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="145" y="290"/>
+    <middlePoints x="145" y="289"/>
+    <middlePoints x="229" y="289"/>
+    <middlePoints x="229" y="261"/>
+    <middlePoints x="245" y="245"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_26" caption="" description="One to One Connector Widget" port="widget_20" hook="widget_24" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="460" y="270"/>
+    <middlePoints x="460" y="270"/>
+    <middlePoints x="485" y="270"/>
+    <middlePoints x="485" y="270"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_27" caption="" description="One to One Connector Widget" port="widget_18" hook="widget_23" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="460" y="215"/>
+    <middlePoints x="460" y="215"/>
+    <middlePoints x="485" y="215"/>
+    <middlePoints x="485" y="215"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_30" caption="" description="One to One Connector Widget" port="widget_29" hook="widget_28" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="335" y="210"/>
+    <middlePoints x="329" y="230"/>
+    <middlePoints x="329" y="340"/>
+    <middlePoints x="360" y="340"/>
+    <middlePoints x="360" y="340"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_31" caption="" description="One to One Connector Widget" port="widget_29_Copy_1" hook="widget_28" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="294" y="271"/>
+    <middlePoints x="286" y="291"/>
+    <middlePoints x="286" y="339"/>
+    <middlePoints x="360" y="339"/>
+    <middlePoints x="360" y="340"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_42" caption="" description="One to One Connector Widget" port="widget_23" hook="widget_34" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="615" y="214"/>
+    <middlePoints x="615" y="214"/>
+    <middlePoints x="705" y="214"/>
+    <middlePoints x="705" y="214"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_43" caption="" description="One to One Connector Widget" port="widget_25" hook="widget_34" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="615" y="262"/>
+    <middlePoints x="615" y="262"/>
+    <middlePoints x="705" y="262"/>
+    <middlePoints x="705" y="262"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_46" caption="" description="One to One Connector Widget" port="widget_36" hook="widget_41" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="765" y="225"/>
+    <middlePoints x="765" y="225"/>
+    <middlePoints x="835" y="225"/>
+    <middlePoints x="835" y="225"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_47" caption="" description="One to One Connector Widget" port="widget_36" hook="widget_41" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="765" y="244"/>
+    <middlePoints x="765" y="244"/>
+    <middlePoints x="835" y="244"/>
+    <middlePoints x="835" y="244"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_49" caption="" description="One to One Connector Widget" port="widget_11" hook="widget_48" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="145" y="503"/>
+    <middlePoints x="145" y="502"/>
+    <middlePoints x="229" y="502"/>
+    <middlePoints x="229" y="534"/>
+    <middlePoints x="245" y="550"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_50" caption="" description="One to One Connector Widget" port="widget_12" hook="widget_48" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="145" y="606"/>
+    <middlePoints x="145" y="605"/>
+    <middlePoints x="229" y="605"/>
+    <middlePoints x="229" y="566"/>
+    <middlePoints x="245" y="550"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_54" caption="" description="One to One Connector Widget" port="widget_48" hook="widget_52" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="245" y="550"/>
+    <middlePoints x="261" y="534"/>
+    <middlePoints x="261" y="511"/>
+    <middlePoints x="370" y="511"/>
+    <middlePoints x="370" y="512"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_57" caption="" description="One to One Connector Widget" port="widget_29_Copy_2" hook="widget_28" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="292" y="510"/>
+    <middlePoints x="285" y="490"/>
+    <middlePoints x="285" y="363"/>
+    <middlePoints x="360" y="363"/>
+    <middlePoints x="360" y="354"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_58" caption="" description="One to One Connector Widget" port="widget_29_Copy_3" hook="widget_28" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="335" y="585"/>
+    <middlePoints x="328" y="565"/>
+    <middlePoints x="328" y="364"/>
+    <middlePoints x="360" y="364"/>
+    <middlePoints x="360" y="354"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_60" caption="" description="One to One Connector Widget" port="widget_52" hook="widget_23_Copy_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="460" y="520"/>
+    <middlePoints x="460" y="520"/>
+    <middlePoints x="485" y="520"/>
+    <middlePoints x="485" y="520"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_61" caption="" description="One to One Connector Widget" port="widget_53" hook="widget_24_Copy_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="460" y="570"/>
+    <middlePoints x="460" y="570"/>
+    <middlePoints x="485" y="570"/>
+    <middlePoints x="485" y="570"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_62" caption="" description="One to One Connector Widget" port="widget_23_Copy_1" hook="widget_34" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="615" y="520"/>
+    <middlePoints x="615" y="520"/>
+    <middlePoints x="705" y="520"/>
+    <middlePoints x="705" y="520"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_63" caption="" description="One to One Connector Widget" port="widget_25_Copy_1" hook="widget_34" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="615" y="570"/>
+    <middlePoints x="615" y="570"/>
+    <middlePoints x="705" y="570"/>
+    <middlePoints x="705" y="570"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_66" caption="" description="One to One Connector Widget" port="widget_64" hook="widget_65" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="626" y="386"/>
+    <middlePoints x="626" y="386"/>
+    <middlePoints x="635" y="386"/>
+    <middlePoints x="635" y="386"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_69" caption="" description="One to One Connector Widget" port="widget_28" hook="widget_67" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="450" y="344"/>
+    <middlePoints x="450" y="343"/>
+    <middlePoints x="499" y="343"/>
+    <middlePoints x="499" y="369"/>
+    <middlePoints x="515" y="385"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_70" caption="" description="One to One Connector Widget" port="widget_51" hook="widget_67" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="450" y="420"/>
+    <middlePoints x="450" y="419"/>
+    <middlePoints x="499" y="419"/>
+    <middlePoints x="499" y="401"/>
+    <middlePoints x="515" y="385"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_71" caption="" description="One to One Connector Widget" port="widget_67" hook="widget_64" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="515" y="385"/>
+    <middlePoints x="531" y="385"/>
+    <middlePoints x="575" y="385"/>
+    <middlePoints x="575" y="385"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_75" caption="" description="One to One Connector Widget" port="widget_37" hook="widget_41_Copy_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="765" y="375"/>
+    <middlePoints x="765" y="375"/>
+    <middlePoints x="835" y="375"/>
+    <middlePoints x="835" y="375"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_76" caption="" description="One to One Connector Widget" port="widget_37" hook="widget_41_Copy_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="765" y="395"/>
+    <middlePoints x="765" y="395"/>
+    <middlePoints x="835" y="395"/>
+    <middlePoints x="835" y="395"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_77" caption="" description="One to One Connector Widget" port="widget_38" hook="widget_41_Copy_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="765" y="520"/>
+    <middlePoints x="765" y="520"/>
+    <middlePoints x="835" y="520"/>
+    <middlePoints x="835" y="520"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_78" caption="" description="One to One Connector Widget" port="widget_38" hook="widget_41_Copy_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="765" y="540"/>
+    <middlePoints x="765" y="540"/>
+    <middlePoints x="835" y="540"/>
+    <middlePoints x="835" y="540"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_81" caption="" description="One to One Connector Widget" port="widget_39" hook="widget_79" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="770" y="645"/>
+    <middlePoints x="770" y="645"/>
+    <middlePoints x="817" y="645"/>
+    <middlePoints x="817" y="655"/>
+    <middlePoints x="865" y="655"/>
+    <middlePoints x="903" y="659"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_82" caption="" description="One to One Connector Widget" port="widget_40" hook="widget_80" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="770" y="695"/>
+    <middlePoints x="770" y="695"/>
+    <middlePoints x="820" y="695"/>
+    <middlePoints x="820" y="706"/>
+    <middlePoints x="870" y="706"/>
+    <middlePoints x="894" y="709"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:MenuLink" menuConnection="widget_85" parentMenuConnection="widget_36"/>
+  <widgets xsi:type="esa.egos.eud.displays:MenuLink" menuConnection="widget_85_Copy_1" parentMenuConnection="widget_37"/>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_88" caption="" description="One to One Connector Widget" port="widget_48" hook="widget_53" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="245" y="550"/>
+    <middlePoints x="261" y="566"/>
+    <middlePoints x="261" y="584"/>
+    <middlePoints x="370" y="584"/>
+    <middlePoints x="370" y="585"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_91" caption="" description="One to One Connector Widget" port="widget_41" hook="widget_89" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="925" y="224"/>
+    <middlePoints x="925" y="224"/>
+    <middlePoints x="990" y="224"/>
+    <middlePoints x="990" y="224"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_92" caption="" description="One to One Connector Widget" port="widget_41" hook="widget_89" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="925" y="245"/>
+    <middlePoints x="925" y="245"/>
+    <middlePoints x="990" y="245"/>
+    <middlePoints x="990" y="245"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_107" caption="" description="One to One Connector Widget" port="widget_14" hook="widget_20" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="245" y="245"/>
+    <middlePoints x="261" y="261"/>
+    <middlePoints x="261" y="272"/>
+    <middlePoints x="370" y="272"/>
+    <middlePoints x="370" y="273"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_108" caption="" description="One to One Connector Widget" port="widget_14" hook="widget_18" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="245" y="245"/>
+    <middlePoints x="261" y="229"/>
+    <middlePoints x="261" y="209"/>
+    <middlePoints x="370" y="209"/>
+    <middlePoints x="370" y="210"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_111" caption="" description="One to One Connector Widget" port="widget_89" hook="widget_109" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="1006" y="214"/>
+    <middlePoints x="1006" y="214"/>
+    <middlePoints x="1095" y="214"/>
+    <middlePoints x="1095" y="214"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_112" caption="" description="One to One Connector Widget" port="widget_89" hook="widget_109" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="1006" y="264"/>
+    <middlePoints x="1006" y="264"/>
+    <middlePoints x="1095" y="264"/>
+    <middlePoints x="1095" y="264"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_113" caption="" description="One to One Connector Widget" port="widget_89" hook="widget_109_Copy_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="1006" y="423"/>
+    <middlePoints x="1006" y="423"/>
+    <middlePoints x="1095" y="423"/>
+    <middlePoints x="1095" y="423"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_118" caption="" description="One to One Connector Widget" port="widget_89" hook="widget_109_Copy_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="1006" y="640"/>
+    <middlePoints x="1006" y="640"/>
+    <middlePoints x="1095" y="640"/>
+    <middlePoints x="1095" y="640"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_119" caption="" description="One to One Connector Widget" port="widget_89" hook="widget_109_Copy_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="1006" y="694"/>
+    <middlePoints x="1006" y="694"/>
+    <middlePoints x="1095" y="694"/>
+    <middlePoints x="1095" y="694"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_120" caption="" description="One to One Connector Widget" port="widget_89" hook="widget_109_Copy_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="1006" y="464"/>
+    <middlePoints x="1006" y="464"/>
+    <middlePoints x="1095" y="464"/>
+    <middlePoints x="1095" y="464"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_146" caption="" description="One to One Connector Widget" port="widget_41_Copy_2" hook="widget_89" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="925" y="374"/>
+    <middlePoints x="925" y="374"/>
+    <middlePoints x="990" y="374"/>
+    <middlePoints x="990" y="374"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_147" caption="" description="One to One Connector Widget" port="widget_41_Copy_2" hook="widget_89" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="925" y="394"/>
+    <middlePoints x="925" y="394"/>
+    <middlePoints x="990" y="394"/>
+    <middlePoints x="990" y="394"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_148" caption="" description="One to One Connector Widget" port="widget_41_Copy_1" hook="widget_89" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="925" y="520"/>
+    <middlePoints x="925" y="520"/>
+    <middlePoints x="990" y="520"/>
+    <middlePoints x="990" y="520"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_149" caption="" description="One to One Connector Widget" port="widget_41_Copy_1" hook="widget_89" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" end="ARROW" type="RIGHT_ANGLE"/>
+    <middlePoints x="925" y="536"/>
+    <middlePoints x="925" y="536"/>
+    <middlePoints x="990" y="536"/>
+    <middlePoints x="990" y="536"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:MenuLink" menuConnection="widget_85_Copy_2" parentMenuConnection="widget_36_Copy_1"/>
+  <widgets xsi:type="esa.egos.eud.displays:MenuLink" menuConnection="widget_85_Copy_3" parentMenuConnection="widget_36_Copy_3"/>
+  <widgets xsi:type="esa.egos.eud.displays:MenuLink" name="widget_157" menuConnection="widget_156" parentMenuConnection="widget_9"/>
+  <metaInformation description="Mimic Diagram" date="2010-12-07T18:00:48.437+0100" author="gio" filename="MIM_SP5_BIG_MIM_001.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="1200" height="768"/>
+  </canvasProperties>
+  <images imageId="img_8653" imageContent="/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABQADwDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAcJCAYEBf/EAC8QAAAFAgMHBAICAwAAAAAAAAABAgMGBAUHETcIGDFVdZTTE4SztBJBIzhRYbL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A+TBnZ/is3w1s8hutwvbNbWet6iKZ5pLZfg8tBZEpsz4JL98cx7XdUg/NZJ3DHhHqtlzQmM+6+06KqAgG6pB+ayTuGPCG6pB+ayTuGPCL+ACAbqkH5rJO4Y8IbqkH5rJO4Y8Iv4AIBuqQfmsk7hjwjkWb2piwzS/2ijW6umt9wqKRpTpka1IbcUkjUZERZ5EWeRENORmtixqnMutVvzrAdqbLmhMZ919p0VUSrZc0JjPuvtOiqgAAAAAAADNbFjVOZdarfnWNKRmtixqnMutVvzrAdqbLmhMZ919p0VUSrZc0JjPuvtOiqgAAAAAAADNbFjVOZdarfnWNKRmtixqnMutVvzrAdqbLmhMZ919p0VUSrZc0JjPuvtOj5Z7tARWESyuj11t97eraP0/UXTMtKbP820rLI1OEfBRfrjmAr4CAb1cH5VJO3Y8wb1cH5VJO3Y8wC/gIBvVwflUk7djzD2GF+NccxIv9RaLHRXdipYpVValVjTaUGhK0JMiNLijzzWX6/wAgKeM1sWNU5l1qt+dY0pGa2LGqcy61W/OsB2psuaExn3X2nR5WG/3JnfRW/wDijHisGdoCKwjDWzx662+9vVtH63qLpmWlNn+by1lkanCPgov1xzH4lgxrjlux+ks4foruq03O3opGWkNNm+lZJpyM1Ebn4kX8KuCj4l/vIOzwEA3q4PyqSdux5g3q4PyqSdux5gF/AQDerg/KpJ27HmDerg/KpJ27HmAX8ZrYsapzLrVb86x1VvVwflUk7djzDkWb3Vi/TS/3ejQ6imuFwqKtpLpES0occUoiURGZZ5GWeRmA/9k="/>
+  <images imageId="img_86" imageContent="/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABQADwDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAAcJCAQGBf/EAC8QAAAFAgMHBAICAwAAAAAAAAABAgMGBAUHETcIGDFVdZTTE4SztBJBIzhRYbL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A8mDOz/FZvhrZ5Ddbhe2a2s9b1EUzzSWy/B5aCyJTZnwSX745j8SwYKRy44/SWDv1t3TabZb0VbLqHWyfUs005mSjNv8AEy/mVwSXAv8Aed62XNCYz7r7To+Vhv8Acmd9Fb/4owDdUg/NZJ3DHhDdUg/NZJ3DHhF/ABAN1SD81kncMeEN1SD81kncMeEX8AEA3VIPzWSdwx4RyLN7UxYZpf7RRrdXTW+4VFI0p0yNakNuKSRqMiIs8iLPIiGnIzWxY1TmXWq351gO1NlzQmM+6+06PLPdn+KzeWV0hutwvbNbWen6iKZ5pLZfg2lBZEpsz4JL98cx6tlzQmM+6+06KqAgG6pB+ayTuGPCG6pB+ayTuGPCL+ACAbqkH5rJO4Y8I+wwvwUjmG9/qLvY627v1L9KqkUmsdbUgkKWhRmRJbSeeaC/f+RTwABmtixqnMutVvzrGlIzWxY1TmXWq351gO1NlzQmM+6+06KqJVsuaExn3X2nRVQAAAAAAABmtixqnMutVvzrGlIzWxY1TmXWq351gO1NlzQmM+6+06KqJVsuaExn3X2nRVQAAAAAAABmtixqnMutVvzrGlIzWxY1TmXWq351gO1NlzQmM+6+06KqOS8GdoCKwjDWzx662+9vVtH63qLpmWlNn+by1lkanCPgov1xzH2u9XB+VSTt2PMAv4CAb1cH5VJO3Y8wb1cH5VJO3Y8wC/gIBvVwflUk7djzBvVwflUk7djzAL+M1sWNU5l1qt+dY6q3q4PyqSdux5hyLN7qxfppf7vRodRTXC4VFW0l0iJaUOOKURKIjMs8jLPIzAf/2Q=="/>
+</esa.egos.eud.displays:Mimic>

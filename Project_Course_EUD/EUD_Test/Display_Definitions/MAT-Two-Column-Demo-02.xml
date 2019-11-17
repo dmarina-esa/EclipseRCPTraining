@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ANDConfig:AlphanumericDisplayConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ANDConfig="http://www.esa.int/2011/01/Egos/Configuration/AlphanumericDisplayConfiguration" ColumnsReorganisable="false" Description="Demo showing a two column AND" EGOSSystemID="NoId" identifier="MAT-Two-Column-Demo-02" kindOfDisplay="MAT" Name="MAT-Two-Column-Demo-02" Sortable="false" Version="1.0">
+  <Display xsi:type="ANDConfig:MatrixDisplay">
+    <Column Field="NAME" Name="Parameter" Tooltip="The short name of the parameter" Width="85"/>
+    <Column Field="VALUE" Name="Value" Tooltip="The current parameter value" Width="182"/>
+    <Column Field="UNIT" Name="Unit" Tooltip="The unit of the parameter"/>
+    <Column Field="NAME" Name="Parameter" Tooltip="The short name of the parameter"/>
+    <Column Field="VALUE" Name="Value" Tooltip="The current parameter value" Width="164"/>
+    <Column Field="UNIT" Name="Unit" Tooltip="The unit of the parameter"/>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_2.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_2.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_2.I001">
+        <Metadata Key="NAME" Value="I001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I001">
+        <Metadata Key="NAME" Value="I001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_2.I001">
+        <Metadata Key="NAME" Value="I001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_2.I002">
+        <Metadata Key="NAME" Value="I002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I002">
+        <Metadata Key="NAME" Value="I002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_2.I002">
+        <Metadata Key="NAME" Value="I002"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_2.I003">
+        <Metadata Key="NAME" Value="I003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I003">
+        <Metadata Key="NAME" Value="I003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_2.I003">
+        <Metadata Key="NAME" Value="I003"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="FOO_001">
+        <Metadata Key="NAME" Value="FOO_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="FOO_001">
+        <Metadata Key="NAME" Value="FOO_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="FOO_001">
+        <Metadata Key="NAME" Value="FOO_001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="FOO_002">
+        <Metadata Key="NAME" Value="FOO_002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="FOO_002">
+        <Metadata Key="NAME" Value="FOO_002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="FOO_002">
+        <Metadata Key="NAME" Value="FOO_002"/>
+      </MatrixElement>
+    </Row>
+  </Display>
+  <Metadata Key="Span" Value="3"/>
+</ANDConfig:AlphanumericDisplayConfiguration>

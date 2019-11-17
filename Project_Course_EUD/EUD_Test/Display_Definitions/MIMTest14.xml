@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIMTest14" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_49_Copy_1" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="204" y="36"/>
+    <size width="157" height="229"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_49" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="36"/>
+    <size width="157" height="337"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_43" caption="Binary" description="Parameter Field Widget" representation="value" notation="BINARY">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="60"/>
+    <size width="109" height="30"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_44" caption="Octal" description="Parameter Field Widget" representation="value" notation="OCTAL">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="108"/>
+    <size width="109" height="30"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_45" caption="Decimal" description="Parameter Field Widget" representation="value">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="156"/>
+    <size width="109" height="30"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_46" caption="Hexadecimal" description="Parameter Field Widget" representation="value" notation="HEX">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="204"/>
+    <size width="109" height="30"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_47" caption="Scientific" description="Parameter Field Widget" representation="raw" notation="SCIENTIFIC">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_1.F003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="276"/>
+    <size width="109" height="30"/>
+    <availableRepresentations>raw</availableRepresentations>
+    <availableRepresentations>Engineering</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_47_Copy_1" caption="Normal" description="Parameter Field Widget" representation="raw">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_1.F003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="324"/>
+    <size width="109" height="30"/>
+    <availableRepresentations>raw</availableRepresentations>
+    <availableRepresentations>Engineering</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_48" caption="wrong Parameter Hex" description="Parameter Field Widget" representation="raw" notation="HEX">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_1.F003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="396" y="276"/>
+    <size width="181" height="30"/>
+    <availableRepresentations>raw</availableRepresentations>
+    <availableRepresentations>Engineering</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_48_Copy_1" caption="wrong Parameter Sci" description="Parameter Field Widget" representation="value" notation="SCIENTIFIC">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="396" y="324"/>
+    <size width="181" height="30"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_50" caption="Overriding Representations" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="12"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_51" caption="" description="Parameter Field Widget" representation="Repr1">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="228" y="120"/>
+    <size width="109" height="26"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <availableRepresentations>Repr2</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="10" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_51_Copy_1" caption="" description="Parameter Field Widget" representation="Repr1">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_1.F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="228" y="84"/>
+    <size width="109" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="10" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_51_Copy_2" caption="" description="Parameter Field Widget" representation="value">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="228" y="48"/>
+    <size width="109" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="10" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_51_Copy_3" caption="" description="Parameter Field Widget" representation="value">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="228" y="156"/>
+    <size width="109" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="10" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_51_Copy_4" caption="" description="Parameter Field Widget" representation="value">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="228" y="192"/>
+    <size width="109" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="10" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_51_Copy_5" caption="" description="Parameter Field Widget" representation="value">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="BLAH_333"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="228" y="228"/>
+    <size width="109" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="10" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_50_Copy_1" caption="Aligned Parameters" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="204" y="12"/>
+    <monitoringAction/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2012-07-16T15:12:33.259+0200" author="Jean Schuetz" filename="MIMTest14.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="600" height="400"/>
+  </canvasProperties>
+</esa.egos.eud.displays:Mimic>

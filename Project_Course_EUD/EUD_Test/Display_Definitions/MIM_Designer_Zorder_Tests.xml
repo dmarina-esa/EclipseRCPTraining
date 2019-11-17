@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_Designer_Zorder_Tests" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_1" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="72" y="48"/>
+    <size width="217" height="145"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Circle" name="circle_1" caption="" description="" radiusX="36" radiusY="36">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="96" y="72"/>
+    <background r="255" g="128" b="64"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Circle" name="circle_3" caption="" description="" radiusX="36" radiusY="36">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="96" y="144"/>
+    <background r="255" g="128" b="64"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Circle" name="circle_4" caption="" description="" radiusX="36" radiusY="36">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="168" y="72"/>
+    <background r="255" g="128" b="64"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Circle" name="circle_5" caption="" description="" radiusX="36" radiusY="36">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="240" y="72"/>
+    <background r="255" g="128" b="64"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Circle" name="circle_6" caption="" description="" radiusX="36" radiusY="36">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="168" y="144"/>
+    <background r="255" g="128" b="64"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Circle" name="circle_7" caption="" description="" radiusX="36" radiusY="36">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="240" y="144"/>
+    <background r="255" g="128" b="64"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_2" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="120" y="96"/>
+    <size width="217" height="145"/>
+    <monitoringAction/>
+    <background r="184" g="151" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_3" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="144" y="120"/>
+    <size width="217" height="145"/>
+    <monitoringAction/>
+    <background r="237" g="201" b="122"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="triangle_1" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="168" y="216"/>
+    <size width="105" height="73"/>
+    <monitoringAction/>
+    <background b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="triangle_2" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="272" y="216"/>
+    <size width="113" height="73"/>
+    <monitoringAction/>
+    <background b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="triangle_3" caption="" description="" rotation="180" deltaY="72">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="168" y="144"/>
+    <size width="105" height="73"/>
+    <monitoringAction/>
+    <background b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="triangle_4" caption="" description="" rotation="180" deltaY="72">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="272" y="144"/>
+    <size width="113" height="73"/>
+    <monitoringAction/>
+    <background b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_4" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="168"/>
+    <size width="217" height="145"/>
+    <monitoringAction/>
+    <background r="155" g="199" b="204"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_5" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="192"/>
+    <size width="217" height="145"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <metaInformation description="" date="2015-10-21T13:41:18.921+0200" author="ruga" filename="MIM_Designer_Zorder_Tests.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="512" height="384"/>
+  </canvasProperties>
+  <groups widgets="circle_1 circle_3 circle_4 circle_5 circle_6 circle_7" id="c72da08e-6867-45c5-a906-094d9d9d961e"/>
+  <groups widgets="triangle_1 triangle_2 triangle_3 triangle_4" id="ba135666-9b73-43c3-a47c-ee0aab066710"/>
+</esa.egos.eud.displays:Mimic>

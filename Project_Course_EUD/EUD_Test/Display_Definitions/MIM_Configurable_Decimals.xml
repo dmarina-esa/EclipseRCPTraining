@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="configurableDecimals" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_1" caption="Force in N (1 decimal)" description="" representation="Repr1" overrideParameterUnits="" overrideParameterPrecision="1">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="168"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_2" caption="Force in N (2 decimals)" description="" representation="Repr1" overrideParameterPrecision="2">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="216"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_3" caption="Force in N (5 decimals)" description="" representation="Repr1" overrideParameterPrecision="4">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="264"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_4" caption="Voltage (1 decimal)" description="" representation="eng" overrideParameterPrecision="1">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="168"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>raw</availableRepresentations>
+    <availableRepresentations>eng</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_5" caption="Voltage (2 decimals)" description="" representation="eng" overrideParameterPrecision="2">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="216"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>raw</availableRepresentations>
+    <availableRepresentations>eng</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_6" caption="Voltage (5 decimals)" description="" representation="eng" overrideParameterPrecision="5">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="264"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>raw</availableRepresentations>
+    <availableRepresentations>eng</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_1" caption="" description="">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="48"/>
+    <size width="433" height="265"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255" transparency="100"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_7" caption="Float (2 decimals)" description="" representation="Repr1" overrideParameterPrecision="2">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="336" y="216"/>
+    <size width="97" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <availableRepresentations>Repr2</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_8" caption="Float (5 decimals)" description="" representation="Repr1" overrideParameterPrecision="5">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="336" y="264"/>
+    <size width="97" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <availableRepresentations>Repr2</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_9" caption="Float (1 decimal)" description="" representation="Repr1" overrideParameterPrecision="1">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="336" y="168"/>
+    <size width="97" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <availableRepresentations>Repr2</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_2" caption="" description="">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="360"/>
+    <size width="433" height="121"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_10" caption="String value" description="" representation="value" overrideParameterUnits="" overrideParameterPrecision="3">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.S001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="432"/>
+    <size width="145" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_11" caption="Boolean value" description="" representation="value" overrideParameterPrecision="3">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.B001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="360" y="432"/>
+    <size width="73" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_12" caption="Date value" description="" representation="value" overrideParameterPrecision="3">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_2.D001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="384"/>
+    <size width="241" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_13" caption="Enum value" description="" representation="value" overrideParameterPrecision="3">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_2.E001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="432"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_14" caption="Integer value" description="" representation="value" overrideParameterPrecision="3">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="384"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_1" caption="Decimal formatted numbers" description="">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Cantarell">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="24"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_2" caption="Other datatypes (with three decimals)" description="">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Cantarell">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="336"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_15" caption="Force in N (0 decimals)" description="" representation="Repr1" overrideParameterPrecision="0">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="120"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_16" caption="Voltage (0 decimals)" description="" representation="eng" overrideParameterUnits="" overrideParameterPrecision="0">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="120"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>raw</availableRepresentations>
+    <availableRepresentations>eng</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_17" caption="Float (0 decimals)" description="" representation="Repr1" overrideParameterPrecision="0">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="336" y="120"/>
+    <size width="97" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <availableRepresentations>Repr2</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_18" caption="Force in N (unset)" description="" representation="Repr1">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="72"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_21" caption="Voltage (unset)" description="" representation="eng">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="72"/>
+    <size width="121" height="25"/>
+    <availableRepresentations>raw</availableRepresentations>
+    <availableRepresentations>eng</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="parameter_22" caption="Float (unset)" description="" representation="Repr1">
+    <font fontSize="9" fontFamily="Cantarell"/>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="336" y="72"/>
+    <size width="97" height="25"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <availableRepresentations>Repr2</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Cantarell"/>
+    <monitoringAction/>
+  </widgets>
+  <metaInformation description="" date="2018-04-09T16:11:29.127+0200" author="developer" filename="configurableDecimals.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="480" height="504"/>
+  </canvasProperties>
+</esa.egos.eud.displays:Mimic>

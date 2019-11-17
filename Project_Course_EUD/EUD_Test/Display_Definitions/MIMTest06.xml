@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIMTest06" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_20" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="48"/>
+    <size width="325" height="181"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="217"/>
+    <border borderWidth="4">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_21" caption="POWER SUPPLY STATUS" description="Rectangle Widget">
+    <font fontStyle="BOLD" fontSize="16" fontFamily="Tahoma">
+      <fontColour r="255" g="255"/>
+      <fontBackground g="64" b="128"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="48"/>
+    <size width="325" height="37"/>
+    <monitoringAction/>
+    <background g="64" b="128"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_22" caption="5V" description="Text Widget">
+    <font fontSize="12" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="96" y="96"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_23" caption="5.0V" description="Rectangle Widget">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="72" y="144"/>
+    <size width="61" height="49"/>
+    <monitoringAction/>
+    <background g="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_23_Copy_1" caption="5.4V" description="Rectangle Widget">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="144" y="144"/>
+    <size width="61" height="49"/>
+    <monitoringAction/>
+    <background g="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_23_Copy_2" caption="15.0V" description="Rectangle Widget">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="144"/>
+    <size width="61" height="49"/>
+    <monitoringAction/>
+    <background g="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_23_Copy_3" caption="+15.0V" description="Rectangle Widget">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="288" y="144"/>
+    <size width="61" height="49"/>
+    <monitoringAction/>
+    <background g="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_22_Copy_1" caption="SUPPLY" description="Text Widget">
+    <font fontSize="10" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="84" y="120"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_22_Copy_2" caption="SUPPLY" description="Text Widget">
+    <font fontSize="10" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="156" y="120"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_22_Copy_3" caption="SUPPLY" description="Text Widget">
+    <font fontSize="10" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="228" y="120"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_22_Copy_4" caption="SUPPLY" description="Text Widget">
+    <font fontSize="10" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="300" y="120"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_22_Copy_5" caption="5.4V" description="Text Widget">
+    <font fontSize="12" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="156" y="96"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_22_Copy_6" caption="15V" description="Text Widget">
+    <font fontSize="12" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="228" y="96"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_22_Copy_7" caption="+15V" description="Text Widget">
+    <font fontSize="12" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="300" y="96"/>
+    <monitoringAction/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2012-03-27T17:22:07.244+0200" author="Jean Schuetz" filename="MIMTest06.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="600" height="400"/>
+  </canvasProperties>
+</esa.egos.eud.displays:Mimic>

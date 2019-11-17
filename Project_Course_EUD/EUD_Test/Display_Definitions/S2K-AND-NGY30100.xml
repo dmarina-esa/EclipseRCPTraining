@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ANDConfig:AlphanumericDisplayConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ANDConfig="http://www.esa.int/2011/01/Egos/Configuration/AlphanumericDisplayConfiguration" ColumnsReorganisable="false" Description="AND with the three NGY301xx parameters" EGOSSystemID="NoId" identifier="S2K-AND-NGY30100" kindOfDisplay="MAT" Name="S2K-AND-NGY30100" Sortable="false" Version="1.0">
+  <Display xsi:type="ANDConfig:MatrixDisplay">
+    <Column Field="NAME" Name="Parameter" Tooltip="The short name of the parameter"/>
+    <Column Field="DESCRIPTION" Name="Description" Tooltip="The description for this parameter" Width="207"/>
+    <Column Alignment="RIGHT" Field="VALUE" Name="Value" Tooltip="The current parameter value" Width="125"/>
+    <Column Field="UNIT" Name="Unit" Tooltip="The unit of the parameter" Width="74"/>
+    <Column Field="VALIDITY" Name="Validity" Width="53"/>
+    <Column Field="ALARM" Name="OOL" Width="61"/>
+    <Column Field="TIMESTAMP" Name="Sample Time" Tooltip="The time of the latest sample" Width="134"/>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NGY30098">
+        <Metadata Key="NAME" Value="NGY30098"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NGY30098">
+        <Metadata Key="NAME" Value="NGY30098"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NGY30098">
+        <Metadata Key="NAME" Value="NGY30098"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NGY30098">
+        <Metadata Key="NAME" Value="NGY30098"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NGY30098">
+        <Metadata Key="NAME" Value="NGY30098"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NGY30098">
+        <Metadata Key="NAME" Value="NGY30098"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NGY30098">
+        <Metadata Key="NAME" Value="NGY30098"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NGY30099">
+        <Metadata Key="NAME" Value="NGY30099"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NGY30099">
+        <Metadata Key="NAME" Value="NGY30099"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NGY30099">
+        <Metadata Key="NAME" Value="NGY30099"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NGY30099">
+        <Metadata Key="NAME" Value="NGY30099"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NGY30099">
+        <Metadata Key="NAME" Value="NGY30099"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NGY30099">
+        <Metadata Key="NAME" Value="NGY30099"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NGY30099">
+        <Metadata Key="NAME" Value="NGY30099"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NGY30100">
+        <Metadata Key="NAME" Value="NGY30100"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NGY30100">
+        <Metadata Key="NAME" Value="NGY30100"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NGY30100">
+        <Metadata Key="NAME" Value="NGY30100"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NGY30100">
+        <Metadata Key="NAME" Value="NGY30100"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NGY30100">
+        <Metadata Key="NAME" Value="NGY30100"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NGY30100">
+        <Metadata Key="NAME" Value="NGY30100"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NGY30100">
+        <Metadata Key="NAME" Value="NGY30100"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NGY30002">
+        <Metadata Key="NAME" Value="NGY30002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NGY30002">
+        <Metadata Key="NAME" Value="NGY30002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NGY30002" Representation="eng">
+        <Metadata Key="NAME" Value="NGY30002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NGY30002">
+        <Metadata Key="NAME" Value="NGY30002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NGY30002">
+        <Metadata Key="NAME" Value="NGY30002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NGY30002">
+        <Metadata Key="NAME" Value="NGY30002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NGY30002">
+        <Metadata Key="NAME" Value="NGY30002"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NGY30003">
+        <Metadata Key="NAME" Value="NGY30003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NGY30003">
+        <Metadata Key="NAME" Value="NGY30003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NGY30003">
+        <Metadata Key="NAME" Value="NGY30003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NGY30003">
+        <Metadata Key="NAME" Value="NGY30003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NGY30003">
+        <Metadata Key="NAME" Value="NGY30003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NGY30003">
+        <Metadata Key="NAME" Value="NGY30003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NGY30003">
+        <Metadata Key="NAME" Value="NGY30003"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NGY30230">
+        <Metadata Key="NAME" Value="NGY30230"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NGY30230">
+        <Metadata Key="NAME" Value="NGY30230"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NGY30230">
+        <Metadata Key="NAME" Value="NGY30230"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NGY30230">
+        <Metadata Key="NAME" Value="NGY30230"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NGY30230">
+        <Metadata Key="NAME" Value="NGY30230"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NGY30230">
+        <Metadata Key="NAME" Value="NGY30230"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NGY30230">
+        <Metadata Key="NAME" Value="NGY30230"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NGY30233">
+        <Metadata Key="NAME" Value="NGY30233"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NGY30233">
+        <Metadata Key="NAME" Value="NGY30233"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NGY30233">
+        <Metadata Key="NAME" Value="NGY30233"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NGY30233">
+        <Metadata Key="NAME" Value="NGY30233"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NGY30233">
+        <Metadata Key="NAME" Value="NGY30233"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NGY30233">
+        <Metadata Key="NAME" Value="NGY30233"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NGY30233">
+        <Metadata Key="NAME" Value="NGY30233"/>
+      </MatrixElement>
+    </Row>
+  </Display>
+  <Metadata Key="Span" Value="7"/>
+</ANDConfig:AlphanumericDisplayConfiguration>

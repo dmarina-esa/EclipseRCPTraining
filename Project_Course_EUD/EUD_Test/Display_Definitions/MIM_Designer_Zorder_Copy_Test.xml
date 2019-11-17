@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_Designer_Zorder_Copy_Test" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_8" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="8" y="16"/>
+    <size width="169" height="105"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_7" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="32"/>
+    <size width="169" height="105"/>
+    <monitoringAction/>
+    <background r="184" g="151" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_9" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="48"/>
+    <size width="169" height="105"/>
+    <monitoringAction/>
+    <background r="237" g="201" b="122"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_6" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="56" y="64"/>
+    <size width="169" height="105"/>
+    <monitoringAction/>
+    <background r="155" g="199" b="204"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_10" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="72" y="80"/>
+    <size width="169" height="105"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_1" caption="Original Group" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="80" y="192"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_1" caption="" description="" deltaY="32">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="120" y="216"/>
+    <line lineWidth="1"/>
+    <monitoringAction/>
+    <middlePoints x="120" y="216"/>
+    <middlePoints x="120" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_2" caption="" description="" deltaX="248">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="120" y="248"/>
+    <line lineWidth="1"/>
+    <monitoringAction/>
+    <middlePoints x="120" y="248"/>
+    <middlePoints x="368" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_3" caption="" description="" deltaY="16">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="368" y="232"/>
+    <line lineWidth="1"/>
+    <monitoringAction/>
+    <middlePoints x="368" y="232"/>
+    <middlePoints x="368" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="triangle_1" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="360" y="216"/>
+    <size width="17" height="17"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_2" caption="1st Step: Copy and Paste the Original Group" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="128" y="256"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_3" caption="Copy 1" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="368" y="192"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_8" caption="" description="" deltaY="32">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="398" y="216"/>
+    <line lineWidth="1">
+      <lineColour/>
+    </line>
+    <monitoringAction/>
+    <middlePoints x="398" y="216"/>
+    <middlePoints x="398" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="triangle_2" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="616" y="216"/>
+    <size width="17" height="17"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_4" caption="2nd Step: Copy and Paste the first Copy" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="408" y="256"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_12" caption="" description="" deltaX="226">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="398" y="248"/>
+    <line lineWidth="1">
+      <lineColour/>
+    </line>
+    <monitoringAction/>
+    <middlePoints x="398" y="248"/>
+    <middlePoints x="624" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_11" caption="" description="" deltaY="16">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="624" y="232"/>
+    <line lineWidth="1">
+      <lineColour/>
+    </line>
+    <monitoringAction/>
+    <middlePoints x="624" y="232"/>
+    <middlePoints x="624" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_5" caption="Copy 2" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="624" y="192"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_19" caption="" description="" deltaY="16">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="864" y="232"/>
+    <line lineWidth="1">
+      <lineColour/>
+    </line>
+    <monitoringAction/>
+    <middlePoints x="864" y="232"/>
+    <middlePoints x="864" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="triangle_3" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="856" y="216"/>
+    <size width="17" height="17"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_6" caption="3rd Step: Copy and Paste the second Copy" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="656" y="256"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_17" caption="" description="" deltaY="32">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="656" y="216"/>
+    <line lineWidth="1">
+      <lineColour/>
+    </line>
+    <monitoringAction/>
+    <middlePoints x="656" y="216"/>
+    <middlePoints x="656" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Line" name="line_21" caption="" description="" deltaX="208">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="656" y="248"/>
+    <line lineWidth="1">
+      <lineColour/>
+    </line>
+    <monitoringAction/>
+    <middlePoints x="656" y="248"/>
+    <middlePoints x="864" y="248"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_7" caption="Copy 3" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="848" y="192"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_26" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="256" y="8"/>
+    <size width="249" height="185"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_27" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="512" y="8"/>
+    <size width="249" height="185"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_28" caption="" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="768" y="8"/>
+    <size width="249" height="185"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_8" caption="4th Step: Open the preview view by clicking on the preview icon." description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="336" y="296"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_9" caption="Result: The z-order of the widgets in all copied groups looks the same." description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="336" y="320"/>
+    <monitoringAction/>
+  </widgets>
+  <metaInformation description="" date="2015-12-11T09:58:43.709+0100" author="ruga" filename="MIM_Designer_Zorder_Copy_Test.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="1024" height="384"/>
+  </canvasProperties>
+  <groups widgets="rectangle_8 rectangle_7 rectangle_9 rectangle_6 rectangle_10" id="87d62d9b-4805-4907-9d8a-6c1e382170db"/>
+</esa.egos.eud.displays:Mimic>

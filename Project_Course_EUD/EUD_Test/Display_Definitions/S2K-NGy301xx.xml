@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlplotdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="GRD" identifier="S2K-NGy301xx">
+    <metaInformation>
+        <description>GRD showing the three NGY301xx parameters</description>
+        <keyword></keyword>
+        <date>2012-01-23T12:16:00.000Z</date>
+        <parameterList>
+            <parameter>0.NGY30099</parameter>
+            <parameter>0.NGY30098</parameter>
+            <parameter>0.NGY30100</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter representation="raw" parameter="0.NGY30098">
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>false</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter representation="raw" parameter="0.NGY30099">
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>false</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter representation="raw" parameter="0.NGY30100">
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>false</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <rendering>
+        <autoscroll mode="ONE_THIRD" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>true</stacked>
+        <limits>true</limits>
+        <xaxis>
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <grid>false</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>minutes</unit>
+        <amount>5.0</amount>
+    </timeSpan>
+    <operationMode>DATA_DRIVEN</operationMode>
+    <headerMode>FULL</headerMode>
+</ns2:xmlplotdisplaydefinition>

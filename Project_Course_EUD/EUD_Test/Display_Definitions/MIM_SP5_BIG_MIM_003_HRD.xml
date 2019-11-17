@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_SP5_BIG_MIM_003_HRD" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="widget_156" caption="HRD1" description="Push Button Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="85" y="156"/>
+    <size width="90" height="40"/>
+    <background r="232" g="232" b="232"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157" caption="- INH -" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="180" y="155"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_158" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="275" y="155"/>
+    <size width="90" height="40"/>
+    <monitoringAction script="var randomnumber=Math.floor(Math.random()*9)&#xD;&#xA;&#xD;&#xA;thiz.setCaption(I001_long.getValue() + &quot;.&quot; +  randomnumber);">
+      <triggeringParameters parameterReference="I001_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_159" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="F002_long"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="370" y="155"/>
+    <size width="116" height="40"/>
+    <monitoringAction script="thiz.setCaption(Math.abs(I002_long.getValue())/2 + &quot; MHz&quot;);">
+      <triggeringParameters parameterReference="I002_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_160" caption="AGC" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="11" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="300" y="130"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_161" caption="Maint." description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="490" y="155"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_162" caption="Test" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="F001_long"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="585" y="155"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_163" caption="Ch. Ass." description="Text Widget">
+    <font fontStyle="BOLD" fontSize="11" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="400" y="130"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_164" caption="Mode" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="11" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="515" y="130"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_165" caption="I/F Test" description="Text Widget">
+    <font fontStyle="BOLD" fontSize="11" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="605" y="130"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="widget_156_Copy_1" caption="HRD2" description="Push Button Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="85" y="201"/>
+    <size width="90" height="40"/>
+    <background r="232" g="232" b="232"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_1" caption="- INH -" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="180" y="200"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_158_Copy_1" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="275" y="200"/>
+    <size width="90" height="40"/>
+    <monitoringAction script="var randomnumber=Math.floor(Math.random()*9)&#xD;&#xA;&#xD;&#xA;thiz.setCaption(I001_long.getValue() + &quot;.&quot; +  randomnumber);">
+      <triggeringParameters parameterReference="I001_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_159_Copy_1" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="370" y="200"/>
+    <size width="116" height="40"/>
+    <monitoringAction script="thiz.setCaption(Math.abs(I002_long.getValue())/2 + &quot; MHz&quot;);">
+      <triggeringParameters parameterReference="I002_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_161_Copy_1" caption="Maint." description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="490" y="200"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_162_Copy_1" caption="Test" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="585" y="200"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="widget_156_Copy_2" caption="HRD2" description="Push Button Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="85" y="246"/>
+    <size width="90" height="40"/>
+    <background r="232" g="232" b="232"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_2" caption="- INH -" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="180" y="245"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_158_Copy_2" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="275" y="245"/>
+    <size width="90" height="40"/>
+    <monitoringAction script="var randomnumber=Math.floor(Math.random()*9)&#xD;&#xA;&#xD;&#xA;thiz.setCaption(I001_long.getValue() + &quot;.&quot; +  randomnumber);">
+      <triggeringParameters parameterReference="I001_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_159_Copy_2" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="370" y="245"/>
+    <size width="116" height="40"/>
+    <monitoringAction script="thiz.setCaption(Math.abs(I002_long.getValue())/2 + &quot; MHz&quot;);">
+      <triggeringParameters parameterReference="I002_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_161_Copy_2" caption="Maint." description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="490" y="245"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_162_Copy_2" caption="Test" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="585" y="245"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="widget_156_Copy_3" caption="HRD3" description="Push Button Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="85" y="290"/>
+    <size width="90" height="40"/>
+    <background r="232" g="232" b="232"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_3" caption="- INH -" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="180" y="290"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_158_Copy_3" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="275" y="290"/>
+    <size width="90" height="40"/>
+    <monitoringAction script="var randomnumber=Math.floor(Math.random()*9)&#xD;&#xA;&#xD;&#xA;thiz.setCaption(I001_long.getValue()*2 + &quot;.&quot; +  randomnumber);">
+      <triggeringParameters parameterReference="I001_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_159_Copy_3" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="370" y="290"/>
+    <size width="116" height="40"/>
+    <monitoringAction script="thiz.setCaption(Math.abs(I002_long.getValue())/2 + &quot; MHz&quot;);">
+      <triggeringParameters parameterReference="I002_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_161_Copy_3" caption="Maint." description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="490" y="290"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_162_Copy_3" caption="Test" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="585" y="290"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="widget_156_Copy_4" caption="QPSK1" description="Push Button Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="85" y="335"/>
+    <size width="90" height="40"/>
+    <background r="232" g="232" b="232"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_4" caption="- INH -" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="180" y="335"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_158_Copy_4" caption="--" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="275" y="335"/>
+    <size width="90" height="40"/>
+    <monitoringAction script="var randomnumber=Math.floor(Math.random()*9)&#xD;&#xA;&#xD;&#xA;thiz.setCaption(I001_long.getValue() * 2 + &quot;.&quot; +  randomnumber);">
+      <triggeringParameters parameterReference="I001_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="widget_156_Copy_5" caption="UQPSK1" description="Push Button Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="375" y="335"/>
+    <size width="106" height="40"/>
+    <background g="255" b="255"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_5" caption="RT" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="490" y="335"/>
+    <size width="46" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_6" caption="PB" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="535" y="335"/>
+    <size width="46" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_7" caption="-" description="Rectangle Widget">
+    <font fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="585" y="335"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_167" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="320" y="410"/>
+    <size width="446" height="146"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Submimc" name="widget_168" caption="CORTEX 1" description="Sub-Mimic Widget" reference="MIM_SP1_001" modalMode="REPLACE">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="335" y="435"/>
+    <size width="80" height="40"/>
+    <background r="237" g="201" b="122"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_169" caption="A" description="Parameter Field Widget" representation="Repr1">
+    <font fontStyle="BOLD" fontSize="9"/>
+    <associatedParameter parameterReference="F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="465" y="435"/>
+    <size width="90" height="40"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <availableRepresentations>Repr2</availableRepresentations>
+    <border borderWidth="3">
+      <borderColour g="128" b="192"/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_169_Copy_1" caption="B" description="Parameter Field Widget" representation="Repr1">
+    <font fontStyle="BOLD" fontSize="9"/>
+    <associatedParameter parameterReference="F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="560" y="435"/>
+    <size width="90" height="40"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <border borderWidth="3">
+      <borderColour g="128" b="192"/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_169_Copy_2" caption="SWP" description="Parameter Field Widget" representation="calibrated">
+    <font fontStyle="BOLD" fontSize="9"/>
+    <associatedParameter parameterReference="F004"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="655" y="435"/>
+    <size width="90" height="40"/>
+    <availableRepresentations>calibrated</availableRepresentations>
+    <border borderWidth="3">
+      <borderColour g="128" b="192"/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Image" name="widget_170" caption="" description="Image Widget" image="img_924">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="565" y="495"/>
+    <size width="39" height="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_158_Copy_5" caption="UNDEFINED" description="Rectangle Widget">
+    <font fontStyle="BOLD" fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="335" y="495"/>
+    <size width="126" height="40"/>
+    <monitoringAction script="var randomnumber=Math.floor(Math.random()*9)&#xD;&#xA;&#xD;&#xA;thiz.setCaption(I001_long.getValue() * 2 + &quot;.&quot; +  randomnumber);">
+      <triggeringParameters parameterReference="I001_long"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_8" caption="- INH -" description="Rectangle Widget">
+    <font fontStyle="BOLD" fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="470" y="495"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Image" name="widget_170_Copy_1" caption="" description="Image Widget" image="img_924">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="720" y="495"/>
+    <size width="39" height="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_157_Copy_9" caption="- INH -" description="Rectangle Widget">
+    <font fontStyle="BOLD" fontSize="11" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="625" y="495"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_173" caption="HRD Mimic" description="Text Widget">
+    <font fontSize="24" fontFamily="Rockwell">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="45" y="30"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_171" caption="" description="One to One Connector Widget" port="widget_156_Copy_4" hook="widget_167" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="5" end="ARROW" start="ARROW" type="RIGHT_ANGLE">
+      <lineColour g="128"/>
+    </connectorAppearance>
+    <middlePoints x="121" y="375"/>
+    <middlePoints x="121" y="375"/>
+    <middlePoints x="121" y="473"/>
+    <middlePoints x="320" y="473"/>
+    <middlePoints x="320" y="473"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_172" caption="" description="One to One Connector Widget" port="widget_162_Copy_1" hook="widget_167" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="5" end="ARROW" type="RIGHT_ANGLE">
+      <lineColour g="128"/>
+    </connectorAppearance>
+    <middlePoints x="675" y="215"/>
+    <middlePoints x="675" y="215"/>
+    <middlePoints x="715" y="215"/>
+    <middlePoints x="715" y="410"/>
+    <middlePoints x="715" y="410"/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2010-12-10T16:24:58.500+0100" author="gio" filename="MIM_SP5_BIG_MIM_003_HRD.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="800" height="600"/>
+  </canvasProperties>
+  <images imageId="img_924" imageContent="/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAnACkDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcEBQYI/8QAORAAAQMCBAQDBAcJAQAAAAAAAQIDEQQFBhIhMRMiQVEAB2EyQnGBI2Oho7HT4xQWF1JUYpKTosH/xAAYAQEBAQEBAAAAAAAAAAAAAAACAQMABP/EACARAAICAwABBQAAAAAAAAAAAAECABEDEjEhIjJRYXH/2gAMAwEAAhEDEQA/ANRgixWe4YXttVdWaipqqrO4txNYpAMOERAVAEEjrM9SeafV2jCrOYLoK16oUniBhquWVOaJmBm9Vaf3HeeaDYLi/QeWtpfpihTvCXkBXmzEuka8x7/hvMKZNuwq2zY2EtraRc3QHXXkKKs6yQCoSdtTtO/WSFYvko6gTRQqgM0xdPhGlrW0LatZyOwUpVdHElWYzqmYHrqdz35obFswyK1NDW2m40zqjCVO1rmV1QIBCVFWu5+OY7+9d3DGVqst1Zs90rmmrjUcqGgT9JMiRCj3V+HUZtPbbAu4ULxuZBFQg8NlZjSIJ0Og16d+vvcUdRsGv6lVsZsEVFjje02imwtXVVCxWM1IRIIqlrKttIzHSVH016zzKT94K/8Arz/sT+d4b+J265GEb9R3d5Lz1OeCVN+ysHKR13iPnG886Q4/1/3363hLq8LKF5HJbFZ/K+15SPZVIkkr+m39o946/OYU/wCjWFstFt1KypAVGaZ0TqDJ0j47z8UvgYpdwPZUOK5FsuJ5Vzml0iTzHv6/OebQ02J3qexs2l8fsriIaS/lGRxG0zMJPWJ6jeRmBOr2eShd1oTlfzXw/if+LdSiXqitranPSuNrzJgk5RM6RP2nfr2tgCmuNFhG0094fU/WoYQHVqVmUownWcx+f/u5oaGjFRSpWh7jodEpUFBXE06c3oNNZmdSRmgtYjFqRVUIeVWFwZENoJWUr05SQTl3O419feTZFAoSak+JmfMopepMWQpK0lxJEGQeVPST37deswpD8f6/779bw68U0opcB1tMp5VQQ0VKJ1KpIIHtK2zeu43mFpTj/X/ffreLjHi/mLK21fkYGHsfvW6w0lvNrUs0udsrLujgzqJkZt5B76f9WjnmQ7UNrbfsvEpiBxErenNEAjf49O+/U8Hhe/w3J5lysCaPJEbx3C0gWirEGYTXKSn4AZtPe2+3XNKp/MNynkt2EJUSFOFD8F0yDrr7Wp1Pr3Mng8QYURrURpmfILYyvxDjaou1lqLc5blMoeAlfEC9o05ie2vwO/XC8Cr/AJH/API/neDweNDyFT6iJ//Z"/>
+</esa.egos.eud.displays:Mimic>

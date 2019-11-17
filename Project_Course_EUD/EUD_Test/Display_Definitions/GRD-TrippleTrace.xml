@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlplotdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="GRD" identifier="GRD-TrippleTrace">
+    <metaInformation>
+        <description></description>
+        <keyword></keyword>
+        <date>2012-11-02T18:04:00.000Z</date>
+        <parameterList>
+            <parameter>Category_1.F001</parameter>
+            <parameter>Category_1.F003</parameter>
+            <parameter>Category_1.F002</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter notation="Normal" decimalDigits="3" representation="Repr1" parameter="Category_1.F001">
+        <range max="1.0" min="0.0" representation="Repr2"/>
+        <range max="7.0" min="2.0" representation="Repr1"/>
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>false</autoscale>
+            <autocenter>false</autocenter>
+            <grid>true</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>STEP</smooth>
+            <size>1.0</size>
+            <color>#FF0080</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>STEP</smooth>
+            <size>1.0</size>
+            <color>#FFFFFF</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter notation="Normal" decimalDigits="3" representation="Repr1" parameter="Category_1.F002">
+        <range max="679.77" min="-654.19" representation="Repr1"/>
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>true</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>DASHED</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#008000</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>STEP</smooth>
+            <size>1.0</size>
+            <color>#FFFFFF</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter notation="Normal" decimalDigits="3" representation="eng" parameter="Category_1.F003">
+        <range max="1.0" min="0.0" representation="raw"/>
+        <range max="16.0" min="8.0" representation="eng"/>
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>false</autoscale>
+            <autocenter>false</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0000FF</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>STEP</smooth>
+            <size>1.0</size>
+            <color>#00012A</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <rendering>
+        <autoscroll mode="CONTINUOUS" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>false</stacked>
+        <limits>true</limits>
+        <xaxis>
+            <majortick>6</majortick>
+            <minortick>5</minortick>
+            <grid>true</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>minutes</unit>
+        <amount>1.0</amount>
+    </timeSpan>
+    <operationMode>DATA_DRIVEN</operationMode>
+    <headerMode>FULL</headerMode>
+</ns2:xmlplotdisplaydefinition>

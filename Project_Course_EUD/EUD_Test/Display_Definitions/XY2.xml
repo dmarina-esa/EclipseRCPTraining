@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlxydisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="XY" identifier="XY2">
+    <metaInformation>
+        <description></description>
+        <keyword></keyword>
+        <date>2012-01-19T11:15:00.000Z</date>
+        <parameterList>
+            <parameter>FOO_002</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter representation="Repr4" parameter="FOO_002">
+        <range max="69.60873413" min="58.56821823" representation="Repr4"/>
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>false</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0000FF</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>STEP</smooth>
+            <size>1.0</size>
+            <color>#FFFFFF</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <rendering>
+        <autoscroll mode="ONE_THIRD" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>true</stacked>
+        <limits>true</limits>
+        <xaxis>
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>minutes</unit>
+        <amount>5.0</amount>
+    </timeSpan>
+    <headerMode>FULL</headerMode>
+    <x representation="default" parameter="FOO_001">
+        <range max="-61.68994140625" min="-63.68994140625" representation="default"/>
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>false</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </Axis>
+    </x>
+</ns2:xmlxydisplaydefinition>
