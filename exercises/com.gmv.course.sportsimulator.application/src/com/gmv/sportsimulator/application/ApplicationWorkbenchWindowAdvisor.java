@@ -1,12 +1,9 @@
 package com.gmv.sportsimulator.application;
 
-import org.eclipse.e4.ui.model.application.ui.MElementContainer;
-import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPlaceholder;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
@@ -46,17 +43,17 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         {
             e.printStackTrace();
         }
-        
-        EPartService partService = PlatformUI.getWorkbench().getService(EPartService.class);
-        
-        
-        MPart gamesPart  = partService.findPart("com.gmv.course.sportsimulator.display.e4.gamespart");
-        MPart otherPart = partService.findPart(Perspective.TEAM_VIEW_ID);
-        
-        MPlaceholder otherPartPlaceHolder = otherPart.getCurSharedRef();
-        EModelService ms = PlatformUI.getWorkbench().getService(EModelService.class);
-
-        ms.move(gamesPart, otherPartPlaceHolder.getParent(), false);
+//        
+//        EPartService partService = (EPartService) PlatformUI.getWorkbench().getService(EPartService.class);
+//        
+//        
+//        MPart gamesPart  = partService.findPart("com.gmv.course.sportsimulator.display.e4.gamespart");
+//        MPart otherPart = partService.findPart(Perspective.TEAM_VIEW_ID);
+//        
+//        MPlaceholder otherPartPlaceHolder = otherPart.getCurSharedRef();
+//        EModelService ms = (EModelService) PlatformUI.getWorkbench().getService(EModelService.class);
+//
+//        ms.move(gamesPart, otherPartPlaceHolder.getParent(), false);
         
     }
     

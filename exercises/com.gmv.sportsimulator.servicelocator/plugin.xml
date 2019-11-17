@@ -2,8 +2,5 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="sportsimulator" name="sportsimulator" schema="schema/sportsimulator.exsd"/>
-   <extension
-         point="com.gmv.sportsimulator.servicelocator.sportsimulator">
-   </extension>
 
 </plugin>
