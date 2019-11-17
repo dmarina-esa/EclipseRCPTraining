@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_SPR_859_Widget_Scope_Addition_Test" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="foo" caption="foo" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="472" y="232"/>
+    <size width="33" height="17"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_1" caption="Test Output 1" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="8"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="test_output_rectangle_1" caption="The test output will show up here." description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="8" y="24"/>
+    <size width="497" height="41"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_2" caption="Expected Test Output" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="136"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_2" caption="Some foo &quot;string&quot;: foo; Another 'foo' &quot;string&quot;: foo; Yet 'another' &quot;foo&quot; string." description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="8" y="152"/>
+    <size width="497" height="41"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_3" caption="Click the button to perform the test." description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="160" y="200"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="pushButton_1" caption="Test" description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP script="var test_1 = 'Some foo &quot;string&quot;: ' + foo.getCaption() + &quot;; Another \'foo\' \&quot;string\&quot;: &quot; + foo.getName() + &quot;; Yet 'another' \&quot;foo\&quot; string.&quot;;&#xD;&#xA;test_output_rectangle_1.setCaption(test_1);&#xD;&#xA;var test_2 = 'Some foo &quot;string&quot;: ' + foo.getCaption() + &#xD;&#xA;&quot;; Another \&#xD;&#xA;\'foo\' \&quot;string\&quot;: &quot; + foo.getName()&#xD;&#xA;+ &quot;; Yet 'another' \&quot;foo\&quot; string.&quot;;&#xD;&#xA;test_output_rectangle_2.setCaption(test_2);&#xD;&#xA;&#xD;&#xA;var expectedString = &quot;Some foo \&quot;string\&quot;: foo; Another \'foo\' \&quot;string\&quot;: foo; Yet \'another\' \&quot;foo\&quot; string.&quot;;&#xD;&#xA;if (expectedString == test_1)&#xD;&#xA;{&#xD;&#xA;    test_output_rectangle_1.setBackgroundColor(0,255,0);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    test_output_rectangle_1.setBackgroundColor(255,0,0);&#xD;&#xA;}&#xD;&#xA;if (expectedString == test_2)&#xD;&#xA;{&#xD;&#xA;    test_output_rectangle_2.setBackgroundColor(0,255,0);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    test_output_rectangle_2.setBackgroundColor(255,0,0);&#xD;&#xA;}" controlMode="MONITOR"/>
+    <location x="224" y="224"/>
+    <size width="75" height="25"/>
+    <background r="240" g="240" b="240"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_4" caption="Test Output 2" description="">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="72"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="test_output_rectangle_2" caption="The test output will show up here." description="">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="8" y="88"/>
+    <size width="497" height="41"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <metaInformation description="" date="2015-11-27T14:01:48.731+0100" author="ruga" filename="MIM_SPR_859_Widget_Scope_Addition_Test.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="512" height="256"/>
+  </canvasProperties>
+</esa.egos.eud.displays:Mimic>

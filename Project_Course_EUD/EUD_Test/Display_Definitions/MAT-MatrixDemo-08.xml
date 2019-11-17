@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ANDConfig:AlphanumericDisplayConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ANDConfig="http://www.esa.int/2011/01/Egos/Configuration/AlphanumericDisplayConfiguration" ColumnsReorganisable="false" Description="Test new insert row/columns" EGOSSystemID="NoId" identifier="MAT-MatrixDemo-08" kindOfDisplay="MAT" Name="MAT-MatrixDemo-08" Sortable="false" Version="1.0">
+  <Display xsi:type="ANDConfig:MatrixDisplay">
+    <Column Field="NAME" Name="#" Width="23"/>
+    <Column Field="NAME" Name="Name" Tooltip="The Name" Width="108"/>
+    <Column Field="DESCRIPTION" Name="Description" Tooltip="asdasd" Width="232"/>
+    <Column Field="VALUE" Name="Value" Tooltip="the value" ValueAlignment="6" Width="121"/>
+    <Column Field="UNIT" Name="Units"/>
+    <Column Field="TIMESTAMP" Name="time" Tooltip="The sample time" Width="141"/>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="1"/>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="3"/>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="4"/>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="5"/>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="6"/>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="8"/>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="Category_1.B001">
+        <Metadata Key="NAME" Value="B001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="Category_1.B001">
+        <Metadata Key="NAME" Value="B001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.B001">
+        <Metadata Key="NAME" Value="B001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="Category_1.B001">
+        <Metadata Key="NAME" Value="B001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="Category_1.B001">
+        <Metadata Key="NAME" Value="B001"/>
+      </MatrixElement>
+    </Row>
+  </Display>
+  <Metadata Key="Span" Value="6"/>
+</ANDConfig:AlphanumericDisplayConfiguration>

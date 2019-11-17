@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlscrollingdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="1.0" kindOfDisplay="SCD" identifier="SCD2">
+    <metaInformation>
+        <description></description>
+        <keyword></keyword>
+        <date>2011-06-30T18:52:00.000Z</date>
+        <parameterList>
+            <parameter>FOO_002</parameter>
+        </parameterList>
+    </metaInformation>
+    <columns width="156" representation="default" name="SAMPLE TIME"/>
+    <columns width="191" representation="default" name="FOO_002"/>
+</ns2:xmlscrollingdisplaydefinition>

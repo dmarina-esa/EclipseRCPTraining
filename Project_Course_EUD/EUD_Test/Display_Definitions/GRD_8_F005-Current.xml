@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlplotdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="GRD" identifier="GRD_8_F005-Current">
+    <metaInformation>
+        <description>Shows the F005 Current between 0.0 and 0.2mA</description>
+        <date>2012-11-02T18:23:00.000Z</date>
+        <parameterList>
+            <parameter>Category_1.F005</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter notation="Normal" decimalDigits="3" representation="eng" parameter="Category_1.F005">
+        <range max="1.0" min="0.0" representation="raw"/>
+        <range max="1.0" min="0.0" representation="precision"/>
+        <range max="0.2" min="0.0" representation="eng"/>
+        <Axis visible="true">
+            <majortick>6</majortick>
+            <minortick>3</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>false</autocenter>
+            <grid>true</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#008000</color>
+            <point>NOPOINT</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter notation="Normal" decimalDigits="6" representation="precision" parameter="Category_1.F005">
+        <range max="1.0" min="0.0" representation="raw"/>
+        <range max="1.0" min="0.0" representation="precision"/>
+        <range max="0.2" min="0.0" representation="eng"/>
+        <Axis visible="true">
+            <majortick>6</majortick>
+            <minortick>3</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>false</autocenter>
+            <grid>true</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#800000</color>
+            <point>NOPOINT</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <rendering>
+        <autoscroll mode="ONE_THIRD" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>true</stacked>
+        <limits>true</limits>
+        <xaxis>
+            <majortick>6</majortick>
+            <minortick>4</minortick>
+            <grid>true</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>seconds</unit>
+        <amount>60.0</amount>
+    </timeSpan>
+    <operationMode>DATA_DRIVEN</operationMode>
+    <headerMode>FULL</headerMode>
+</ns2:xmlplotdisplaydefinition>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ANDConfig:AlphanumericDisplayConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ANDConfig="http://www.esa.int/2011/01/Egos/Configuration/AlphanumericDisplayConfiguration" ColumnsReorganisable="false" Description="2x3 Matrix Example" HideColumnHeaders="true" identifier="MAT-MatrixDemo-02" kindOfDisplay="MAT" Name="MAT-MatrixDemo-02" Sortable="false" Version="1.0">
+  <Display xsi:type="ANDConfig:MatrixDisplay">
+    <Column Field="NAME" Name="Source" Tooltip="Column containing the parameter field labels" Width="122"/>
+    <Column Field="VALUE" Name="TCP/IP Status" Tooltip="Column containing parameters related to TCP/IP Status" Width="150"/>
+    <Column Field="VALUE" Name="Interface" Tooltip="Column containing parameters related to the Interface" Width="140"/>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="">
+        <BackgroundColor ColorCode="Green"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="TCP/IP Status">
+        <BackgroundColor ColorCode="Green"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Interface">
+        <BackgroundColor ColorCode="Green"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="CLCW Source 1">
+        <BackgroundColor ColorCode="Green"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I001">
+        <Metadata Key="NAME" Value="I001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="CLCW Source 2">
+        <BackgroundColor ColorCode="Green"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I002">
+        <Metadata Key="NAME" Value="I002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="CLCW Source 3">
+        <BackgroundColor ColorCode="Green"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I003">
+        <Metadata Key="NAME" Value="I003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+    </Row>
+  </Display>
+</ANDConfig:AlphanumericDisplayConfiguration>

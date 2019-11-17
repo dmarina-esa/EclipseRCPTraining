@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlplotdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="GRD" identifier="GRD-Float">
+    <metaInformation>
+        <description>GRD with all float parameters</description>
+        <keyword></keyword>
+        <date>2012-01-24T16:19:00.000Z</date>
+        <parameterList>
+            <parameter>FOO_002</parameter>
+            <parameter>FOO_001</parameter>
+            <parameter>Category_1.F002</parameter>
+            <parameter>Category_1.F004</parameter>
+            <parameter>Category_1.F001</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter representation="Repr4" parameter="FOO_002">
+        <range max="1000.0" min="-1000.0" representation="Repr4"/>
+        <Axis visible="true">
+            <majortick>5</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>true</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter representation="default" parameter="FOO_001">
+        <range max="203.994812" min="-0.0" representation="default"/>
+        <range max="1.0" min="0.0" representation="Repr3"/>
+        <Axis visible="true">
+            <majortick>5</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>true</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0000FF</color>
+            <point>SQUARE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter representation="Repr1" parameter="Category_1.F002">
+        <range max="88.804352" min="-71.30909" representation="Repr1"/>
+        <Axis visible="true">
+            <majortick>5</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>true</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#FF0080</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter representation="Repr1" parameter="Category_1.F001">
+        <range max="1.0" min="0.0" representation="Repr2"/>
+        <range max="305.701477" min="-295.578033" representation="Repr1"/>
+        <Axis visible="true">
+            <majortick>5</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>true</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#008000</color>
+            <point>TRIANGLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter representation="calibrated" parameter="Category_1.F004">
+        <range max="0.061803" min="-0.3" representation="calibrated"/>
+        <Axis visible="true">
+            <majortick>5</majortick>
+            <minortick>4</minortick>
+            <autoscale>false</autoscale>
+            <autocenter>true</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#FF8040</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <rendering>
+        <autoscroll mode="CONTINUOUS" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>true</stacked>
+        <limits>false</limits>
+        <xaxis>
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <grid>false</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>minutes</unit>
+        <amount>10.0</amount>
+    </timeSpan>
+    <operationMode>DATA_DRIVEN</operationMode>
+    <headerMode>FULL</headerMode>
+</ns2:xmlplotdisplaydefinition>

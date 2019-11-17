@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_SubMimic_Test" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:Submimc" name="subMimic_1" caption="BatteryAssembly" description="Opens the display under 'Local Storage/MIM_Battery_Assembly' as Sub-MIMIC" reference="Local Storage/MIM_Battery_Assembly">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="96" y="24"/>
+    <size width="205" height="73"/>
+    <background g="128" b="255"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_1" caption="(double-click to activate)" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="132" y="72"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_2" caption="in new View" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="168" y="48"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Submimc" name="subMimic_2" caption="OpenDisplayTest" description="Opens the display under 'Local Storage/MIM_Open_Display_Test' as Sub-MIMIC" reference="Local Storage/MIM_Open_Display_Test" modalMode="REPLACE">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="96" y="120"/>
+    <size width="205" height="73"/>
+    <background r="255" g="128" b="192"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_4" caption="(double-click to activate)" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="132" y="168"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_3" caption="replaces this MIMIC view" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="132" y="144"/>
+    <monitoringAction/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2012-07-30T16:16:04.237+0200" author="Jean Schuetz" filename="MIM_SubMimic_Test.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="400" height="300"/>
+  </canvasProperties>
+</esa.egos.eud.displays:Mimic>

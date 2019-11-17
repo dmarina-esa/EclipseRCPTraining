@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ANDConfig:AlphanumericDisplayConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ANDConfig="http://www.esa.int/2011/01/Egos/Configuration/AlphanumericDisplayConfiguration" ColumnsReorganisable="false" Description="4x3x3 Matrix Example" HideColumnHeaders="true" identifier="MAT-MatrixDemo-04" kindOfDisplay="MAT" Name="MAT-MatrixDemo-04" Sortable="false" Version="1.0">
+  <Display xsi:type="ANDConfig:MatrixDisplay">
+    <Column Field="NAME" Name="Param Field" Tooltip="Column containing the parameter field labels" Width="122"/>
+    <Column Field="VALUE" Name="1" Width="76"/>
+    <Column Field="VALUE" Name="2" Width="81"/>
+    <Column Field="VALUE" Name="3" Width="83"/>
+    <Column Field="VALUE" Name="4" Width="86"/>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="193" Red="132"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 01">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="221" Red="187"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 02">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="228" Red="202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 03">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="239" Red="223"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 04">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="245" Red="236"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Voltage">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="221" Red="187"/>
+        <ForegroundColor ColorCode="Red"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BAR_001">
+        <Metadata Key="NAME" Value="BAR_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I001">
+        <Metadata Key="NAME" Value="I001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Current">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="228" Red="202"/>
+        <ForegroundColor ColorCode="Dark_Green"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F002">
+        <Metadata Key="NAME" Value="F002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F005">
+        <Metadata Key="NAME" Value="F005"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="FOO_001">
+        <Metadata Key="NAME" Value="FOO_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I002">
+        <Metadata Key="NAME" Value="I002"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Power">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="245" Red="236"/>
+        <ForegroundColor ColorCode="Blue"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F003">
+        <Metadata Key="NAME" Value="F003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BAZ_002">
+        <Metadata Key="NAME" Value="BAZ_002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="FOO_002">
+        <Metadata Key="NAME" Value="FOO_002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I003">
+        <Metadata Key="NAME" Value="I003"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="193" Red="132"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 05">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="221" Red="187"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 06">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="228" Red="202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 07">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="239" Red="223"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 08">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="245" Red="236"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Voltage">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="221" Red="187"/>
+        <ForegroundColor ColorCode="Red"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BAR_001">
+        <Metadata Key="NAME" Value="BAR_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BLAH_333">
+        <Metadata Key="NAME" Value="BLAH_333"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Current">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="228" Red="202"/>
+        <ForegroundColor ColorCode="Dark_Green"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.B001">
+        <Metadata Key="NAME" Value="B001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BAZ_001">
+        <Metadata Key="NAME" Value="BAZ_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.B001">
+        <Metadata Key="NAME" Value="B001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Power">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="245" Red="236"/>
+        <ForegroundColor ColorCode="Blue"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BAR_001">
+        <Metadata Key="NAME" Value="BAR_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BAZ_002">
+        <Metadata Key="NAME" Value="BAZ_002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.D001">
+        <Metadata Key="NAME" Value="D001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F001">
+        <Metadata Key="NAME" Value="F001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text=""/>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="193" Red="132"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 09">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="221" Red="187"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 10">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="228" Red="202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 11">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="239" Red="223"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Device 12">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="245" Red="236"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Voltage">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="221" Red="187"/>
+        <ForegroundColor ColorCode="Red"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I001">
+        <Metadata Key="NAME" Value="I001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.D001">
+        <Metadata Key="NAME" Value="D001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BAR_001">
+        <Metadata Key="NAME" Value="BAR_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.D001">
+        <Metadata Key="NAME" Value="D001"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Current">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="228" Red="202"/>
+        <ForegroundColor ColorCode="Dark_Green"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I002">
+        <Metadata Key="NAME" Value="I002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.F004">
+        <Metadata Key="NAME" Value="F004"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="FOO_001">
+        <Metadata Key="NAME" Value="FOO_001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I003">
+        <Metadata Key="NAME" Value="I003"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixLabel" Text="Power">
+        <BackgroundColor Blue="255" ColorCode="USER_DEFINED" Green="245" Red="236"/>
+        <ForegroundColor ColorCode="Blue"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_2.I003">
+        <Metadata Key="NAME" Value="I003"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="FOO_002">
+        <Metadata Key="NAME" Value="FOO_002"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="Category_1.S001">
+        <Metadata Key="NAME" Value="S001"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="BAZ_002">
+        <Metadata Key="NAME" Value="BAZ_002"/>
+      </MatrixElement>
+    </Row>
+  </Display>
+</ANDConfig:AlphanumericDisplayConfiguration>

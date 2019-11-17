@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlplotdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="GRD" identifier="GRD-SCR311 - Horizontal Reference Lines">
+    <metaInformation>
+        <description>GRD with F001 and reference at 3.0, 4.0 and 4.5</description>
+        <date>2013-08-02T13:24:00.000Z</date>
+        <parameterList>
+            <parameter>Category_1.F001</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter notation="Normal" decimalDigits="3" representation="Repr1" parameter="Category_1.F001">
+        <range max="5.0" min="-5.0" representation="Repr2"/>
+        <range max="5.0" min="2.0" representation="Repr1"/>
+        <Axis visible="true">
+            <majortick>7</majortick>
+            <minortick>4</minortick>
+            <autoscale>false</autoscale>
+            <autocenter>false</autocenter>
+            <logscale>false</logscale>
+            <lognegval>false</lognegval>
+            <loginterval>false</loginterval>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0000FF</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#4F4FFF</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+        <ReferenceLineList>
+            <ReferenceLine position="3.0" color="#000000" representation="Repr1" Name="Low Mass"/>
+            <ReferenceLine position="4.0" color="#008000" representation="Repr1" Name="Medium Mass"/>
+            <ReferenceLine position="4.5" color="#FF0080" representation="Repr1" Name="High Mass"/>
+            <ReferenceLine position="-3.333333" color="#0000FF" representation="Repr2" Name="Negative Reference"/>
+            <ReferenceLine position="-1.667" color="#8080FF" representation="Repr2" Name="Negative Reference II"/>
+        </ReferenceLineList>
+    </parameter>
+    <rendering>
+        <autoscroll mode="ONE_THIRD" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>true</stacked>
+        <limits>true</limits>
+        <xaxis>
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <grid>false</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>minutes</unit>
+        <amount>1.0</amount>
+    </timeSpan>
+    <operationMode>DATA_DRIVEN</operationMode>
+    <headerMode>FULL</headerMode>
+</ns2:xmlplotdisplaydefinition>

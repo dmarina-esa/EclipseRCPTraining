@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ANDConfig:AlphanumericDisplayConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ANDConfig="http://www.esa.int/2011/01/Egos/Configuration/AlphanumericDisplayConfiguration" Description="This is a classical AND Display for Demo purpose" identifier="MAT-AndDemo-02" kindOfDisplay="MAT" Name="MAT-AndDemo-02" Version="1.0">
+  <BackgroundColor Blue="255" ColorCode="Black" Green="192" Red="192"/>
+  <ForegroundColor Blue="255" ColorCode="USER_DEFINED" Green="200" Red="200"/>
+  <Display xsi:type="ANDConfig:ANDisplay">
+    <Column Name="NAME" Tooltip="The name of the parameter" Width="60"/>
+    <Column Field="DESCRIPTION" Name="DESCRIPTION" Width="300"/>
+    <Column Alignment="RIGHT" Field="VALUE" Name="VALUE" Width="120"/>
+    <Column Field="UNIT" Name="UNIT" Width="60"/>
+    <Column Field="VALIDITY" Name="VALIDITY" Width="60"/>
+    <Column Field="ALARM" Name="ALARM" Width="80"/>
+    <Column Field="TIMESTAMP" Name="TIMESTAMP" Width="140"/>
+    <Column CustomField="hashCode" Field="CUSTOM_FIELD" Name="Parameter Hashcode" Tooltip="Shows a custom property of the parameter object"/>
+    <Parameter ParameterId="Category_1.F001"/>
+    <Parameter ParameterId="Category_1.F002"/>
+    <Parameter ParameterId="Category_1.F003"/>
+    <Parameter ParameterId="Category_1.F004"/>
+    <Parameter ParameterId="Category_2.I001"/>
+    <Parameter ParameterId="Category_2.I002"/>
+    <Parameter ParameterId="Category_2.D001"/>
+    <Parameter ParameterId="BAR_001"/>
+    <Parameter ParameterId="BAZ_001"/>
+    <Parameter ParameterId="BAZ_002"/>
+    <Parameter ParameterId="BLAH_333"/>
+    <Parameter ParameterId="FOO_001"/>
+    <Parameter ParameterId="FOO_002"/>
+    <Parameter ParameterId="MEH_002"/>
+  </Display>
+</ANDConfig:AlphanumericDisplayConfiguration>

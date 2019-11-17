@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_Switch_Test03" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleSingleThrow" name="spstSwitch_1" caption="Switch" description="Single Pole Single Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="136" y="40"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <pole caption="" widget="connector_1">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <closeAction controlMode="MONITOR"/>
+    <throw caption="" widget="connector_2"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_1" caption="" description="Hub Widget" radius="4" ports="connector_1">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="48"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_1" caption="" description="One to One Connector Widget" port="hub_1" hook="spstSwitch_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="52" y="52"/>
+    <middlePoints x="52" y="52"/>
+    <middlePoints x="140" y="52"/>
+    <middlePoints x="148" y="52"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_2" caption="" description="Hub Widget" radius="4" hooks="connector_2">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="48"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_2" caption="" description="One to One Connector Widget" port="spstSwitch_1" hook="hub_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="148" y="52"/>
+    <middlePoints x="156" y="52"/>
+    <middlePoints x="220" y="52"/>
+    <middlePoints x="220" y="52"/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2012-07-24T12:18:27.439+0200" author="Jean Schuetz" filename="MIM_Switch_Test03.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="600" height="400"/>
+  </canvasProperties>
+</esa.egos.eud.displays:Mimic>

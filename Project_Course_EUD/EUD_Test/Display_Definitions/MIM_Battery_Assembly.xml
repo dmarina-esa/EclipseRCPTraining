@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_Battery_Assembly" kindOfDisplay="MIM" version="1.1.0">
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="rectangle_1" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="16" y="16"/>
+    <size width="229" height="277"/>
+    <monitoringAction/>
+    <background r="184" g="151" b="192"/>
+    <border borderWidth="5">
+      <borderColour r="155" g="199" b="204"/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_14" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="64" y="192"/>
+    <size width="121" height="61"/>
+    <monitoringAction script=""/>
+    <background r="152" g="168" b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_15" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="76" y="185"/>
+    <size width="25" height="8"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_17" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="148" y="185"/>
+    <size width="25" height="8"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_16" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="76" y="180"/>
+    <size width="25" height="8"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_13" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="148" y="180"/>
+    <size width="25" height="8"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_12" caption="" description="Battery Voltage [Volt]" representation="Repr1" triggeringParameter="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_1.F002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="83" y="208"/>
+    <size width="85" height="29"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="12" fontFamily="Tahoma"/>
+    <monitoringAction script="var v = thiz.getAssociatedParameter().getValue();&#xD;&#xA;var softLimitL = 10.5;&#xD;&#xA;var softLimitH = 13.5;&#xD;&#xA;var hardLimitL = 9.0;&#xD;&#xA;var hardLimitH = 15.0;&#xD;&#xA;&#xD;&#xA;if (v &lt; hardLimitL || v > hardLimitH)&#xD;&#xA;{&#xD;&#xA;//    thiz.setBackgroundColor(255,0,0);&#xD;&#xA;    widget_14.setBackgroundColor(255,0,0);&#xD;&#xA;}&#xD;&#xA;else if (v &lt; softLimitL || v > softLimitH)&#xD;&#xA;{&#xD;&#xA;//    thiz.setBackgroundColor(255,255,0);&#xD;&#xA;    widget_14.setBackgroundColor(255,255,0);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;//    thiz.setBackgroundColor(0,255,0);&#xD;&#xA;    widget_14.setBackgroundColor(0,255,0);&#xD;&#xA;}">
+      <triggeringParameters parameterReference="Category_1.F002"/>
+    </monitoringAction>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="widget_20" caption="" description="Hub Widget" radius="4" ports="connector_4" hooks="widget_22 connector_1">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="84" y="152"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_22" caption="" description="One to One Connector Widget" port="widget_16" hook="widget_20" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="2" type="RIGHT_ANGLE"/>
+    <middlePoints x="88" y="184"/>
+    <middlePoints x="88" y="180"/>
+    <middlePoints x="88" y="156"/>
+    <middlePoints x="88" y="156"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Circle" name="widget_27" caption="" description="Circle Widget" radiusX="12" radiusY="12">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="384" y="56"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="batteryBody_1" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="64" y="64"/>
+    <size width="121" height="61"/>
+    <monitoringAction script=""/>
+    <background r="152" g="168" b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="pole_1" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="76" y="57"/>
+    <size width="25" height="8"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="pole_2" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="148" y="57"/>
+    <size width="25" height="8"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="pole_3" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="76" y="52"/>
+    <size width="25" height="8"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="pole_4" caption="" description="Rectangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="148" y="52"/>
+    <size width="25" height="8"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="batteryValue_1" caption="" description="Battery Voltage [Volt]" representation="Repr1" triggeringParameter="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_1.F001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="83" y="80"/>
+    <size width="85" height="29"/>
+    <availableRepresentations>Repr1</availableRepresentations>
+    <availableRepresentations>Repr2</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="12" fontFamily="Tahoma"/>
+    <monitoringAction script="var v = thiz.getAssociatedParameter().getValue();&#xD;&#xA;var softLimitL = 10.5;&#xD;&#xA;var softLimitH = 13.5;&#xD;&#xA;var hardLimitL = 9.0;&#xD;&#xA;var hardLimitH = 15.0;&#xD;&#xA;&#xD;&#xA;if (v &lt; hardLimitL || v > hardLimitH)&#xD;&#xA;{&#xD;&#xA;//    thiz.setBackgroundColor(255,0,0);&#xD;&#xA;    batteryBody_1.setBackgroundColor(255,0,0);&#xD;&#xA;}&#xD;&#xA;else if (v &lt; softLimitL || v > softLimitH)&#xD;&#xA;{&#xD;&#xA;//    thiz.setBackgroundColor(255,255,0);&#xD;&#xA;    batteryBody_1.setBackgroundColor(255,255,0);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;//    thiz.setBackgroundColor(0,255,0);&#xD;&#xA;    batteryBody_1.setBackgroundColor(0,255,0);&#xD;&#xA;}">
+      <triggeringParameters parameterReference=""/>
+      <triggeringParameters parameterReference="Category_1.F001"/>
+    </monitoringAction>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_1" caption="" description="One to One Connector Widget" port="pole_3" hook="widget_20" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="2" type="RIGHT_ANGLE"/>
+    <middlePoints x="88" y="56"/>
+    <middlePoints x="89" y="52"/>
+    <middlePoints x="89" y="32"/>
+    <middlePoints x="35" y="32"/>
+    <middlePoints x="35" y="156"/>
+    <middlePoints x="88" y="156"/>
+    <middlePoints x="88" y="156"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleSingleThrow" name="spstSwitch_1" caption="Battery 1" description="Single Pole Single Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="280" y="56"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <pole caption="" widget="connector_2">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <closeAction controlMode="MONITOR"/>
+    <throw caption="" widget="connector_5"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_2" caption="" description="One to One Connector Widget" port="pole_4" hook="spstSwitch_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="154" y="53"/>
+    <middlePoints x="160" y="52"/>
+    <middlePoints x="160" y="32"/>
+    <middlePoints x="208" y="32"/>
+    <middlePoints x="208" y="68"/>
+    <middlePoints x="284" y="68"/>
+    <middlePoints x="292" y="68"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleSingleThrow" name="spstSwitch_2" caption="Battery 2" description="Single Pole Single Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="280" y="104"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <pole caption="" widget="connector_3">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <closeAction controlMode="MONITOR"/>
+    <throw caption="" widget="connector_7"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_3" caption="" description="One to One Connector Widget" port="widget_13" hook="spstSwitch_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="160" y="184"/>
+    <middlePoints x="159" y="180"/>
+    <middlePoints x="159" y="136"/>
+    <middlePoints x="209" y="136"/>
+    <middlePoints x="209" y="116"/>
+    <middlePoints x="284" y="116"/>
+    <middlePoints x="292" y="116"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_4" caption="" description="One to One Connector Widget" port="widget_20" hook="widget_27" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="88" y="156"/>
+    <middlePoints x="88" y="156"/>
+    <middlePoints x="433" y="156"/>
+    <middlePoints x="433" y="67"/>
+    <middlePoints x="407" y="67"/>
+    <middlePoints x="396" y="68"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_1" caption="" description="Hub Widget" radius="4" ports="connector_6" hooks="connector_5 connector_7">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="348" y="64"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_5" caption="" description="One to One Connector Widget" port="spstSwitch_1" hook="hub_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="292" y="68"/>
+    <middlePoints x="300" y="68"/>
+    <middlePoints x="352" y="68"/>
+    <middlePoints x="352" y="68"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_6" caption="" description="One to One Connector Widget" port="hub_1" hook="widget_27" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="352" y="68"/>
+    <middlePoints x="352" y="68"/>
+    <middlePoints x="384" y="68"/>
+    <middlePoints x="396" y="68"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_7" caption="" description="One to One Connector Widget" port="spstSwitch_2" hook="hub_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="292" y="116"/>
+    <middlePoints x="300" y="116"/>
+    <middlePoints x="352" y="116"/>
+    <middlePoints x="352" y="68"/>
+    <middlePoints x="352" y="68"/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2012-07-16T11:43:45.319+0200" author="Jean Schuetz" filename="MIM_Battery_Assembly.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="600" height="400"/>
+  </canvasProperties>
+  <library name="Custom Widgets">
+    <libraryElement>C:\Documents and Settings\Jean Schuetz\My Documents\EUD_MIMIC\Library\Battery.xml</libraryElement>
+  </library>
+</esa.egos.eud.displays:Mimic>

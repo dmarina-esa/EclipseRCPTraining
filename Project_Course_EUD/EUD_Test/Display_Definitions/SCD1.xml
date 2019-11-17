@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlscrollingdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="1.0" kindOfDisplay="SCD" identifier="SCD1">
+    <metaInformation>
+        <description>Scroll Display with one parameter</description>
+        <keyword>BAR</keyword>
+        <date>2011-06-30T18:52:00.000Z</date>
+        <parameterList>
+            <parameter>BAR_001</parameter>
+        </parameterList>
+    </metaInformation>
+    <columns width="157" representation="default" name="SAMPLE TIME"/>
+    <columns width="185" representation="default" name="BAR_001"/>
+</ns2:xmlscrollingdisplaydefinition>

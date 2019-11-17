@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlplotdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="GRD" identifier="GRD_2">
+    <metaInformation>
+        <description>GRD with 2 parameters - F001, I002 - non stacked</description>
+        <keyword></keyword>
+        <date>2012-02-17T13:31:00.000Z</date>
+        <parameterList>
+            <parameter>Category_2.I002</parameter>
+            <parameter>Category_1.F001</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter representation="Repr1" parameter="Category_1.F001">
+        <range max="1.0" min="0.0" representation="Repr2"/>
+        <range max="372.11581421" min="-676.28918457" representation="Repr1"/>
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>true</autocenter>
+            <grid>false</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#008000</color>
+            <point>NOPOINT</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <parameter representation="value" parameter="Category_2.I002">
+        <range max="65000.0" min="-65000.0" representation="value"/>
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>true</autocenter>
+            <grid>true</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>DASHED</style>
+            <smooth>STEP</smooth>
+            <size>3.0</size>
+            <color>#65CA00</color>
+            <point>NOPOINT</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>STEP</smooth>
+            <size>1.0</size>
+            <color>#040200</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <rendering>
+        <autoscroll mode="CONTINUOUS" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>false</stacked>
+        <limits>true</limits>
+        <xaxis>
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <grid>true</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>seconds</unit>
+        <amount>60.0</amount>
+    </timeSpan>
+    <operationMode>DATA_DRIVEN</operationMode>
+    <headerMode>BRIEF</headerMode>
+</ns2:xmlplotdisplaydefinition>

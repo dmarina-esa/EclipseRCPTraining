@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_Open_Display_Test" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="pushButton_1" caption="Open Battery Assembly (fully qualified name)" description="Opens display under 'Local Storage/MIM_Battery_Assembly'&#x9;">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP script="paramDisplay.openDisplay(&quot;Local Storage/MIM_Battery_Assembly&quot;);" controlMode="MONITOR"/>
+    <location x="60" y="12"/>
+    <size width="265" height="30"/>
+    <background r="236" g="233" b="216"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="pushButton_2" caption="Open Battery Assembly (name w/o path)" description="Opens display under 'MIM_Battery_Assembly'&#x9;">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP script="paramDisplay.openDisplay(&quot;MIM_Battery_Assembly&quot;);" controlMode="MONITOR"/>
+    <location x="60" y="60"/>
+    <size width="265" height="30"/>
+    <background r="236" g="233" b="216"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="pushButton_3" caption="Open MIM_SP5_BIG_MIM_001 (fully qualified name)" description="Opens display under 'Local Storage/MIMIC TEST/MIM_SP5_BIG_MIM_001'&#x9;">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP script="paramDisplay.openDisplay(&quot;Local Storage/MIMIC TEST/MIM_SP5_BIG_MIM_001&quot;);" controlMode="MONITOR"/>
+    <location x="36" y="108"/>
+    <size width="313" height="30"/>
+    <background r="236" g="233" b="216"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="pushButton_4" caption="Open MIM_SP5_BIG_MIM_001 (name w/o path)" description="Opens display under 'MIM_SP5_BIG_MIM_001'&#x9;">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP script="paramDisplay.openDisplay(&quot;MIM_SP5_BIG_MIM_001&quot;);" controlMode="MONITOR"/>
+    <location x="36" y="156"/>
+    <size width="313" height="30"/>
+    <background r="236" g="233" b="216"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Submimc" name="subMimic_3" caption="BatteryAssembly" description="Opens the display under 'Local Storage/MIM_Battery_Assembly' as Sub-MIMIC" reference="Local Storage/MIM_Battery_Assembly" modalMode="REPLACE">
+    <font fontStyle="BOLD" fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="84" y="204"/>
+    <size width="205" height="73"/>
+    <background r="255" g="128" b="192"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_5" caption="(double-click to activate)" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="120" y="252"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_6" caption="replaces this MIMIC view" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="120" y="228"/>
+    <monitoringAction/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2012-07-30T10:31:39.731+0200" author="Jean Schuetz" filename="MIM_Open_Display_Test.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="400" height="300"/>
+  </canvasProperties>
+</esa.egos.eud.displays:Mimic>

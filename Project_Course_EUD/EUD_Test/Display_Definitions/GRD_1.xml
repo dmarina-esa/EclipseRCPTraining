@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlplotdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="GRD" identifier="GRD_1">
+    <metaInformation>
+        <description>GRD with 1 parameter - I001</description>
+        <keyword></keyword>
+        <date>2012-02-17T13:46:00.000Z</date>
+        <parameterList>
+            <parameter>Category_2.I001</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter representation="value" parameter="Category_2.I001">
+        <range max="15.0" min="0.0" representation="value"/>
+        <Axis visible="true">
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <autoscale>true</autoscale>
+            <autocenter>true</autocenter>
+            <grid>true</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>DOTS</style>
+            <smooth>STEP</smooth>
+            <size>1.0</size>
+            <color>#950E98</color>
+            <point>SQUARE</point>
+            <oolColoring>false</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>STEP</smooth>
+            <size>1.0</size>
+            <color>#040200</color>
+            <point>CIRCLE</point>
+            <oolColoring>false</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <rendering>
+        <autoscroll mode="ONE_THIRD" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>true</stacked>
+        <limits>true</limits>
+        <xaxis>
+            <majortick>3</majortick>
+            <minortick>4</minortick>
+            <grid>true</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>minutes</unit>
+        <amount>1.0</amount>
+    </timeSpan>
+    <operationMode>DATA_DRIVEN</operationMode>
+    <headerMode>FULL</headerMode>
+</ns2:xmlplotdisplaydefinition>

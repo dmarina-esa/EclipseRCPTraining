@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ANDConfig:AlphanumericDisplayConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ANDConfig="http://www.esa.int/2011/01/Egos/Configuration/AlphanumericDisplayConfiguration" ColumnsReorganisable="false" Description="AND with 'Problematic Parameters'" EGOSSystemID="NoId" identifier="S2K-AND-NDW00xxx2" kindOfDisplay="MAT" Name="S2K-AND-NDW00xxx2" Sortable="false" Version="1.0">
+  <Display xsi:type="ANDConfig:MatrixDisplay">
+    <Column Field="NAME" Name="Parameter" Tooltip="The short name of the parameter"/>
+    <Column Field="DESCRIPTION" Name="Description" Tooltip="The description for this parameter" Width="207"/>
+    <Column Alignment="RIGHT" Field="VALUE" Name="Value" Tooltip="The current parameter value" Width="125"/>
+    <Column Field="UNIT" Name="Unit" Tooltip="The unit of the parameter" Width="74"/>
+    <Column Field="VALIDITY" Name="Validity" Width="53"/>
+    <Column Field="ALARM" Name="OOL" Width="61"/>
+    <Column Field="TIMESTAMP" Name="Sample Time" Tooltip="The time of the latest sample" Width="134"/>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NDW00130">
+        <Metadata Key="NAME" Value="NDW00130"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NDW00130">
+        <Metadata Key="NAME" Value="NDW00130"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NDW00130" Representation="eng">
+        <Metadata Key="NAME" Value="NDW00130"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NDW00130">
+        <Metadata Key="NAME" Value="NDW00130"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NDW00130">
+        <Metadata Key="NAME" Value="NDW00130"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NDW00130">
+        <Metadata Key="NAME" Value="NDW00130"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NDW00130">
+        <Metadata Key="NAME" Value="NDW00130"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NDW00138">
+        <Metadata Key="NAME" Value="NDW00138"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NDW00138">
+        <Metadata Key="NAME" Value="NDW00138"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NDW00138">
+        <Metadata Key="NAME" Value="NDW00138"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NDW00138">
+        <Metadata Key="NAME" Value="NDW00138"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NDW00138">
+        <Metadata Key="NAME" Value="NDW00138"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NDW00138">
+        <Metadata Key="NAME" Value="NDW00138"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NDW00138">
+        <Metadata Key="NAME" Value="NDW00138"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NDW00193">
+        <Metadata Key="NAME" Value="NDW00193"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NDW00193">
+        <Metadata Key="NAME" Value="NDW00193"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NDW00193">
+        <Metadata Key="NAME" Value="NDW00193"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NDW00193">
+        <Metadata Key="NAME" Value="NDW00193"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NDW00193">
+        <Metadata Key="NAME" Value="NDW00193"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NDW00193">
+        <Metadata Key="NAME" Value="NDW00193"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NDW00193">
+        <Metadata Key="NAME" Value="NDW00193"/>
+      </MatrixElement>
+    </Row>
+    <Row>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="NAME" ParameterId="0.NDW00202">
+        <Metadata Key="NAME" Value="NDW00202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="DESCRIPTION" ParameterId="0.NDW00202">
+        <Metadata Key="NAME" Value="NDW00202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" ParameterId="0.NDW00202">
+        <Metadata Key="NAME" Value="NDW00202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="UNIT" ParameterId="0.NDW00202">
+        <Metadata Key="NAME" Value="NDW00202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="VALIDITY" ParameterId="0.NDW00202">
+        <Metadata Key="NAME" Value="NDW00202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="ALARM" ParameterId="0.NDW00202">
+        <Metadata Key="NAME" Value="NDW00202"/>
+      </MatrixElement>
+      <MatrixElement xsi:type="ANDConfig:MatrixParameter" Field="TIMESTAMP" ParameterId="0.NDW00202">
+        <Metadata Key="NAME" Value="NDW00202"/>
+      </MatrixElement>
+    </Row>
+  </Display>
+  <Metadata Key="Span" Value="7"/>
+</ANDConfig:AlphanumericDisplayConfiguration>

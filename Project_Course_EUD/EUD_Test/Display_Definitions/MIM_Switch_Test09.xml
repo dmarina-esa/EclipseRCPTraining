@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_Switch_Test09" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleSingleThrow" name="spstSwitch_1" caption="Switch" description="Single Pole Single Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="184" y="40"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <pole caption="" widget="connector_1">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <closeAction controlMode="MONITOR"/>
+    <throw caption="" widget="connector_4"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleDoubleThrow" name="spdtSwitch_1" caption="Switch" description="Single Pole Double Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="184" y="80"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <closeAction1 controlMode="MONITOR"/>
+    <pole caption="" widget="connector_2">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <throw1 caption="" widget="connector_5"/>
+    <throw2 caption="" widget="connector_6"/>
+    <closeAction2 controlMode="MONITOR"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Cross" name="crossSwitch_1" caption="Switch" description="Cross Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="184" y="120"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <straightAction controlMode="MONITOR"/>
+    <pole1 caption="" widget="connector_14">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole1>
+    <throw1 caption="" widget="connector_7"/>
+    <crossAction controlMode="MONITOR"/>
+    <pole2 caption="">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole2>
+    <throw2 caption="" widget="connector_8"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_1" caption="" description="Hub Widget" radius="4" ports="connector_1 connector_9 connector_10">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="144" y="48"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_2" caption="" description="Hub Widget" radius="4" ports="connector_2" hooks="connector_9 connector_13">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="144" y="88"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_3" caption="" description="Hub Widget" radius="4" ports="connector_14" hooks="connector_11">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="160" y="120"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_4" caption="" description="Hub Widget" radius="4" ports="connector_7" hooks="connector_4">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="256" y="48"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_5" caption="" description="Hub Widget" radius="4" ports="connector_12" hooks="connector_5 connector_10">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="272" y="80"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_6" caption="" description="Hub Widget" radius="4" hooks="connector_6 connector_8">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="272" y="96"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_1" caption="" description="One to One Connector Widget" port="hub_1" hook="spstSwitch_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="148" y="52"/>
+    <middlePoints x="148" y="52"/>
+    <middlePoints x="188" y="52"/>
+    <middlePoints x="196" y="52"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_2" caption="" description="One to One Connector Widget" port="hub_2" hook="spdtSwitch_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="148" y="92"/>
+    <middlePoints x="148" y="92"/>
+    <middlePoints x="188" y="92"/>
+    <middlePoints x="196" y="92"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_4" caption="" description="One to One Connector Widget" port="spstSwitch_1" hook="hub_4" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="196" y="52"/>
+    <middlePoints x="204" y="52"/>
+    <middlePoints x="260" y="52"/>
+    <middlePoints x="260" y="52"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_5" caption="" description="One to One Connector Widget" port="spdtSwitch_1" hook="hub_5" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="196" y="92"/>
+    <middlePoints x="204" y="84"/>
+    <middlePoints x="276" y="84"/>
+    <middlePoints x="276" y="84"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_6" caption="" description="One to One Connector Widget" port="spdtSwitch_1" hook="hub_6" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="196" y="92"/>
+    <middlePoints x="204" y="100"/>
+    <middlePoints x="276" y="100"/>
+    <middlePoints x="276" y="100"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_7" caption="" description="One to One Connector Widget" port="hub_4" hook="crossSwitch_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="260" y="52"/>
+    <middlePoints x="260" y="52"/>
+    <middlePoints x="260" y="124"/>
+    <middlePoints x="204" y="124"/>
+    <middlePoints x="196" y="132"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_8" caption="" description="One to One Connector Widget" port="crossSwitch_1" hook="hub_6" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="196" y="132"/>
+    <middlePoints x="204" y="140"/>
+    <middlePoints x="276" y="140"/>
+    <middlePoints x="276" y="100"/>
+    <middlePoints x="276" y="100"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_9" caption="" description="One to One Connector Widget" port="hub_1" hook="hub_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="148" y="52"/>
+    <middlePoints x="148" y="52"/>
+    <middlePoints x="148" y="92"/>
+    <middlePoints x="148" y="92"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_10" caption="" description="One to One Connector Widget" port="hub_1" hook="hub_5" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="148" y="52"/>
+    <middlePoints x="148" y="52"/>
+    <middlePoints x="148" y="24"/>
+    <middlePoints x="276" y="24"/>
+    <middlePoints x="276" y="84"/>
+    <middlePoints x="276" y="84"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleDoubleThrow" name="spdtSwitch_2" caption="Switch" description="Single Pole Double Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="80" y="120"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <closeAction1 controlMode="MONITOR"/>
+    <pole caption="" widget="connector_13">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <throw1 caption="" widget="connector_11"/>
+    <throw2 caption="" widget="connector_12"/>
+    <closeAction2 controlMode="MONITOR"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_11" caption="" description="One to One Connector Widget" port="spdtSwitch_2" hook="hub_3" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="92" y="132"/>
+    <middlePoints x="100" y="124"/>
+    <middlePoints x="164" y="124"/>
+    <middlePoints x="164" y="124"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_12" caption="" description="One to One Connector Widget" port="hub_5" hook="spdtSwitch_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="276" y="84"/>
+    <middlePoints x="276" y="84"/>
+    <middlePoints x="296" y="84"/>
+    <middlePoints x="296" y="176"/>
+    <middlePoints x="144" y="176"/>
+    <middlePoints x="144" y="140"/>
+    <middlePoints x="100" y="140"/>
+    <middlePoints x="92" y="132"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_13" caption="" description="One to One Connector Widget" port="spdtSwitch_2" hook="hub_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE"/>
+    <middlePoints x="92" y="132"/>
+    <middlePoints x="84" y="132"/>
+    <middlePoints x="48" y="132"/>
+    <middlePoints x="48" y="92"/>
+    <middlePoints x="148" y="92"/>
+    <middlePoints x="148" y="92"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="connector_14" caption="" description="One to One Connector Widget" port="hub_3" hook="crossSwitch_1" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1"/>
+    <middlePoints x="164" y="124"/>
+    <middlePoints x="164" y="124"/>
+    <middlePoints x="188" y="124"/>
+    <middlePoints x="196" y="132"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleSingleThrow" name="spstSwitch_2" caption="Switch" description="Single Pole Single Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="444" y="252"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <pole caption="" widget="Copy_1_connector_1">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <closeAction controlMode="MONITOR"/>
+    <throw caption="" widget="Copy_1_connector_4"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleDoubleThrow" name="spdtSwitch_3" caption="Switch" description="Single Pole Double Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="444" y="292"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <closeAction1 controlMode="MONITOR"/>
+    <pole caption="" widget="Copy_1_connector_2">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <throw1 caption="" widget="Copy_1_connector_5"/>
+    <throw2 caption="" widget="Copy_1_connector_6"/>
+    <closeAction2 controlMode="MONITOR"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Cross" name="crossSwitch_2" caption="Switch" description="Cross Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="444" y="332"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <straightAction controlMode="MONITOR"/>
+    <pole1 caption="" widget="Copy_1_connector_14">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole1>
+    <throw1 caption="" widget="Copy_1_connector_7"/>
+    <crossAction controlMode="MONITOR"/>
+    <pole2 caption="">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole2>
+    <throw2 caption="" widget="Copy_1_connector_8"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_14" caption="" description="Hub Widget" radius="4" ports="Copy_1_connector_1 Copy_1_connector_9 Copy_1_connector_10">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="404" y="260"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_10" caption="" description="Hub Widget" radius="4" ports="Copy_1_connector_2" hooks="Copy_1_connector_9 Copy_1_connector_13">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="404" y="300"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_13" caption="" description="Hub Widget" radius="4" ports="Copy_1_connector_14" hooks="Copy_1_connector_11">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="420" y="332"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_9" caption="" description="Hub Widget" radius="4" ports="Copy_1_connector_7" hooks="Copy_1_connector_4">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="516" y="260"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_12" caption="" description="Hub Widget" radius="4" ports="Copy_1_connector_12" hooks="Copy_1_connector_5 Copy_1_connector_10">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="532" y="292"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Hub" name="hub_11" caption="" description="Hub Widget" radius="4" hooks="Copy_1_connector_6 Copy_1_connector_8">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="532" y="308"/>
+    <animatedAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:SinglePoleDoubleThrow" name="spdtSwitch_4" caption="Switch" description="Single Pole Double Throw Switch">
+    <font fontSize="8" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="340" y="332"/>
+    <size width="24" height="24"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction controlMode="MONITOR"/>
+    <closeAction1 controlMode="MONITOR"/>
+    <pole caption="" widget="Copy_1_connector_13">
+      <lineStyle lineWidth="1">
+        <lineColour/>
+      </lineStyle>
+    </pole>
+    <throw1 caption="" widget="Copy_1_connector_11"/>
+    <throw2 caption="" widget="Copy_1_connector_12"/>
+    <closeAction2 controlMode="MONITOR"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_1" caption="" description="One to One Connector Widget" port="hub_14" hook="spstSwitch_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="408" y="264"/>
+    <middlePoints x="408" y="264"/>
+    <middlePoints x="448" y="264"/>
+    <middlePoints x="456" y="264"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_2" caption="" description="One to One Connector Widget" port="hub_10" hook="spdtSwitch_3" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="408" y="304"/>
+    <middlePoints x="408" y="304"/>
+    <middlePoints x="448" y="304"/>
+    <middlePoints x="456" y="304"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_4" caption="" description="One to One Connector Widget" port="spstSwitch_2" hook="hub_9" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="456" y="264"/>
+    <middlePoints x="464" y="264"/>
+    <middlePoints x="520" y="264"/>
+    <middlePoints x="520" y="264"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_5" caption="" description="One to One Connector Widget" port="spdtSwitch_3" hook="hub_12" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="456" y="304"/>
+    <middlePoints x="464" y="296"/>
+    <middlePoints x="536" y="296"/>
+    <middlePoints x="536" y="296"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_6" caption="" description="One to One Connector Widget" port="spdtSwitch_3" hook="hub_11" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="456" y="304"/>
+    <middlePoints x="464" y="312"/>
+    <middlePoints x="536" y="312"/>
+    <middlePoints x="536" y="312"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_7" caption="" description="One to One Connector Widget" port="hub_9" hook="crossSwitch_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="520" y="264"/>
+    <middlePoints x="520" y="264"/>
+    <middlePoints x="520" y="336"/>
+    <middlePoints x="464" y="336"/>
+    <middlePoints x="456" y="344"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_8" caption="" description="One to One Connector Widget" port="crossSwitch_2" hook="hub_11" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="456" y="344"/>
+    <middlePoints x="464" y="352"/>
+    <middlePoints x="536" y="352"/>
+    <middlePoints x="536" y="312"/>
+    <middlePoints x="536" y="312"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_9" caption="" description="One to One Connector Widget" port="hub_14" hook="hub_10" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="408" y="264"/>
+    <middlePoints x="408" y="264"/>
+    <middlePoints x="408" y="304"/>
+    <middlePoints x="408" y="304"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_10" caption="" description="One to One Connector Widget" port="hub_14" hook="hub_12" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="408" y="264"/>
+    <middlePoints x="408" y="264"/>
+    <middlePoints x="408" y="236"/>
+    <middlePoints x="536" y="236"/>
+    <middlePoints x="536" y="296"/>
+    <middlePoints x="536" y="296"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_11" caption="" description="One to One Connector Widget" port="spdtSwitch_4" hook="hub_13" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="352" y="344"/>
+    <middlePoints x="360" y="336"/>
+    <middlePoints x="424" y="336"/>
+    <middlePoints x="424" y="336"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_12" caption="" description="One to One Connector Widget" port="hub_12" hook="spdtSwitch_4" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="536" y="296"/>
+    <middlePoints x="536" y="296"/>
+    <middlePoints x="556" y="296"/>
+    <middlePoints x="556" y="388"/>
+    <middlePoints x="404" y="388"/>
+    <middlePoints x="404" y="352"/>
+    <middlePoints x="360" y="352"/>
+    <middlePoints x="352" y="344"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_13" caption="" description="One to One Connector Widget" port="spdtSwitch_4" hook="hub_10" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1" type="RIGHT_ANGLE">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="352" y="344"/>
+    <middlePoints x="344" y="344"/>
+    <middlePoints x="308" y="344"/>
+    <middlePoints x="308" y="304"/>
+    <middlePoints x="408" y="304"/>
+    <middlePoints x="408" y="304"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="Copy_1_connector_14" caption="" description="One to One Connector Widget" port="hub_13" hook="crossSwitch_2" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="1">
+      <lineColour/>
+    </connectorAppearance>
+    <middlePoints x="424" y="336"/>
+    <middlePoints x="424" y="336"/>
+    <middlePoints x="448" y="336"/>
+    <middlePoints x="456" y="344"/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2012-07-24T11:14:37.633+0200" author="Jean Schuetz" filename="MIM_Switch_Test09.xml" status="Unknown"/>
+  <canvasProperties>
+    <size width="600" height="400"/>
+  </canvasProperties>
+  <groups widgets="spstSwitch_2 spdtSwitch_3 crossSwitch_2 hub_14 hub_10 hub_13 hub_9 hub_12 hub_11 spdtSwitch_4" id="45f96b79-24a4-4720-bb6b-b076a830ccd3"/>
+</esa.egos.eud.displays:Mimic>

@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_SP5_BIG_MIM_002_LHC" kindOfDisplay="MIM" version="1.1.0">
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_121" caption="LHC" description="Rectangle Widget">
+    <font fontSize="12" fontFamily="Arial"/>
+    <associatedParameter parameterReference=""/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="55" y="182"/>
+    <size width="90" height="70"/>
+    <monitoringAction script="/**&#xD;&#xA; *    Mimic with a highlight path demostration&#xD;&#xA; */&#xD;&#xA;   &#xD;&#xA;//LHC, RHC widgets&#xD;&#xA;var lhc = widget_121;&#xD;&#xA;var rhc = widget_122;&#xD;&#xA;var amp1 = widget_126;&#xD;&#xA;var uc1 = widget_133;&#xD;&#xA;var ulm1 = widget_140;&#xD;&#xA;&#xD;&#xA;var amp2 = widget_127;&#xD;&#xA;var uc2 = widget_134;&#xD;&#xA;var ulm2 = widget_141;&#xD;&#xA;&#xD;&#xA;// Switches&#xD;&#xA;var switch_1 = widget_123;&#xD;&#xA;var switch_2 = widget_130;&#xD;&#xA;var switch_3 = widget_137;&#xD;&#xA;&#xD;&#xA;// Connectors in the upper path&#xD;&#xA;var connUp_1 = widget_124;&#xD;&#xA;var connUp_2 = widget_128;&#xD;&#xA;var connUp_3 = widget_131;&#xD;&#xA;var connUp_4 = widget_136;&#xD;&#xA;var connUp_5 = widget_138;&#xD;&#xA;var connUp_6 = widget_142;&#xD;&#xA;&#xD;&#xA;// Connectors in the lower path&#xD;&#xA;var connDown_1 = widget_125;&#xD;&#xA;var connDown_2 = widget_129;&#xD;&#xA;var connDown_3 = widget_132;&#xD;&#xA;var connDown_4 = widget_135;&#xD;&#xA;var connDown_5 = widget_139;&#xD;&#xA;var connDown_6 = widget_143;&#xD;&#xA;&#xD;&#xA;// Highlight the connector from the Push button to the LHC or RHC rectangle&#xD;&#xA;highligth(widget_146);&#xD;&#xA;unhighligth(widget_147);&#xD;&#xA;&#xD;&#xA;// the following if-then-elses are written having in mind the scenario where the LHC is active &#xD;&#xA;// and RHC not active.&#xD;&#xA;// if the opposite is true, the logic is reversed for all elements that are affected.&#xD;&#xA;// i.e. if with LHC active a connector in the upper part is highlighted and the correspondind&#xD;&#xA;// connector in the lower part is un-highlighted, in case the RHC is activated instead, then the &#xD;&#xA;// upper connector is un-highlighted and the lower conn highlighted.&#xD;&#xA;if (switch_1.getActiveConnection() == CROSS_DIRECT) {&#xD;&#xA;    if (switch_2.getActiveConnection() == CROSS_DIRECT) {&#xD;&#xA;&#x9;if (switch_3.getActiveConnection() == CROSS_DIRECT &amp;&amp; isUlm1Active()) &#xD;&#xA;&#x9;{&#xD;&#xA;&#xD;&#xA;&#x9;    // highlight connectors&#xD;&#xA;&#xD;&#xA;&#x9;    // upper side connectors&#xD;&#xA;&#x9;    highligth(connUp_1);&#xD;&#xA;&#x9;    highligth(connUp_2);&#xD;&#xA;&#x9;    highligth(connUp_3);&#xD;&#xA;&#x9;    highligth(connUp_4);&#xD;&#xA;&#x9;    highligth(connUp_5);&#xD;&#xA;&#x9;    highligth(connUp_6);&#xD;&#xA;&#xD;&#xA;&#x9;    // lower side&#xD;&#xA;&#x9;    unhighligth(connDown_1);&#xD;&#xA;&#x9;    unhighligth(connDown_2);&#xD;&#xA;&#x9;    unhighligth(connDown_3);&#xD;&#xA;&#x9;    unhighligth(connDown_4);&#xD;&#xA;&#x9;    unhighligth(connDown_5);&#xD;&#xA;&#x9;    unhighligth(connDown_6);&#xD;&#xA;&#xD;&#xA;&#x9;    // highlight switches too  &#xD;&#xA;&#x9;    highlightSwitch(switch_1, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_2, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_3, 1);&#xD;&#xA;&#x9;    &#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else if (switch_3.getActiveConnection() == CROSS_CROSS &amp;&amp;  isUlm2Active())&#xD;&#xA;&#x9;    // just 'else' would be enough&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    highligth(connUp_1);&#xD;&#xA;&#x9;    highligth(connUp_2);&#xD;&#xA;&#x9;    highligth(connUp_3);&#xD;&#xA;&#x9;    highligth(connUp_4);&#xD;&#xA;&#x9;    highligth(connUp_5);&#xD;&#xA;&#x9;    unhighligth(connUp_6);&#xD;&#xA;&#xD;&#xA;&#x9;    unhighligth(connDown_1);&#xD;&#xA;&#x9;    unhighligth(connDown_2);&#xD;&#xA;&#x9;    unhighligth(connDown_3);&#xD;&#xA;&#x9;    unhighligth(connDown_4);&#xD;&#xA;&#x9;    unhighligth(connDown_5);&#xD;&#xA;&#x9;    highligth(connDown_6);&#xD;&#xA;&#xD;&#xA;&#x9;    // highlight switches too .. &#xD;&#xA;&#x9;    highlightSwitch(switch_1, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_2, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_3, 1);&#xD;&#xA;&#x9;    &#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    unhighligthAll();    // switch highlighting off on all connectors&#xD;&#xA;&#x9;}&#xD;&#xA;    }&#xD;&#xA;    else if (switch_2.getActiveConnection() == CROSS_CROSS)&#xD;&#xA;&#x9;// just 'else' would be enough&#xD;&#xA;    {&#xD;&#xA;&#x9;if (switch_3.getActiveConnection() == CROSS_DIRECT &amp;&amp;  isUlm2Active()) {&#xD;&#xA;&#xD;&#xA;&#x9;    highligth(connUp_1);&#xD;&#xA;&#x9;    highligth(connUp_2);&#xD;&#xA;&#x9;    highligth(connUp_3);&#xD;&#xA;&#x9;    unhighligth(connUp_4);&#xD;&#xA;&#x9;    unhighligth(connUp_5);&#xD;&#xA;&#x9;    unhighligth(connUp_6);&#xD;&#xA;&#xD;&#xA;&#x9;    unhighligth(connDown_1);&#xD;&#xA;&#x9;    unhighligth(connDown_2);&#xD;&#xA;&#x9;    unhighligth(connDown_3);&#xD;&#xA;&#x9;    highligth(connDown_4);&#xD;&#xA;&#x9;    highligth(connDown_5);&#xD;&#xA;&#x9;    highligth(connDown_6);&#xD;&#xA;&#xD;&#xA;&#x9;    // highlight switches too&#xD;&#xA;&#x9;    highlightSwitch(switch_1, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_2, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_3, 2);&#xD;&#xA;&#x9;    &#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else if (switch_3.getActiveConnection() == CROSS_CROSS &amp;&amp;  isUlm1Active())&#xD;&#xA;&#x9;    // just 'else' would be enough&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    highligth(connUp_1);&#xD;&#xA;&#x9;    highligth(connUp_2);&#xD;&#xA;&#x9;    highligth(connUp_3);&#xD;&#xA;&#x9;    unhighligth(connUp_4);&#xD;&#xA;&#x9;    unhighligth(connUp_5);&#xD;&#xA;&#x9;    highligth(connUp_6);&#xD;&#xA;&#xD;&#xA;&#x9;    unhighligth(connDown_1);&#xD;&#xA;&#x9;    unhighligth(connDown_2);&#xD;&#xA;&#x9;    unhighligth(connDown_3);&#xD;&#xA;&#x9;    highligth(connDown_4);&#xD;&#xA;&#x9;    highligth(connDown_5);&#xD;&#xA;&#x9;    unhighligth(connDown_6);&#xD;&#xA;&#xD;&#xA; &#x9;    // highlight switches too &#xD;&#xA;&#x9;    highlightSwitch(switch_1, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_2, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_3, 2);&#xD;&#xA;&#x9;    &#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    unhighligthAll();    // switch highlighting off on all connectors&#xD;&#xA;&#x9;}&#xD;&#xA;    }else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    unhighligthAll();    // switch highlighting off on all connectors&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else if (switch_1.getActiveConnection() == CROSS_CROSS)&#xD;&#xA;// just 'else' would be enough but this way it is more clear&#xD;&#xA;{&#xD;&#xA;    if (switch_2.getActiveConnection() == CROSS_DIRECT) {&#xD;&#xA;&#x9;if (switch_3.getActiveConnection() == CROSS_DIRECT &amp;&amp;  isUlm2Active()) {&#xD;&#xA;&#xD;&#xA;&#x9;    // highlight connectors&#xD;&#xA;&#x9;    highligth(connUp_1);&#xD;&#xA;&#x9;    unhighligth(connUp_2);&#xD;&#xA;&#x9;    unhighligth(connUp_3);&#xD;&#xA;&#x9;    unhighligth(connUp_4);&#xD;&#xA;&#x9;    unhighligth(connUp_5);&#xD;&#xA;&#x9;    unhighligth(connUp_6);&#xD;&#xA;&#xD;&#xA;&#x9;    unhighligth(connDown_1);&#xD;&#xA;&#x9;    highligth(connDown_2);&#xD;&#xA;&#x9;    highligth(connDown_3);&#xD;&#xA;&#x9;    highligth(connDown_4);&#xD;&#xA;&#x9;    highligth(connDown_5);&#xD;&#xA;&#x9;    highligth(connDown_6);&#xD;&#xA;&#xD;&#xA; &#x9;    // highlight switches too  &#xD;&#xA;&#x9;    highlightSwitch(switch_1, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_2, 2);&#xD;&#xA;&#x9;    highlightSwitch(switch_3, 2);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else if (switch_3.getActiveConnection() == CROSS_CROSS &amp;&amp;  isUlm1Active())&#xD;&#xA;&#x9;    // just 'else' would be enough&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    // highlight connectors&#xD;&#xA;&#x9;    highligth(connUp_1);&#xD;&#xA;&#x9;    unhighligth(connUp_2);&#xD;&#xA;&#x9;    unhighligth(connUp_3);&#xD;&#xA;&#x9;    unhighligth(connUp_4);&#xD;&#xA;&#x9;    unhighligth(connUp_5);&#xD;&#xA;&#x9;    highligth(connUp_6);&#xD;&#xA;&#xD;&#xA;&#x9;    unhighligth(connDown_1);&#xD;&#xA;&#x9;    highligth(connDown_2);&#xD;&#xA;&#x9;    highligth(connDown_3);&#xD;&#xA;&#x9;    highligth(connDown_4);&#xD;&#xA;&#x9;    highligth(connDown_5);&#xD;&#xA;&#x9;    unhighligth(connDown_6);&#xD;&#xA;&#xD;&#xA;&#x9;    // highlight switches too&#xD;&#xA;&#x9;    highlightSwitch(switch_1, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_2, 2);&#xD;&#xA;&#x9;    highlightSwitch(switch_3, 2);&#xD;&#xA;&#xD;&#xA;&#x9;}else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    unhighligthAll();    // switch highlighting off on all connectors&#xD;&#xA;&#x9;}&#xD;&#xA;    }&#xD;&#xA;    else if (switch_2.getActiveConnection() == CROSS_CROSS)&#xD;&#xA;&#x9;// just 'else' would be enough&#xD;&#xA;    {&#xD;&#xA;&#x9;if (switch_3.getActiveConnection() == CROSS_DIRECT &amp;&amp;  isUlm1Active()) {&#xD;&#xA;&#x9;    // highlight connectors&#xD;&#xA;&#x9;    highligth(connUp_1);&#xD;&#xA;&#x9;    unhighligth(connUp_2);&#xD;&#xA;&#x9;    unhighligth(connUp_3);&#xD;&#xA;&#x9;    highligth(connUp_4);&#xD;&#xA;&#x9;    highligth(connUp_5);&#xD;&#xA;&#x9;    highligth(connUp_6);&#xD;&#xA;&#xD;&#xA;&#x9;    unhighligth(connDown_1);&#xD;&#xA;&#x9;    highligth(connDown_2);&#xD;&#xA;&#x9;    highligth(connDown_3);&#xD;&#xA;&#x9;    unhighligth(connDown_4);&#xD;&#xA;&#x9;    unhighligth(connDown_5);&#xD;&#xA;&#x9;    unhighligth(connDown_6);&#xD;&#xA;&#xD;&#xA;&#x9;    // highlight switches too &#xD;&#xA;&#x9;    highlightSwitch(switch_1, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_2, 2);&#xD;&#xA;&#x9;    highlightSwitch(switch_3, 1);&#xD;&#xA;&#x9;    &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else if (switch_3.getActiveConnection() == CROSS_CROSS &amp;&amp;  isUlm2Active())&#xD;&#xA;&#x9;    // just 'else' would be enough&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    // highlight connectors&#xD;&#xA;&#x9;    highligth(connUp_1);&#xD;&#xA;&#x9;    unhighligth(connUp_2);&#xD;&#xA;&#x9;    unhighligth(connUp_3);&#xD;&#xA;&#x9;    highligth(connUp_4);&#xD;&#xA;&#x9;    highligth(connUp_5);&#xD;&#xA;&#x9;    unhighligth(connUp_6);&#xD;&#xA;&#xD;&#xA;&#x9;    unhighligth(connDown_1);&#xD;&#xA;&#x9;    highligth(connDown_2);&#xD;&#xA;&#x9;    highligth(connDown_3);&#xD;&#xA;&#x9;    unhighligth(connDown_4);&#xD;&#xA;&#x9;    unhighligth(connDown_5);&#xD;&#xA;&#x9;    highligth(connDown_6);&#xD;&#xA;&#xD;&#xA;&#x9;    // highlight switches too&#xD;&#xA;&#x9;    highlightSwitch(switch_1, 1);&#xD;&#xA;&#x9;    highlightSwitch(switch_2, 2);&#xD;&#xA;&#x9;    highlightSwitch(switch_3, 1);&#xD;&#xA;&#x9;    &#xD;&#xA;&#x9;}else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    unhighligthAll();    // switch highlighting off on all connectors&#xD;&#xA;&#x9;}&#xD;&#xA;    }else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;    unhighligthAll();    // switch highlighting off on all connectors&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    unhighligthAll();    // switch highlighting off on all connectors&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * highlight a connector&#xD;&#xA; */&#xD;&#xA;function highligth(widget) {&#xD;&#xA;&#xD;&#xA;    if (lhc.getStatus() == 1) // i.e. the LHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;widget.setLineColor(255, 0, 0);&#xD;&#xA;    }&#xD;&#xA;    else if (rhc.getStatus() == 1) // i.e. the RHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;widget.setLineColor(128, 128, 128);&#xD;&#xA;    }&#xD;&#xA;    else // i.e. neither LHC nor RHC is active, do not highlight anything&#xD;&#xA;    {&#xD;&#xA;&#x9;widget.setLineColor(128, 128, 128);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * remove highlighting on a connector&#xD;&#xA; */&#xD;&#xA;function unhighligth(widget) &#xD;&#xA;{&#xD;&#xA;    if (lhc.getStatus() == 1) // i.e. the LHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;widget.setLineColor(128, 128, 128);&#xD;&#xA;    }&#xD;&#xA;    else if (rhc.getStatus() == 1) // i.e. the RHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;widget.setLineColor(255, 0, 0);&#xD;&#xA;    }&#xD;&#xA;    else // i.e. neither LHC nor RHC is active, do not highlight anything&#xD;&#xA;    {&#xD;&#xA;&#x9;widget.setLineColor(128, 128, 128);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * highlight a Switch&#xD;&#xA; * widget: the Switch to highlight&#xD;&#xA; * pole the pole number to highlight (1 or 2)&#xD;&#xA; */&#xD;&#xA;function highlightSwitch(widget, pole) &#xD;&#xA;{&#xD;&#xA;    &#xD;&#xA;    if (lhc.getStatus() == 1) // i.e. the LHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;    if (pole == 1)  &#xD;&#xA;&#x9;    {&#xD;&#xA;&#x9;&#x9;widget.getPole1().setLineColor(255, 0, 0);&#xD;&#xA;&#x9;&#x9;widget.getPole2().setLineColor(128, 128, 128);&#xD;&#xA;&#x9;    }&#xD;&#xA;&#x9;    else if (pole == 2) &#xD;&#xA;&#x9;    {&#xD;&#xA;&#x9;&#x9;widget.getPole2().setLineColor(255, 0, 0);&#xD;&#xA;&#x9;&#x9;widget.getPole1().setLineColor(128, 128, 128);&#xD;&#xA;&#x9;    }&#xD;&#xA;    }&#xD;&#xA;    else if (rhc.getStatus() == 1) // i.e. the RHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;    if (pole == 1)  &#xD;&#xA;&#x9;    {&#xD;&#xA;&#x9;&#x9;widget.getPole2().setLineColor(255, 0, 0);&#xD;&#xA;&#x9;&#x9;widget.getPole1().setLineColor(128, 128, 128);&#xD;&#xA;&#x9;    }&#xD;&#xA;&#x9;    else if (pole == 2) &#xD;&#xA;&#x9;    {&#xD;&#xA;&#x9;&#x9;widget.getPole1().setLineColor(255, 0, 0);&#xD;&#xA;&#x9;&#x9;widget.getPole2().setLineColor(128, 128, 128);&#xD;&#xA;&#x9;    }&#xD;&#xA;    }&#xD;&#xA;    else // i.e. neither LHC nor RHC is active, do not highlight anything&#xD;&#xA;    {&#xD;&#xA;      //&#xD;&#xA;    }&#xD;&#xA;    &#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Un-highlight a Switch&#xD;&#xA; * widget: the Switch to highlight&#xD;&#xA; * pole the pole number to highlight (1 or 2)&#xD;&#xA; */&#xD;&#xA;function unhighlightSwitch(widget, pole) &#xD;&#xA;{&#xD;&#xA;    if (pole == 1)  &#xD;&#xA;    {&#xD;&#xA;&#x9;widget.getPole1().setLineColor(128, 128, 128);&#xD;&#xA;    }&#xD;&#xA;    else if (pole == 2) &#xD;&#xA;    {&#xD;&#xA;&#x9;widget.getPole2().setLineColor(128, 128, 128);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * remove highlighting on all connectors&#xD;&#xA; */&#xD;&#xA;function unhighligthAll() &#xD;&#xA;{&#xD;&#xA;    connUp_1.setLineColor(128, 128, 128);&#xD;&#xA;    connUp_2.setLineColor(128, 128, 128);&#xD;&#xA;    connUp_3.setLineColor(128, 128, 128);&#xD;&#xA;    connUp_4.setLineColor(128, 128, 128);&#xD;&#xA;    connUp_5.setLineColor(128, 128, 128);&#xD;&#xA;    connUp_6.setLineColor(128, 128, 128);&#xD;&#xA;&#xD;&#xA;    connDown_1.setLineColor(128, 128, 128);&#xD;&#xA;    connDown_2.setLineColor(128, 128, 128);&#xD;&#xA;    connDown_3.setLineColor(128, 128, 128);&#xD;&#xA;    connDown_4.setLineColor(128, 128, 128);&#xD;&#xA;    connDown_5.setLineColor(128, 128, 128);&#xD;&#xA;    connDown_6.setLineColor(128, 128, 128);&#xD;&#xA;    &#xD;&#xA;    // unhighlight switches too&#xD;&#xA;    switch_1.getPole1().setLineColor(128, 128, 128);&#xD;&#xA;    switch_2.getPole1().setLineColor(128, 128, 128);&#xD;&#xA;    switch_3.getPole1().setLineColor(128, 128, 128);&#xD;&#xA;    &#xD;&#xA;    switch_1.getPole2().setLineColor(128, 128, 128);&#xD;&#xA;    switch_2.getPole2().setLineColor(128, 128, 128);&#xD;&#xA;    switch_3.getPole2().setLineColor(128, 128, 128);&#xD;&#xA;    &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Check the status of the widget and return true if the status is 1, false&#xD;&#xA; * otherwise.&#xD;&#xA; */&#xD;&#xA;function isActive(widget) {&#xD;&#xA;    if (widget.getStatus() == 1) {&#xD;&#xA;&#x9;return true;&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;&#x9;return false;&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Check if the ULM 1 is active. Return true if it is, false otherwise.&#xD;&#xA; * (swap ULM 1 with 2 if the RHC is selected) &#xD;&#xA; */&#xD;&#xA;function isUlm1Active() {&#xD;&#xA;    &#xD;&#xA;    var isActive = false; &#xD;&#xA;    if (lhc.getStatus() == 1) // i.e. the LHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;isActive = (ulm1.getStatus() == 1);&#xD;&#xA;    }&#xD;&#xA;    else if (rhc.getStatus() == 1) // i.e. the RHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;isActive = (ulm2.getStatus() == 1);&#xD;&#xA;    }&#xD;&#xA;    &#xD;&#xA;    return isActive;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Check if the ULM 2 is active. Return true if it is, false otherwise.&#xD;&#xA; * (swap ULM 1 with 2 if the RHC is selected) &#xD;&#xA; */&#xD;&#xA;function isUlm2Active() { &#xD;&#xA;     &#xD;&#xA;    var isActive = false; &#xD;&#xA;    if (lhc.getStatus() == 1) // i.e. the LHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;isActive = (ulm2.getStatus() == 1);&#xD;&#xA;    }&#xD;&#xA;    else if (rhc.getStatus() == 1) // i.e. the RHC is active&#xD;&#xA;    {&#xD;&#xA;&#x9;isActive = (ulm1.getStatus() == 1);&#xD;&#xA;    }&#xD;&#xA;    &#xD;&#xA;    return isActive;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" triggeringWidgets="widget_121 widget_122 widget_123 widget_130 widget_137 widget_140 widget_141">
+      <triggeringParameters parameterReference=""/>
+    </monitoringAction>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="3">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_122" caption="RHC" description="Push to activate RHC">
+    <font fontSize="12" fontFamily="Arial"/>
+    <associatedParameter parameterReference=""/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="55" y="250"/>
+    <size width="90" height="70"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="3">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Cross" name="widget_123" caption="" description="Push multiple times to change the status of the Switch" controllable="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="200" y="230"/>
+    <size width="40" height="40"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction script="thiz.setConnected(CROSS_OPEN);" controlMode="MONITOR"/>
+    <straightAction script="thiz.setConnected(CROSS_DIRECT);  thiz.setStatus(1);" controlMode="MONITOR"/>
+    <pole1 caption="" widget="widget_124">
+      <lineStyle lineWidth="3">
+        <lineColour/>
+      </lineStyle>
+    </pole1>
+    <throw1 caption="" widget="widget_128"/>
+    <crossAction script="thiz.setConnected(CROSS_CROSS);  thiz.setStatus(0);" controlMode="MONITOR"/>
+    <pole2 caption="" widget="widget_125">
+      <lineStyle lineWidth="3">
+        <lineColour/>
+      </lineStyle>
+    </pole2>
+    <throw2 caption="" widget="widget_129"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_126" caption="AMP1" description="this component is active">
+    <font fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference=""/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="305" y="180"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255"/>
+    <border borderWidth="3">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_127" caption="AMP2" description="this component is active">
+    <font fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference=""/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="305" y="285"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255"/>
+    <border borderWidth="3">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Cross" name="widget_130" caption="" description="Push multiple times to change the status of the Switch" controllable="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="455" y="230"/>
+    <size width="40" height="40"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction script="thiz.setConnected(CROSS_OPEN);" controlMode="MONITOR"/>
+    <straightAction script="thiz.setConnected(CROSS_DIRECT);  thiz.setStatus(1);" controlMode="MONITOR"/>
+    <pole1 caption="" widget="widget_131">
+      <lineStyle lineWidth="3">
+        <lineColour/>
+      </lineStyle>
+    </pole1>
+    <throw1 caption="" widget="widget_136"/>
+    <crossAction script="thiz.setConnected(CROSS_CROSS);  thiz.setStatus(0);" controlMode="MONITOR"/>
+    <pole2 caption="" widget="widget_132">
+      <lineStyle lineWidth="3">
+        <lineColour/>
+      </lineStyle>
+    </pole2>
+    <throw2 caption="" widget="widget_135"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_133" caption="UC1" description="this component is active">
+    <font fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference=""/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="570" y="180"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255"/>
+    <border borderWidth="3">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_134" caption="UC2" description="this component is active">
+    <font fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference=""/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="570" y="285"/>
+    <size width="90" height="40"/>
+    <monitoringAction/>
+    <background g="255"/>
+    <border borderWidth="3">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Cross" name="widget_137" caption="" description="Push multiple times to change the status of the Switch" controllable="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <location x="720" y="230"/>
+    <size width="40" height="40"/>
+    <monitoringAction/>
+    <animatedAction/>
+    <openAction script="thiz.setConnected(CROSS_OPEN);" controlMode="MONITOR"/>
+    <straightAction script="thiz.setConnected(CROSS_DIRECT);  thiz.setStatus(1);" controlMode="MONITOR"/>
+    <pole1 caption="" widget="widget_138">
+      <lineStyle lineWidth="3">
+        <lineColour/>
+      </lineStyle>
+    </pole1>
+    <throw1 caption="" widget="widget_142"/>
+    <crossAction script="thiz.setConnected(CROSS_CROSS);  thiz.setStatus(0);" controlMode="MONITOR"/>
+    <pole2 caption="" widget="widget_139">
+      <lineStyle lineWidth="3">
+        <lineColour/>
+      </lineStyle>
+    </pole2>
+    <throw2 caption="" widget="widget_143"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_140" caption="IFM3 ULM1" description="value of parameter I001_long drives the activation of IFM3ULM1">
+    <font fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference=""/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="835" y="175"/>
+    <size width="101" height="40"/>
+    <monitoringAction script="if (widget_151.getAssociatedParameter().getValue() > 3) // activate the Widget if the power > threshold&#xD;&#xA;{&#xD;&#xA;  widget_148.setCaption(&quot;Active &quot;);&#xD;&#xA;  thiz.setBackgroundColor(0,255,0);&#xD;&#xA;  thiz.setStatus(1);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;  widget_148.setCaption(&quot;Not active&quot;);&#xD;&#xA;  thiz.setBackgroundColor(128,128,128);&#xD;&#xA;  thiz.setStatus(0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;">
+      <triggeringParameters parameterReference="Category_2.I001"/>
+    </monitoringAction>
+    <background r="166" g="193" b="152"/>
+    <border borderWidth="3">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="widget_141" caption="IFM3 ULM2" description="value of parameter I002_long drives the activation of IFM3ULM2">
+    <font fontSize="12" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference=""/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="835" y="285"/>
+    <size width="101" height="40"/>
+    <monitoringAction script="if (widget_152.getAssociatedParameter().getValue() > -35000)&#xD;&#xA;{&#xD;&#xA;  widget_148_Copy_1.setCaption(&quot;Active &quot;);&#xD;&#xA;  thiz.setBackgroundColor(0,255,0);&#xD;&#xA;  thiz.setStatus(1);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;  widget_148_Copy_1.setCaption(&quot;Not active&quot;);&#xD;&#xA;  thiz.setBackgroundColor(128,128,128);&#xD;&#xA;  thiz.setStatus(0);&#xD;&#xA;}&#xD;&#xA;">
+      <triggeringParameters parameterReference="Category_2.I002"/>
+    </monitoringAction>
+    <background r="255" g="128" b="64"/>
+    <border borderWidth="3">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_144" caption="LHC Mimic" description="Text Widget">
+    <font fontSize="24" fontFamily="Rockwell">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="20" y="15"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="widget_145" caption="Activate LHC " description="Push to activate LHC">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP script="widget_121.setBackgroundColor(0,255,0);&#xD;&#xA;widget_121.setStatus(1);&#xD;&#xA;&#xD;&#xA;widget_122.setBackgroundColor(128,128,128);&#xD;&#xA;widget_122.setStatus(0);&#xD;&#xA;&#xD;&#xA;" controlMode="MONITOR"/>
+    <location x="35" y="135"/>
+    <size width="97" height="30"/>
+    <background r="236" g="233" b="216"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:PushButton" name="widget_145_Copy_1" caption="Activate RHC " description="Push to activate RHC">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP script="widget_122.setBackgroundColor(0,255,0);&#xD;&#xA;widget_122.setStatus(1);&#xD;&#xA;&#xD;&#xA;widget_121.setBackgroundColor(128,128,128);&#xD;&#xA;widget_121.setStatus(0);&#xD;&#xA;&#xD;&#xA;" controlMode="MONITOR"/>
+    <location x="35" y="335"/>
+    <size width="97" height="30"/>
+    <background r="236" g="233" b="216"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_148" caption="not active" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="875" y="150"/>
+    <monitoringAction script="if (I001_long.getValue() > 3) // activate the Widget if the power > threshold&#xD;&#xA;{&#xD;&#xA;  widget_148.setCaption(&quot;Active &quot;);&#xD;&#xA;  thiz.setFontBackgroundColor(0,255,0);&#xD;&#xA;  thiz.setStatus(1);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;  widget_148.setCaption(&quot;Not active&quot;);&#xD;&#xA;  thiz.setFontBackgroundColor(128,128,128);&#xD;&#xA;  thiz.setStatus(0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_148_Copy_1" caption="not active" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="875" y="330"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_148_Copy_2" caption="Active" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="315" y="155"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_148_Copy_3" caption="Active" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="315" y="335"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_148_Copy_4" caption="Active" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="595" y="155"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_148_Copy_5" caption="Active" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="595" y="335"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_151" caption="I001" description="Parameter Field Widget" representation="value">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I001"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="895" y="25"/>
+    <size width="80" height="30"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="widget_152" caption="I002" description="Parameter Field Widget" representation="value">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="Category_2.I002"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="895" y="440"/>
+    <size width="80" height="30"/>
+    <availableRepresentations>value</availableRepresentations>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+    <valueFont fontSize="9" fontFamily="Tahoma"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_153" caption="ULM2 active above -35000" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="828" y="470"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="widget_153_Copy_1" caption="ULM1 active above 3" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="864" y="55"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_124" caption="" description="One to One Connector Widget" port="widget_121" hook="widget_123" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="133" y="208"/>
+    <middlePoints x="145" y="204"/>
+    <middlePoints x="204" y="204"/>
+    <middlePoints x="204" y="234"/>
+    <middlePoints x="220" y="250"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_125" caption="" description="One to One Connector Widget" port="widget_122" hook="widget_123" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="130" y="281"/>
+    <middlePoints x="145" y="305"/>
+    <middlePoints x="204" y="305"/>
+    <middlePoints x="204" y="266"/>
+    <middlePoints x="220" y="250"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_128" caption="" description="One to One Connector Widget" port="widget_123" hook="widget_126" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="220" y="250"/>
+    <middlePoints x="236" y="234"/>
+    <middlePoints x="236" y="206"/>
+    <middlePoints x="305" y="206"/>
+    <middlePoints x="323" y="199"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_129" caption="" description="One to One Connector Widget" port="widget_123" hook="widget_127" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="220" y="250"/>
+    <middlePoints x="236" y="266"/>
+    <middlePoints x="236" y="298"/>
+    <middlePoints x="305" y="298"/>
+    <middlePoints x="326" y="309"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_131" caption="" description="One to One Connector Widget" port="widget_126" hook="widget_130" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="380" y="192"/>
+    <middlePoints x="395" y="201"/>
+    <middlePoints x="459" y="201"/>
+    <middlePoints x="459" y="234"/>
+    <middlePoints x="475" y="250"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_132" caption="" description="One to One Connector Widget" port="widget_127" hook="widget_130" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="377" y="306"/>
+    <middlePoints x="395" y="299"/>
+    <middlePoints x="459" y="299"/>
+    <middlePoints x="459" y="266"/>
+    <middlePoints x="475" y="250"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_135" caption="" description="One to One Connector Widget" port="widget_130" hook="widget_134" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="475" y="250"/>
+    <middlePoints x="491" y="266"/>
+    <middlePoints x="491" y="299"/>
+    <middlePoints x="570" y="299"/>
+    <middlePoints x="590" y="305"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_136" caption="" description="One to One Connector Widget" port="widget_130" hook="widget_133" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="475" y="250"/>
+    <middlePoints x="491" y="234"/>
+    <middlePoints x="491" y="199"/>
+    <middlePoints x="570" y="199"/>
+    <middlePoints x="615" y="200"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_138" caption="" description="One to One Connector Widget" port="widget_133" hook="widget_137" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="640" y="193"/>
+    <middlePoints x="660" y="199"/>
+    <middlePoints x="724" y="199"/>
+    <middlePoints x="724" y="234"/>
+    <middlePoints x="740" y="250"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_139" caption="" description="One to One Connector Widget" port="widget_134" hook="widget_137" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="615" y="305"/>
+    <middlePoints x="660" y="299"/>
+    <middlePoints x="724" y="299"/>
+    <middlePoints x="724" y="266"/>
+    <middlePoints x="740" y="250"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_142" caption="" description="One to One Connector Widget" port="widget_137" hook="widget_140" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="740" y="250"/>
+    <middlePoints x="756" y="234"/>
+    <middlePoints x="756" y="201"/>
+    <middlePoints x="835" y="201"/>
+    <middlePoints x="881" y="182"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_143" caption="" description="One to One Connector Widget" port="widget_137" hook="widget_141" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="740" y="250"/>
+    <middlePoints x="756" y="266"/>
+    <middlePoints x="756" y="300"/>
+    <middlePoints x="835" y="300"/>
+    <middlePoints x="885" y="305"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_146" caption="" description="One to One Connector Widget" port="widget_145" hook="widget_121" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="46" y="150"/>
+    <middlePoints x="48" y="165"/>
+    <middlePoints x="48" y="204"/>
+    <middlePoints x="55" y="204"/>
+    <middlePoints x="57" y="217"/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Connector" name="widget_147" caption="" description="One to One Connector Widget" port="widget_145_Copy_1" hook="widget_122" portCaption="" hookCaption="">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <animatedAction/>
+    <connectorAppearance lineWidth="3" type="RIGHT_ANGLE"/>
+    <middlePoints x="43" y="350"/>
+    <middlePoints x="45" y="335"/>
+    <middlePoints x="45" y="289"/>
+    <middlePoints x="55" y="289"/>
+    <middlePoints x="58" y="274"/>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2010-12-08T16:11:22.656+0100" author="gio" filename="MIM_SP5_BIG_MIM_002_LHC.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="1000" height="500"/>
+  </canvasProperties>
+</esa.egos.eud.displays:Mimic>

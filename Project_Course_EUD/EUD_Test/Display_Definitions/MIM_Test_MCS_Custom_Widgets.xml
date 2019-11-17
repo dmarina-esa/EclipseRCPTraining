@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esa.egos.eud.displays:Mimic xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esa.egos.eud.displays="http://esa.egos.eud.displays.mimics/1.0" identifier="MIM_Test_MCS_Custom_Widgets" kindOfDisplay="MIM" version="1.0.0">
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_1" caption="NPC10080" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="168"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_2" caption="NPC10082" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="112" y="168"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_3" caption="NPC10083" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="168"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_pole_1" caption="" description="The Plus pole">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="216"/>
+    <size width="32" height="9"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_pole_2" caption="" description="The Plus pole">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="216"/>
+    <size width="32" height="5"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_pole_3" caption="" description="The Plus pole">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="112" y="216"/>
+    <size width="32" height="9"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_pole_4" caption="" description="The Minus pole">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="112" y="216"/>
+    <size width="32" height="5"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_body_1" caption="" description="Battery" controllable="false">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="32" y="224"/>
+    <size width="120" height="64"/>
+    <monitoringAction script=""/>
+    <background r="152" g="168" b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="battery_nominalValue_1" caption="?V - ?V Nominal" description="Indicates Nominal Voltage Range" captionAlignment="CENTER">
+    <font fontSize="8" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="56" y="272"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="battery_value_1" caption="" description="Battery Voltage [Volt]" controllable="false" representation="eng" triggeringParameter="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="0.NCD40003"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="56" y="240"/>
+    <size width="73" height="29"/>
+    <availableRepresentations>eng</availableRepresentations>
+    <availableRepresentations>raw</availableRepresentations>
+    <border>
+      <borderColour/>
+    </border>
+    <valueFont fontSize="12" fontFamily="Tahoma"/>
+    <monitoringAction script="/*------------------------------------------------------&#xD;&#xA; * (C) 2012 European Space Agency&#xD;&#xA; * European Space Operations Centre&#xD;&#xA; * Darmstadt, Germany&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * System : EUD-MIMIC&#xD;&#xA; * Sub-System : Custom Widget Definition Script&#xD;&#xA; * File Name : Battery.xml&#xD;&#xA; * Author : Jean Schuetz&#xD;&#xA; * Creation Date : 2012-10-18&#xD;&#xA; * Version : 1.0&#xD;&#xA; * History: see bottom of file&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * Description&#xD;&#xA; * Script for controlling the Battery's body colour &#xD;&#xA; * according to the parameter value limits.&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; */&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   C O N S T A N T S   D E F I N I T I O N S   *&#xD;&#xA;// *************************************************&#xD;&#xA;// Ratio between Hard Limit and Soft Limit&#xD;&#xA;var HARD_SOFT_LIMIT_RATIO = 0.1;&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   Parameter Limits and Sample Definitions     *&#xD;&#xA;// *************************************************&#xD;&#xA;&#xD;&#xA;// Get the default representation name of the associated parameter&#xD;&#xA;var rep = thiz.getAssociatedParameter().getDefaultRepresentation();&#xD;&#xA;&#xD;&#xA;// Get the limits from the default representation&#xD;&#xA;var ranges = thiz.getAssociatedParameter().getRepresentation(rep).getRanges();&#xD;&#xA;&#xD;&#xA;//Get the default limits from the default representation&#xD;&#xA;var range = ranges[0];&#xD;&#xA;if (range == null || range.length == 0)&#xD;&#xA;{&#xD;&#xA;&#x9;// if no range exists for the parameters we can't do anything&#xD;&#xA;&#x9;return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//High and low limits of the parameter associated to this widget, &#xD;&#xA;//for a given representation (in this case the default one)&#xD;&#xA;var low = parseFloat(range.getLowLimit());&#xD;&#xA;var high = parseFloat(range.getHighLimit());&#xD;&#xA;if (low > high)&#xD;&#xA;{&#xD;&#xA;&#x9;var tmp = low;&#xD;&#xA;&#x9;low = high;&#xD;&#xA;&#x9;high = tmp;&#xD;&#xA;}&#xD;&#xA;var valueRange = high - low;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with red colour&#xD;&#xA;var HARD_LOW_LIMIT = low;&#xD;&#xA;var HARD_HIGH_LIMIT = high;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with yellow colour&#xD;&#xA;var SOFT_LOW_LIMIT = HARD_LOW_LIMIT + valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;var SOFT_HIGH_LIMIT = HARD_HIGH_LIMIT - valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;&#xD;&#xA;//Current value of the associated parameter to this widget&#xD;&#xA;var sampleValue = thiz.getAssociatedParameter().getValue();&#xD;&#xA;&#xD;&#xA;// *********************************************&#xD;&#xA;// *   M A I N   B U S I N E S S   L O G I C   *&#xD;&#xA;// *********************************************&#xD;&#xA;&#xD;&#xA;// Set nominal voltage text if not yet set&#xD;&#xA;if (battery_nominalValue_1.getCaption().substring(0, 1) == &quot;?&quot;)&#xD;&#xA;{&#xD;&#xA;&#x9;var nominalValue = formatFixedDigits(HARD_LOW_LIMIT, 1) + &quot;V - &quot;;&#xD;&#xA;&#x9;nominalValue += formatFixedDigits(HARD_HIGH_LIMIT, 1) + &quot;V Nominal&quot;;&#xD;&#xA;&#x9;battery_nominalValue_1.setCaption(nominalValue);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Set background to grey if parameter is invalid&#xD;&#xA;if (thiz.getAssociatedParameter().getValidity() == INVALID)&#xD;&#xA;{&#xD;&#xA;&#x9;setInvalidColor();&#xD;&#xA;}&#xD;&#xA;//Range of parameter values where background colour will be set as green, yellow or red&#xD;&#xA;else if (sampleValue > SOFT_LOW_LIMIT &amp;&amp; sampleValue &lt; SOFT_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setNominalColor();&#xD;&#xA;}&#xD;&#xA;else if (sampleValue > HARD_LOW_LIMIT &amp;&amp; sampleValue &lt; HARD_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setWarningColor();&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;&#x9;setAlarmColor();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// ****************************************&#xD;&#xA;// *  G E N E R A L   F U N C T I O N S   *&#xD;&#xA;// ****************************************&#xD;&#xA;&#xD;&#xA;function setNominalColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body_1.setBackgroundColor(0, 255, 0);&#xD;&#xA;&#x9;battery_body_1.setFontBackgroundColor(0, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setWarningColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body_1.setBackgroundColor(255, 255, 0);&#xD;&#xA;&#x9;battery_body_1.setFontBackgroundColor(255, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setAlarmColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body_1.setBackgroundColor(255, 0, 0);&#xD;&#xA;&#x9;battery_body_1.setFontBackgroundColor(255, 0, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setInvalidColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body_1.setBackgroundColor(200, 200, 200);&#xD;&#xA;&#x9;battery_body_1.setFontBackgroundColor(200, 200, 200);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Formats the given number to have a fixed amount of digits after the decimal,&#xD;&#xA; * specified by numOfDigits&#xD;&#xA; * &#xD;&#xA; * @param number&#xD;&#xA; *            the number to be formated&#xD;&#xA; * @param numOfDigits&#xD;&#xA; *            an integer >= 0 specifying the number of fixed digits that shall&#xD;&#xA; *            be shown after the decimal.&#xD;&#xA; * @return a String containing the formated number&#xD;&#xA; */&#xD;&#xA;function formatFixedDigits(number, numOfDigits)&#xD;&#xA;{&#xD;&#xA;&#x9;var result = &quot;&quot;;&#xD;&#xA;&#xD;&#xA;&#x9;if (number &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var number = -number;&#xD;&#xA;&#x9;&#x9;result = &quot;-&quot;;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;numOfDigits = 0;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits == 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;result = result + Math.floor(number + 0.5);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var factor = Math.pow(10.0, numOfDigits);&#xD;&#xA;&#x9;&#x9;var rounded = Math.round(number * factor) / factor;&#xD;&#xA;&#x9;&#x9;var floored = Math.floor(rounded);&#xD;&#xA;&#x9;&#x9;var digits = &quot;&quot; + Math.round(((rounded - floored) * factor));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;while (digits.length &lt; numOfDigits)&#xD;&#xA;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;digits = &quot;0&quot; + digits;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;result = result + floored + &quot;.&quot; + digits;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;return result&#xD;&#xA;}&#xD;&#xA;// ----------------------------------------------------------------------------------&#xD;&#xA;// v1.0 initial version&#xD;&#xA;&#xD;&#xA;">
+      <triggeringParameters parameterReference="0.NCD40003"/>
+    </monitoringAction>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_4" caption="+" description="Plus text">
+    <font fontSize="8" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="51" y="224"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_5" caption="-" description="Plus text">
+    <font fontSize="8" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="125" y="224"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_pole_5" caption="" description="The Plus pole">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="216"/>
+    <size width="32" height="9"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_pole_6" caption="" description="The Plus pole">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="216"/>
+    <size width="32" height="5"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_pole_7" caption="" description="The Plus pole">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="272" y="216"/>
+    <size width="32" height="9"/>
+    <monitoringAction/>
+    <background/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_pole_8" caption="" description="The Minus pole">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="272" y="216"/>
+    <size width="32" height="5"/>
+    <monitoringAction/>
+    <background r="255" g="255" b="255"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="battery_body_2" caption="" description="Battery" controllable="false">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="192" y="224"/>
+    <size width="120" height="64"/>
+    <monitoringAction script=""/>
+    <background r="152" g="168" b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="battery_nominalValue_2" caption="?V - ?V Nominal" description="Indicates Nominal Voltage Range" captionAlignment="CENTER">
+    <font fontSize="8" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="272"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:ParameterField" name="battery_value_2" caption="" description="Battery Voltage [Volt]" controllable="false" representation="eng" triggeringParameter="true">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter parameterReference="0.NCD40007"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="240"/>
+    <size width="73" height="29"/>
+    <availableRepresentations>eng</availableRepresentations>
+    <availableRepresentations>raw</availableRepresentations>
+    <border>
+      <borderColour/>
+    </border>
+    <valueFont fontSize="12" fontFamily="Tahoma"/>
+    <monitoringAction script="/*------------------------------------------------------&#xD;&#xA; * (C) 2012 European Space Agency&#xD;&#xA; * European Space Operations Centre&#xD;&#xA; * Darmstadt, Germany&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * System : EUD-MIMIC&#xD;&#xA; * Sub-System : Custom Widget Definition Script&#xD;&#xA; * File Name : Battery.xml&#xD;&#xA; * Author : Jean Schuetz&#xD;&#xA; * Creation Date : 2012-10-18&#xD;&#xA; * Version : 1.0&#xD;&#xA; * History: see bottom of file&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * Description&#xD;&#xA; * Script for controlling the Battery's body colour &#xD;&#xA; * according to the parameter value limits.&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; */&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   C O N S T A N T S   D E F I N I T I O N S   *&#xD;&#xA;// *************************************************&#xD;&#xA;// Ratio between Hard Limit and Soft Limit&#xD;&#xA;var HARD_SOFT_LIMIT_RATIO = 0.1;&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   Parameter Limits and Sample Definitions     *&#xD;&#xA;// *************************************************&#xD;&#xA;&#xD;&#xA;// Get the default representation name of the associated parameter&#xD;&#xA;var rep = thiz.getAssociatedParameter().getDefaultRepresentation();&#xD;&#xA;&#xD;&#xA;// Get the limits from the default representation&#xD;&#xA;var ranges = thiz.getAssociatedParameter().getRepresentation(rep).getRanges();&#xD;&#xA;&#xD;&#xA;//Get the default limits from the default representation&#xD;&#xA;var range = ranges[0];&#xD;&#xA;if (range == null || range.length == 0)&#xD;&#xA;{&#xD;&#xA;&#x9;// if no range exists for the parameters we can't do anything&#xD;&#xA;&#x9;return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//High and low limits of the parameter associated to this widget, &#xD;&#xA;//for a given representation (in this case the default one)&#xD;&#xA;var low = parseFloat(range.getLowLimit());&#xD;&#xA;var high = parseFloat(range.getHighLimit());&#xD;&#xA;if (low > high)&#xD;&#xA;{&#xD;&#xA;&#x9;var tmp = low;&#xD;&#xA;&#x9;low = high;&#xD;&#xA;&#x9;high = tmp;&#xD;&#xA;}&#xD;&#xA;var valueRange = high - low;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with red colour&#xD;&#xA;var HARD_LOW_LIMIT = low;&#xD;&#xA;var HARD_HIGH_LIMIT = high;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with yellow colour&#xD;&#xA;var SOFT_LOW_LIMIT = HARD_LOW_LIMIT + valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;var SOFT_HIGH_LIMIT = HARD_HIGH_LIMIT - valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;&#xD;&#xA;//Current value of the associated parameter to this widget&#xD;&#xA;var sampleValue = thiz.getAssociatedParameter().getValue();&#xD;&#xA;&#xD;&#xA;// *********************************************&#xD;&#xA;// *   M A I N   B U S I N E S S   L O G I C   *&#xD;&#xA;// *********************************************&#xD;&#xA;&#xD;&#xA;// Set nominal voltage text if not yet set&#xD;&#xA;if (battery_nominalValue_2.getCaption().substring(0, 1) == &quot;?&quot;)&#xD;&#xA;{&#xD;&#xA;&#x9;var nominalValue = formatFixedDigits(HARD_LOW_LIMIT, 1) + &quot;V - &quot;;&#xD;&#xA;&#x9;nominalValue += formatFixedDigits(HARD_HIGH_LIMIT, 1) + &quot;V Nominal&quot;;&#xD;&#xA;&#x9;battery_nominalValue_2.setCaption(nominalValue);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Set background to grey if parameter is invalid&#xD;&#xA;if (thiz.getAssociatedParameter().getValidity() == INVALID)&#xD;&#xA;{&#xD;&#xA;&#x9;setInvalidColor();&#xD;&#xA;}&#xD;&#xA;//Range of parameter values where background colour will be set as green, yellow or red&#xD;&#xA;else if (sampleValue > SOFT_LOW_LIMIT &amp;&amp; sampleValue &lt; SOFT_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setNominalColor();&#xD;&#xA;}&#xD;&#xA;else if (sampleValue > HARD_LOW_LIMIT &amp;&amp; sampleValue &lt; HARD_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setWarningColor();&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;&#x9;setAlarmColor();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// ****************************************&#xD;&#xA;// *  G E N E R A L   F U N C T I O N S   *&#xD;&#xA;// ****************************************&#xD;&#xA;&#xD;&#xA;function setNominalColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body_2.setBackgroundColor(0, 255, 0);&#xD;&#xA;&#x9;battery_body_2.setFontBackgroundColor(0, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setWarningColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body_2.setBackgroundColor(255, 255, 0);&#xD;&#xA;&#x9;battery_body_2.setFontBackgroundColor(255, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setAlarmColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body_2.setBackgroundColor(255, 0, 0);&#xD;&#xA;&#x9;battery_body_2.setFontBackgroundColor(255, 0, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setInvalidColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body_2.setBackgroundColor(200, 200, 200);&#xD;&#xA;&#x9;battery_body_2.setFontBackgroundColor(200, 200, 200);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Formats the given number to have a fixed amount of digits after the decimal,&#xD;&#xA; * specified by numOfDigits&#xD;&#xA; * &#xD;&#xA; * @param number&#xD;&#xA; *            the number to be formated&#xD;&#xA; * @param numOfDigits&#xD;&#xA; *            an integer >= 0 specifying the number of fixed digits that shall&#xD;&#xA; *            be shown after the decimal.&#xD;&#xA; * @return a String containing the formated number&#xD;&#xA; */&#xD;&#xA;function formatFixedDigits(number, numOfDigits)&#xD;&#xA;{&#xD;&#xA;&#x9;var result = &quot;&quot;;&#xD;&#xA;&#xD;&#xA;&#x9;if (number &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var number = -number;&#xD;&#xA;&#x9;&#x9;result = &quot;-&quot;;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;numOfDigits = 0;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits == 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;result = result + Math.floor(number + 0.5);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var factor = Math.pow(10.0, numOfDigits);&#xD;&#xA;&#x9;&#x9;var rounded = Math.round(number * factor) / factor;&#xD;&#xA;&#x9;&#x9;var floored = Math.floor(rounded);&#xD;&#xA;&#x9;&#x9;var digits = &quot;&quot; + Math.round(((rounded - floored) * factor));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;while (digits.length &lt; numOfDigits)&#xD;&#xA;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;digits = &quot;0&quot; + digits;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;result = result + floored + &quot;.&quot; + digits;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;return result&#xD;&#xA;}&#xD;&#xA;// ----------------------------------------------------------------------------------&#xD;&#xA;// v1.0 initial version&#xD;&#xA;&#xD;&#xA;">
+      <triggeringParameters parameterReference="0.NCD40007"/>
+    </monitoringAction>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_6" caption="+" description="Plus text">
+    <font fontSize="8" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="211" y="224"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_7" caption="-" description="Plus text">
+    <font fontSize="8" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="285" y="224"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_8" caption="NCD40003" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="56" y="304"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="text_9" caption="NCD40007" description="Text Widget">
+    <font fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="304"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_1" caption="n/a" description="High Limit" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="8"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_2" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_3" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="72"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_4" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="104"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_1" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="16"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_valueText_1" caption="??" description="Current Value" captionAlignment="CENTER">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="50" y="152"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_5" caption="n/a" description="Low Limit" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="24" y="135"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_2" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="48"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_3" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="80"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_4" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="112"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_5" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="40" y="143"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="vbargraph_body_1" caption="" description="Bargraph Body" disableStateColoring="true">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="16"/>
+    <size width="16" height="128"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="vbargraph_bar_1" caption="" description="Bar" disableStateColoring="true" triggeringParameter="true">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter parameterReference="0.NPC10080"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="48" y="16"/>
+    <size width="16" height="128"/>
+    <monitoringAction script="/*------------------------------------------------------&#xD;&#xA; * (C) 2012 European Space Agency&#xD;&#xA; * European Space Operations Centre&#xD;&#xA; * Darmstadt, Germany&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * System : EUD-MIMIC&#xD;&#xA; * Sub-System : Custom Widget Definition Script&#xD;&#xA; * File Name : VBargraph.xml&#xD;&#xA; * Author : Jean Schuetz&#xD;&#xA; * Creation Date : 2012-10-18&#xD;&#xA; * Version : 1.1&#xD;&#xA; * History: see bottom of file&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * Description&#xD;&#xA; * Script for controlling the bargraph's bar according&#xD;&#xA; * to the associated parameter's value and the scale&#xD;&#xA; * and colouring according to the parameter's limits.&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; */&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   C O N S T A N T S   D E F I N I T I O N S   *&#xD;&#xA;// *************************************************&#xD;&#xA;// Ratio between Hard Limit and Soft Limit&#xD;&#xA;var HARD_SOFT_LIMIT_RATIO = 0.1;&#xD;&#xA;&#xD;&#xA;// The number of digits after the decimal to show on the scale text&#xD;&#xA;var NUM_DECIM_ON_SCALE = 2;&#xD;&#xA;&#xD;&#xA;// The number of digits after the decimal to show in the value text&#xD;&#xA;var NUM_DECIM_FOR_VALUE = 2;&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   Parameter Limits and Sample Definitions     *&#xD;&#xA;// *************************************************&#xD;&#xA;&#xD;&#xA;// Get the default representation name of the associated parameter&#xD;&#xA;var rep = thiz.getAssociatedParameter().getDefaultRepresentation();&#xD;&#xA;&#xD;&#xA;// Get the limits from the default representation&#xD;&#xA;var ranges = thiz.getAssociatedParameter().getRepresentation(rep).getRanges();&#xD;&#xA;&#xD;&#xA;//Get the default limits from the default representation&#xD;&#xA;var range = ranges[0];&#xD;&#xA;if (range == null || range.length == 0)&#xD;&#xA;{&#xD;&#xA;&#x9;// if no range exists for the parameters we can't do anything&#xD;&#xA;&#x9;return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//High and low limits of the parameter associated to this widget, &#xD;&#xA;//for a given representation (in this case the default one)&#xD;&#xA;var low = parseFloat(range.getLowLimit());&#xD;&#xA;var high = parseFloat(range.getHighLimit());&#xD;&#xA;var valueRange = high - low;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with red color&#xD;&#xA;var HARD_LOW_LIMIT = low + 0.01;&#xD;&#xA;var HARD_HIGH_LIMIT = high - 0.01;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with yellow color&#xD;&#xA;var SOFT_LOW_LIMIT = HARD_LOW_LIMIT + valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;var SOFT_HIGH_LIMIT = HARD_HIGH_LIMIT - valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;&#xD;&#xA;//Current value of the associated parameter to this widget&#xD;&#xA;var sampleValue = thiz.getAssociatedParameter().getValue();&#xD;&#xA;&#xD;&#xA;//get the Unit for the selected Representation&#xD;&#xA;var paramUnit = thiz.getAssociatedParameter().getUnitForRepresentation(rep);&#xD;&#xA;&#xD;&#xA;// *********************************************&#xD;&#xA;// *   M A I N   B U S I N E S S   L O G I C   *&#xD;&#xA;// *********************************************&#xD;&#xA;&#xD;&#xA;//Sets the scale text elements, if not already done&#xD;&#xA;if (vbargraph_text_1.getCaption() == &quot;n/a&quot;)&#xD;&#xA;{&#xD;&#xA;&#x9;//Increment value for the ranges of associated parameter&#xD;&#xA;&#x9;var increment = (high - low) / 4;&#xD;&#xA;&#xD;&#xA;&#x9;vbargraph_text_1.setCaption(formatFixedDigits(high, NUM_DECIM_ON_SCALE));&#xD;&#xA;&#x9;vbargraph_text_5.setCaption(formatFixedDigits(low, NUM_DECIM_ON_SCALE));&#xD;&#xA;&#xD;&#xA;&#x9;/* &#xD;&#xA;&#x9; * Fine tune the position of the scale marks. This is needed as the &#xD;&#xA;&#x9; * selected number of digits may round the values on the scale, which &#xD;&#xA;&#x9; * then may not correspond the the value indicated by the bar &#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;var inc2 = low + increment;&#xD;&#xA;&#x9;var txt4 = formatFixedDigits(inc2, NUM_DECIM_ON_SCALE);&#xD;&#xA;&#x9;var newY = computeYPos(parseFloat(txt4), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_4.setLocation(vbargraph_line_4.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_4.setLocation(vbargraph_text_4.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_4.setCaption(txt4);&#xD;&#xA;&#xD;&#xA;&#x9;var inc3 = low + (2 * increment);&#xD;&#xA;&#x9;var txt3 = formatFixedDigits(inc3, NUM_DECIM_ON_SCALE)&#xD;&#xA;&#x9;newY = computeYPos(parseFloat(txt3), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_3.setLocation(vbargraph_line_3.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_3.setLocation(vbargraph_text_3.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_3.setCaption(txt3);&#xD;&#xA;&#xD;&#xA;&#x9;var inc4 = low + (3 * increment);&#xD;&#xA;&#x9;var txt2 = formatFixedDigits(inc4, NUM_DECIM_ON_SCALE)&#xD;&#xA;&#x9;newY = computeYPos(parseFloat(txt2), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_2.setLocation(vbargraph_line_2.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_2.setLocation(vbargraph_text_2.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_2.setCaption(txt2);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Determine the size of the green bar &#xD;&#xA;var newY = computeYPos(sampleValue, low, valueRange);&#xD;&#xA;var newH = computeSize(sampleValue, low, valueRange);&#xD;&#xA;&#xD;&#xA;//Move and scale the rectangle to the new position&#xD;&#xA;thiz.setSize(vbargraph_body_1.getWidth(), newH);&#xD;&#xA;thiz.setLocation(vbargraph_body_1.getPointX(), newY);&#xD;&#xA;&#xD;&#xA;//Set background to grey if parameter is invalid&#xD;&#xA;if (thiz.getAssociatedParameter().getValidity() == INVALID)&#xD;&#xA;{&#xD;&#xA;&#x9;setInvalidColor();&#xD;&#xA;}&#xD;&#xA;//Range of parameter values where background color will be set as green,&#xD;&#xA;//yellow or red&#xD;&#xA;else if (sampleValue > SOFT_LOW_LIMIT &amp;&amp; sampleValue &lt; SOFT_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setNominalColor();&#xD;&#xA;}&#xD;&#xA;else if (sampleValue > HARD_LOW_LIMIT &amp;&amp; sampleValue &lt; HARD_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setWarningColor();&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;&#x9;setAlarmColor();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Set the sample value below the value bar&#xD;&#xA;var valueTxt = formatFixedDigits(sampleValue, NUM_DECIM_FOR_VALUE);&#xD;&#xA;valueTxt += &quot; &quot; + paramUnit;&#xD;&#xA;vbargraph_valueText_1.setCaption(valueTxt);&#xD;&#xA;&#xD;&#xA;// ****************************************&#xD;&#xA;// *  G E N E R A L   F U N C T I O N S   *&#xD;&#xA;// ****************************************&#xD;&#xA;&#xD;&#xA;function setNominalColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(0, 255, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(0, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setWarningColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(255, 255, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(255, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setAlarmColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(255, 0, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(255, 0, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setInvalidColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body.setBackgroundColor(200, 200, 200);&#xD;&#xA;&#x9;battery_body.setFontBackgroundColor(200, 200, 200);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Computes the Y-position proportional to the given sample value, low limit and&#xD;&#xA; * value range.&#xD;&#xA; * &#xD;&#xA; * @param sampleVal&#xD;&#xA; *            a number containing the value for whith the proportinal size shall&#xD;&#xA; *            be computed&#xD;&#xA; * @param lowLimit&#xD;&#xA; *            a number containing the low limit of the value&#xD;&#xA; * @param valueRange&#xD;&#xA; *            a number containing the range between low and high limit&#xD;&#xA; * @return an integer containing a Y-position proportional to the given sample&#xD;&#xA; *         value scaled to the maximum size of the vbargraph_body, offset by the&#xD;&#xA; *         origin of the vbargraph_body_1.&#xD;&#xA; */&#xD;&#xA;function computeYPos(sampleVal, lowLimit, valueRange)&#xD;&#xA;{&#xD;&#xA;&#x9;var h = vbargraph_body_1.getHeight();&#xD;&#xA;&#x9;var nh = computeSize(sampleVal, lowLimit, valueRange);&#xD;&#xA;&#x9;var y = vbargraph_body_1.getPointY() + (h - nh);&#xD;&#xA;&#x9;return y;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Computes the size proportional to the given sample value, low limit and value&#xD;&#xA; * range.&#xD;&#xA; * &#xD;&#xA; * @param sampleVal&#xD;&#xA; *            a number containing the value for whith the proportinal size shall&#xD;&#xA; *            be computed&#xD;&#xA; * @param lowLimit&#xD;&#xA; *            a number containing the low limit of the value&#xD;&#xA; * @param valueRange&#xD;&#xA; *            a number containing the range between low and high limit&#xD;&#xA; * @return an integer containing a size proportional to the given sample value&#xD;&#xA; *         scaled to the maximum size of the vbargraph_body&#xD;&#xA; */&#xD;&#xA;function computeSize(sampleVal, lowLimit, valueRange)&#xD;&#xA;{&#xD;&#xA;&#x9;var h = vbargraph_body_1.getHeight();&#xD;&#xA;&#x9;var nh = Math.floor((sampleVal - lowLimit) / valueRange * h + 0.5);&#xD;&#xA;&#xD;&#xA;&#x9;// limit size for off-scale values&#xD;&#xA;&#x9;if (nh > h)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;nh = h;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;return nh;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Formats the given number to have a fixed amount of digits after the decimal,&#xD;&#xA; * specified by numOfDigits&#xD;&#xA; * &#xD;&#xA; * @param number&#xD;&#xA; *            the number to be formated&#xD;&#xA; * @param numOfDigits&#xD;&#xA; *            an integer >= 0 specifying the number of fixed digits that shall&#xD;&#xA; *            be shown after the decimal.&#xD;&#xA; * @return a String containing the formated number&#xD;&#xA; */&#xD;&#xA;function formatFixedDigits(number, numOfDigits)&#xD;&#xA;{&#xD;&#xA;&#x9;var result = &quot;&quot;;&#xD;&#xA;&#xD;&#xA;&#x9;if (number &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var number = -number;&#xD;&#xA;&#x9;&#x9;result = &quot;-&quot;;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;numOfDigits = 0;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits == 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;result = result + Math.floor(number + 0.5);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var factor = Math.pow(10.0, numOfDigits);&#xD;&#xA;&#x9;&#x9;var rounded = Math.round(number * factor) / factor;&#xD;&#xA;&#x9;&#x9;var floored = Math.floor(rounded);&#xD;&#xA;&#x9;&#x9;var digits = &quot;&quot; + Math.round(((rounded - floored) * factor));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;while (digits.length &lt; numOfDigits)&#xD;&#xA;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;digits = &quot;0&quot; + digits;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;result = result + floored + &quot;.&quot; + digits;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;return result&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// ---------------------------------------------------------------------------&#xD;&#xA;// v1.0 initial version&#xD;&#xA;// v1.1 Added value field showing the numerical parameter value below the bar and fixed inaccuracy issues &#xD;&#xA;">
+      <triggeringParameters parameterReference="0.NPC10080"/>
+    </monitoringAction>
+    <background b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_6" caption="n/a" description="High Limit" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="112" y="8"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_7" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="112" y="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_8" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="112" y="72"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_9" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="112" y="104"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_6" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="128" y="16"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_valueText_2" caption="??" description="Current Value" captionAlignment="CENTER">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="138" y="152"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_10" caption="n/a" description="Low Limit" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="112" y="135"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_7" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="128" y="48"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_8" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="128" y="80"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_9" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="128" y="112"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_10" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="128" y="143"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="vbargraph_body_2" caption="" description="Bargraph Body" disableStateColoring="true">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="136" y="16"/>
+    <size width="16" height="128"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="vbargraph_bar_2" caption="" description="Bar" disableStateColoring="true" triggeringParameter="true">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter parameterReference="0.NPC10082"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="136" y="16"/>
+    <size width="16" height="128"/>
+    <monitoringAction script="/*------------------------------------------------------&#xD;&#xA; * (C) 2012 European Space Agency&#xD;&#xA; * European Space Operations Centre&#xD;&#xA; * Darmstadt, Germany&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * System : EUD-MIMIC&#xD;&#xA; * Sub-System : Custom Widget Definition Script&#xD;&#xA; * File Name : VBargraph.xml&#xD;&#xA; * Author : Jean Schuetz&#xD;&#xA; * Creation Date : 2012-10-18&#xD;&#xA; * Version : 1.1&#xD;&#xA; * History: see bottom of file&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * Description&#xD;&#xA; * Script for controlling the bargraph's bar according&#xD;&#xA; * to the associated parameter's value and the scale&#xD;&#xA; * and colouring according to the parameter's limits.&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; */&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   C O N S T A N T S   D E F I N I T I O N S   *&#xD;&#xA;// *************************************************&#xD;&#xA;// Ratio between Hard Limit and Soft Limit&#xD;&#xA;var HARD_SOFT_LIMIT_RATIO = 0.1;&#xD;&#xA;&#xD;&#xA;// The number of digits after the decimal to show on the scale text&#xD;&#xA;var NUM_DECIM_ON_SCALE = 2;&#xD;&#xA;&#xD;&#xA;// The number of digits after the decimal to show in the value text&#xD;&#xA;var NUM_DECIM_FOR_VALUE = 2;&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   Parameter Limits and Sample Definitions     *&#xD;&#xA;// *************************************************&#xD;&#xA;&#xD;&#xA;// Get the default representation name of the associated parameter&#xD;&#xA;var rep = thiz.getAssociatedParameter().getDefaultRepresentation();&#xD;&#xA;&#xD;&#xA;// Get the limits from the default representation&#xD;&#xA;var ranges = thiz.getAssociatedParameter().getRepresentation(rep).getRanges();&#xD;&#xA;&#xD;&#xA;//Get the default limits from the default representation&#xD;&#xA;var range = ranges[0];&#xD;&#xA;if (range == null || range.length == 0)&#xD;&#xA;{&#xD;&#xA;&#x9;// if no range exists for the parameters we can't do anything&#xD;&#xA;&#x9;return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//High and low limits of the parameter associated to this widget, &#xD;&#xA;//for a given representation (in this case the default one)&#xD;&#xA;var low = parseFloat(range.getLowLimit());&#xD;&#xA;var high = parseFloat(range.getHighLimit());&#xD;&#xA;var valueRange = high - low;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with red color&#xD;&#xA;var HARD_LOW_LIMIT = low + 0.01;&#xD;&#xA;var HARD_HIGH_LIMIT = high - 0.01;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with yellow color&#xD;&#xA;var SOFT_LOW_LIMIT = HARD_LOW_LIMIT + valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;var SOFT_HIGH_LIMIT = HARD_HIGH_LIMIT - valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;&#xD;&#xA;//Current value of the associated parameter to this widget&#xD;&#xA;var sampleValue = thiz.getAssociatedParameter().getValue();&#xD;&#xA;&#xD;&#xA;//get the Unit for the selected Representation&#xD;&#xA;var paramUnit = thiz.getAssociatedParameter().getUnitForRepresentation(rep);&#xD;&#xA;&#xD;&#xA;// *********************************************&#xD;&#xA;// *   M A I N   B U S I N E S S   L O G I C   *&#xD;&#xA;// *********************************************&#xD;&#xA;&#xD;&#xA;//Sets the scale text elements, if not already done&#xD;&#xA;if (vbargraph_text_6.getCaption() == &quot;n/a&quot;)&#xD;&#xA;{&#xD;&#xA;&#x9;//Increment value for the ranges of associated parameter&#xD;&#xA;&#x9;var increment = (high - low) / 4;&#xD;&#xA;&#xD;&#xA;&#x9;vbargraph_text_6.setCaption(formatFixedDigits(high, NUM_DECIM_ON_SCALE));&#xD;&#xA;&#x9;vbargraph_text_10.setCaption(formatFixedDigits(low, NUM_DECIM_ON_SCALE));&#xD;&#xA;&#xD;&#xA;&#x9;/* &#xD;&#xA;&#x9; * Fine tune the position of the scale marks. This is needed as the &#xD;&#xA;&#x9; * selected number of digits may round the values on the scale, which &#xD;&#xA;&#x9; * then may not correspond the the value indicated by the bar &#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;var inc2 = low + increment;&#xD;&#xA;&#x9;var txt4 = formatFixedDigits(inc2, NUM_DECIM_ON_SCALE);&#xD;&#xA;&#x9;var newY = computeYPos(parseFloat(txt4), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_9.setLocation(vbargraph_line_9.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_9.setLocation(vbargraph_text_9.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_9.setCaption(txt4);&#xD;&#xA;&#xD;&#xA;&#x9;var inc3 = low + (2 * increment);&#xD;&#xA;&#x9;var txt3 = formatFixedDigits(inc3, NUM_DECIM_ON_SCALE)&#xD;&#xA;&#x9;newY = computeYPos(parseFloat(txt3), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_8.setLocation(vbargraph_line_8.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_8.setLocation(vbargraph_text_8.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_8.setCaption(txt3);&#xD;&#xA;&#xD;&#xA;&#x9;var inc4 = low + (3 * increment);&#xD;&#xA;&#x9;var txt2 = formatFixedDigits(inc4, NUM_DECIM_ON_SCALE)&#xD;&#xA;&#x9;newY = computeYPos(parseFloat(txt2), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_7.setLocation(vbargraph_line_7.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_7.setLocation(vbargraph_text_7.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_7.setCaption(txt2);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Determine the size of the green bar &#xD;&#xA;var newY = computeYPos(sampleValue, low, valueRange);&#xD;&#xA;var newH = computeSize(sampleValue, low, valueRange);&#xD;&#xA;&#xD;&#xA;//Move and scale the rectangle to the new position&#xD;&#xA;thiz.setSize(vbargraph_body_2.getWidth(), newH);&#xD;&#xA;thiz.setLocation(vbargraph_body_2.getPointX(), newY);&#xD;&#xA;&#xD;&#xA;//Set background to grey if parameter is invalid&#xD;&#xA;if (thiz.getAssociatedParameter().getValidity() == INVALID)&#xD;&#xA;{&#xD;&#xA;&#x9;setInvalidColor();&#xD;&#xA;}&#xD;&#xA;//Range of parameter values where background color will be set as green,&#xD;&#xA;//yellow or red&#xD;&#xA;else if (sampleValue > SOFT_LOW_LIMIT &amp;&amp; sampleValue &lt; SOFT_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setNominalColor();&#xD;&#xA;}&#xD;&#xA;else if (sampleValue > HARD_LOW_LIMIT &amp;&amp; sampleValue &lt; HARD_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setWarningColor();&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;&#x9;setAlarmColor();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Set the sample value below the value bar&#xD;&#xA;var valueTxt = formatFixedDigits(sampleValue, NUM_DECIM_FOR_VALUE);&#xD;&#xA;valueTxt += &quot; &quot; + paramUnit;&#xD;&#xA;vbargraph_valueText_2.setCaption(valueTxt);&#xD;&#xA;&#xD;&#xA;// ****************************************&#xD;&#xA;// *  G E N E R A L   F U N C T I O N S   *&#xD;&#xA;// ****************************************&#xD;&#xA;&#xD;&#xA;function setNominalColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(0, 255, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(0, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setWarningColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(255, 255, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(255, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setAlarmColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(255, 0, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(255, 0, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setInvalidColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body.setBackgroundColor(200, 200, 200);&#xD;&#xA;&#x9;battery_body.setFontBackgroundColor(200, 200, 200);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Computes the Y-position proportional to the given sample value, low limit and&#xD;&#xA; * value range.&#xD;&#xA; * &#xD;&#xA; * @param sampleVal&#xD;&#xA; *            a number containing the value for whith the proportinal size shall&#xD;&#xA; *            be computed&#xD;&#xA; * @param lowLimit&#xD;&#xA; *            a number containing the low limit of the value&#xD;&#xA; * @param valueRange&#xD;&#xA; *            a number containing the range between low and high limit&#xD;&#xA; * @return an integer containing a Y-position proportional to the given sample&#xD;&#xA; *         value scaled to the maximum size of the vbargraph_body, offset by the&#xD;&#xA; *         origin of the vbargraph_body_2.&#xD;&#xA; */&#xD;&#xA;function computeYPos(sampleVal, lowLimit, valueRange)&#xD;&#xA;{&#xD;&#xA;&#x9;var h = vbargraph_body_2.getHeight();&#xD;&#xA;&#x9;var nh = computeSize(sampleVal, lowLimit, valueRange);&#xD;&#xA;&#x9;var y = vbargraph_body_2.getPointY() + (h - nh);&#xD;&#xA;&#x9;return y;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Computes the size proportional to the given sample value, low limit and value&#xD;&#xA; * range.&#xD;&#xA; * &#xD;&#xA; * @param sampleVal&#xD;&#xA; *            a number containing the value for whith the proportinal size shall&#xD;&#xA; *            be computed&#xD;&#xA; * @param lowLimit&#xD;&#xA; *            a number containing the low limit of the value&#xD;&#xA; * @param valueRange&#xD;&#xA; *            a number containing the range between low and high limit&#xD;&#xA; * @return an integer containing a size proportional to the given sample value&#xD;&#xA; *         scaled to the maximum size of the vbargraph_body&#xD;&#xA; */&#xD;&#xA;function computeSize(sampleVal, lowLimit, valueRange)&#xD;&#xA;{&#xD;&#xA;&#x9;var h = vbargraph_body_2.getHeight();&#xD;&#xA;&#x9;var nh = Math.floor((sampleVal - lowLimit) / valueRange * h + 0.5);&#xD;&#xA;&#xD;&#xA;&#x9;// limit size for off-scale values&#xD;&#xA;&#x9;if (nh > h)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;nh = h;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;return nh;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Formats the given number to have a fixed amount of digits after the decimal,&#xD;&#xA; * specified by numOfDigits&#xD;&#xA; * &#xD;&#xA; * @param number&#xD;&#xA; *            the number to be formated&#xD;&#xA; * @param numOfDigits&#xD;&#xA; *            an integer >= 0 specifying the number of fixed digits that shall&#xD;&#xA; *            be shown after the decimal.&#xD;&#xA; * @return a String containing the formated number&#xD;&#xA; */&#xD;&#xA;function formatFixedDigits(number, numOfDigits)&#xD;&#xA;{&#xD;&#xA;&#x9;var result = &quot;&quot;;&#xD;&#xA;&#xD;&#xA;&#x9;if (number &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var number = -number;&#xD;&#xA;&#x9;&#x9;result = &quot;-&quot;;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;numOfDigits = 0;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits == 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;result = result + Math.floor(number + 0.5);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var factor = Math.pow(10.0, numOfDigits);&#xD;&#xA;&#x9;&#x9;var rounded = Math.round(number * factor) / factor;&#xD;&#xA;&#x9;&#x9;var floored = Math.floor(rounded);&#xD;&#xA;&#x9;&#x9;var digits = &quot;&quot; + Math.round(((rounded - floored) * factor));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;while (digits.length &lt; numOfDigits)&#xD;&#xA;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;digits = &quot;0&quot; + digits;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;result = result + floored + &quot;.&quot; + digits;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;return result&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// ---------------------------------------------------------------------------&#xD;&#xA;// v1.0 initial version&#xD;&#xA;// v1.1 Added value field showing the numerical parameter value below the bar and fixed inaccuracy issues &#xD;&#xA;">
+      <triggeringParameters parameterReference="0.NPC10082"/>
+    </monitoringAction>
+    <background b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_11" caption="n/a" description="High Limit" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="8"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_12" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="40"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_13" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="72"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_14" caption="n/a" description="" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="104"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_11" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="16"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_valueText_3" caption="??" description="Current Value" captionAlignment="CENTER">
+    <font fontStyle="BOLD" fontSize="9" fontFamily="Tahoma">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="226" y="152"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Text" name="vbargraph_text_15" caption="n/a" description="Low Limit" captionAlignment="RIGHT">
+    <font fontSize="9" fontFamily="Segoe UI">
+      <fontColour transparency="100"/>
+    </font>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="200" y="135"/>
+    <monitoringAction/>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_12" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="48"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_13" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="80"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_14" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="112"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Triangle" name="vbargraph_line_15" caption="" description="Triangle Widget">
+    <font fontSize="9" fontFamily="Tahoma"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="216" y="143"/>
+    <size width="12" height="1"/>
+    <monitoringAction/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="vbargraph_body_3" caption="" description="Bargraph Body" disableStateColoring="true">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="224" y="16"/>
+    <size width="16" height="128"/>
+    <monitoringAction/>
+    <background r="192" g="192" b="192"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <widgets xsi:type="esa.egos.eud.displays:Rectangle" name="vbargraph_bar_3" caption="" description="Bar" disableStateColoring="true" triggeringParameter="true">
+    <font fontSize="9" fontFamily="Segoe UI"/>
+    <associatedParameter parameterReference="0.NPC10083"/>
+    <controlAP controlMode="MONITOR"/>
+    <location x="224" y="16"/>
+    <size width="16" height="128"/>
+    <monitoringAction script="/*------------------------------------------------------&#xD;&#xA; * (C) 2012 European Space Agency&#xD;&#xA; * European Space Operations Centre&#xD;&#xA; * Darmstadt, Germany&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * System : EUD-MIMIC&#xD;&#xA; * Sub-System : Custom Widget Definition Script&#xD;&#xA; * File Name : VBargraph.xml&#xD;&#xA; * Author : Jean Schuetz&#xD;&#xA; * Creation Date : 2012-10-18&#xD;&#xA; * Version : 1.1&#xD;&#xA; * History: see bottom of file&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; * Description&#xD;&#xA; * Script for controlling the bargraph's bar according&#xD;&#xA; * to the associated parameter's value and the scale&#xD;&#xA; * and colouring according to the parameter's limits.&#xD;&#xA; *------------------------------------------------------&#xD;&#xA; */&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   C O N S T A N T S   D E F I N I T I O N S   *&#xD;&#xA;// *************************************************&#xD;&#xA;// Ratio between Hard Limit and Soft Limit&#xD;&#xA;var HARD_SOFT_LIMIT_RATIO = 0.1;&#xD;&#xA;&#xD;&#xA;// The number of digits after the decimal to show on the scale text&#xD;&#xA;var NUM_DECIM_ON_SCALE = 2;&#xD;&#xA;&#xD;&#xA;// The number of digits after the decimal to show in the value text&#xD;&#xA;var NUM_DECIM_FOR_VALUE = 2;&#xD;&#xA;&#xD;&#xA;// *************************************************&#xD;&#xA;// *   Parameter Limits and Sample Definitions     *&#xD;&#xA;// *************************************************&#xD;&#xA;&#xD;&#xA;// Get the default representation name of the associated parameter&#xD;&#xA;var rep = thiz.getAssociatedParameter().getDefaultRepresentation();&#xD;&#xA;&#xD;&#xA;// Get the limits from the default representation&#xD;&#xA;var ranges = thiz.getAssociatedParameter().getRepresentation(rep).getRanges();&#xD;&#xA;&#xD;&#xA;//Get the default limits from the default representation&#xD;&#xA;var range = ranges[0];&#xD;&#xA;if (range == null || range.length == 0)&#xD;&#xA;{&#xD;&#xA;&#x9;// if no range exists for the parameters we can't do anything&#xD;&#xA;&#x9;return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//High and low limits of the parameter associated to this widget, &#xD;&#xA;//for a given representation (in this case the default one)&#xD;&#xA;var low = parseFloat(range.getLowLimit());&#xD;&#xA;var high = parseFloat(range.getHighLimit());&#xD;&#xA;var valueRange = high - low;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with red color&#xD;&#xA;var HARD_LOW_LIMIT = low + 0.01;&#xD;&#xA;var HARD_HIGH_LIMIT = high - 0.01;&#xD;&#xA;&#xD;&#xA;//High and low limits considered to mark background with yellow color&#xD;&#xA;var SOFT_LOW_LIMIT = HARD_LOW_LIMIT + valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;var SOFT_HIGH_LIMIT = HARD_HIGH_LIMIT - valueRange * HARD_SOFT_LIMIT_RATIO;&#xD;&#xA;&#xD;&#xA;//Current value of the associated parameter to this widget&#xD;&#xA;var sampleValue = thiz.getAssociatedParameter().getValue();&#xD;&#xA;&#xD;&#xA;//get the Unit for the selected Representation&#xD;&#xA;var paramUnit = thiz.getAssociatedParameter().getUnitForRepresentation(rep);&#xD;&#xA;&#xD;&#xA;// *********************************************&#xD;&#xA;// *   M A I N   B U S I N E S S   L O G I C   *&#xD;&#xA;// *********************************************&#xD;&#xA;&#xD;&#xA;//Sets the scale text elements, if not already done&#xD;&#xA;if (vbargraph_text_11.getCaption() == &quot;n/a&quot;)&#xD;&#xA;{&#xD;&#xA;&#x9;//Increment value for the ranges of associated parameter&#xD;&#xA;&#x9;var increment = (high - low) / 4;&#xD;&#xA;&#xD;&#xA;&#x9;vbargraph_text_11.setCaption(formatFixedDigits(high, NUM_DECIM_ON_SCALE));&#xD;&#xA;&#x9;vbargraph_text_15.setCaption(formatFixedDigits(low, NUM_DECIM_ON_SCALE));&#xD;&#xA;&#xD;&#xA;&#x9;/* &#xD;&#xA;&#x9; * Fine tune the position of the scale marks. This is needed as the &#xD;&#xA;&#x9; * selected number of digits may round the values on the scale, which &#xD;&#xA;&#x9; * then may not correspond the the value indicated by the bar &#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;var inc2 = low + increment;&#xD;&#xA;&#x9;var txt4 = formatFixedDigits(inc2, NUM_DECIM_ON_SCALE);&#xD;&#xA;&#x9;var newY = computeYPos(parseFloat(txt4), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_14.setLocation(vbargraph_line_14.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_14.setLocation(vbargraph_text_14.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_14.setCaption(txt4);&#xD;&#xA;&#xD;&#xA;&#x9;var inc3 = low + (2 * increment);&#xD;&#xA;&#x9;var txt3 = formatFixedDigits(inc3, NUM_DECIM_ON_SCALE)&#xD;&#xA;&#x9;newY = computeYPos(parseFloat(txt3), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_13.setLocation(vbargraph_line_13.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_13.setLocation(vbargraph_text_13.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_13.setCaption(txt3);&#xD;&#xA;&#xD;&#xA;&#x9;var inc4 = low + (3 * increment);&#xD;&#xA;&#x9;var txt2 = formatFixedDigits(inc4, NUM_DECIM_ON_SCALE)&#xD;&#xA;&#x9;newY = computeYPos(parseFloat(txt2), low, valueRange);&#xD;&#xA;&#x9;vbargraph_line_12.setLocation(vbargraph_line_12.getPointX(), newY);&#xD;&#xA;&#x9;vbargraph_text_12.setLocation(vbargraph_text_12.getPointX(), newY - 8);&#xD;&#xA;&#x9;vbargraph_text_12.setCaption(txt2);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Determine the size of the green bar &#xD;&#xA;var newY = computeYPos(sampleValue, low, valueRange);&#xD;&#xA;var newH = computeSize(sampleValue, low, valueRange);&#xD;&#xA;&#xD;&#xA;//Move and scale the rectangle to the new position&#xD;&#xA;thiz.setSize(vbargraph_body_3.getWidth(), newH);&#xD;&#xA;thiz.setLocation(vbargraph_body_3.getPointX(), newY);&#xD;&#xA;&#xD;&#xA;//Set background to grey if parameter is invalid&#xD;&#xA;if (thiz.getAssociatedParameter().getValidity() == INVALID)&#xD;&#xA;{&#xD;&#xA;&#x9;setInvalidColor();&#xD;&#xA;}&#xD;&#xA;//Range of parameter values where background color will be set as green,&#xD;&#xA;//yellow or red&#xD;&#xA;else if (sampleValue > SOFT_LOW_LIMIT &amp;&amp; sampleValue &lt; SOFT_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setNominalColor();&#xD;&#xA;}&#xD;&#xA;else if (sampleValue > HARD_LOW_LIMIT &amp;&amp; sampleValue &lt; HARD_HIGH_LIMIT)&#xD;&#xA;{&#xD;&#xA;&#x9;setWarningColor();&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;&#x9;setAlarmColor();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;//Set the sample value below the value bar&#xD;&#xA;var valueTxt = formatFixedDigits(sampleValue, NUM_DECIM_FOR_VALUE);&#xD;&#xA;valueTxt += &quot; &quot; + paramUnit;&#xD;&#xA;vbargraph_valueText_3.setCaption(valueTxt);&#xD;&#xA;&#xD;&#xA;// ****************************************&#xD;&#xA;// *  G E N E R A L   F U N C T I O N S   *&#xD;&#xA;// ****************************************&#xD;&#xA;&#xD;&#xA;function setNominalColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(0, 255, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(0, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setWarningColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(255, 255, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(255, 255, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setAlarmColor()&#xD;&#xA;{&#xD;&#xA;&#x9;thiz.setBackgroundColor(255, 0, 0);&#xD;&#xA;&#x9;thiz.setFontBackgroundColor(255, 0, 0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function setInvalidColor()&#xD;&#xA;{&#xD;&#xA;&#x9;battery_body.setBackgroundColor(200, 200, 200);&#xD;&#xA;&#x9;battery_body.setFontBackgroundColor(200, 200, 200);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Computes the Y-position proportional to the given sample value, low limit and&#xD;&#xA; * value range.&#xD;&#xA; * &#xD;&#xA; * @param sampleVal&#xD;&#xA; *            a number containing the value for whith the proportinal size shall&#xD;&#xA; *            be computed&#xD;&#xA; * @param lowLimit&#xD;&#xA; *            a number containing the low limit of the value&#xD;&#xA; * @param valueRange&#xD;&#xA; *            a number containing the range between low and high limit&#xD;&#xA; * @return an integer containing a Y-position proportional to the given sample&#xD;&#xA; *         value scaled to the maximum size of the vbargraph_body, offset by the&#xD;&#xA; *         origin of the vbargraph_body_3.&#xD;&#xA; */&#xD;&#xA;function computeYPos(sampleVal, lowLimit, valueRange)&#xD;&#xA;{&#xD;&#xA;&#x9;var h = vbargraph_body_3.getHeight();&#xD;&#xA;&#x9;var nh = computeSize(sampleVal, lowLimit, valueRange);&#xD;&#xA;&#x9;var y = vbargraph_body_3.getPointY() + (h - nh);&#xD;&#xA;&#x9;return y;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Computes the size proportional to the given sample value, low limit and value&#xD;&#xA; * range.&#xD;&#xA; * &#xD;&#xA; * @param sampleVal&#xD;&#xA; *            a number containing the value for whith the proportinal size shall&#xD;&#xA; *            be computed&#xD;&#xA; * @param lowLimit&#xD;&#xA; *            a number containing the low limit of the value&#xD;&#xA; * @param valueRange&#xD;&#xA; *            a number containing the range between low and high limit&#xD;&#xA; * @return an integer containing a size proportional to the given sample value&#xD;&#xA; *         scaled to the maximum size of the vbargraph_body&#xD;&#xA; */&#xD;&#xA;function computeSize(sampleVal, lowLimit, valueRange)&#xD;&#xA;{&#xD;&#xA;&#x9;var h = vbargraph_body_3.getHeight();&#xD;&#xA;&#x9;var nh = Math.floor((sampleVal - lowLimit) / valueRange * h + 0.5);&#xD;&#xA;&#xD;&#xA;&#x9;// limit size for off-scale values&#xD;&#xA;&#x9;if (nh > h)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;nh = h;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;return nh;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * Formats the given number to have a fixed amount of digits after the decimal,&#xD;&#xA; * specified by numOfDigits&#xD;&#xA; * &#xD;&#xA; * @param number&#xD;&#xA; *            the number to be formated&#xD;&#xA; * @param numOfDigits&#xD;&#xA; *            an integer >= 0 specifying the number of fixed digits that shall&#xD;&#xA; *            be shown after the decimal.&#xD;&#xA; * @return a String containing the formated number&#xD;&#xA; */&#xD;&#xA;function formatFixedDigits(number, numOfDigits)&#xD;&#xA;{&#xD;&#xA;&#x9;var result = &quot;&quot;;&#xD;&#xA;&#xD;&#xA;&#x9;if (number &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var number = -number;&#xD;&#xA;&#x9;&#x9;result = &quot;-&quot;;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits &lt; 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;numOfDigits = 0;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;if (numOfDigits == 0)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;result = result + Math.floor(number + 0.5);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;var factor = Math.pow(10.0, numOfDigits);&#xD;&#xA;&#x9;&#x9;var rounded = Math.round(number * factor) / factor;&#xD;&#xA;&#x9;&#x9;var floored = Math.floor(rounded);&#xD;&#xA;&#x9;&#x9;var digits = &quot;&quot; + Math.round(((rounded - floored) * factor));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;while (digits.length &lt; numOfDigits)&#xD;&#xA;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;digits = &quot;0&quot; + digits;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;result = result + floored + &quot;.&quot; + digits;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;return result&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// ---------------------------------------------------------------------------&#xD;&#xA;// v1.0 initial version&#xD;&#xA;// v1.1 Added value field showing the numerical parameter value below the bar and fixed inaccuracy issues &#xD;&#xA;">
+      <triggeringParameters parameterReference="0.NPC10083"/>
+    </monitoringAction>
+    <background b="191"/>
+    <border borderWidth="1">
+      <borderColour/>
+    </border>
+  </widgets>
+  <metaInformation description="Mimic Diagram" date="2012-10-17T18:49:52.605+0200" author="Jean Schuetz" filename="MIM_Test_MCS_Custom_Widgets.xml" status="VALID"/>
+  <canvasProperties>
+    <size width="800" height="600"/>
+  </canvasProperties>
+  <library name="Custom Widgets">
+    <libraryElement>Bar.xml</libraryElement>
+    <libraryElement>VBargraph.xml</libraryElement>
+    <libraryElement>Battery.xml</libraryElement>
+  </library>
+  <groups widgets="battery_pole_1 battery_pole_2 battery_pole_3 battery_pole_4 battery_body_1 battery_nominalValue_1 battery_value_1 text_4 text_5" id="8c7d4e85-0712-4c0d-9018-f22a709f41c9"/>
+  <groups widgets="battery_pole_5 battery_pole_6 battery_pole_7 battery_pole_8 battery_body_2 battery_nominalValue_2 battery_value_2 text_6 text_7" id="8c7d4e85-0712-4c0d-9018-f22a709f41c9"/>
+  <groups widgets="vbargraph_text_1 vbargraph_text_2 vbargraph_text_3 vbargraph_text_4 vbargraph_text_5 vbargraph_valueText_1 vbargraph_line_1 vbargraph_line_2 vbargraph_line_3 vbargraph_line_4 vbargraph_line_5 vbargraph_body_1 vbargraph_bar_1" id="88745dd1-ee19-449c-84ac-42743ddb3522"/>
+  <groups widgets="vbargraph_text_6 vbargraph_text_7 vbargraph_text_8 vbargraph_text_9 vbargraph_text_10 vbargraph_valueText_2 vbargraph_line_6 vbargraph_line_7 vbargraph_line_8 vbargraph_line_9 vbargraph_line_10 vbargraph_body_2 vbargraph_bar_2" id="88745dd1-ee19-449c-84ac-42743ddb3522"/>
+  <groups widgets="vbargraph_text_11 vbargraph_text_12 vbargraph_text_13 vbargraph_text_14 vbargraph_text_15 vbargraph_valueText_3 vbargraph_line_11 vbargraph_line_12 vbargraph_line_13 vbargraph_line_14 vbargraph_line_15 vbargraph_body_3 vbargraph_bar_3" id="88745dd1-ee19-449c-84ac-42743ddb3522"/>
+</esa.egos.eud.displays:Mimic>

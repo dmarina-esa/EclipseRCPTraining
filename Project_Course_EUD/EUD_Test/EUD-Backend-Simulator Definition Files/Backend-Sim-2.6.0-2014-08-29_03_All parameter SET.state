@@ -1,0 +1,25 @@
+FOO_002	Repr4	1000	true	47.0	true	NOMINAL	true	VALID	true	true	false	false
+FOO_001	default	1000	true	720.0	true	NOMINAL	true	VALID	true	true	false	false
+FOO_001	Repr3	1000	true	360.0	true	NOMINAL	true	VALID	true	true	false	false
+Category_2.E001	value	1000	true	TWO	true	NOMINAL	true	VALID	true	true	false	false
+BLAH_333	value	1000	false	true	NOMINAL	true	VALID	true	true	false	false
+Category_2.S001	value	1000	true	OPEN	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F005	raw	1000	true	120141	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F005	eng	1000	true	0.12	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F005	precision	1000	true	0.120141	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F004	calibrated	1000	true	1.0E-5	true	WARNING	true	VALID	true	true	false	false
+Category_1.S001	value	1000	true	ON	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F001	Repr1	1000	true	42.42	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F001	Repr2	1000	true	4711.007	true	NOMINAL	true	VALID	true	true	false	false
+MEH_002	value	1000	true	Tue Nov 30 18:39:12 CET 0112	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F003	raw	1000	true	12000	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F003	eng	1000	true	12.0	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.F002	Repr1	1000	true	9.80665	true	NOMINAL	true	VALID	true	true	false	false
+BAZ_002	value	1000	true	ACTIVATED	true	NOMINAL	true	VALID	true	true	false	false
+Category_2.D001	value	1000	true	Tue Jan 01 12:00:00 CET 0110	true	NOMINAL	true	VALID	true	true	false	false
+BAZ_001	value	1000	true	INTERLOCK	true	NOMINAL	true	VALID	true	true	false	false
+Category_2.I003	value	1000	true	768	true	ALARM	true	VALID	true	true	false	false
+Category_2.I002	value	1000	true	512	true	WARNING	true	VALID	true	true	false	false
+Category_2.I001	value	1000	true	256	true	NOMINAL	true	VALID	true	true	false	false
+Category_1.B001	value	1000	true	false	true	WARNING	true	VALID	true	true	false	false
+BAR_001	value	1000	true	1234	true	NOMINAL	true	VALID	true	true	false	false

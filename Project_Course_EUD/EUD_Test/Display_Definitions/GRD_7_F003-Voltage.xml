@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:xmlplotdisplaydefinition xmlns:ns2="http://www.esa.int/eud" version="0" kindOfDisplay="GRD" identifier="GRD_7_F003-Voltage">
+    <metaInformation>
+        <description>Shows the F003 Voltage between 8 and 16 volts</description>
+        <date>2012-11-02T11:58:00.000Z</date>
+        <parameterList>
+            <parameter>Category_1.F003</parameter>
+        </parameterList>
+    </metaInformation>
+    <parameter notation="Normal" decimalDigits="1" representation="eng" parameter="Category_1.F003">
+        <range max="1.0" min="0.0" representation="raw"/>
+        <range max="16.0" min="8.0" representation="eng"/>
+        <Axis visible="true">
+            <majortick>5</majortick>
+            <minortick>3</minortick>
+            <autoscale>false</autoscale>
+            <autocenter>false</autocenter>
+            <grid>true</grid>
+            <gridBigTicks>false</gridBigTicks>
+        </Axis>
+        <Line>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0000FF</color>
+            <point>NOPOINT</point>
+            <oolColoring>true</oolColoring>
+        </Line>
+        <StatisticalLine>
+            <style>NORMAL</style>
+            <smooth>NORMAL</smooth>
+            <size>1.0</size>
+            <color>#0F0B00</color>
+            <point>CIRCLE</point>
+            <oolColoring>true</oolColoring>
+        </StatisticalLine>
+    </parameter>
+    <rendering>
+        <autoscroll mode="ONE_THIRD" enabled="true"/>
+        <statisticsmode level="Auto" enabled="false"/>
+        <stacked>true</stacked>
+        <limits>true</limits>
+        <xaxis>
+            <majortick>6</majortick>
+            <minortick>4</minortick>
+            <grid>true</grid>
+            <gridBigTicks>true</gridBigTicks>
+        </xaxis>
+    </rendering>
+    <timeSpan>
+        <unit>minutes</unit>
+        <amount>1.0</amount>
+    </timeSpan>
+    <operationMode>DATA_DRIVEN</operationMode>
+    <headerMode>FULL</headerMode>
+</ns2:xmlplotdisplaydefinition>

@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="ASCII"?>
+<esa.egos.eud.serialiser.parameterprocessor:ParameterDatabase xmlns:esa.egos.eud.serialiser.parameterprocessor="http://www.esa.int/eud">
+  <categories>
+    <parameterCategory name="Category_1" associatedParameter="Category_1.F001">
+      <nameDescriptions>
+        <nameDescription description="F001 Float with two representations" fullName="Category_1.F001" shortName="F001">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="F002 Float - Force in N (Nominal 9.80665)" fullName="Category_1.F002" shortName="F002">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="F003 Float - Voltage with Limits (12.0V nominal)" fullName="Category_1.F003" shortName="F003">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="F004 Float - A very small value (Capacitance)" fullName="Category_1.F004" shortName="F004">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="F005 Float - Current with limits (0.120mA nominal)" fullName="Category_1.F005" shortName="F005">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="This S001 is a String and can be ON, OFF, or BROKEN" fullName="Category_1.S001" shortName="S001">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="B001 is a boolean (no units)" fullName="Category_1.B001" shortName="B001">
+          <icon path=""/>
+        </nameDescription>
+      </nameDescriptions>
+      <icon path=""/>
+    </parameterCategory>
+    <parameterCategory name="Category_2" associatedParameter="Category_2.I003">
+      <nameDescriptions>
+        <nameDescription description="This S001 is a String and can be ON, OFF, or BROKEN" fullName="Category_2.S001" shortName="S001">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="I001 is a Integer and its units are Counts" fullName="Category_2.I001" shortName="I001">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="I002 is a Integer and its units are Counts" fullName="Category_2.I002" shortName="I002">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="I003 is a Integer and its units are Counts" fullName="Category_2.I003" shortName="I003">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="D001 is a date" fullName="Category_2.D001" shortName="D001">
+          <icon path=""/>
+        </nameDescription>
+		<nameDescription description="E001 is an Enumeration" fullName="Category_2.E001" shortName="E001">
+          <icon path=""/>
+        </nameDescription>
+      </nameDescriptions>
+      <icon path=""/>
+    </parameterCategory>
+    <parameterCategory name="Legacy">
+      <nameDescriptions>
+        <nameDescription description="Parameter of type UNSIGNED_INTEGER" fullName="BAR_001" shortName="BAR_001">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="Parameter of type STRING" fullName="BAZ_001" shortName="BAZ_001">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="Parameter of type STRING" fullName="BAZ_002" shortName="BAZ_002">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="Parameter of type BOOLEAN" fullName="BLAH_333" shortName="BLAH_333">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="Parameter of type REAL" fullName="FOO_001" shortName="FOO_001">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="Parameter of type REAL" fullName="FOO_002" shortName="FOO_002">
+          <icon path=""/>
+        </nameDescription>
+        <nameDescription description="Parameter of type DATE" fullName="MEH_002" shortName="MEH_002">
+          <icon path=""/>
+        </nameDescription>
+      </nameDescriptions>
+      <icon path=""/>
+    </parameterCategory>
+  </categories>
+  <parameterDefinitions>
+
+    <parameterDefinition defaultRepresentation="Repr1" description="F001 Float with two representations" name="Category_1.F001" path="Category_1" shortname="F001">
+      <representations>
+        <representationDefinition bitSize="32" name="Repr1" precision="3" type="REAL" units="Kg">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="3"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+        <representationDefinition bitSize="32" name="Repr2" precision="6" type="REAL" units="gr">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="6"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+	
+	<parameterDefinition defaultRepresentation="Repr1" description="F002 Float - Force in N (Nominal 9.80665)" name="Category_1.F002" path="Category_1" shortname="F002">
+      <representations>
+        <representationDefinition bitSize="32" name="Repr1" precision="2" type="REAL" units="N">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="2"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+
+	<parameterDefinition defaultRepresentation="eng" description="F003 Float - Voltage with Limits (12.0V nominal)" name="Category_1.F003" path="Category_1" shortname="F003">
+      <representations>
+        <representationDefinition bitSize="32" name="raw" precision="0" type="UNSIGNED_INTEGER" units="">
+          <format formatType="INTEGER">
+            <settings>
+               <metadata key="radix" value="10"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+        <representationDefinition bitSize="32" name="eng" precision="1" type="REAL" units="V">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="1"/>
+            </settings>
+          </format>
+          <ranges>
+            <range highLimit="15.0" identifier="HARD_LIMIT" lowLimit="9.0" severity="ALARM">
+              <enumerationLiterals/>
+            </range>
+			<range highLimit="14.5" identifier="SOFT_LIMIT" lowLimit="10.5" severity="WARNING">
+              <enumerationLiterals/>
+            </range>
+          </ranges>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+
+    <parameterDefinition defaultRepresentation="calibrated" description="A very small float (Capacitance)" name="Category_1.F004" path="Category_1" shortname="F004">
+      <representations>
+        <representationDefinition bitSize="32" name="calibrated" precision="9" type="REAL" units="uF">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="9"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>	
+	
+	<parameterDefinition defaultRepresentation="eng" description="F005 Float - Current (0.120mA nominal)" name="Category_1.F005" path="Category_1" shortname="F005">
+      <representations>
+	    <representationDefinition bitSize="32" name="raw" precision="0" type="UNSIGNED_INTEGER" units="uA">
+          <format formatType="INTEGER">
+            <settings>
+               <metadata key="radix" value="10"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+        <representationDefinition bitSize="32" name="eng" precision="3" type="REAL" units="mA">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="3"/>
+            </settings>
+          </format>
+          <ranges>
+            <range highLimit="0.15" identifier="HARD_LIMIT" lowLimit="0.0" severity="ALARM">
+              <enumerationLiterals/>
+            </range>
+			<range highLimit="0.14" identifier="SOFT_LIMIT" lowLimit="0.10" severity="WARNING">
+              <enumerationLiterals/>
+            </range>
+          </ranges>
+        </representationDefinition>
+		<representationDefinition bitSize="32" name="precision" precision="6" type="REAL" units="mA">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="6"/>
+            </settings>
+          </format>
+          <ranges>
+            <range highLimit="0.15" identifier="HARD_LIMIT" lowLimit="0.0" severity="ALARM">
+              <enumerationLiterals/>
+            </range>
+			<range highLimit="0.14" identifier="SOFT_LIMIT" lowLimit="0.10" severity="WARNING">
+              <enumerationLiterals/>
+            </range>
+          </ranges>
+        </representationDefinition>
+      </representations>
+      <operations>
+        <operation xsi:type="esa.egos.eud.serialiser.parameterprocessor:SetOperation" description="Set Value of parameter F005 in mA" id="SetF005" name="setValueOf: F005 Float" type="REAL" enabled="true">
+          <range highLimit="0.15" identifier="HARD_LIMIT" lowLimit="0.0" severity="ALARM"/>
+        </operation>
+      </operations>
+    </parameterDefinition>	
+	
+	
+	
+
+	
+	
+	
+	<parameterDefinition defaultRepresentation="Repr4" description="Parameter of type REAL" name="FOO_002" path="" shortname="FOO_002">
+      <representations>
+        <representationDefinition bitSize="32" name="Repr4" precision="6" type="REAL" units="Ohm">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="6"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="default" description="Parameter of type REAL" name="FOO_001" path="" shortname="FOO_001">
+      <representations>
+        <representationDefinition bitSize="32" name="default" precision="6" type="REAL" units="degree">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="6"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+        <representationDefinition bitSize="32" name="Repr3" precision="6" type="REAL" units="degree">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="6"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="B001 is a boolean (no units)" name="Category_1.B001" path="Category_1" shortname="B001">
+      <representations>
+        <representationDefinition bitSize="0" name="value" precision="0" type="BOOLEAN" units="">
+          <format formatType="BOOLEAN">
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations>
+        <operation xsi:type="esa.egos.eud.serialiser.parameterprocessor:SetOperation" id="setBoolean" name="setValueOf: B001 Boolean" type="BOOLEAN" enabled="true">
+          <range severity="NOTICE"/>
+        </operation>
+      </operations>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="Parameter of type BOOLEAN" name="BLAH_333" path="" shortname="BLAH_333">
+      <representations>
+        <representationDefinition bitSize="0" name="value" precision="0" type="BOOLEAN" units="">
+          <format formatType="BOOLEAN">
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="Parameter of type DATE" name="MEH_002" path="" shortname="MEH_002">
+      <representations>
+        <representationDefinition bitSize="0" name="value" precision="0" type="DATE" units="">
+          <format>
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="I003 is a Signed Integer and its units are Counts" name="Category_2.I003" path="Category_2" shortname="I003">
+      <representations>
+        <representationDefinition bitSize="32" name="value" precision="0" type="SIGNED_INTEGER" units="Counts">
+          <format formatType="INTEGER">
+            <settings>
+              <metadata key="radix" value="10"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="I002 is a Integer and its units are Counts" name="Category_2.I002" path="Category_2" shortname="I002">
+      <representations>
+        <representationDefinition bitSize="32" name="value" precision="0" type="UNSIGNED_INTEGER" units="Counts">
+          <format formatType="INTEGER">
+            <settings>
+              <metadata key="radix" value="10"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="I001 is a Integer and its units are Counts" name="Category_2.I001" path="Category_2" shortname="I001">
+      <representations>
+        <representationDefinition bitSize="32" name="value" precision="0" type="UNSIGNED_INTEGER" units="Counts">
+          <format formatType="INTEGER">
+            <settings>
+              <metadata key="radix" value="10"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations>
+        <operation xsi:type="esa.egos.eud.serialiser.parameterprocessor:SetOperation" description="Set value of I001 in Counts" id="setValue" name="setValueOf: I001" type="UNSIGNED_INTEGER" enabled="true">
+          <range severity="NOTICE"/>		  
+        </operation>
+      </operations>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="Repr1" description="This F003 is a Float" name="F003" path="" shortname="F003">
+      <representations>
+        <representationDefinition bitSize="32" name="Repr1" precision="1" type="REAL" units="Kelvin">
+          <format formatType="REAL">
+            <settings>
+              <metadata key="numberofdigits" value="6"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="Parameter of type STRING" name="BAZ_002" path="" shortname="BAZ_002">
+      <representations>
+        <representationDefinition bitSize="0" name="value" precision="0" type="STRING" units="">
+          <format formatType="STRING">
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="D001 is a date" name="Category_2.D001" path="Category_2" shortname="D001">
+      <representations>
+        <representationDefinition bitSize="0" name="value" precision="0" type="DATE" units="">
+          <format>
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations>
+        <operation xsi:type="esa.egos.eud.serialiser.parameterprocessor:SetOperation" description="Set the bloody date" name="setValueOf: D001" type="DATE" enabled="true">
+          <range severity="NOTICE"/>		  
+        </operation>
+      </operations>
+    </parameterDefinition>
+	<parameterDefinition defaultRepresentation="value" description="E001 is an Enumeration" name="Category_2.E001" path="Category_2" shortname="E001">
+      <representations>
+		<representationDefinition bitSize="2" name="value" precision="0" type="ENUMERATION">
+          <format formatType="STRING">
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges>
+            <range highLimit="THREE" identifier="Category_2.E001" lowLimit="ONE" severity="NOTICE">
+				<enumerationLiterals>
+				<literal>ONE</literal>
+				<literal>TWO</literal>
+				<literal>THREE</literal>
+            </enumerationLiterals>
+          </range>
+          </ranges>
+        </representationDefinition>
+      </representations>
+	  <operations>
+		<operation xsi:type="esa.egos.eud.serialiser.parameterprocessor:SetOperation" description="This set operation will set the value of E005 by providing an enumeration literal." id="setEnumerarion" name="setValueOf: ENUM Variable" type="ENUMERATION" enabled="true">
+			<range highLimit="THREE" identifier="Category_2.E001" lowLimit="ONE" severity="NOTICE">
+				<enumerationLiterals>
+				<literal>ONE</literal>
+				<literal>TWO</literal>
+				<literal>THREE</literal>
+            </enumerationLiterals>
+          </range>
+        </operation>
+      </operations>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="Parameter of type STRING" name="BAZ_001" path="" shortname="BAZ_001">
+      <representations>
+        <representationDefinition bitSize="0" name="value" precision="0" type="STRING" units="">
+          <format formatType="STRING">
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="Parameter of type UNSIGNED_INTEGER" name="BAR_001" path="" shortname="BAR_001">
+      <representations>
+        <representationDefinition bitSize="32" name="value" precision="0" type="UNSIGNED_INTEGER" units="Counts">
+          <format formatType="INTEGER">
+            <settings>
+              <metadata key="radix" value="10"/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+      <operations/>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="This S001 is a String and can be ON, OFF, or BROKEN" name="Category_1.S001" path="Category_1" shortname="S001">
+      <representations>
+        <representationDefinition bitSize="0" name="value" precision="0" type="STRING" units="">
+          <format formatType="STRING">
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+	  <operations>
+        <operation xsi:type="esa.egos.eud.serialiser.parameterprocessor:SetOperation" description="This S001 is a String and can be ON, OFF, or BROKEN" name="setValueOf: S001" type="STRING" enabled="true">
+          <range severity="NOTICE"/>		  
+        </operation>
+		<operation xsi:type="esa.egos.eud.serialiser.parameterprocessor:GenericOperation" description="This S001 is a String and can be ON, OFF, or BROKEN" name="ENABLE"/>	  
+        <operation xsi:type="esa.egos.eud.serialiser.parameterprocessor:GenericOperation" description="This S001 is a String and can be ON, OFF, or BROKEN" name="DISABLE"/>
+      </operations>
+    </parameterDefinition>
+    <parameterDefinition defaultRepresentation="value" description="This S001 is a String in Category 2" name="Category_2.S001" path="Category_2" shortname="S001">
+      <representations>
+        <representationDefinition bitSize="0" name="value" precision="0" type="STRING" units="">
+          <format formatType="STRING">
+            <settings>
+              <metadata/>
+            </settings>
+          </format>
+          <ranges/>
+        </representationDefinition>
+      </representations>
+	  <operations/>      
+    </parameterDefinition>
+  </parameterDefinitions>
+  <parameterDefaultValues>
+    <representationDefaultValues parameterName="Category_1.F001" representationName="Repr1" value="42.42" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_1.F001" representationName="Repr2" value="4711.007" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_1.F002" representationName="Repr1" value="9.80665" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_1.F003" representationName="raw" value="12000" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_1.F003" representationName="eng" value="12.0" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_1.F004" representationName="calibrated" value="0.000007" validityStatus="VALID" alarmStatus="WARNING"/>
+    <representationDefaultValues parameterName="Category_1.F005" representationName="raw" value="120141" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_1.F005" representationName="eng" value="0.120" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_1.F005" representationName="precision" value="0.120141" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_1.S001" representationName="value" value="Darmstadt, We have a Problem" validityStatus="VALID" alarmStatus="ALARM"/>
+
+    <representationDefaultValues parameterName="Category_2.I001" representationName="value" value="3000000000" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_2.I002" representationName="value" value="2147483648" validityStatus="VALID" alarmStatus="NOMINAL"/>
+    <representationDefaultValues parameterName="Category_2.I003" representationName="value" value="-42" validityStatus="VALID" alarmStatus="NOMINAL"/>
+
+	</parameterDefaultValues>
+</esa.egos.eud.serialiser.parameterprocessor:ParameterDatabase>
