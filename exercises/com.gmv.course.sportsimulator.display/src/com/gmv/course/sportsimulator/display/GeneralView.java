@@ -1,5 +1,8 @@
 package com.gmv.course.sportsimulator.display;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
@@ -10,66 +13,36 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.menus.IMenuService;
-import org.eclipse.ui.part.ViewPart;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.gmv.sportsimulator.api.Game;
 import com.gmv.sportsimulator.api.Result;
 import com.gmv.sportsimulator.api.Team;
 import com.gmv.sportsimulator.api.service.ISportService;
 import com.gmv.sportsimulator.api.service.ISportServiceListener;
+import com.gmv.sportsimulator.servicelocator.IEudBetService;
 
-public class GeneralView extends ViewPart implements ISportServiceListener
+import esa.egos.eud.core.CorePlugin;
+import esa.egos.eud.core.service.IEgosService;
+import esa.egos.eud.core.service.ISystemContext;
+import esa.egos.eud.core.service.connection.IServiceAvailabilityListener;
+import esa.egos.eud.core.ui.views.AbstractEudView;
+
+public class GeneralView extends AbstractEudView implements ISportServiceListener, IServiceAvailabilityListener
 {
 
     private ISportService sportService;
 
     private Label simulationLabel;
 
+    private IEudBetService betService;
+
+    private List<IEgosService> servicesList = new ArrayList<IEgosService>();
+
 
     public GeneralView()
     {
         // TODO Auto-generated constructor stub
-    }
-
-    @Override
-    public void createPartControl(Composite parent)
-    {
-        Composite composite = new Composite(parent, SWT.NONE);
-        GridLayoutFactory.fillDefaults().applyTo(composite);
-        GridDataFactory.fillDefaults().applyTo(composite);
-        TreeViewer viewer = new TreeViewer(composite);
-        GridDataFactory.fillDefaults().grab(true, true).applyTo(viewer.getTree());
-        viewer.setContentProvider(new SportsContentProvider());
-        viewer.setLabelProvider(new SportsLabelProvider());
-        try
-        {
-            this.sportService = SportServiceUtils.getSportServiceReference();// Exercise03Utils.getSportService();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        viewer.setInput(this.sportService);
-
-        getSite().setSelectionProvider(viewer);
-
-        MenuManager mm = new MenuManager("com.gmv.sportsimulator.generalviewmenu");
-        ((IMenuService) getSite().getService(IMenuService.class))
-                .populateContributionManager(mm, "popup:com.gmv.sportsimulator.generalviewmenu");
-        Menu menu = mm.createContextMenu(viewer.getTree());
-        viewer.getTree().setMenu(menu);
-        this.simulationLabel = new Label(composite, SWT.BORDER);
-        this.simulationLabel.setText("simulation");
-        GridDataFactory.swtDefaults().align(SWT.FILL, SWT.TOP).applyTo(this.simulationLabel);
-
-        this.sportService.registerServiceListener(this);
-    }
-
-    @Override
-    public void setFocus()
-    {
-        // TODO Auto-generated method stub
-
     }
 
     /** {@inheritDoc} */
@@ -160,6 +133,97 @@ public class GeneralView extends ViewPart implements ISportServiceListener
 
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public List<IEgosService> getServices()
+    {
+        return this.servicesList ;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public AbstractUIPlugin getPlugin()
+    {
+        return Activator.getDefault();
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String getDisplayType()
+    {
+        // TODO Auto-generated method stub
+        return "Sport Overview";
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void doCreatePartControl(Composite parent, ISystemContext systemContext)
+    {
+        Composite composite = new Composite(parent, SWT.NONE);
+        GridLayoutFactory.fillDefaults().applyTo(composite);
+        GridDataFactory.fillDefaults().applyTo(composite);
+        TreeViewer viewer = new TreeViewer(composite);
+        GridDataFactory.fillDefaults().grab(true, true).applyTo(viewer.getTree());
+        viewer.setContentProvider(new SportsContentProvider());
+        viewer.setLabelProvider(new SportsLabelProvider());
+        
+        connectServices();
+        
+        viewer.setInput(this.sportService);
+
+        getSite().setSelectionProvider(viewer);
+
+        MenuManager mm = new MenuManager("com.gmv.sportsimulator.generalviewmenu");
+        ((IMenuService) getSite().getService(IMenuService.class))
+                .populateContributionManager(mm, "popup:com.gmv.sportsimulator.generalviewmenu");
+        Menu menu = mm.createContextMenu(viewer.getTree());
+        viewer.getTree().setMenu(menu);
+        this.simulationLabel = new Label(composite, SWT.BORDER);
+        this.simulationLabel.setText("simulation");
+        GridDataFactory.swtDefaults().align(SWT.FILL, SWT.TOP).applyTo(this.simulationLabel);
+
+        this.sportService.registerServiceListener(this);
+        
+    }
+
+    private void connectServices()
+    {
+        try
+        {
+            this.sportService = SportServiceUtils.getSportServiceReference();// Exercise03Utils.getSportService();
+            this.betService = (IEudBetService) CorePlugin.getDefault().getServiceManager().getGenericServiceAdapterFor(getSystemContext(), "Bet_Service");
+            this.servicesList.add(this.betService);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    protected void focus()
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void serviceTurnedAvailable(IEgosService service)
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void serviceTurnedUnavailable(IEgosService service)
+    {
+        // TODO Auto-generated method stub
+        
+    }
+    
 }
 
 // -----------------------------------------------------------------------------

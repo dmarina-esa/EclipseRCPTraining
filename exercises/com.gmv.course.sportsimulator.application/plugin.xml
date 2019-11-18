@@ -19,5 +19,30 @@
             id="com.gmv.sportsimulator.application.perspective">
       </perspective>
    </extension>
+   <extension
+         point="esa.egos.eud.core.system">
+      <system
+            description="The system context for the Sport Simulator from the GMV course"
+            id="TEST_SYSTEM"
+            name="com.gmv.course.sportsimulator.systemcontext"
+            serializer="com.gmv.sportsimulator.application.internal.SportSystemContext">
+      </system>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.gmv.course.sportsimulator.application.application"
+            name="Sport Simulator">
+         <property
+               name="applicationCSSResources"
+               value="platform:/plugin/esa.egos.eud.core.ui/css/images/">
+         </property>
+         <property
+               name="cssTheme"
+               value="esa.egos.eud.core.ui.theme.default">
+         </property>
+      </product>
+   </extension>
 
 </plugin>

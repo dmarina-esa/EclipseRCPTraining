@@ -2,5 +2,16 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="sportsimulator" name="sportsimulator" schema="schema/sportsimulator.exsd"/>
+   <extension
+         point="esa.egos.eud.core.serviceAdapter">
+      <descriptor
+            ID="com.gmv.sportsimulator.servicelocator.betservice"
+            Service_Type="Bet_Service"
+            class="com.gmv.sportsimulator.servicelocator.impl.BetServiceFactory"
+            name="Sports Bet Service"
+            systemID="global"
+            version="1.0.0">
+      </descriptor>
+   </extension>
 
 </plugin>

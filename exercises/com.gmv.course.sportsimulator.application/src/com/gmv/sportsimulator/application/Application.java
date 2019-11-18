@@ -6,6 +6,12 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 
+import com.gmv.sportsimulator.application.internal.SportSystemContext;
+
+import esa.egos.eud.core.CorePlugin;
+import esa.egos.eud.core.service.ISystemContext;
+import esa.egos.eud.core.ui.CoreUiPlugin;
+
 /**
  * This class controls all aspects of the application's execution
  */
@@ -15,9 +21,19 @@ public class Application implements IApplication {
 	 * @see org.eclipse.equinox.app.IApplication#start(org.eclipse.equinox.app.IApplicationContext)
 	 */
 	public Object start(IApplicationContext context) throws Exception {
+	    
+	    ISystemContext systemContext = new SportSystemContext();
+
+        // explicitly set the default systemContext
+        CorePlugin.getDefault().setDefaultSystemContext(systemContext);
+        
 		Display display = PlatformUI.createDisplay();
+		
+		SportSimulatorPlugin.getDefault().initProductTestPlugin();
+        CoreUiPlugin.getDefault().initCorePlugin();
+        
 		try {
-			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
+			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor(systemContext));
 			if (returnCode == PlatformUI.RETURN_RESTART)
 				return IApplication.EXIT_RESTART;
 			else

@@ -4,6 +4,7 @@
    <extension
          point="org.eclipse.ui.views">
       <view
+            category="com.gmv.course.sportsimulator.display.sportsimulatorviews"
             class="com.gmv.course.sportsimulator.display.GeneralView"
             icon="icons/sports/sports.png"
             id="com.gmv.course.sportsimulator.display.generalview"
@@ -11,11 +12,16 @@
             restorable="true">
       </view>
       <view
+            category="com.gmv.course.sportsimulator.display.sportsimulatorviews"
             class="com.gmv.course.sportsimulator.display.TeamView"
             id="com.gmv.course.sportsimulator.display.teamview"
             name="Team Detailed View"
             restorable="true">
       </view>
+      <category
+            id="com.gmv.course.sportsimulator.display.sportsimulatorviews"
+            name="Sport Simulator Views">
+      </category>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
