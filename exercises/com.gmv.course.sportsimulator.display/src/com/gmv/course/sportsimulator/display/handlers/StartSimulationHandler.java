@@ -3,8 +3,6 @@ package com.gmv.course.sportsimulator.display.handlers;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.commands.IHandler;
-import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.ISelectionService;
@@ -34,10 +32,20 @@ public class StartSimulationHandler extends AbstractHandler
         }
         return null;
     }
+    
+    /** {@inheritDoc} */
+    @Override
+    public boolean isHandled()
+    {
+        // TODO Auto-generated method stub
+        return super.isHandled();
+    }
 
     @Override
     public boolean isEnabled()
     {
+        try 
+        {
         ISelectionService selectionService = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService();
         ISelection selection = selectionService.getSelection();
         if (selection instanceof IStructuredSelection && !selection.isEmpty())
@@ -52,7 +60,19 @@ public class StartSimulationHandler extends AbstractHandler
                 return !SportServiceUtils.getSportServiceReference().isPlaying(teamA) && !SportServiceUtils.getSportServiceReference().isPlaying(teamB);
             }
         }
+        }
+        catch (Exception e)
+        {
+            // Do nothing, just return false
+        }
         return false;
+    }
+    
+    /** {@inheritDoc} */
+    @Override
+    public void setEnabled(Object evaluationContext)
+    {
+        super.setEnabled(evaluationContext);
     }
 
 }

@@ -48,6 +48,8 @@ public class TeamView extends ViewPart implements ISelectionListener
     {
         this.sportService = SportServiceUtils.getSportServiceReference();
 
+        GridLayoutFactory.fillDefaults().applyTo(parent);
+        
         Composite composite = new Composite(parent, SWT.NONE);
         GridLayoutFactory.fillDefaults().numColumns(3).equalWidth(true).applyTo(composite);
         GridDataFactory.fillDefaults().applyTo(composite);
