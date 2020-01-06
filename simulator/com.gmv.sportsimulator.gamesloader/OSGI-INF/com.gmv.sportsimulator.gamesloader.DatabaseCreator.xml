@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.gmv.sportsimulator.gamesloader.DatabaseCreator">
-   <reference bind="populateSportService" cardinality="1..1" interface="com.gmv.sportsimulator.api.service.ISportService" name="Tennis" policy="static"/>
-   <implementation class="com.gmv.sportsimulator.gamesloader.DatabaseCreator"/>
-</scr:component>
