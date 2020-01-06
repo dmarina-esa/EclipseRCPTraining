@@ -47,16 +47,16 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
             e.printStackTrace();
         }
         
-        EPartService partService = PlatformUI.getWorkbench().getService(EPartService.class);
+        EPartService partService = (EPartService) PlatformUI.getWorkbench().getService(EPartService.class);
         
         
         MPart gamesPart  = partService.findPart("com.gmv.course.sportsimulator.display.e4.gamespart");
         MPart otherPart = partService.findPart(Perspective.TEAM_VIEW_ID);
         
         MPlaceholder otherPartPlaceHolder = otherPart.getCurSharedRef();
-        EModelService ms = PlatformUI.getWorkbench().getService(EModelService.class);
+        EModelService ms = (EModelService) PlatformUI.getWorkbench().getService(EModelService.class);
 
-        ms.move(gamesPart, otherPartPlaceHolder.getParent(), false);
+        ms.move(gamesPart, otherPartPlaceHolder.getParent(), 0);
         
     }
     

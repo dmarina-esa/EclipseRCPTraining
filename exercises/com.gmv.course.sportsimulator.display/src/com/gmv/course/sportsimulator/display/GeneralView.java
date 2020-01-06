@@ -40,7 +40,7 @@ public class GeneralView extends ViewPart
         getSite().setSelectionProvider(viewer);
         
         MenuManager mm = new MenuManager("com.gmv.sportsimulator.generalviewmenu");
-        getSite().getService(IMenuService.class).populateContributionManager(mm, "popup:com.gmv.sportsimulator.generalviewmenu");
+        ((IMenuService) getSite().getService(IMenuService.class)).populateContributionManager(mm, "popup:com.gmv.sportsimulator.generalviewmenu");
         Menu menu = mm.createContextMenu(viewer.getTree());
         viewer.getTree().setMenu(menu);
     }
