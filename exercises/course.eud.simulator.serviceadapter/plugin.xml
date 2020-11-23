@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="esa.open.lib.core.serviceAdapter">
+      <descriptor
+            ID="course.eud.simulator.serviceadapter.sportsadapter"
+            Service_Type="sports_simulator"
+            class="course.eud.simulator.serviceadapter.SportSimulatorFactory"
+            name="Sports Simulator Service Adapter"
+            systemID="TEST_SYSTEM"
+            version="1.0">
+      </descriptor>
+   </extension>
+
+</plugin>

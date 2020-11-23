@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,eud_neguiomca,exercises/course.eud.simulator.serviceadapter"/>
+<project reference="1.0,https://github.com/dmarina-esa/EclipseRCPTraining.git,eud_neguiomca,exercises/course.eud.simulator.view"/>
+</provider>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1606170760320_15" label="Exercises_Solutions" name="Exercises_Solutions">
+<item elementID="=course.eud.simulator.serviceadapter" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=course.eud.simulator.view" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+</psf>

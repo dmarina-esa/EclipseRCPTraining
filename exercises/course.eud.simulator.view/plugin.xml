@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="course.eud.simulator.view.SportsView"
+            icon="icons/hourglass.png"
+            id="course.eud.simulator.view.sportsview"
+            name="Sports View"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:esa.open.lib.workspace.views.WorkspaceView?after=new_display_group">
+         <command
+               commandId="esa.open.lib.workspace.openDisplay"
+               icon="icons/hourglass.png"
+               style="push">
+            <parameter
+                  name="esa.open.lib.workspace.OpenDisplayId"
+                  value="course.eud.simulator.view.sportsview">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>
