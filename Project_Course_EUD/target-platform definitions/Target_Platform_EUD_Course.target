@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="Target_Platform_EUD_Course" sequenceNumber="25">
+<locations>
+	<location path="C:\E1909\S15E4BL_Target" type="Profile"/>
+	<location path="C:\E1909\S15E4BL_TargetUpdates" type="Profile"/>
+	<location path="C:\E1909\S15E4BL_DeltaPack\plugins" type="Directory"/>
+</locations>
+</target>

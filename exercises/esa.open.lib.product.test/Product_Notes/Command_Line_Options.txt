@@ -1,0 +1,121 @@
+Available EUD Command Line Options:
+
+MANDATORY parameters from Eclipse Framework needed to ensure proper functioning of EUD
+-------------------------------------------------------------------------------------
+-clearPersistedState
+   By default Eclipse 4 persists the current application window model which includes
+   view/editor selection, size and position. This clashes with EUD's workspace 
+    mechanism, hence it is not desirable to persist this.
+
+-Duser.country=GB -Duser.language=en
+   Ensures that formatters use the British system for numbers, etc. which is the
+   standard for ESA Software
+   
+-Dorg.eclipse.update.reconcile=false
+   Ensures that error messages related to OSGi bundle installation are not
+   raised in the EUD-Log   
+      
+
+EUD Logging, debug mode and Tracing
+-----------------------------------
+Enable EUD verbose debug Logging in the EUD Log
+ -Deud.debug=true
+
+                
+EUD modes:
+----------
+Set alternate printing mode
+In environments using alternate Linux OS baselines or peculiar remote display
+set-ups where the printing can not be done via the normal Eclipse API the alternate 
+printing can be activated, which delegates the actual printing to a custom shell script: 
+  -Deud.print.script=<PATH_TO_PRINT_SCRIPT>
+      where <PATH_TO_PRINT_SCRIPT> is the path to a shell script that will handle the
+      printing of the PNG image provided as argument to that script
+
+Enable Domain Lock on specific domain. When Domain Lock is effective, all requests to
+the parameter processor service will be forced to the specified domain. So if,
+for instance, a displays is opened that contains parameters on domain 0 and
+the Domain Lock is set to domain 2, all parameters will be subscribed on
+domain 2, even when the displays definition specifies domain 0.
+   -Dadapter.monitoring.domainlock=<DOM>
+      where <DOM> is the domain ID, e.g. 0, 1, 2, ... 42
+      example:
+   -Dadapter.monitoring.domainlock=2
+      locks the domain to domain 2 for this instance. 
+
+EUD Customizations:
+-------------------
+Switch GRD anti-aliasing ON/OFF
+  -Desa.egos.eud.displays.parameters.grd.charts.antialiasing=1
+     where 1 = ON, 0 = OFF
+
+Specify what to show in a MIMIC parameter field as long as no sample 
+was received
+  -Desa.egos.eud.displays.mimic.no_parameter_value_placeholder=<characters>
+     where <characters> is the sequence of characters to show (empty is valid)
+     
+Specify custom MIMIC Viewer refresh rate in milliseconds
+  -Desa.egos.eud.displays.mimic.refresh_rate=<value>
+     where <value> is the amount of milliseconds between two refresh cycles
+        
+Specify custom instance specific identifier in the Window title
+  -Deud.instance=<ID>
+     where <ID> is an arbitrary String
+
+Specify an simulated time offset
+  -Deud.simulatedTimeOffset <OFFSET>
+	where <OFFSET> is difference between the simulation time and the current time in milliseconds
+
+Add external jar dependency accessible within EUD via reflection
+  -Dosgi.parentClassloader=ext
+
+Add libraries from external dirs
+  -Djava.ext.dirs=<PATH>
+    where <PATH> specifies the paths where the external jar 
+    library directories are (delimited by : (Linux) or ; (Windows))
+    NOTE: When the java.ext.dirs is used all default extension directories
+          are LOST! For Example the jre/lib/ext directory.
+          If libraries from there are needed they need to be listed explicitly
+   E.g.: -Djava.ext.dirs=/opt/platform3pp/P3PPmariadb-java-client-1.2.3-1.0:/usr/java/jre1.8.0_72/lib/ext
+    
+  -classpath <path to file>
+  
+Activate Remote Audible Alarm
+  -Deud.service.alarm.erapServer=<SERVER_HOSTNAME>[:<SERVER_PORT>]
+    where <SERVER_HOSTNAME> is the host name or IP address of the EUD Remote Alarm Server
+          <SERVER_PORT> optionally the port used by the EUD Remote Alarm Server default is 28007
+
+
+EUD Preferences override:
+-------------------------
+The preference defaults are specified in the preferences.ini file contained in
+the product plugin. If at deployment time the default of one or multiple
+preferences need to be changed, the following can be done:
+
+in the EUD application's directory create a new file with the ending '.ini'
+For example: 'default_preferences.ini'
+
+In this file add any combination of the following preferences for the 
+storage paths:
+
+# Set default path for the directory containing EUD workspaces
+esa.egos.mcs.eud.adapters.persistentstorage.manager/WORKSPACES_DIRECTORY=<SOMEPATH>
+# Set default path for the directory containing EUD displays workspaces
+esa.egos.mcs.eud.adapters.persistentstorage.manager/PARAM_DISPLAYS_DIRECTORY=<SOMEOTHERPATH>
+# Set default path for the directory containing EUD display-lists workspaces
+esa.egos.mcs.eud.adapters.persistentstorage.manager/DISPLAYS_LIST_DIRECTORY=<YETSOMEOTHERPATH>
+
+
+Then, edit the 'EGOS_UD.ini' file and add right at the top of the file
+the following entry, which points to the preference file you just created:
+
+-pluginCustomization
+default_preferences.ini
+
+The way it works is as follows:
+1) At the startup of Elcipse RCP framework, the 'EGOS_UD.ini' file is read.
+2) the entry "-pluginCustomization" is found and Eclipse locates the 
+indicated .ini file and reads it.
+3) Every entry found in the referenced .ini is read and overrides the 
+default preference value that is specified inside the application.
+

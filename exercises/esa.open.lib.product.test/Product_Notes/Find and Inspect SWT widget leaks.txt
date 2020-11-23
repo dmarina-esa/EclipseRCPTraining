@@ -1,0 +1,21 @@
+add the following in the EudTestApplication.start() method:
+
+    /** {@inheritDoc} */
+    @Override
+    public Object start(IApplicationContext context)
+    {
+        org.eclipse.ui.internal.misc.Policy.DEBUG_SWT_GRAPHICS = true;
+
+        Display display = PlatformUI.createDisplay();
+
+        Sleak sleak = new Sleak();
+        sleak.open();
+
+        ...
+    }
+    
+Find the Sleak class under:
+https://www.eclipse.org/articles/swt-design-2/Sleak.java.htm
+
+See also EUD-SDG Chapter 8
+ 

@@ -1,0 +1,126 @@
+Steps to create minimal launch configuration for WEB-EUD
+
+01) Create new "RAP Application" lauch configuration
+02) In the Main section set the Servlet Path to /eud
+03) Select the Bundles Section tab
+04) Deselect all bundles
+05) Add all workspace bundles EXCEPT for the eclipse dummies!!!!!
+06) There shall then be about 59 selected bundles (62 with action executor)
+07) Deselect "Include optional dependencies...."
+08) Deselect "Add new workspace bundles ..."
+09) Invoke the Add Required Bundles function
+10) There shall now be 130 selected Bundles
+11) add the following bundles manually:
+     org.eclipse.rap.ui.forms
+     org.eclipse.rap.gef
+     javax.servlet
+     org.eclipse.osgi.services
+     org.eclipse.equinox.http.jetty
+     org.eclipse.birt.report.engine.emitter.pdf
+     org.eclipse.birt.report.engine.script.javascript
+
+optionally add:
+     org.eclipse.equinox.console
+     org.apache.felix.gogo.shell
+     
+12) Invoke the Add Required Bundles function again
+13) There shall be about 150 Bundles selected now.
+14) Clcik "Apply" button
+15) Click "Run" button
+16) optionally refresh the browser window coming up if EUD is not visible immediately
+
+
+
+
+FULL LIST of Platform Plugins needed:
+-------------------------------------
+
+com.ibm.icu.base
+com.ibm.icu
+com.lowagie.text
+javax.servlet
+javax.xml
+org.apache.batik.bridge
+org.apache.batik.css
+org.apache.batik.dom.svg
+org.apache.batik.dom
+org.apache.batik.ext.awt
+org.apache.batik.parser
+org.apache.batik.svggen
+org.apache.batik.transcoder
+org.apache.batik.util.gui
+org.apache.batik.util
+org.apache.batik.xml
+org.apache.commons.codec
+org.apache.commons.fileupload
+org.apache.commons.io
+org.apache.felix.gogo.runtime
+org.apache.felix.gogo.shell
+org.eclipse.birt.core
+org.eclipse.birt.data.aggregation
+org.eclipse.birt.data
+org.eclipse.birt.report.data.adapter
+org.eclipse.birt.report.engine.emitter.pdf
+org.eclipse.birt.report.engine.fonts
+org.eclipse.birt.report.engine.script.javascript
+org.eclipse.birt.report.engine
+org.eclipse.birt.report.model
+org.eclipse.core.commands
+org.eclipse.core.contenttype
+org.eclipse.core.databinding.observable
+org.eclipse.core.databinding.property
+org.eclipse.core.databinding
+org.eclipse.core.expressions
+org.eclipse.core.filesystem.win32.x86
+org.eclipse.core.filesystem
+org.eclipse.core.jobs
+org.eclipse.core.resources.win32.x86
+org.eclipse.core.resources
+org.eclipse.core.runtime
+org.eclipse.datatools.connectivity.oda.consumer
+org.eclipse.datatools.connectivity.oda.profile
+org.eclipse.datatools.connectivity.oda
+org.eclipse.datatools.connectivity
+org.eclipse.emf.common
+org.eclipse.emf.ecore.change
+org.eclipse.emf.ecore.xmi
+org.eclipse.emf.ecore
+org.eclipse.emf.edit
+org.eclipse.emf.transaction
+org.eclipse.emf.validation
+org.eclipse.equinox.app
+org.eclipse.equinox.common
+org.eclipse.equinox.console
+org.eclipse.equinox.http.jetty
+org.eclipse.equinox.http.registry
+org.eclipse.equinox.http.servlet
+org.eclipse.equinox.preferences
+org.eclipse.equinox.registry
+org.eclipse.help
+org.eclipse.jetty.continuation
+org.eclipse.jetty.http
+org.eclipse.jetty.io
+org.eclipse.jetty.security
+org.eclipse.jetty.server
+org.eclipse.jetty.servlet
+org.eclipse.jetty.util
+org.eclipse.osgi.services
+org.eclipse.osgi
+org.eclipse.rap.filedialog
+org.eclipse.rap.draw2d.compatibility
+org.eclipse.rap.draw2d
+org.eclipse.rap.gef
+org.eclipse.rap.jface.databinding
+org.eclipse.rap.jface
+org.eclipse.rap.rwt.osgi
+org.eclipse.rap.rwt
+org.eclipse.rap.ui.forms
+org.eclipse.rap.ui.views.log
+org.eclipse.rap.ui.views
+org.eclipse.rap.ui.workbench
+org.eclipse.rap.ui
+org.mozilla.javascript
+org.w3c.css.sac
+org.w3c.dom.smil
+org.w3c.dom.svg
+org.w3c.sac

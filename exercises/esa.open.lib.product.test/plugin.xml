@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?eclipse version="3.4"?><plugin>
+
+   <extension id="application" point="org.eclipse.core.runtime.applications">
+      <application cardinality="singleton-global" icon="icons/open.ico" thread="main" visible="true">
+         <run class="esa.open.lib.product.test.EudTestApplication">
+         </run>
+      </application>
+   </extension>
+   <extension id="product" point="org.eclipse.core.runtime.products">
+      <product application="esa.open.lib.product.test.application" description="Open Libraries Test application" name="OPEN-Libraries 4.1 Demo">
+         <property name="windowImages" value="icons/open16.png,icons/open32.png">
+         </property>
+         <property name="appName" value="OPEN-Libraries 4.1 Demo">
+         </property>
+         <property name="version" value="4.1.5">
+         </property>
+         <property name="aboutImage" value="icons/About.gif">
+         </property>
+         <property name="aboutText" value="OPEN Libraries 4.1.5 Released 2020-11-09 - Demo application. ©2020 European Space Agency">
+         </property>
+         <property name="startupForegroundColor" value="000000">
+         </property>
+         <property name="startupMessageRect" value="9,290,400,20">
+         </property>
+         <property name="startupProgressRect" value="6,314,490,12">
+         </property>
+         <property name="applicationCSSResources" value="platform:/plugin/esa.open.lib.core.ui/css/images/">
+         </property>
+         <property name="cssTheme" value="esa.open.lib.core.ui.theme.default">
+         </property>
+         <property name="license" value="license.txt">
+         </property>
+         <property name="preferenceCustomization" value="plugin_customization.ini">
+         </property>
+      </product>
+   </extension>
+
+   <!-- This is cutting edge! See Bugzilla Bug 73510 - Verified in I20050331-0800 
+   		This way one can use the 'keys' preference pages from eclipse.
+   		Note that it is mandatory for an RCP to define a custom key configuration.
+   		In EUD this will be: esa.open.lib.keyScheme.default 
+    -->
+   
+  <extension point="org.eclipse.ui.commands">
+  	<category description="This category groups all file related commands in eud" id="esa.open.lib.common.commands.category.file" name="File"/>
+   <command defaultHandler="esa.open.lib.product.test.actions.OpenEudLogHandler" id="eud.product.test.openEudLog" name="Open EUD Log">
+   </command>
+  </extension>
+
+<!-- Help -->
+   <extension point="esa.open.lib.core.system">
+      <system description="Offline EUD configuration for Operation Preparations and Testing" id="TEST_SYSTEM" name="Demo Open-LIB" serializer="esa.open.lib.product.test.TestSystemContext">
+      </system>
+   </extension>
+   <extension point="esa.open.lib.workspace.workspaceViewContributors">
+      <contributor class="esa.open.lib.product.test.WorkspaceViewContributor">
+      </contributor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution allPopups="false" locationURI="toolbar:esa.open.lib.workspace.views.WorkspaceView?after=new_display_group">
+         <command commandId="esa.open.lib.workspace.openDisplay" icon="icons/displays/display_message.png" label="Open Message Display" style="push" tooltip="Opens the Message Display">
+            <parameter name="esa.open.lib.workspace.OpenDisplayId" value="esa.open.lib.displays.MessageDisplay.views.MessageDisplay">
+            </parameter>
+         </command>
+         <command commandId="esa.open.lib.workspace.openDisplay" icon="icons/displays/display_history_message.png" label="Open History Message Display" style="push" tooltip="Opens the History Message Display">
+            <parameter name="esa.open.lib.workspace.OpenDisplayId" value="esa.open.lib.displays.HistoryMessageDisplay.views.MessageDisplay">
+            </parameter>
+         </command>
+         <command commandId="eud.product.test.openEudLog" icon="icons/displays/error-log.png" label="Open EUD Log" style="push" tooltip="Opens the EUD Log View">
+         </command>
+      </menuContribution>
+      <menuContribution allPopups="false" locationURI="menu:esa.open.lib.workspace.views.WorkspaceView?after=new_display_group">
+         <menu id="esa.egos.eud.Workspace.action.NewDisplayMenu" label="New Display">
+            <command commandId="esa.open.lib.workspace.openDisplay" icon="icons/displays/display_message.png" label="Open Message Display" style="push" tooltip="Opens the Message Display">
+               <parameter name="esa.open.lib.workspace.OpenDisplayId" value="esa.open.lib.displays.MessageDisplay.views.MessageDisplay">
+               </parameter>
+            </command>
+            <command commandId="esa.open.lib.workspace.openDisplay" icon="icons/displays/display_history_message.png" label="Open History Message Display" style="push" tooltip="Opens the History Message Display">
+               <parameter name="esa.open.lib.workspace.OpenDisplayId" value="esa.open.lib.displays.HistoryMessageDisplay.views.MessageDisplay">
+               </parameter>
+            </command>
+            <command commandId="eud.product.test.openEudLog" icon="icons/displays/error-log.png" label="Open EUD Log" style="push" tooltip="Opens the EUD Log View">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension point="esa.open.lib.workspace.workspaceViewContentProvider">
+      <applicationMatcher applicationId="esa.open.lib.product.test.application" contribution="esa.open.lib.displays.workspace.test.defaultWorkspaceContribution">
+      </applicationMatcher>
+   </extension>
+
+
+
+</plugin>

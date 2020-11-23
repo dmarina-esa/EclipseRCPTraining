@@ -1,0 +1,3 @@
+To debug the EUD please start the EUD with the following system property setting:
+
+e.g.: -Deud.debug="true" -debug

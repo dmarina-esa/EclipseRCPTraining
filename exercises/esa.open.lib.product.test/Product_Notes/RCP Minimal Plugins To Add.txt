@@ -1,0 +1,24 @@
+Minimum Plugins that need to be added manually after:
+1) Insering just the workspace plugins from EUD
+2) Adding required plugins (WITHOUT OPTIONAL DEPENDENCIES)
+
+3) Then add:
+org.eclipse.equinox.event
+org.eclipse.birt.report.engine.emitter.pdf
+org.eclipse.birt.report.engine.script.javascript
+org.eclipse.gef
+org.apache.commons.net
+
+4) Then again hit add required plugins (WITHOUT OPTIONAL DEPENDENCIES)
+
+5) Then add manually:
+org.apache.batik.css      (1.6.0.v201011041432)
+org.apache.batik.util     (1.6.0.v201011041432)
+org.apache.batik.util.gui (1.6.0.v201011041432)
+
+To also add the e4 tools spy add:
+org.eclipse.e4.tools.spy
+org.eclipse.e4.tools.css.spy
+(Start spt with key board key combination Alt + Shift + F5)
+
+Count = 174

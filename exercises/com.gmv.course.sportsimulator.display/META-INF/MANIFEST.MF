@@ -7,7 +7,7 @@ Bundle-Activator: com.gmv.course.sportsimulator.display.Activator
 Bundle-Vendor: GMV
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- com.gmv.sportsimulator.api;bundle-version="1.0.0",
- com.gmv.sportsimulator.servicelocator;bundle-version="1.0.0"
+ esa.open.lib.core;bundle-version="4.1.5",
+ com.gmv.sportsimulator.api
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

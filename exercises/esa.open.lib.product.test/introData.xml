@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extensions>
+   <page id="tutorials">
+      <group path="page-content/bottom-left" default="true">
+         <extension id="org.eclipse.team" importance="low"/>
+      </group>
+      <group path="page-content/bottom-right" default="true">
+      </group>
+   </page>
+   <page id="whatsnew">
+      <group path="page-content/bottom-left" default="true">
+      </group>
+      <group path="page-content/bottom-right" default="true">
+      </group>
+      <group path="page-content/top-right">
+         <extension id="esa.egos.eud.Common.introExtension.updateEUD" importance="callout"/>
+      </group>
+      <group path="page-content/top-left">
+         <extension id="esa.egos.eud.Common.introExtension.newDisplays" importance="low"/>
+      </group>
+      <hidden>
+         <extension id="org.eclipse.ui.workbench.migration" importance="low"/>
+         <extension id="org.eclipse.ui.workbench.news" importance="low"/>
+         <extension id="org.eclipse.ui.workbench" importance="low"/>
+      </hidden>
+   </page>
+   <page id="overview">
+      <group path="page-content/bottom-left" default="true">
+      </group>
+      <group path="page-content/bottom-right" default="true">
+      </group>
+      <group path="page-content/top-left">
+         <extension id="esa.egos.eud.examplesystem1.Systembase.introExtension.startSystem" importance="low"/>
+         <extension id="esa.egos.eud.examplesystem2.Systembase.introExtension.startSystem" importance="low"/>
+         <extension id="esa.egos.eud.examplesystem3.Systembase.introExtension.startSystem" importance="low"/>
+         <extension id="esa.egos.s2k.smh.eud.Systembase.introExtension.startSystem" importance="low"/>
+      </group>
+      <group path="page-content/top-right">
+         <extension id="esa.egos.eud.Common.introExtension.eudHelp" importance="low"/>
+         <extension id="esa.egos.eud.Common.introExtension.egosHP" importance="low"/>
+      </group>
+      <hidden>         <extension id="org.eclipse.ui.workbench" importance="low"/>
+      </hidden>
+   </page>
+</extensions>

@@ -21,12 +21,12 @@
 
 package com.gmv.course.sportsimulator.display;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
 
 import com.gmv.sportsimulator.api.service.ISportService;
-import com.gmv.sportsimulator.servicelocator.ISportServiceFactory;
+
+import esa.open.lib.common.compatibility.SingletonFactory;
 
 /**
  * @author David Marina
@@ -35,33 +35,27 @@ import com.gmv.sportsimulator.servicelocator.ISportServiceFactory;
 public class SportServiceUtils
 {
 
-    private static ISportServiceFactory serviceFactory;
-
-
     public static ISportService getSportServiceReference()
     {
-        if (serviceFactory == null)
+        if (!SingletonFactory.INSTANCE.exists(ISportService.class))
         {
-            try
-            {
-                IConfigurationElement[] configElements = Platform.getExtensionRegistry()
-                        .getConfigurationElementsFor("com.gmv.sportsimulator.servicelocator.sportsimulator");
-                if (configElements.length > 0)
-                {
-                    serviceFactory = (ISportServiceFactory) configElements[0].createExecutableExtension("class");
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (CoreException e)
-            {
-                e.printStackTrace();
-            }
+            /*
+             * We know that the Sport Simulator has been registered as a DS
+             * Component
+             */
+            BundleContext bundleContext = Activator.getDefault().getBundle().getBundleContext();
+            ServiceReference<?> sr = bundleContext.getServiceReference(ISportService.class);
+            ISportService sportBackend = (ISportService) bundleContext.getService(sr);
+
+            /*
+             * This is not really necessary but we want to demonstrate the
+             * singleton factory :)
+             */
+            SingletonFactory.INSTANCE.setInstance(ISportService.class, sportBackend);
         }
-        return serviceFactory.getSportService();
+        return SingletonFactory.INSTANCE.getInstance(ISportService.class);
     }
+
 }
 
 // -----------------------------------------------------------------------------

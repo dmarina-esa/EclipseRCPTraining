@@ -1,0 +1,22 @@
+The present media contains software and accompanying documentation (collectively, "Software") which is the copyrighted work of the European Space Agency. The present media may also include Third Party software whose copyright belongs to its respective owner.
+
+
+Use of the Software is subject to and governed by the terms of a European Space Agency License Agreement, a template of which is located on the present media under the folder "Licenses", which must have been granted to you by the European Space Agency. The use of any included Third Party software products is governed by the Third Party's License agreement located under the same aforementioned folder. 
+
+Installing and using the Software implies that you have been granted a License by the European Space Agency and by the respective Third Party(ies), that you have read, understood and agreed to be bound by the License Agreement(s) terms and comply with all applicable laws and regulations, including copyright and trademark laws. 
+
+If you are using the Software on behalf of your employer, you represent that you are authorized to accept these terms of use on your employer's behalf. If you do not accept the terms of use, you may not install or use this Software. 
+
+Any use, reproduction or redistribution of the Software not in accordance with the European Space Agency and other Third Party(ies) License Agreement(s) is expressly prohibited, and may result in severe civil remedies and criminal penalties. 
+
+If you have received this software without having been granted a License by the European Space Agency, please notify us by writing to: 
+European Space Agency 
+European Space Operation Centre 
+Head of the Procurement Office 
+Robert Bosch Strasse, 5 
+64293 Darmstadt 
+Germany 
+or by e-mail to: 
+egos-product-info@esa.int 
+
+The European Space Agency remains the exclusive owner of all rights of the Software. For further License Agreement details please address the license template located under the license folder or contact the European Space Agency at the above mentioned address.

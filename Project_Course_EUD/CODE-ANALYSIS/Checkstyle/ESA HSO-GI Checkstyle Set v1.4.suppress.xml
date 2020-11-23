@@ -7,7 +7,7 @@
     <!-- Do not check Eclipse generated Messages classes. -->
     <suppress checks=".*"
               files="Messages.java|MessagesUI.java"/>
-              
+
     <!-- Do not check images and asm & atl files. -->
     <suppress checks=".*"
               files=".*\.asm|.*\.atl|.*\.bmp|.*\.gif"/>
