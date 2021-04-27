@@ -105,10 +105,10 @@ public class TennisSimulator extends BaseSportService
                 this.sleepPeriod = 300L;
                 break;
             case SUPERFAST:
-                this.sleepPeriod = 10;
+                this.sleepPeriod = 30;
                 break;
             case TURBO:
-                this.sleepPeriod = 0;
+                this.sleepPeriod = 1;
                 break;
             default:
                 this.sleepPeriod = 1000L;
@@ -122,6 +122,7 @@ public class TennisSimulator extends BaseSportService
             super.run();
             this.resumeSimulation = true;
             Game game = getScheduledGames().get(this.gameId);
+            game.resetGame();
             while (!game.isGameFinished() && this.resumeSimulation)
             {
                 Team scorerTeam = getRandomScorer(game);
