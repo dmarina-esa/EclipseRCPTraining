@@ -79,12 +79,11 @@ public class TeamView extends ViewPart implements ISelectionListener
         if (selection instanceof IStructuredSelection && !selection.isEmpty())
         {
             Object selectedElement = ((IStructuredSelection) selection).getFirstElement();
-//            if (selectedElement instanceof Game)
-//            {
+            if (selectedElement instanceof Game)
+            {
 //                System.out.println("game");
-//            }
-//            else 
-            if (selectedElement instanceof Team)
+            }
+            else if (selectedElement instanceof Team)
             {
                 Team team = (Team) selectedElement;
                 this.teamNameText.setText(team.getTeamName());
