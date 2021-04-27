@@ -19,7 +19,7 @@
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-package com.gmv.sportsimulator.servicelocator;
+package com.gmv.course.sportsimulator.api.service;
 
 import com.gmv.sportsimulator.api.service.ISportService;
 

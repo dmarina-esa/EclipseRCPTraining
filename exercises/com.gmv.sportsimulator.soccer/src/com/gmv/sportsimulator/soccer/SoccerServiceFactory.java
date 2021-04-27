@@ -1,10 +1,10 @@
 package com.gmv.sportsimulator.soccer;
 
+import com.gmv.course.sportsimulator.api.service.ISportServiceFactory;
 import com.gmv.sportsimulator.api.Location;
 import com.gmv.sportsimulator.api.Team;
 import com.gmv.sportsimulator.api.Team.TeamGender;
 import com.gmv.sportsimulator.api.service.ISportService;
-import com.gmv.sportsimulator.servicelocator.ISportServiceFactory;
 
 public class SoccerServiceFactory implements ISportServiceFactory
 {

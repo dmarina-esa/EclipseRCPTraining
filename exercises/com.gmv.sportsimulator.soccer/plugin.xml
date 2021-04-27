@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="com.gmv.sportsimulator.servicelocator.sportsimulator">
+         point="com.gmv.course.sportsimulator.api.service.sportsimulator">
       <sportServiceFactory
             class="com.gmv.sportsimulator.soccer.SoccerServiceFactory"
             id="com.gmv.sportsimulator.soccer.soccerServiceFactory"

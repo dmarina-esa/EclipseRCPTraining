@@ -7,6 +7,6 @@ Bundle-Vendor: GMV
 Automatic-Module-Name: com.gmv.sportsimulator.soccer
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
- com.gmv.sportsimulator.servicelocator;bundle-version="1.0.0",
- com.gmv.sportsimulator.api
+ com.gmv.sportsimulator.api,
+ com.gmv.course.sportsimulator.api.service;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

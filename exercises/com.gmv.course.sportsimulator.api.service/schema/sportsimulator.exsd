@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="com.gmv.sportsimulator.servicelocator" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="com.gmv.course.sportsimulator.api.service" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="com.gmv.sportsimulator.servicelocator" id="sportsimulator" name="sportsimulator"/>
+         <meta.schema plugin="com.gmv.course.sportsimulator.api.service" id="sportsimulator" name="sportsimulator"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -69,7 +69,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":com.gmv.sportsimulator.servicelocator.ISportServiceFactory"/>
+                  <meta.attribute kind="java" basedOn=":com.gmv.course.sportsimulator.api.service.ISportServiceFactory"/>
                </appinfo>
             </annotation>
          </attribute>

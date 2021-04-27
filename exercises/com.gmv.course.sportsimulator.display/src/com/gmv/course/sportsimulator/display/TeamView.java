@@ -1,15 +1,9 @@
 package com.gmv.course.sportsimulator.display;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -22,7 +16,6 @@ import org.eclipse.ui.part.ViewPart;
 import com.gmv.sportsimulator.api.Game;
 import com.gmv.sportsimulator.api.Team;
 import com.gmv.sportsimulator.api.service.ISportService;
-import com.gmv.sportsimulator.servicelocator.ISportServiceFactory;
 
 public class TeamView extends ViewPart implements ISelectionListener
 {
@@ -86,11 +79,12 @@ public class TeamView extends ViewPart implements ISelectionListener
         if (selection instanceof IStructuredSelection && !selection.isEmpty())
         {
             Object selectedElement = ((IStructuredSelection) selection).getFirstElement();
-            if (selectedElement instanceof Game)
-            {
-                System.out.println("game");
-            }
-            else if (selectedElement instanceof Team)
+//            if (selectedElement instanceof Game)
+//            {
+//                System.out.println("game");
+//            }
+//            else 
+            if (selectedElement instanceof Team)
             {
                 Team team = (Team) selectedElement;
                 this.teamNameText.setText(team.getTeamName());

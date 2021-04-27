@@ -25,8 +25,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 
+import com.gmv.course.sportsimulator.api.service.ISportServiceFactory;
 import com.gmv.sportsimulator.api.service.ISportService;
-import com.gmv.sportsimulator.servicelocator.ISportServiceFactory;
 
 /**
  * @author David Marina
@@ -45,7 +45,7 @@ public class SportServiceUtils
             try
             {
                 IConfigurationElement[] configElements = Platform.getExtensionRegistry()
-                        .getConfigurationElementsFor("com.gmv.sportsimulator.servicelocator.sportsimulator");
+                        .getConfigurationElementsFor("com.gmv.course.sportsimulator.api.service.sportsimulator");
                 if (configElements.length > 0)
                 {
                     serviceFactory = (ISportServiceFactory) configElements[0].createExecutableExtension("class");
