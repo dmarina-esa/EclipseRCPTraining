@@ -210,6 +210,11 @@ public class Result
             return -1;
         }
     }
+    
+    public boolean isDraw()
+    {
+        return (this.teamScores[0] == this.teamScores[1]);
+    }
 
     /**
      * Resets the {@link Result} to its initial status
