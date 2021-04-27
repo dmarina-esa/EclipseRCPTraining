@@ -47,6 +47,34 @@ public class Location
         return this.locationName;
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.locationName == null) ? 0 : this.locationName.hashCode());
+        return result;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        Location other = (Location) obj;
+        if (this.locationName == null)
+        {
+            if (other.locationName != null) return false;
+        }
+        else if (!this.locationName.equals(other.locationName)) return false;
+        return true;
+    }
+    
+    
+
 }
 
 //-----------------------------------------------------------------------------

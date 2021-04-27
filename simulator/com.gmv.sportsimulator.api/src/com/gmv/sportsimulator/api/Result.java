@@ -21,6 +21,8 @@
 
 package com.gmv.sportsimulator.api;
 
+import java.util.Arrays;
+
 /**
  * Class representing the result of a game. This class may be sub-classed to
  * implement other score types. The basic implementation provides a single
@@ -224,6 +226,34 @@ public class Result
         this.teamScores = new int[2];
         this.winner = -1;
         this.finalised = false;
+    }
+    
+    
+
+    /** {@inheritDoc} */
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (this.finalised ? 1231 : 1237);
+        result = prime * result + Arrays.hashCode(this.teamScores);
+        result = prime * result + this.winner;
+        return result;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        Result other = (Result) obj;
+        if (this.finalised != other.finalised) return false;
+        if (!Arrays.equals(this.teamScores, other.teamScores)) return false;
+        if (this.winner != other.winner) return false;
+        return true;
     }
 
     /**

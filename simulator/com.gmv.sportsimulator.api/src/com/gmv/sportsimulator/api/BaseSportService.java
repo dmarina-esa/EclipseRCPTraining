@@ -61,7 +61,7 @@ public abstract class BaseSportService implements ISportService
     {
         registerGame(null, teamA, teamB, location);
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public void registerGame(String name, Team teamA, Team teamB, Location location)
@@ -76,7 +76,7 @@ public abstract class BaseSportService implements ISportService
     {
         registerGame(null, teamA, teamB, location, metadata);
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public void registerGame(String name, Team teamA, Team teamB, Location location, Map<String, String> metadata)
@@ -84,19 +84,22 @@ public abstract class BaseSportService implements ISportService
         Game game = createGameInstance(name, teamA, teamB, location, metadata);
         addGame(game);
     }
-    
-  
 
     /**
      * Creates a new game instance of the specific type
-     * @param name 
+     * 
+     * @param name
      * @param teamA
      * @param teamB
      * @param location
      * @return
      */
-    
-    protected abstract Game createGameInstance(String name, Team teamA, Team teamB, Location location, Map<String, String> metadata);
+
+    protected abstract Game createGameInstance(String name,
+                                               Team teamA,
+                                               Team teamB,
+                                               Location location,
+                                               Map<String, String> metadata);
 
     /** {@inheritDoc} */
     @Override
@@ -219,7 +222,7 @@ public abstract class BaseSportService implements ISportService
                                             + ". The selected team is currently playing one or more games.");
         }
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public String renameGame(Game game, String newName)
@@ -235,7 +238,7 @@ public abstract class BaseSportService implements ISportService
         }
         return oldName;
     }
-    
+
     /** {@inheritDoc} */
     @Override
     public void shuffleTeams()
@@ -289,6 +292,14 @@ public abstract class BaseSportService implements ISportService
     {
         doStopSimulation(game);
         ISimulationThread gameSimulation = createAndStartGameSimulation(game, speed);
+        checkSimulationStatus();
+        if (this.simulationOngoing == false)
+        {
+            for (ISportServiceListener listener : this.listenersList)
+            {
+                listener.simulationStarted();
+            }
+        }
         this.startedGames.put(game, gameSimulation);
         this.simulationOngoing = true;
         for (ISportServiceListener listener : this.listenersList)
@@ -315,6 +326,15 @@ public abstract class BaseSportService implements ISportService
         if (oldSimulation != null)
         {
             oldSimulation.cancelSimulation();
+        }
+        this.startedGames.remove(game);
+        checkSimulationStatus();
+        if (this.simulationOngoing == false)
+        {
+            for (ISportServiceListener listener : this.listenersList)
+            {
+                listener.simulationEnded();
+            }
         }
     }
 
@@ -383,6 +403,13 @@ public abstract class BaseSportService implements ISportService
         }
         this.startedGames.remove(game);
         checkSimulationStatus();
+        if (this.simulationOngoing == false)
+        {
+            for (ISportServiceListener listener : this.listenersList)
+            {
+                listener.simulationEnded();
+            }
+        }
     }
 
     /**
@@ -390,19 +417,7 @@ public abstract class BaseSportService implements ISportService
      */
     private void checkSimulationStatus()
     {
-        boolean ended = true;
-        for (Game game : this.scheduledGames.values())
-        {
-            if (!game.isGameFinished())
-            {
-                ended = false;
-            }
-        }
-        if (ended)
-        {
-            this.simulationOngoing = false;
-        }
-
+        this.simulationOngoing = this.startedGames.size() > 0;
     }
 
 }

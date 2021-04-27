@@ -385,6 +385,58 @@ public class Game
         }
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.gameType == null) ? 0 : this.gameType.hashCode());
+        result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+        result = prime * result + ((this.location == null) ? 0 : this.location.hashCode());
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.teams == null) ? 0 : this.teams.hashCode());
+        return result;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        Game other = (Game) obj;
+        if (this.gameType == null)
+        {
+            if (other.gameType != null) return false;
+        }
+        else if (!this.gameType.equals(other.gameType)) return false;
+        if (this.id == null)
+        {
+            if (other.id != null) return false;
+        }
+        else if (!this.id.equals(other.id)) return false;
+        if (this.location == null)
+        {
+            if (other.location != null) return false;
+        }
+        else if (!this.location.equals(other.location)) return false;
+        if (this.name == null)
+        {
+            if (other.name != null) return false;
+        }
+        else if (!this.name.equals(other.name)) return false;
+        if (this.teams == null)
+        {
+            if (other.teams != null) return false;
+        }
+        else if (!this.teams.equals(other.teams)) return false;
+        return true;
+    }
+    
+    
+
 }
 
 // -----------------------------------------------------------------------------
