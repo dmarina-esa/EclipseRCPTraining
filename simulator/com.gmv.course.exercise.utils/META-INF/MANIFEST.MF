@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.gmv.course.exercise.utils
+Export-Package: com.gmv.course.exercise.utils.exercise02,
+ com.gmv.course.exercise.utils.exercise03
+Bundle-Name: Exercise Utils
+Bundle-Version: 1.0.0.201710011519
+Require-Bundle: org.eclipse.swt,
+ org.eclipse.jface,
+ com.gmv.sportsimulator.api;bundle-version="1.0.0",
+ org.eclipse.core.runtime;bundle-version="3.10.0"
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: GMV
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: com.gmv.course.exercise.utils.Activator
+
