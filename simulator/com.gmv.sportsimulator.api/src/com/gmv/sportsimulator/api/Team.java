@@ -23,6 +23,8 @@ package com.gmv.sportsimulator.api;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.gmv.sportsimulator.api.Team.TeamGender;
+
 /**
  * Class representing a team. A team is typically composed by a name and a
  * country
@@ -33,6 +35,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Team
 {
 
+    /**
+     * Defines the team gender. One of MALE, FEMALE or MIXED
+     * 
+     * @author David Marina
+     *
+     */
+    public enum TeamGender
+    {
+        MALE, FEMALE, MIXED, UNKNOWN
+    }
+
+
     private static final String UNKNOWN_COUNTRY = "<Unknown>";
 
     private final String teamName;
@@ -41,22 +55,48 @@ public class Team
 
     private AtomicInteger victories;
 
+    private final TeamGender gender;
+
 
     /**
      * Creates a new Team
      */
     public Team(String teamName)
     {
-        this(teamName, UNKNOWN_COUNTRY);
+        this(teamName, UNKNOWN_COUNTRY, TeamGender.UNKNOWN);
     }
 
     /**
      * Creates a new Team
+     * @param teamName
+     * @param gender
+     */
+    public Team(String teamName, TeamGender gender)
+    {
+        this(teamName, UNKNOWN_COUNTRY, gender);
+    }
+
+    /**
+     * Creates a new Team
+     * @param teamName
+     * @param country
      */
     public Team(String teamName, String country)
     {
+        this(teamName, country, TeamGender.UNKNOWN);
+    }
+
+    /**
+     * Creates a new Team
+     * @param teamName
+     * @param country
+     * @param gender
+     */
+    public Team(String teamName, String country, TeamGender gender)
+    {
         this.teamName = teamName;
         this.country = country;
+        this.gender = gender;
         this.victories = new AtomicInteger();
     }
 
@@ -92,6 +132,17 @@ public class Team
     public int addVictory()
     {
         return this.victories.addAndGet(1);
+    }
+
+    /**
+     * Returns the {@link TeamGender} of this team. One of : MALE, FEMALE or
+     * MIXED
+     * 
+     * @return
+     */
+    public TeamGender getGender()
+    {
+        return this.gender;
     }
 
     /** {@inheritDoc} */

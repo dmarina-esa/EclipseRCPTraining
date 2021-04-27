@@ -28,8 +28,9 @@ import org.osgi.service.component.annotations.Component;
 
 import com.gmv.sportsimulator.api.BaseSportService;
 import com.gmv.sportsimulator.api.Game;
-import com.gmv.sportsimulator.api.IGameSimulator;
+import com.gmv.sportsimulator.api.ISimulationThread;
 import com.gmv.sportsimulator.api.Location;
+import com.gmv.sportsimulator.api.Result;
 import com.gmv.sportsimulator.api.Team;
 import com.gmv.sportsimulator.api.service.ISportService;
 import com.gmv.sportsimulator.api.service.SimulationSpeed;
@@ -46,7 +47,11 @@ public class TennisSimulator extends BaseSportService
 
     /** {@inheritDoc} */
     @Override
-    protected Game createGameInstance(String gameName, Team teamA, Team teamB, Location location, Map<String, String> metadata)
+    protected Game createGameInstance(String gameName,
+                                      Team teamA,
+                                      Team teamB,
+                                      Location location,
+                                      Map<String, String> metadata)
     {
         MatchType matchType = MatchType.NORMAL;
         String matchTypeStr = metadata == null ? null : metadata.get("Match_Type");
@@ -60,7 +65,7 @@ public class TennisSimulator extends BaseSportService
 
     /** {@inheritDoc} */
     @Override
-    protected IGameSimulator createAndStartGameSimulation(Game game, SimulationSpeed speed)
+    protected ISimulationThread createAndStartGameSimulation(Game game, SimulationSpeed speed)
     {
         TennisSimulation gameSimulation = new TennisSimulation(game.getId(), speed);
         gameSimulation.start();
@@ -68,7 +73,7 @@ public class TennisSimulator extends BaseSportService
     }
 
 
-    private class TennisSimulation extends Thread implements IGameSimulator
+    private class TennisSimulation extends Thread implements ISimulationThread
     {
         private String gameId;
 
@@ -160,6 +165,22 @@ public class TennisSimulator extends BaseSportService
             int teamNumber = (this.random.nextInt(1000) % 2) + 1;
             return game.getTeam(teamNumber);
         }
+    }
+
+
+    /** {@inheritDoc} */
+    @Override
+    public String[] getSportTypes()
+    {
+        return new String[] { TennisMatch.SPORT_TYPE };
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void placeBet(String bidder, Game game, Result result, int amountToBid)
+    {
+        throw new RuntimeException("Method not yet implemented");
+
     }
 
 }

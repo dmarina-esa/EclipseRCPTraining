@@ -24,6 +24,7 @@ package com.gmv.sportsimulator.api;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,9 +40,9 @@ public abstract class BaseSportService implements ISportService
 {
     private List<Team> teams = Collections.synchronizedList(new ArrayList<Team>());
 
-    private final Map<String, Game> scheduledGames = new HashMap<String, Game>();
+    private final Map<String, Game> scheduledGames = new LinkedHashMap<String, Game>();
 
-    private Map<Game, IGameSimulator> startedGames = new HashMap<Game, IGameSimulator>();
+    private Map<Game, ISimulationThread> startedGames = new HashMap<Game, ISimulationThread>();
 
     private List<ISportServiceListener> listenersList = new ArrayList<ISportServiceListener>();
 
@@ -287,7 +288,7 @@ public abstract class BaseSportService implements ISportService
     private void doSimulateGame(Game game, SimulationSpeed speed)
     {
         doStopSimulation(game);
-        IGameSimulator gameSimulation = createAndStartGameSimulation(game, speed);
+        ISimulationThread gameSimulation = createAndStartGameSimulation(game, speed);
         this.startedGames.put(game, gameSimulation);
         this.simulationOngoing = true;
         for (ISportServiceListener listener : this.listenersList)
@@ -301,7 +302,7 @@ public abstract class BaseSportService implements ISportService
      * @param speed
      * @return
      */
-    protected abstract IGameSimulator createAndStartGameSimulation(Game game, SimulationSpeed speed);
+    protected abstract ISimulationThread createAndStartGameSimulation(Game game, SimulationSpeed speed);
 
     private void doStopSimulation(Game game)
     {
@@ -310,7 +311,7 @@ public abstract class BaseSportService implements ISportService
             throw new IllegalArgumentException("Game: " + game.toString()
                                                + " is not a game registered in this Simulator service");
         }
-        IGameSimulator oldSimulation = this.startedGames.get(game);
+        ISimulationThread oldSimulation = this.startedGames.get(game);
         if (oldSimulation != null)
         {
             oldSimulation.cancelSimulation();
@@ -341,7 +342,7 @@ public abstract class BaseSportService implements ISportService
     {
         if (this.startedGames.keySet().contains(game))
         {
-            IGameSimulator gameSimulation = this.startedGames.get(game);
+            ISimulationThread gameSimulation = this.startedGames.get(game);
             gameSimulation.cancelSimulation();
             while (gameSimulation.isRunnableAlive())
             {
@@ -380,6 +381,7 @@ public abstract class BaseSportService implements ISportService
         {
             listener.gameFinalised(game, game.getWinnerTeam(), game.getResult());
         }
+        this.startedGames.remove(game);
         checkSimulationStatus();
     }
 
